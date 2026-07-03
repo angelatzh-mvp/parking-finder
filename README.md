@@ -1,6 +1,10 @@
-# 免費停車場 Finder
+# 小P帶路｜免費停車場
 
 快速找到「台灣聯通」與「車麻吉」信用卡免費停車的場站。純靜態 Web App（PWA），零後端。
+
+**🌐 正式網址：https://angelatzh-mvp.github.io/parking-finder/**（手機開啟後可「加入主畫面」當 App 用）
+
+部署：GitHub Pages；資料更新：GitHub Actions 每週一 05:00（台北時間）自動跑爬蟲並重新部署。
 
 ## 資料管線
 
