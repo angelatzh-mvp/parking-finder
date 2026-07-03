@@ -110,7 +110,7 @@ svg { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 2
   background: var(--surface-1); position: sticky; top: 0; z-index: 1;
 }
 .empty { padding: 40px 32px; text-align: center; color: var(--text-3); font-size: 13px; line-height: 1.7; }
-.empty svg { width: 110px; height: 82px; }
+.empty svg { width: 96px; height: auto; }
 .empty .empty-title { font-size: 14px; color: var(--text-2); margin: 10px 0 2px; }
 .load-more { display: block; width: calc(100% - 32px); margin: 12px 16px; height: 44px; border: 0.5px solid var(--border-2); border-radius: 22px; font-size: 14px; color: var(--text-2); }
 
@@ -154,7 +154,7 @@ svg { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 2
 .picker-sheet h2 { font-size: 15px; font-weight: 600; padding: 10px 0 12px; }
 .picker-hint { font-size: 12px; color: var(--text-3); margin: -8px 0 12px; }
 .picker-greeting { display: flex; align-items: flex-start; gap: 10px; padding: 16px 0 14px; }
-.picker-greeting svg { width: 58px; height: 66px; flex-shrink: 0; }
+.picker-greeting svg { width: 54px; height: auto; flex-shrink: 0; }
 .picker-greeting .bubble { background: var(--accent-bg); border-radius: 12px 12px 12px 2px; padding: 9px 13px; }
 .picker-greeting .bubble-title { font-size: 14px; font-weight: 600; color: #085041; }
 .picker-greeting .bubble p:not(.bubble-title) { font-size: 12.5px; color: var(--accent); margin-top: 2px; line-height: 1.5; }

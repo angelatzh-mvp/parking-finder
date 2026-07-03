@@ -71,23 +71,22 @@ const I = {
 
 /* ---------- 小P 情境插圖（inline SVG，零網路成本） ---------- */
 
-function mascotSvg(mouth, extra) {
-  return `<svg viewBox="0 0 120 90" aria-hidden="true">
-    <rect x="38" y="8" width="13" height="44" rx="6.5" fill="#1D9E75"/>
-    <circle cx="57" cy="24" r="16" fill="#1D9E75"/><circle cx="57" cy="24" r="7.5" fill="#FFF"/>
-    <circle cx="54.5" cy="22" r="1.8" fill="#04342C"/><circle cx="61" cy="22" r="1.8" fill="#04342C"/>
-    ${mouth}
-    <circle cx="44" cy="57" r="7" fill="#04342C"/><circle cx="63" cy="57" r="7" fill="#04342C"/>
-    <path d="M20 70 Q60 78 100 70" stroke="#D3D1C7" stroke-width="2" fill="none" stroke-dasharray="3 4"/>
-    ${extra}</svg>`;
+// 統一小P：全站同一份幾何造型（見 icon.svg / index.html），只換手上的道具
+function mascotSvg(prop) {
+  return `<svg viewBox="26 2 72 94" aria-hidden="true">
+    <rect x="34" y="24" width="15" height="50" rx="7.5" fill="#1D9E75"/>
+    <circle cx="55" cy="40" r="21" fill="#1D9E75"/>
+    <circle cx="57" cy="38" r="11" fill="#FFFFFF"/>
+    <circle cx="53" cy="36" r="2.6" fill="#04342C"/><circle cx="61" cy="36" r="2.6" fill="#04342C"/>
+    <path d="M52.5 41.5 Q57 46 61.5 41.5" fill="none" stroke="#04342C" stroke-width="2.4" stroke-linecap="round"/>
+    <circle cx="41" cy="79" r="7.5" fill="#04342C" stroke="#FFFFFF" stroke-width="2.5"/>
+    <circle cx="60" cy="79" r="7.5" fill="#04342C" stroke="#FFFFFF" stroke-width="2.5"/>
+    ${prop}</svg>`;
 }
-const SMILE = '<path d="M55 27.5 Q57.5 29.5 60 27.5" stroke="#04342C" stroke-width="1.8" fill="none" stroke-linecap="round"/>';
-const OH = '<circle cx="57.5" cy="28" r="1.8" fill="none" stroke="#04342C" stroke-width="1.5"/>';
-const FLAT = '<path d="M55 28 L60 28" stroke="#04342C" stroke-width="1.8" fill="none" stroke-linecap="round"/>';
 const MASCOT = {
-  star: mascotSvg(SMILE, '<path d="M86 22 l3.2 6.8 6.8 3.2 -6.8 3.2 -3.2 6.8 -3.2 -6.8 -6.8 -3.2 6.8 -3.2 Z" fill="none" stroke="#EF9F27" stroke-width="2" stroke-linejoin="round"/>'),
-  search: mascotSvg(OH, '<circle cx="90" cy="28" r="9" fill="none" stroke="#888780" stroke-width="2.5"/><path d="M96.5 34.5 L103 41" stroke="#888780" stroke-width="3" stroke-linecap="round"/><text x="90" y="14" font-size="13" font-weight="bold" fill="#888780" text-anchor="middle">?</text>'),
-  broken: mascotSvg(FLAT, '<circle cx="84" cy="14" r="3.5" fill="#D3D1C7"/><circle cx="92" cy="8" r="4.5" fill="#D3D1C7"/><circle cx="101" cy="3" r="5" fill="#E8E6E0"/>'),
+  star: mascotSvg('<path d="M84 9 Q86.2 18.8 96 21 Q86.2 23.2 84 33 Q81.8 23.2 72 21 Q81.8 18.8 84 9 Z" fill="#EF9F27"/>'),
+  search: mascotSvg('<circle cx="82" cy="20" r="9" fill="none" stroke="#888780" stroke-width="2.5"/><path d="M88.5 26.5 L95 33" fill="none" stroke="#888780" stroke-width="3" stroke-linecap="round"/>'),
+  broken: mascotSvg('<circle cx="78" cy="18" r="3" fill="#D3D1C7"/><circle cx="85" cy="12" r="4" fill="#B4B2A9"/><circle cx="92" cy="7" r="4.5" fill="#D3D1C7"/>'),
 };
 const emptyHtml = (svg, title, sub) => `<div class="empty">${svg}<p class="empty-title">${title}</p><p>${sub}</p></div>`;
 
