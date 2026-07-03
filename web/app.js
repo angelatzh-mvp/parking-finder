@@ -69,6 +69,28 @@ const I = {
   warn: '<svg viewBox="0 0 24 24"><path d="M12 9v4M12 17h.01M10.3 4.5l-8 14A2 2 0 0 0 4 21.5h16a2 2 0 0 0 1.7-3l-8-14a2 2 0 0 0-3.4 0z"/></svg>',
 };
 
+/* ---------- 小P 情境插圖（inline SVG，零網路成本） ---------- */
+
+function mascotSvg(mouth, extra) {
+  return `<svg viewBox="0 0 120 90" aria-hidden="true">
+    <rect x="38" y="8" width="13" height="44" rx="6.5" fill="#1D9E75"/>
+    <circle cx="57" cy="24" r="16" fill="#1D9E75"/><circle cx="57" cy="24" r="7.5" fill="#FFF"/>
+    <circle cx="54.5" cy="22" r="1.8" fill="#04342C"/><circle cx="61" cy="22" r="1.8" fill="#04342C"/>
+    ${mouth}
+    <circle cx="44" cy="57" r="7" fill="#04342C"/><circle cx="63" cy="57" r="7" fill="#04342C"/>
+    <path d="M20 70 Q60 78 100 70" stroke="#D3D1C7" stroke-width="2" fill="none" stroke-dasharray="3 4"/>
+    ${extra}</svg>`;
+}
+const SMILE = '<path d="M55 27.5 Q57.5 29.5 60 27.5" stroke="#04342C" stroke-width="1.8" fill="none" stroke-linecap="round"/>';
+const OH = '<circle cx="57.5" cy="28" r="1.8" fill="none" stroke="#04342C" stroke-width="1.5"/>';
+const FLAT = '<path d="M55 28 L60 28" stroke="#04342C" stroke-width="1.8" fill="none" stroke-linecap="round"/>';
+const MASCOT = {
+  star: mascotSvg(SMILE, '<path d="M86 22 l3.2 6.8 6.8 3.2 -6.8 3.2 -3.2 6.8 -3.2 -6.8 -6.8 -3.2 6.8 -3.2 Z" fill="none" stroke="#EF9F27" stroke-width="2" stroke-linejoin="round"/>'),
+  search: mascotSvg(OH, '<circle cx="90" cy="28" r="9" fill="none" stroke="#888780" stroke-width="2.5"/><path d="M96.5 34.5 L103 41" stroke="#888780" stroke-width="3" stroke-linecap="round"/><text x="90" y="14" font-size="13" font-weight="bold" fill="#888780" text-anchor="middle">?</text>'),
+  broken: mascotSvg(FLAT, '<circle cx="84" cy="14" r="3.5" fill="#D3D1C7"/><circle cx="92" cy="8" r="4.5" fill="#D3D1C7"/><circle cx="101" cy="3" r="5" fill="#E8E6E0"/>'),
+};
+const emptyHtml = (svg, title, sub) => `<div class="empty">${svg}<p class="empty-title">${title}</p><p>${sub}</p></div>`;
+
 /* ---------- data ---------- */
 
 async function loadData() {
@@ -165,7 +187,7 @@ function renderList() {
   const el = $('#list');
   const lots = withDistance(filteredLots());
   if (!lots.length) {
-    el.innerHTML = `<div class="empty">小P在這個範圍找不到場站。<br>兩家通路的免停名單會隨合作狀況變動。</div>`;
+    el.innerHTML = emptyHtml(MASCOT.search, '小P在這個範圍找不到場站', '兩家通路的免停名單會隨合作狀況變動');
     return;
   }
   let html = '';
@@ -192,7 +214,7 @@ function renderList() {
 function renderFavs() {
   const el = $('#fav-list');
   if (!state.favs.length) {
-    el.innerHTML = `<div class="empty">還沒有收藏。<br>在清單或地圖點 ☆，讓小P記住你常去的停車場。</div>`;
+    el.innerHTML = emptyHtml(MASCOT.star, '還沒有收藏', '展開停車場卡片點「收藏」，小P幫你記住常去的地方');
     return;
   }
   const favLots = state.favs.map((f) => {
@@ -313,11 +335,13 @@ function requestLocation(pan = false) {
 let snackTimer = null;
 function showSnackbar(text, undo) {
   const bar = $('#snackbar');
+  const btn = $('#snackbar-action');
   $('#snackbar-text').textContent = text;
+  btn.hidden = !undo;
+  if (undo) btn.onclick = () => { undo(); bar.hidden = true; clearTimeout(snackTimer); };
   bar.hidden = false;
-  $('#snackbar-action').onclick = () => { undo(); bar.hidden = true; clearTimeout(snackTimer); };
   clearTimeout(snackTimer);
-  snackTimer = setTimeout(() => { bar.hidden = true; }, 4000);
+  snackTimer = setTimeout(() => { bar.hidden = true; }, undo ? 4000 : 2000);
 }
 
 function toggleFav(lot) {
@@ -326,7 +350,7 @@ function toggleFav(lot) {
     const removed = state.favs.splice(idx, 1)[0];
     saveFavs();
     render();
-    showSnackbar(`已移除「${removed.name}」`, () => {
+    showSnackbar(`小P忘掉「${removed.name}」了`, () => {
       state.favs.splice(idx, 0, removed);
       saveFavs();
       render();
@@ -336,6 +360,7 @@ function toggleFav(lot) {
     state.favs.push({ id, brands, name, city, district, address, lat, lng, note, label: '', savedAt: Date.now() });
     saveFavs();
     render();
+    showSnackbar('小P記住了！');
   }
 }
 
@@ -352,8 +377,10 @@ function openPicker(firstRun = false) {
   const cities = CITY_ORDER.filter((c) => state.lots.some((l) => l.city === c));
 
   const showCities = () => {
-    $('#picker-title').textContent = firstRun ? '選擇你所在的縣市' : '選擇縣市';
-    hint.hidden = !firstRun;
+    $('#picker-title').textContent = '選擇縣市';
+    $('#picker-title').hidden = firstRun;
+    $('#picker-greeting').hidden = !firstRun;
+    hint.hidden = true;
     grid.innerHTML = [`<button data-city="">全台</button>`]
       .concat(cities.map((c) => `<button data-city="${c}" class="${state.city === c ? 'sel' : ''}">${c}</button>`))
       .join('');
@@ -361,6 +388,8 @@ function openPicker(firstRun = false) {
   const showDistricts = (city) => {
     const districts = [...new Set(state.lots.filter((l) => l.city === city).map((l) => l.district).filter(Boolean))].sort();
     $('#picker-title').textContent = city;
+    $('#picker-title').hidden = false;
+    $('#picker-greeting').hidden = true;
     grid.innerHTML = [`<button data-district="">全部</button>`]
       .concat(districts.map((d) => `<button data-district="${d}" class="${state.district === d ? 'sel' : ''}">${d}</button>`))
       .join('');
@@ -383,6 +412,8 @@ function openPicker(firstRun = false) {
     if (firstRun) localStorage.setItem(HOME_KEY, state.city ?? '');
     picker.hidden = true;
     hint.hidden = true;
+    $('#picker-greeting').hidden = true;
+    $('#picker-title').hidden = false;
     updateCityChip();
     state.listLimit = LIST_PAGE;
     render();
@@ -409,11 +440,13 @@ function onCardAction(e) {
     window.open(gmapUrl(lot), '_blank');
   } else if (act === 'star') {
     toggleFav(lot);
+    // 收藏成功的彈跳回饋（重新渲染後對新按鈕觸發一次 CSS 動畫）
+    document.querySelectorAll(`.card[data-id="${id}"] [data-act="star"]`).forEach((b) => b.classList.add('pop'));
   } else if (act === 'unfav') {
     toggleFav(lot);
   } else if (act === 'copy') {
     navigator.clipboard?.writeText(`${lot.name} ${lot.address}`);
-    showSnackbar('已複製地址', () => {});
+    showSnackbar('小P抄好地址了！');
   } else if (act === 'label') {
     const fav = state.favs.find((f) => f.id === id);
     const label = prompt('備註（例如：公司附近）', fav?.label ?? '');
@@ -448,11 +481,9 @@ async function main() {
   try {
     await loadData();
   } catch {
-    $('#list').innerHTML = `<div class="empty">小P載入資料失敗了。<br>${
-      location.protocol === 'file:'
-        ? '請透過本地伺服器開啟（file:// 無法讀取資料）：<br><code>python3 -m http.server 8642 --directory web</code><br>再開 http://localhost:8642'
-        : '請檢查網路連線後重新整理。'
-    }</div>`;
+    $('#list').innerHTML = emptyHtml(MASCOT.broken, '小P拋錨了，資料載入失敗', location.protocol === 'file:'
+      ? '請透過本地伺服器開啟（file:// 無法讀取資料）：<code>python3 -m http.server 8642 --directory web</code> 再開 http://localhost:8642'
+      : '請檢查網路連線後重新整理');
     return;
   }
 
