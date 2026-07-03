@@ -7,18 +7,21 @@ const BRAND_META = {
 };
 const CITY_ORDER = ['基隆市','台北市','新北市','桃園市','新竹縣市','苗栗縣','台中市','彰化縣','南投縣','雲林縣','嘉義縣市','台南市','高雄市','屏東縣','宜蘭縣','花蓮縣','台東縣','澎湖縣'];
 const FAV_KEY = 'parking-favs-v1';
+const HOME_KEY = 'parking-home-city-v1';
 const LIST_PAGE = 60;
 
 const state = {
   lots: [],
   meta: null,
   brand: 'all',
-  city: null,
+  // 首次進入時選擇的所在縣市，之後每次開啟預設帶入（存在裝置上）
+  city: localStorage.getItem(HOME_KEY) || null,
   district: null,
   tab: 'list',
   loc: null,
   favs: loadFavs(),
   expanded: new Set(),
+  favExpanded: null,
   selectedId: null,
   listLimit: LIST_PAGE,
 };
@@ -101,11 +104,9 @@ function badgesHtml(lot) {
 
 function cardHtml(lot, opts = {}) {
   const { fav = null, inSheet = false } = opts;
-  const expanded = inSheet || state.expanded.has(lot.id);
+  // 常用清單一次只展開一張（favExpanded 單值）；其他清單維持多張展開
+  const expanded = inSheet || (fav ? state.favExpanded === lot.id : state.expanded.has(lot.id));
   const stale = fav && !state.lots.some((l) => l.id === fav.id);
-  const starBtn = !fav && !inSheet
-    ? `<button class="star-btn ${isFav(lot.id) ? 'on' : ''}" data-act="star" aria-label="收藏">${I.star}</button>`
-    : (inSheet ? `<button class="star-btn ${isFav(lot.id) ? 'on' : ''}" data-act="star" aria-label="收藏">${I.star}</button>` : '');
   const topLeft = stale
     ? `<span class="badge badge-warn">${I.warn} 已不在最新官方名單</span>`
     : `<div class="badges">${badgesHtml(lot)}</div>`;
@@ -115,20 +116,24 @@ function cardHtml(lot, opts = {}) {
   if (expanded && lot.maxHeight) extra.push(`限高 ${lot.maxHeight}m`);
   if (expanded && lot.totalSpace) extra.push(`約 ${lot.totalSpace} 格`);
   const srcBrand = lot.brands[0];
+  const starOn = isFav(lot.id);
+  const starAction = fav
+    ? `<button data-act="label">${I.pen}備註</button><button data-act="unfav">${I.del}移除</button>`
+    : `<button data-act="star" class="${starOn ? 'on' : ''}">${I.star}${starOn ? '已收藏' : '收藏'}</button>`;
   const detail = expanded ? `
     <div class="card-detail">
       ${noteRow}
       ${extra.length ? `<div class="detail-note">${I.info}<span>${extra.join('・')}</span></div>` : ''}
       <div class="detail-actions">
+        ${starAction}
         <button data-act="copy">${I.copy}複製地址</button>
         <a href="${BRAND_META[srcBrand].sourceUrl}" target="_blank" rel="noopener">${I.ext}官方來源</a>
-        ${fav ? `<button data-act="label">${I.pen}備註</button><button data-act="unfav">${I.del}移除</button>` : ''}
       </div>
       <div class="detail-meta">來源：${lot.brands.map((b) => BRAND_META[b].label).join('、')}官方名單 · 以現場標示為準</div>
     </div>` : '';
   return `
   <article class="card" data-id="${lot.id}" ${fav ? 'data-fav="1"' : ''}>
-    <div class="card-top">${topLeft}${starBtn}</div>
+    <div class="card-top">${topLeft}</div>
     <div class="card-main" data-act="expand">
       <div class="card-info">
         <p class="card-name">${esc(lot.name)}</p>
@@ -336,13 +341,19 @@ function toggleFav(lot) {
 
 /* ---------- picker (縣市 → 行政區) ---------- */
 
-function openPicker() {
+function updateCityChip() {
+  $('#city-chip').innerHTML = `${esc(state.district ?? state.city ?? '全台')}<svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>`;
+}
+
+function openPicker(firstRun = false) {
   const picker = $('#picker');
   const grid = $('#picker-grid');
+  const hint = $('#picker-hint');
   const cities = CITY_ORDER.filter((c) => state.lots.some((l) => l.city === c));
 
   const showCities = () => {
-    $('#picker-title').textContent = '選擇縣市';
+    $('#picker-title').textContent = firstRun ? '選擇你所在的縣市' : '選擇縣市';
+    hint.hidden = !firstRun;
     grid.innerHTML = [`<button data-city="">全台</button>`]
       .concat(cities.map((c) => `<button data-city="${c}" class="${state.city === c ? 'sel' : ''}">${c}</button>`))
       .join('');
@@ -359,20 +370,20 @@ function openPicker() {
     const btn = e.target.closest('button');
     if (!btn) return;
     if (btn.dataset.city !== undefined) {
-      if (!btn.dataset.city) {
-        state.city = null; state.district = null; close();
-      } else {
-        state.city = btn.dataset.city; state.district = null;
-        showDistricts(state.city);
-      }
+      state.city = btn.dataset.city || null;
+      state.district = null;
+      if (firstRun || !state.city) close();
+      else showDistricts(state.city);
     } else if (btn.dataset.district !== undefined) {
       state.district = btn.dataset.district || null;
       close();
     }
   };
   const close = () => {
+    if (firstRun) localStorage.setItem(HOME_KEY, state.city ?? '');
     picker.hidden = true;
-    $('#city-chip').innerHTML = `${esc(state.district ?? state.city ?? '全台')}<svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>`;
+    hint.hidden = true;
+    updateCityChip();
     state.listLimit = LIST_PAGE;
     render();
   };
@@ -408,9 +419,14 @@ function onCardAction(e) {
     const label = prompt('備註（例如：公司附近）', fav?.label ?? '');
     if (label !== null && fav) { fav.label = label.trim(); saveFavs(); render(); }
   } else if (act === 'expand') {
-    if (state.expanded.has(id)) state.expanded.delete(id);
-    else state.expanded.add(id);
-    if (isFavCard) renderFavs(); else renderList();
+    if (isFavCard) {
+      state.favExpanded = state.favExpanded === id ? null : id;
+      renderFavs();
+    } else {
+      if (state.expanded.has(id)) state.expanded.delete(id);
+      else state.expanded.add(id);
+      renderList();
+    }
   }
 }
 
@@ -448,7 +464,8 @@ async function main() {
       render();
     });
   });
-  $('#city-chip').addEventListener('click', openPicker);
+  $('#city-chip').addEventListener('click', () => openPicker(false));
+  updateCityChip();
   $('#list').addEventListener('click', (e) => {
     if (e.target.closest('.load-more')) { state.listLimit += LIST_PAGE; renderList(); return; }
     onCardAction(e);
@@ -461,6 +478,9 @@ async function main() {
 
   render();
   requestLocation();
+
+  // 首次使用：先選所在縣市，之後每次開啟預設顯示該地區
+  if (localStorage.getItem(HOME_KEY) === null) openPicker(true);
 
   if ('serviceWorker' in navigator && location.protocol === 'https:') {
     navigator.serviceWorker.register('sw.js');
