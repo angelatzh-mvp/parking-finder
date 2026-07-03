@@ -1,0 +1,124 @@
+// 合併台灣聯通 + 車麻吉 → App 用的最終資料集 data/parking-lots.json
+// - 統一縣市名稱（台/臺、新竹縣＋新竹市→新竹縣市，跟車麻吉官方分組一致）
+// - 以正規化地址跨品牌去重：同場站掛雙品牌
+// - id 用「正規化地址」的 hash，資料更新後保持穩定（收藏功能依賴這點）
+
+import { readFileSync, writeFileSync } from 'node:fs';
+import { dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
+
+const CITY_ALIAS = {
+  臺北市: '台北市', 臺中市: '台中市', 臺南市: '台南市', 臺東縣: '台東縣',
+  新竹市: '新竹縣市', 新竹縣: '新竹縣市', 嘉義市: '嘉義縣市', 嘉義縣: '嘉義縣市',
+};
+const canonCity = (c) => CITY_ALIAS[c?.trim()] ?? c?.trim() ?? '';
+
+function toHalfWidth(s) {
+  return s.replace(/[０-９Ａ-Ｚａ-ｚ]/g, (ch) => String.fromCharCode(ch.charCodeAt(0) - 0xfee0));
+}
+
+// 去重用的地址指紋：半形、臺→台、去空白與標點、去縣市前綴
+function addrKey(city, address) {
+  let a = toHalfWidth(address).replace(/臺/g, '台').replace(/[\s,，。()（）-]/g, '');
+  a = a.replace(/^[^區鄉鎮市]*?(台北市|新北市|桃園市|台中市|台南市|高雄市|基隆市|新竹市|新竹縣|苗栗縣|彰化縣|南投縣|雲林縣|嘉義市|嘉義縣|屏東縣|宜蘭縣|花蓮縣|台東縣|澎湖縣|金門縣|連江縣)/, '');
+  return canonCity(city) + '|' + a;
+}
+
+function hashId(s) {
+  let h = 5381;
+  for (let i = 0; i < s.length; i++) h = ((h << 5) + h + s.charCodeAt(i)) >>> 0;
+  return 'p' + h.toString(36);
+}
+
+const districtOf = (address) => toHalfWidth(address).match(/^(.{1,4}?[區鄉鎮市])/)?.[1] ?? '';
+
+// 行政區驗證：來源偶有把路名或「鄰近○○區」塞進行政區的髒資料，清不掉的寧可留空
+function cleanDistrict(d) {
+  if (!d) return '';
+  d = d.trim().replace(/^鄰近/, '');
+  if (!/^[一-鿿]{1,3}[區鄉鎮市]$/.test(d)) return '';
+  if (/[路街道段巷弄]/.test(d)) return '';
+  return d;
+}
+
+const utg = JSON.parse(readFileSync(join(ROOT, 'data', 'utg-raw.json'), 'utf8'));
+const cm = JSON.parse(readFileSync(join(ROOT, 'data', 'carmochi-geo.json'), 'utf8'));
+
+const byKey = new Map();
+
+// App 的定位是「信用卡免費停車」，官方名稱明示不提供優惠的場站直接排除
+const NO_DISCOUNT_RE = /不提供信用卡|無信用卡|不適用信用卡/;
+
+for (const l of utg.lots) {
+  if (NO_DISCOUNT_RE.test(l.name + (l.note ?? ''))) continue;
+  const key = addrKey(l.city, l.address);
+  byKey.set(key, {
+    id: hashId(key),
+    brands: ['utg'],
+    name: l.name,
+    city: canonCity(l.city),
+    district: cleanDistrict(l.district || districtOf(l.address.replace(/^.{2,3}[市縣]/, ""))),
+    address: toHalfWidth(l.address),
+    lat: l.lat,
+    lng: l.lng,
+    note: l.note,
+    maxHeight: l.maxHeight,
+    totalSpace: l.totalSpace,
+  });
+}
+
+let merged = 0;
+for (const l of cm.lots) {
+  const key = addrKey(l.city, l.address);
+  const existing = byKey.get(key);
+  if (existing) {
+    existing.brands.push('carmochi');
+    if (l.note && !existing.note?.includes(l.note)) {
+      existing.note = [existing.note, l.note].filter(Boolean).join('；');
+    }
+    merged++;
+    continue;
+  }
+  byKey.set(key, {
+    id: hashId(key),
+    brands: ['carmochi'],
+    name: l.name,
+    city: canonCity(l.city),
+    district: cleanDistrict(districtOf(l.address)),
+    address: toHalfWidth(l.address),
+    lat: l.lat,
+    lng: l.lng,
+    note: l.note || '',
+    maxHeight: null,
+    totalSpace: null,
+  });
+}
+
+const lots = [...byKey.values()].filter((l) => l.name);
+const noGeo = lots.filter((l) => !l.lat).length;
+
+// id 不得重複（重複代表 hash 或去重邏輯出錯）
+const ids = new Set(lots.map((l) => l.id));
+if (ids.size !== lots.length) throw new Error('id 重複，請檢查去重邏輯');
+
+const dataset = {
+  meta: {
+    builtAt: new Date().toISOString(),
+    sources: {
+      utg: { label: '台灣聯通', scrapedAt: utg.scrapedAt, count: utg.count },
+      carmochi: { label: '車麻吉', updatedAt: cm.updatedAt, scrapedAt: cm.scrapedAt, count: cm.count },
+    },
+    total: lots.length,
+    mergedBoth: merged,
+    noGeo,
+  },
+  lots,
+};
+
+writeFileSync(join(ROOT, 'data', 'parking-lots.json'), JSON.stringify(dataset, null, 1));
+console.log(`完成：${lots.length} 筆（雙品牌 ${merged} 筆、無座標 ${noGeo} 筆）`);
+const byCity = {};
+for (const l of lots) byCity[l.city] = (byCity[l.city] ?? 0) + 1;
+console.log(byCity);

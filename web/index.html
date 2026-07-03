@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>小P帶路｜免費停車場</title>
+<meta name="description" content="小P帶路：快速找到台灣聯通、車麻吉的信用卡免費停車場">
+<meta name="theme-color" content="#ffffff">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon.svg">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="app-header">
+  <div class="header-row">
+    <h1 id="page-title">小P帶路</h1>
+    <span class="data-date" id="data-date"></span>
+  </div>
+  <div class="chips" id="chips">
+    <button class="chip" data-brand="all" aria-pressed="true"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg>全部</button>
+    <button class="chip" data-brand="utg" aria-pressed="false"><span class="dot dot-utg"></span>台灣聯通</button>
+    <button class="chip" data-brand="carmochi" aria-pressed="false"><span class="dot dot-cm"></span>車麻吉</button>
+    <button class="chip" id="city-chip">全台<svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
+  </div>
+  <div class="status-row" id="status-row"></div>
+</header>
+
+<main id="main">
+  <section id="view-map" class="view" hidden>
+    <div id="map"></div>
+    <button class="locate-btn" id="locate-btn" aria-label="回到目前位置">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/><circle cx="12" cy="12" r="8"/></svg>
+    </button>
+    <div class="sheet" id="sheet" hidden>
+      <div class="sheet-handle" id="sheet-handle"><span></span></div>
+      <div id="sheet-body"></div>
+    </div>
+  </section>
+  <section id="view-list" class="view"><div id="list"></div></section>
+  <section id="view-fav" class="view" hidden><div id="fav-list"></div></section>
+</main>
+
+<div class="snackbar" id="snackbar" hidden>
+  <span id="snackbar-text"></span>
+  <button id="snackbar-action">復原</button>
+</div>
+
+<div class="picker-backdrop" id="picker" hidden>
+  <div class="picker-sheet">
+    <div class="sheet-handle"><span></span></div>
+    <h2 id="picker-title">選擇縣市</h2>
+    <div class="picker-grid" id="picker-grid"></div>
+  </div>
+</div>
+
+<nav class="navbar">
+  <button class="nav-item" data-tab="map" aria-pressed="false">
+    <span class="nav-pill"><svg viewBox="0 0 24 24"><path d="M9 4l-5 2v14l5-2 6 2 5-2V4l-5 2-6-2zM9 4v14M15 6v14"/></svg></span>
+    <span class="nav-label">地圖</span>
+  </button>
+  <button class="nav-item" data-tab="list" aria-pressed="true">
+    <span class="nav-pill"><svg viewBox="0 0 24 24"><path d="M9 6h11M9 12h11M9 18h11M4 6h.5M4 12h.5M4 18h.5"/></svg></span>
+    <span class="nav-label">清單</span>
+  </button>
+  <button class="nav-item" data-tab="fav" aria-pressed="false">
+    <span class="nav-pill"><svg viewBox="0 0 24 24"><path d="M12 3l2.7 5.8 6.3.7-4.7 4.3 1.3 6.2-5.6-3.2L6.4 20l1.3-6.2L3 9.5l6.3-.7z"/></svg></span>
+    <span class="nav-label">常用</span>
+  </button>
+</nav>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
