@@ -206,7 +206,7 @@ function render() {
   renderStatus();
   if (state.tab === 'list') renderList();
   if (state.tab === 'fav') renderFavs();
-  if (state.tab === 'map') renderMarkers();
+  if (state.tab === 'map') { renderMarkers(); renderSheet(); }
 }
 
 /* ---------- map ---------- */
@@ -266,6 +266,8 @@ function renderMarkers() {
 }
 
 function selectLot(id) {
+  // 再點同一個 pin ＝ 收起資訊卡
+  if (id && id === state.selectedId) id = null;
   const prev = state.selectedId;
   state.selectedId = id;
   for (const changed of [prev, id]) {
@@ -273,9 +275,13 @@ function selectLot(id) {
     const m = markers.get(changed);
     if (lot && m) m.setIcon(pinIcon(lot, changed === id));
   }
+  renderSheet();
+}
+
+function renderSheet() {
   const sheet = $('#sheet');
-  if (!id) { sheet.hidden = true; return; }
-  const lot = state.lots.find((l) => l.id === id);
+  const lot = state.lots.find((l) => l.id === state.selectedId);
+  if (!lot) { sheet.hidden = true; return; }
   const withD = { ...lot, dist: state.loc && lot.lat ? haversine(state.loc, lot) : null };
   $('#sheet-body').innerHTML = cardHtml(withD, { inSheet: true });
   sheet.hidden = false;
@@ -449,6 +455,7 @@ async function main() {
   });
   $('#fav-list').addEventListener('click', onCardAction);
   $('#sheet-body').addEventListener('click', onCardAction);
+  $('#sheet-close').addEventListener('click', () => selectLot(null));
   $('#locate-btn').addEventListener('click', () => requestLocation(true));
   document.querySelectorAll('.nav-item').forEach((b) => b.addEventListener('click', () => switchTab(b.dataset.tab)));
 

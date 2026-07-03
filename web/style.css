@@ -127,6 +127,12 @@ svg { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 2
 .sheet-handle { padding: 6px 0 2px; display: flex; justify-content: center; }
 .sheet-handle span { width: 32px; height: 4px; border-radius: 2px; background: var(--border-2); }
 .sheet .card { border-bottom: none; }
+.sheet-close {
+  position: absolute; top: 2px; right: 2px; width: 48px; height: 48px;
+  display: flex; align-items: center; justify-content: center; color: var(--text-2); z-index: 1;
+}
+.sheet-close svg { font-size: 18px; }
+.sheet .star-btn { margin-right: 36px; }
 
 .snackbar {
   position: fixed; left: 12px; right: 12px; bottom: calc(var(--nav-h) + 12px + env(safe-area-inset-bottom));
