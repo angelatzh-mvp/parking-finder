@@ -22,10 +22,15 @@
       <svg class="logo" viewBox="0 0 100 100" aria-hidden="true"><rect width="100" height="100" rx="24" fill="#E1F5EE"/><rect x="34" y="24" width="15" height="50" rx="7.5" fill="#1D9E75"/><circle cx="55" cy="40" r="21" fill="#1D9E75"/><circle cx="57" cy="38" r="11" fill="#FFFFFF"/><circle cx="53" cy="36" r="2.6" fill="#04342C"/><circle cx="61" cy="36" r="2.6" fill="#04342C"/><path d="M52.5 41.5 Q57 46 61.5 41.5" fill="none" stroke="#04342C" stroke-width="2.4" stroke-linecap="round"/><circle cx="41" cy="79" r="7.5" fill="#04342C" stroke="#FFFFFF" stroke-width="2.5"/><circle cx="60" cy="79" r="7.5" fill="#04342C" stroke="#FFFFFF" stroke-width="2.5"/></svg>
       <h1 id="page-title">小P帶路</h1>
     </div>
-    <span class="data-date" id="data-date"></span>
+    <div class="header-right">
+      <span class="data-date" id="data-date"></span>
+      <button class="icon-btn" id="settings-btn" aria-label="設定與說明">
+        <svg viewBox="0 0 24 24"><path d="M10.3 3.2a1 1 0 0 1 3.4 0l.15.9a7 7 0 0 1 2 1.15l.85-.4a1 1 0 0 1 1.3.42l1 1.72a1 1 0 0 1-.28 1.3l-.72.55a7 7 0 0 1 0 2.32l.72.55a1 1 0 0 1 .28 1.3l-1 1.72a1 1 0 0 1-1.3.42l-.85-.4a7 7 0 0 1-2 1.15l-.15.9a1 1 0 0 1-3.4 0l-.15-.9a7 7 0 0 1-2-1.15l-.85.4a1 1 0 0 1-1.3-.42l-1-1.72a1 1 0 0 1 .28-1.3l.72-.55a7 7 0 0 1 0-2.32l-.72-.55a1 1 0 0 1-.28-1.3l1-1.72a1 1 0 0 1 1.3-.42l.85.4a7 7 0 0 1 2-1.15z"/><circle cx="12" cy="12" r="3"/></svg>
+      </button>
+    </div>
   </div>
   <div class="chips" id="chips">
-    <button class="chip" data-brand="all" aria-pressed="true"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg>全部</button>
+    <button class="chip" data-brand="all" aria-pressed="true">全部</button>
     <button class="chip" data-brand="utg" aria-pressed="false"><span class="dot dot-utg"></span>台灣聯通</button>
     <button class="chip" data-brand="carmochi" aria-pressed="false"><span class="dot dot-cm"></span>車麻吉</button>
     <button class="chip" id="city-chip">全台<svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
@@ -69,6 +74,25 @@
     <h2 id="picker-title">選擇縣市</h2>
     <p class="picker-hint" id="picker-hint" hidden>之後開啟 App 會預設顯示這個地區，隨時可從頂部切換</p>
     <div class="picker-grid" id="picker-grid"></div>
+  </div>
+</div>
+
+<div class="modal-backdrop" id="settings" hidden>
+  <div class="modal-sheet">
+    <div class="sheet-handle"><span></span></div>
+    <h2>設定與說明</h2>
+    <button class="settings-row" id="install-row">
+      <span class="s-icon"><svg viewBox="0 0 24 24"><path d="M12 4v10M8 10l4 4 4-4"/><path d="M5 20h14"/></svg></span>
+      <span class="s-text"><b>加入主畫面</b><small>像 App 一樣一鍵開啟，離線也能查</small></span>
+      <span class="s-chev"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></span>
+    </button>
+    <div class="install-hint" id="install-hint" hidden></div>
+    <button class="settings-row" id="refresh-row">
+      <span class="s-icon"><svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 0 1 13.7-5.7L20 8M20 4v4h-4M20 12a8 8 0 0 1-13.7 5.7L4 16M4 20v-4h4"/></svg></span>
+      <span class="s-text"><b>清除快取、強制更新</b><small>抓取最新場站資料</small></span>
+      <span class="s-chev"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></span>
+    </button>
+    <p class="settings-meta" id="settings-meta"></p>
   </div>
 </div>
 

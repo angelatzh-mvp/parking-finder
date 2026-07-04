@@ -103,7 +103,8 @@ async function loadData() {
   const data = await res.json();
   state.lots = data.lots;
   state.meta = data.meta;
-  const d = (data.meta.sources.carmochi.updatedAt ?? data.meta.builtAt).slice(0, 10).replace(/-0?/g, '/').slice(2);
+  // 顯示資料管線最後一次成功建置的時間（builtAt），非來源官方頁的編輯日
+  const d = data.meta.builtAt.slice(0, 10).replace(/-0?/g, '/').slice(2);
   $('#data-date').textContent = `資料更新 20${d}`;
 }
 
@@ -476,13 +477,77 @@ function onCardAction(e) {
   }
 }
 
+/* ---------- settings（加入主畫面／清除快取） ---------- */
+
+let deferredInstall = null;
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredInstall = e; // 存起來，等使用者從設定觸發
+});
+
+const isStandalone = () =>
+  window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+const isIOS = () => /iphone|ipad|ipod/i.test(navigator.userAgent);
+
+const SHARE_ICON = '<svg viewBox="0 0 24 24"><path d="M12 3v13M8 7l4-4 4 4M6 12v7a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1v-7"/></svg>';
+
+function setupSettings() {
+  const modal = $('#settings');
+  const installRow = $('#install-row');
+  const hint = $('#install-hint');
+
+  $('#settings-btn').addEventListener('click', () => {
+    hint.hidden = true;
+    if (isStandalone()) {
+      installRow.disabled = true;
+      installRow.querySelector('b').textContent = '已加入主畫面';
+      installRow.querySelector('small').textContent = '你已經從主畫面開啟小P帶路';
+    }
+    $('#settings-meta').textContent = `${$('#data-date').textContent}｜小P帶路`;
+    modal.hidden = false;
+  });
+  modal.addEventListener('click', (e) => { if (e.target === modal) modal.hidden = true; });
+
+  installRow.addEventListener('click', async () => {
+    if (isStandalone()) return;
+    if (deferredInstall) {
+      deferredInstall.prompt();
+      const { outcome } = await deferredInstall.userChoice;
+      deferredInstall = null;
+      if (outcome === 'accepted') modal.hidden = true;
+      return;
+    }
+    // 無原生安裝提示（多為 iOS Safari）→ 顯示手動步驟
+    hint.innerHTML = isIOS()
+      ? `在 Safari 底部點「分享」${SHARE_ICON}，下滑選「加入主畫面」即可。`
+      : `在瀏覽器選單開啟「加入主畫面／安裝應用程式」即可。`;
+    hint.hidden = !hint.hidden;
+  });
+
+  $('#refresh-row').addEventListener('click', async () => {
+    $('#refresh-row').querySelector('b').textContent = '清除中…';
+    try {
+      if ('serviceWorker' in navigator) {
+        const regs = await navigator.serviceWorker.getRegistrations();
+        await Promise.all(regs.map((r) => r.unregister()));
+      }
+      if (window.caches) {
+        const keys = await caches.keys();
+        await Promise.all(keys.map((k) => caches.delete(k)));
+      }
+    } finally {
+      location.reload();
+    }
+  });
+}
+
 function switchTab(tab) {
   state.tab = tab;
   document.querySelectorAll('.nav-item').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.tab === tab)));
   $('#view-map').hidden = tab !== 'map';
   $('#view-list').hidden = tab !== 'list';
   $('#view-fav').hidden = tab !== 'fav';
-  $('#page-title').textContent = tab === 'fav' ? '常用停車場' : '小P帶路';
+  $('#page-title').textContent = '小P帶路';
   if (tab === 'map') {
     initMap();
     setTimeout(() => map.invalidateSize(), 50);
@@ -522,6 +587,7 @@ async function main() {
     if (e.target.closest('#loc-retry')) requestLocation(state.tab === 'map');
   });
   document.querySelectorAll('.nav-item').forEach((b) => b.addEventListener('click', () => switchTab(b.dataset.tab)));
+  setupSettings();
 
   // 蓋板下滑關閉：內容捲到頂端時往下拖，超過門檻收起、否則彈回
   const sheet = $('#sheet');
