@@ -98,6 +98,8 @@ svg { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 2
 .card-info { min-width: 0; flex: 1; }
 .card-name { font-size: 15px; font-weight: 500; }
 .card-addr { font-size: 13px; color: var(--text-2); margin-top: 2px; }
+.card-addr-missing { display: flex; align-items: center; gap: 4px; color: var(--warn-text); }
+.card-addr-missing svg { font-size: 14px; flex-shrink: 0; }
 .card-label { font-size: 12px; color: var(--text-2); margin-top: 4px; }
 .card-warn-text { font-size: 12px; color: var(--warn-text); margin-top: 4px; }
 .nav-go { text-align: center; flex-shrink: 0; }

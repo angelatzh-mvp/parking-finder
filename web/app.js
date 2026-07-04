@@ -165,13 +165,14 @@ function cardHtml(lot, opts = {}) {
     <div class="card-main" data-act="expand">
       <div class="card-info">
         <p class="card-name">${esc(lot.name)}</p>
-        <p class="card-addr">${esc(lot.address)}</p>
+        ${lot.address
+          ? `<p class="card-addr">${esc(lot.address)}</p>`
+          : `<p class="card-addr card-addr-missing">${I.warn}<span>無提供地址，請自行向業者確認位置</span></p>`}
         ${fav?.label ? `<p class="card-label">${I.pen} ${esc(fav.label)}</p>` : ''}
         ${stale ? `<p class="card-warn-text">前往前請再確認現場標示</p>` : ''}
-        ${lot.geoPending ? `<p class="card-warn-text">地址待確認，暫無法定位</p>` : ''}
       </div>
       <div class="nav-go">
-        <button data-act="go" aria-label="${lot.geoPending ? '搜尋位置' : '導航'}">${lot.geoPending ? I.search : I.nav}</button>
+        <button data-act="go" aria-label="${lot.lat == null ? '搜尋位置' : '導航'}">${lot.lat == null ? I.search : I.nav}</button>
         <span class="dist ${lot.dist != null && lot.dist < 800 ? 'near' : ''}">${fmtDist(lot.dist)}</span>
       </div>
     </div>
@@ -501,9 +502,9 @@ function setupSettings() {
     if (isStandalone()) {
       installRow.disabled = true;
       installRow.querySelector('b').textContent = '已加入主畫面';
-      installRow.querySelector('small').textContent = '你已經從主畫面開啟小P帶路';
+      installRow.querySelector('small').textContent = '你已經從主畫面開啟小Ｐ帶路';
     }
-    $('#settings-meta').textContent = `${$('#data-date').textContent}｜小P帶路`;
+    $('#settings-meta').textContent = `${$('#data-date').textContent}｜小Ｐ帶路`;
     modal.hidden = false;
   });
   modal.addEventListener('click', (e) => { if (e.target === modal) modal.hidden = true; });
@@ -547,7 +548,7 @@ function switchTab(tab) {
   $('#view-map').hidden = tab !== 'map';
   $('#view-list').hidden = tab !== 'list';
   $('#view-fav').hidden = tab !== 'fav';
-  $('#page-title').textContent = '小P帶路';
+  $('#page-title').textContent = '小Ｐ帶路';
   if (tab === 'map') {
     initMap();
     setTimeout(() => map.invalidateSize(), 50);
