@@ -1,6 +1,6 @@
 {
  "meta": {
-  "builtAt": "2026-07-03T13:11:01.431Z",
+  "builtAt": "2026-07-04T01:52:14.152Z",
   "sources": {
    "utg": {
     "label": "台灣聯通",
@@ -10,13 +10,13 @@
    "carmochi": {
     "label": "車麻吉",
     "updatedAt": "2026-06-26",
-    "scrapedAt": "2026-07-03T12:25:47.063Z",
+    "scrapedAt": "2026-07-04T01:50:57.379Z",
     "count": 685
    }
   },
-  "total": 870,
-  "mergedBoth": 53,
-  "noGeo": 0
+  "total": 920,
+  "mergedBoth": 0,
+  "noGeo": 5
  },
  "lots": [
   {
@@ -564,13 +564,13 @@
    "brands": [
     "utg"
    ],
-   "name": "古亭場(不支援線上繳費)",
+   "name": "古亭場",
    "city": "台北市",
    "district": "大安區",
    "address": "台北市大安區羅斯福路三段37號",
    "lat": 25.0235645,
    "lng": 121.5253286,
-   "note": "",
+   "note": "不支援線上繳費",
    "maxHeight": 1.8,
    "totalSpace": 0
   },
@@ -579,13 +579,13 @@
    "brands": [
     "utg"
    ],
-   "name": "安和場(不支援線上繳費)",
+   "name": "安和場",
    "city": "台北市",
    "district": "大安區",
    "address": "台北市大安區安和路二段86號",
    "lat": 25.0291621,
    "lng": 121.5506891,
-   "note": "",
+   "note": "不支援線上繳費",
    "maxHeight": 1.5,
    "totalSpace": 0
   },
@@ -1310,21 +1310,6 @@
    "totalSpace": 0
   },
   {
-   "id": "p1biuuua",
-   "brands": [
-    "utg"
-   ],
-   "name": "車路頭場(2026.01.02起----------->無配合信用卡優惠)",
-   "city": "新北市",
-   "district": "三重區",
-   "address": "新北市三重區車路頭街149之2號旁空地",
-   "lat": 25.076891,
-   "lng": 121.483825,
-   "note": "",
-   "maxHeight": 2,
-   "totalSpace": 0
-  },
-  {
    "id": "peztp7x",
    "brands": [
     "utg"
@@ -2019,13 +2004,13 @@
    "brands": [
     "utg"
    ],
-   "name": "永科停七場(不支援線上繳費)",
+   "name": "永科停七場",
    "city": "台南市",
    "district": "永康區",
    "address": "台南市永康區永科東路3號",
    "lat": 23.0369553,
    "lng": 120.2816945,
-   "note": "",
+   "note": "不支援線上繳費",
    "maxHeight": null,
    "totalSpace": 0
   },
@@ -2034,13 +2019,13 @@
    "brands": [
     "utg"
    ],
-   "name": "永科停六場(不支援線上繳費)",
+   "name": "永科停六場",
    "city": "台南市",
    "district": "永康區",
    "address": "台南市永康區永科環路199號",
    "lat": 23.036343,
    "lng": 120.276024,
-   "note": "",
+   "note": "不支援線上繳費",
    "maxHeight": null,
    "totalSpace": 0
   },
@@ -2049,13 +2034,13 @@
    "brands": [
     "utg"
    ],
-   "name": "永科停五場(不支援線上繳費)",
+   "name": "永科停五場",
    "city": "台南市",
    "district": "永康區",
    "address": "台南市永康區永科三路77號",
    "lat": 23.0409878,
    "lng": 120.2786602,
-   "note": "",
+   "note": "不支援線上繳費",
    "maxHeight": null,
    "totalSpace": 0
   },
@@ -2064,13 +2049,13 @@
    "brands": [
     "utg"
    ],
-   "name": "永科停四場(不支援線上繳費)",
+   "name": "永科停四場",
    "city": "台南市",
    "district": "永康區",
    "address": "台南市永康區永科環路309號(秀孟公司旁)",
    "lat": 23.0439286,
    "lng": 120.2747765,
-   "note": "",
+   "note": "不支援線上繳費",
    "maxHeight": null,
    "totalSpace": 0
   },
@@ -2079,13 +2064,13 @@
    "brands": [
     "utg"
    ],
-   "name": "永科停三場(不支援線上繳費)",
+   "name": "永科停三場",
    "city": "台南市",
    "district": "永康區",
    "address": "台南市永康區永科一路19號(綜合汙水廠旁)_",
    "lat": 23.0442066,
    "lng": 120.2814943,
-   "note": "",
+   "note": "不支援線上繳費",
    "maxHeight": null,
    "totalSpace": 0
   },
@@ -2094,13 +2079,13 @@
    "brands": [
     "utg"
    ],
-   "name": "永科停一場(不支援線上繳費)",
+   "name": "永科停一場",
    "city": "台南市",
    "district": "永康區",
    "address": "台南市永康區永科環路397號(長宏人力公司旁)",
    "lat": 23.0431057,
    "lng": 120.274568,
-   "note": "",
+   "note": "不支援線上繳費",
    "maxHeight": null,
    "totalSpace": 0
   },
@@ -2529,29 +2514,14 @@
    "brands": [
     "utg"
    ],
-   "name": "太原場(不支援線上繳費)",
+   "name": "太原場",
    "city": "台北市",
    "district": "",
    "address": "台北市太原路76巷1號",
    "lat": 25.0519518,
    "lng": 121.5154507,
-   "note": "",
+   "note": "不支援線上繳費",
    "maxHeight": 1.8,
-   "totalSpace": 0
-  },
-  {
-   "id": "p1yd80sp",
-   "brands": [
-    "utg"
-   ],
-   "name": "日月潭中興場((((((不支援線上繳費)))))))(無配合提供信用卡優惠)",
-   "city": "南投縣",
-   "district": "魚池鄉",
-   "address": "南投縣魚池鄉中山路37號",
-   "lat": 23.865697,
-   "lng": 120.911469,
-   "note": "",
-   "maxHeight": null,
    "totalSpace": 0
   },
   {
@@ -2679,13 +2649,13 @@
    "brands": [
     "utg"
    ],
-   "name": "將二場(不支援線上繳費)",
+   "name": "將二場",
    "city": "台北市",
    "district": "中山區",
    "address": "台北市中山區松江路336號",
    "lat": 25.061335,
    "lng": 121.53311,
-   "note": "",
+   "note": "不支援線上繳費",
    "maxHeight": 1.55,
    "totalSpace": 0
   },
@@ -2694,13 +2664,13 @@
    "brands": [
     "utg"
    ],
-   "name": "將一場(不支援線上繳費)",
+   "name": "將一場",
    "city": "台北市",
    "district": "中山區",
    "address": "台北市中山區松江路126、128號",
    "lat": 25.0526823,
    "lng": 121.5323992,
-   "note": "",
+   "note": "不支援線上繳費",
    "maxHeight": 1.8,
    "totalSpace": 0
   },
@@ -2784,13 +2754,13 @@
    "brands": [
     "utg"
    ],
-   "name": "大有場(機車不支援線上繳費)",
+   "name": "大有場",
    "city": "桃園市",
    "district": "桃園區",
    "address": "桃園市桃園區大有路581號",
    "lat": 25.016364,
    "lng": 121.316083,
-   "note": "",
+   "note": "機車不支援線上繳費",
    "maxHeight": null,
    "totalSpace": 0
   },
@@ -2814,13 +2784,13 @@
    "brands": [
     "utg"
    ],
-   "name": "光華場(不支援線上繳費)",
+   "name": "光華場",
    "city": "台北市",
    "district": "中正區",
    "address": "台北市中正區忠孝東路二段95號",
    "lat": 25.043287,
    "lng": 121.531165,
-   "note": "",
+   "note": "不支援線上繳費",
    "maxHeight": 1.55,
    "totalSpace": 0
   },
@@ -2829,13 +2799,13 @@
    "brands": [
     "utg"
    ],
-   "name": "晴光商圈場(不支援線上繳費)",
+   "name": "晴光商圈場",
    "city": "台北市",
    "district": "中山區",
    "address": "台北市中山區林森北路538號",
    "lat": 25.063734,
    "lng": 121.525331,
-   "note": "",
+   "note": "不支援線上繳費",
    "maxHeight": 1.5,
    "totalSpace": 0
   },
@@ -2934,13 +2904,13 @@
    "brands": [
     "utg"
    ],
-   "name": "復興北場(不支援線上繳費)",
+   "name": "復興北場",
    "city": "台北市",
    "district": "松山區",
    "address": "台北市松山區南京東路三段256巷11號",
    "lat": 25.051163,
    "lng": 121.544623,
-   "note": "",
+   "note": "不支援線上繳費",
    "maxHeight": 1.55,
    "totalSpace": 0
   },
@@ -2964,13 +2934,13 @@
    "brands": [
     "utg"
    ],
-   "name": "華泰王子場(不支援線上繳費)",
+   "name": "華泰王子場",
    "city": "台北市",
    "district": "中山區",
    "address": "台北市中山區林森北路359號",
    "lat": 25.057065,
    "lng": 121.525662,
-   "note": "",
+   "note": "不支援線上繳費",
    "maxHeight": 1.5,
    "totalSpace": 0
   },
@@ -3069,13 +3039,13 @@
    "brands": [
     "utg"
    ],
-   "name": "長榮場(不支援線上繳費)",
+   "name": "長榮場",
    "city": "台北市",
    "district": "中山區",
    "address": "台北市中山區松江路63號",
    "lat": 25.0488724,
    "lng": 121.5333295,
-   "note": "",
+   "note": "不支援線上繳費",
    "maxHeight": 1.55,
    "totalSpace": 0
   },
@@ -3084,13 +3054,13 @@
    "brands": [
     "utg"
    ],
-   "name": "重慶場(不支援線上繳費)",
+   "name": "重慶場",
    "city": "台北市",
    "district": "中正區",
    "address": "台北市中正區重慶南路一段57號",
    "lat": 25.044665,
    "lng": 121.514122,
-   "note": "",
+   "note": "不支援線上繳費",
    "maxHeight": 1.55,
    "totalSpace": 0
   },
@@ -3129,13 +3099,13 @@
    "brands": [
     "utg"
    ],
-   "name": "新興場(不支援線上繳費)",
+   "name": "新興場",
    "city": "台北市",
    "district": "中山區",
    "address": "台北市中山區林森北路522號",
    "lat": 25.0623832,
    "lng": 121.5254802,
-   "note": "",
+   "note": "不支援線上繳費",
    "maxHeight": 1.55,
    "totalSpace": 0
   },
@@ -3189,13 +3159,13 @@
    "brands": [
     "utg"
    ],
-   "name": "敦化場(不支援線上繳費)",
+   "name": "敦化場",
    "city": "台北市",
    "district": "大安區",
    "address": "台北市大安區市民大道四段136號",
    "lat": 25.04442,
    "lng": 121.551578,
-   "note": "",
+   "note": "不支援線上繳費",
    "maxHeight": 1.9,
    "totalSpace": 0
   },
@@ -3294,13 +3264,13 @@
    "brands": [
     "utg"
    ],
-   "name": "東興場(不支援線上繳費)",
+   "name": "東興場",
    "city": "台北市",
    "district": "松山區",
    "address": "台北市松山區八德路四段312號",
    "lat": 25.049132,
    "lng": 121.567437,
-   "note": "",
+   "note": "不支援線上繳費",
    "maxHeight": 1.9,
    "totalSpace": 0
   },
@@ -3369,13 +3339,13 @@
    "brands": [
     "utg"
    ],
-   "name": "八德場(不支援線上繳費)",
+   "name": "八德場",
    "city": "台北市",
    "district": "松山區",
    "address": "台北市松山區八德路四段245巷32弄9號",
    "lat": 25.049936,
    "lng": 121.564191,
-   "note": "",
+   "note": "不支援線上繳費",
    "maxHeight": 1.55,
    "totalSpace": 0
   },
@@ -3384,13 +3354,13 @@
    "brands": [
     "utg"
    ],
-   "name": "國賓場(不支援線上繳費)",
+   "name": "國賓場",
    "city": "台北市",
    "district": "中山區",
    "address": "台北市中山區中山北路二段66、68號",
    "lat": 25.056996,
    "lng": 121.522453,
-   "note": "",
+   "note": "不支援線上繳費",
    "maxHeight": 1.55,
    "totalSpace": 0
   },
@@ -3564,13 +3534,13 @@
    "brands": [
     "utg"
    ],
-   "name": "杭州場(不支援線上繳費)",
+   "name": "杭州場",
    "city": "台北市",
    "district": "中正區",
    "address": "台北市杭州南路一段19號",
    "lat": 25.042661420875177,
    "lng": 121.5266117711646,
-   "note": "指定係用卡免費停車",
+   "note": "指定係用卡免費停車；不支援線上繳費",
    "maxHeight": null,
    "totalSpace": 50
   },
@@ -3740,17 +3710,17 @@
    "totalSpace": null
   },
   {
-   "id": "plsv8ql",
+   "id": "p13zxsq6",
    "brands": [
     "carmochi"
    ],
-   "name": "台灣科學園區停車場（汐止區大同路一段237號",
+   "name": "台灣科學園區停車場",
    "city": "新北市",
-   "district": "",
-   "address": "B1",
-   "lat": 25.176358,
-   "lng": 121.4481201,
-   "note": "",
+   "district": "汐止區",
+   "address": "汐止區大同路一段237號",
+   "lat": 25.0618627,
+   "lng": 121.6444778,
+   "note": "B1",
    "maxHeight": null,
    "totalSpace": null
   },
@@ -4117,7 +4087,6 @@
   {
    "id": "pgbtrwu",
    "brands": [
-    "carmochi",
     "carmochi"
    ],
    "name": "寶盛捷運淡水站",
@@ -4186,6 +4155,21 @@
    "address": "五股區水碓三路25號對面號",
    "lat": 25.0724627,
    "lng": 121.4312762,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1ue4ph1",
+   "brands": [
+    "carmochi"
+   ],
+   "name": "千斗五股水碓平面",
+   "city": "新北市",
+   "district": "淡水區",
+   "address": "淡水區中正路1號",
+   "lat": 25.1696196,
+   "lng": 121.4409813,
    "note": "",
    "maxHeight": null,
    "totalSpace": null
@@ -4701,21 +4685,91 @@
    "totalSpace": null
   },
   {
-   "id": "p1edh5fu",
+   "id": "p19ncc3c",
    "brands": [
-    "carmochi",
-    "carmochi",
-    "carmochi",
-    "carmochi",
-    "carmochi",
     "carmochi"
    ],
    "name": "鼎豐建一停車場",
    "city": "新北市",
    "district": "",
    "address": "",
-   "lat": 25.011997,
-   "lng": 121.4656619,
+   "lat": 24.959626,
+   "lng": 121.510887,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p17zstuv",
+   "brands": [
+    "carmochi"
+   ],
+   "name": "捷運南勢角站轉乘停車場",
+   "city": "新北市",
+   "district": "",
+   "address": "",
+   "lat": 24.990702,
+   "lng": 121.508456,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p19s6der",
+   "brands": [
+    "carmochi"
+   ],
+   "name": "捷運新店站轉乘停車場",
+   "city": "新北市",
+   "district": "",
+   "address": "",
+   "lat": 24.9578788,
+   "lng": 121.5376628,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1xg7uts",
+   "brands": [
+    "carmochi"
+   ],
+   "name": "嘟嘟房捷運蘆洲站停車場",
+   "city": "新北市",
+   "district": "",
+   "address": "",
+   "lat": 24.982234,
+   "lng": 121.540692,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1ohmnv0",
+   "brands": [
+    "carmochi"
+   ],
+   "name": "鼎豐大象陽光停車場",
+   "city": "新北市",
+   "district": "",
+   "address": "",
+   "lat": 24.959626,
+   "lng": 121.510887,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p12f1gyi",
+   "brands": [
+    "carmochi"
+   ],
+   "name": "文強停車淡水新民停車場",
+   "city": "新北市",
+   "district": "",
+   "address": "",
+   "lat": 25.172889,
+   "lng": 121.440942,
    "note": "",
    "maxHeight": null,
    "totalSpace": null
@@ -4766,17 +4820,17 @@
    "totalSpace": null
   },
   {
-   "id": "p1bq8lw4",
+   "id": "p1vr0ubu",
    "brands": [
     "carmochi"
    ],
-   "name": "寶盛市民大道塔城站（大同區西寧北路至塔城街地下停車場",
+   "name": "寶盛市民大道塔城站",
    "city": "台北市",
    "district": "大同區",
-   "address": "鄰近大同區鄭州路139號",
-   "lat": 25.050454,
-   "lng": 121.510087,
-   "note": "",
+   "address": "大同區西寧北路至塔城街地下停車場",
+   "lat": 25.055218,
+   "lng": 121.508337,
+   "note": "鄰近大同區鄭州路139號",
    "maxHeight": null,
    "totalSpace": null
   },
@@ -4796,28 +4850,56 @@
    "totalSpace": null
   },
   {
-   "id": "p1gctpxb",
+   "id": "p1mwb79v",
    "brands": [
     "carmochi"
    ],
-   "name": "市民大道建復段（中山區市民大道三段",
+   "name": "市民大道建復段",
    "city": "台北市",
-   "district": "",
-   "address": "建國南路至復興南路",
-   "lat": 25.031135,
-   "lng": 121.540591,
-   "note": "",
+   "district": "中山區",
+   "address": "中山區市民大道三段",
+   "lat": 25.0446958,
+   "lng": 121.540823,
+   "note": "建國南路至復興南路",
    "maxHeight": null,
    "totalSpace": null
   },
   {
    "id": "p1nkf9py",
    "brands": [
-    "carmochi",
-    "carmochi",
     "carmochi"
    ],
    "name": "市民大道復敦段",
+   "city": "台北市",
+   "district": "松山區",
+   "address": "松山區市民大道四段",
+   "lat": 25.0449495,
+   "lng": 121.5490361,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1jf19cg",
+   "brands": [
+    "carmochi"
+   ],
+   "name": "市民大道敦延段",
+   "city": "台北市",
+   "district": "松山區",
+   "address": "松山區市民大道四段",
+   "lat": 25.0449495,
+   "lng": 121.5490361,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1jdwtcj",
+   "brands": [
+    "carmochi"
+   ],
+   "name": "市民大道延吉段",
    "city": "台北市",
    "district": "松山區",
    "address": "松山區市民大道四段",
@@ -4888,17 +4970,17 @@
    "totalSpace": null
   },
   {
-   "id": "p1fi0ebf",
+   "id": "pqetl9t",
    "brands": [
     "carmochi"
    ],
-   "name": "嘟嘟房建國高架站（中山區建國北路高架橋下停車場",
+   "name": "嘟嘟房建國高架站",
    "city": "台北市",
-   "district": "",
-   "address": "八德路-民族東路",
-   "lat": 25.068502,
-   "lng": 121.522774,
-   "note": "",
+   "district": "中山區",
+   "address": "中山區建國北路高架橋下停車場",
+   "lat": 25.05622,
+   "lng": 121.536667,
+   "note": "八德路-民族東路",
    "maxHeight": null,
    "totalSpace": null
   },
@@ -5038,17 +5120,17 @@
    "totalSpace": null
   },
   {
-   "id": "p6zyjpi",
+   "id": "p1ucqjyb",
    "brands": [
     "carmochi"
    ],
-   "name": "嘟嘟房建南高架站（大安區建國南路高架橋下停車場",
+   "name": "嘟嘟房建南高架站",
    "city": "台北市",
-   "district": "",
-   "address": "忠孝東路-和平東路",
-   "lat": 25.04156,
-   "lng": 121.543669,
-   "note": "",
+   "district": "大安區",
+   "address": "大安區建國南路高架橋下停車場",
+   "lat": 25.027889,
+   "lng": 121.537752,
+   "note": "忠孝東路-和平東路",
    "maxHeight": null,
    "totalSpace": null
   },
@@ -5473,17 +5555,17 @@
    "totalSpace": null
   },
   {
-   "id": "pw8bw5p",
+   "id": "pl7cidi",
    "brands": [
     "carmochi"
    ],
-   "name": "國雲行義路平面停車場（北投區行義路與石牌路2段交叉口",
+   "name": "國雲行義路平面停車場",
    "city": "台北市",
-   "district": "",
-   "address": "行義路1號對面",
-   "lat": 25.1448704,
-   "lng": 121.5255462,
-   "note": "",
+   "district": "北投區",
+   "address": "北投區行義路與石牌路2段交叉口",
+   "lat": 25.123788,
+   "lng": 121.525935,
+   "note": "行義路1號對面",
    "maxHeight": null,
    "totalSpace": null
   },
@@ -6150,7 +6232,6 @@
   {
    "id": "pe7tgb2",
    "brands": [
-    "carmochi",
     "carmochi"
    ],
    "name": "成德立體停車場",
@@ -6159,7 +6240,7 @@
    "address": "南港區成福路1號",
    "lat": 25.0385924,
    "lng": 121.5902824,
-   "note": "室外平面；室內機械",
+   "note": "室外平面",
    "maxHeight": null,
    "totalSpace": null
   },
@@ -6254,17 +6335,17 @@
    "totalSpace": null
   },
   {
-   "id": "p1nh87pi",
+   "id": "p1qb75bi",
    "brands": [
     "carmochi"
    ],
-   "name": "城市車旅耕莘文教院前平面停車場（中正區辛亥路一段22號前",
+   "name": "城市車旅耕莘文教院前平面停車場",
    "city": "台北市",
-   "district": "",
-   "address": "耕莘文教院前",
-   "lat": 25.019141,
-   "lng": 121.528472,
-   "note": "",
+   "district": "中正區",
+   "address": "中正區辛亥路一段22號前",
+   "lat": 25.0198674,
+   "lng": 121.5290821,
+   "note": "耕莘文教院前",
    "maxHeight": null,
    "totalSpace": null
   },
@@ -6284,17 +6365,17 @@
    "totalSpace": null
   },
   {
-   "id": "ptpy7gt",
+   "id": "p1ldjjx5",
    "brands": [
     "carmochi"
    ],
-   "name": "城市車旅松德臨時平面（信義區松德路與信義路五段151巷交叉路口旁空地",
+   "name": "城市車旅松德臨時平面",
    "city": "台北市",
-   "district": "",
-   "address": "中強公園旁",
-   "lat": 25.047743,
-   "lng": 121.515489,
-   "note": "",
+   "district": "信義區",
+   "address": "信義區松德路與信義路五段151巷交叉路口旁空地",
+   "lat": 25.031598,
+   "lng": 121.573669,
+   "note": "中強公園旁",
    "maxHeight": null,
    "totalSpace": null
   },
@@ -6449,38 +6530,346 @@
    "totalSpace": null
   },
   {
-   "id": "p1bo943u",
+   "id": "pm5baad",
    "brands": [
-    "carmochi",
-    "carmochi",
-    "carmochi",
-    "carmochi",
-    "carmochi",
-    "carmochi",
-    "carmochi",
-    "carmochi",
-    "carmochi",
-    "carmochi",
-    "carmochi",
-    "carmochi",
-    "carmochi",
-    "carmochi",
-    "carmochi",
-    "carmochi",
-    "carmochi",
-    "carmochi",
-    "carmochi",
-    "carmochi",
-    "carmochi",
-    "carmochi",
     "carmochi"
    ],
    "name": "前港公園地下停車場",
    "city": "台北市",
    "district": "",
    "address": "",
-   "lat": 25.0375198,
-   "lng": 121.5636796,
+   "lat": 25.0858953,
+   "lng": 121.5201992,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "py51cov",
+   "brands": [
+    "carmochi"
+   ],
+   "name": "福林公園地下停車場",
+   "city": "台北市",
+   "district": "",
+   "address": "",
+   "lat": 25.0959929,
+   "lng": 121.53067,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1h0eg7f",
+   "brands": [
+    "carmochi"
+   ],
+   "name": "蘭雅公園地下停車場",
+   "city": "台北市",
+   "district": "",
+   "address": "",
+   "lat": 25.108554,
+   "lng": 121.523025,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p7paukp",
+   "brands": [
+    "carmochi"
+   ],
+   "name": "大龍國小地下停車場",
+   "city": "台北市",
+   "district": "",
+   "address": "",
+   "lat": 25.07374,
+   "lng": 121.5173,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1rrwefd",
+   "brands": [
+    "carmochi"
+   ],
+   "name": "大安森林公園地下停車場信義路出入口",
+   "city": "台北市",
+   "district": "",
+   "address": "",
+   "lat": 25.032167,
+   "lng": 121.556777,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p3ix4rf",
+   "brands": [
+    "carmochi"
+   ],
+   "name": "大安森林公園地下停車場建國南路出入口",
+   "city": "台北市",
+   "district": "",
+   "address": "",
+   "lat": 25.031157,
+   "lng": 121.539432,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pg3kny4",
+   "brands": [
+    "carmochi"
+   ],
+   "name": "東湖國小地下停車場",
+   "city": "台北市",
+   "district": "",
+   "address": "",
+   "lat": 25.0683389,
+   "lng": 121.6161855,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p132pcn5",
+   "brands": [
+    "carmochi"
+   ],
+   "name": "洲子立體停車場",
+   "city": "台北市",
+   "district": "",
+   "address": "",
+   "lat": 25.0793503,
+   "lng": 121.5693179,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1650ecw",
+   "brands": [
+    "carmochi"
+   ],
+   "name": "大豐公園地下停車場",
+   "city": "台北市",
+   "district": "",
+   "address": "",
+   "lat": 25.1312644,
+   "lng": 121.5041266,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pl4n3z5",
+   "brands": [
+    "carmochi"
+   ],
+   "name": "松山工農地下停車場",
+   "city": "台北市",
+   "district": "",
+   "address": "",
+   "lat": 25.049873,
+   "lng": 121.577054,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p12ifsl5",
+   "brands": [
+    "carmochi"
+   ],
+   "name": "萬華車站地下停車場",
+   "city": "台北市",
+   "district": "",
+   "address": "",
+   "lat": 25.034668,
+   "lng": 121.499806,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1qqwvaq",
+   "brands": [
+    "carmochi"
+   ],
+   "name": "景美國小地下停車場",
+   "city": "台北市",
+   "district": "",
+   "address": "",
+   "lat": 24.9886921,
+   "lng": 121.5402962,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1g082w4",
+   "brands": [
+    "carmochi"
+   ],
+   "name": "嘟嘟房捷運北投站停車場",
+   "city": "台北市",
+   "district": "",
+   "address": "",
+   "lat": 24.982234,
+   "lng": 121.540692,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pax1rra",
+   "brands": [
+    "carmochi"
+   ],
+   "name": "嘟嘟房捷運芝山站停車場",
+   "city": "台北市",
+   "district": "",
+   "address": "",
+   "lat": 24.982234,
+   "lng": 121.540692,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pfan0i5",
+   "brands": [
+    "carmochi"
+   ],
+   "name": "國雲蓬萊國小停車場",
+   "city": "台北市",
+   "district": "",
+   "address": "",
+   "lat": 25.055675,
+   "lng": 121.602152,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1nzpl3s",
+   "brands": [
+    "carmochi"
+   ],
+   "name": "嘟嘟房新和庭園停車場",
+   "city": "台北市",
+   "district": "",
+   "address": "",
+   "lat": 25.055675,
+   "lng": 121.602152,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pdziuso",
+   "brands": [
+    "carmochi"
+   ],
+   "name": "莒光社會公宅地下停車場",
+   "city": "台北市",
+   "district": "",
+   "address": "",
+   "lat": 25.032621,
+   "lng": 121.507547,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1gjschm",
+   "brands": [
+    "carmochi"
+   ],
+   "name": "國雲民德大樓地下停車場",
+   "city": "台北市",
+   "district": "",
+   "address": "",
+   "lat": 25.034367,
+   "lng": 121.560925,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "ps9e0c6",
+   "brands": [
+    "carmochi"
+   ],
+   "name": "國雲停車瑞湖站",
+   "city": "台北市",
+   "district": "",
+   "address": "",
+   "lat": 25.055675,
+   "lng": 121.602152,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1mgn587",
+   "brands": [
+    "carmochi"
+   ],
+   "name": "嘟嘟房捷運石牌站停車場",
+   "city": "台北市",
+   "district": "",
+   "address": "",
+   "lat": 24.982234,
+   "lng": 121.540692,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1pxktnu",
+   "brands": [
+    "carmochi"
+   ],
+   "name": "松德大樓地下停車場",
+   "city": "台北市",
+   "district": "",
+   "address": "",
+   "lat": 25.0589422,
+   "lng": 121.5426807,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "ppgntz8",
+   "brands": [
+    "carmochi"
+   ],
+   "name": "建南高架橋下I區",
+   "city": "台北市",
+   "district": "",
+   "address": "",
+   "lat": 25.04114,
+   "lng": 121.537324,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1vld75t",
+   "brands": [
+    "carmochi"
+   ],
+   "name": "樂活公園",
+   "city": "台北市",
+   "district": "",
+   "address": "",
+   "lat": 25.0683782,
+   "lng": 121.6189391,
    "note": "",
    "maxHeight": null,
    "totalSpace": null
@@ -6876,17 +7265,17 @@
    "totalSpace": null
   },
   {
-   "id": "plo5rdt",
+   "id": "pqw5kke",
    "brands": [
     "carmochi"
    ],
-   "name": "ViVi PARK 平鎮坤慶一街場（平鎮區坤慶一街88號後方",
+   "name": "ViVi PARK 平鎮坤慶一街場",
    "city": "桃園市",
    "district": "平鎮",
-   "address": "平鎮家樂福旁",
-   "lat": 24.900022,
-   "lng": 121.213626,
-   "note": "",
+   "address": "平鎮區坤慶一街88號後方",
+   "lat": 24.9016635,
+   "lng": 121.2122714,
+   "note": "平鎮家樂福旁",
    "maxHeight": null,
    "totalSpace": null
   },
@@ -7086,17 +7475,17 @@
    "totalSpace": null
   },
   {
-   "id": "p1dkt4x9",
+   "id": "pqwef3v",
    "brands": [
     "carmochi"
    ],
-   "name": "城市車旅龍潭舊鄉代會站（龍潭區龍星里中正路210號",
+   "name": "城市車旅龍潭舊鄉代會站",
    "city": "桃園市",
-   "district": "",
-   "address": "龍潭衛生所旁",
-   "lat": 24.864006,
-   "lng": 121.216501,
-   "note": "",
+   "district": "龍潭區",
+   "address": "龍潭區龍星里中正路210號",
+   "lat": 24.8604348,
+   "lng": 121.2182484,
+   "note": "龍潭衛生所旁",
    "maxHeight": null,
    "totalSpace": null
   },
@@ -7206,26 +7595,166 @@
    "totalSpace": null
   },
   {
-   "id": "p1es8j7c",
+   "id": "pykmqw9",
    "brands": [
-    "carmochi",
-    "carmochi",
-    "carmochi",
-    "carmochi",
-    "carmochi",
-    "carmochi",
-    "carmochi",
-    "carmochi",
-    "carmochi",
-    "carmochi",
     "carmochi"
    ],
    "name": "鼎豐大樹藥局中山場",
    "city": "桃園市",
    "district": "",
    "address": "",
-   "lat": 24.9929995,
-   "lng": 121.3010003,
+   "lat": 24.984722,
+   "lng": 121.314645,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1jqmyp8",
+   "brands": [
+    "carmochi"
+   ],
+   "name": "鼎豐豐田停車場",
+   "city": "桃園市",
+   "district": "",
+   "address": "",
+   "lat": 24.926745,
+   "lng": 121.290079,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p2yl4w0",
+   "brands": [
+    "carmochi"
+   ],
+   "name": "鼎豐新中北停車場",
+   "city": "桃園市",
+   "district": "",
+   "address": "",
+   "lat": 24.9450929,
+   "lng": 121.2167131,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p19zndv8",
+   "brands": [
+    "carmochi"
+   ],
+   "name": "鼎豐復興北停車場",
+   "city": "桃園市",
+   "district": "",
+   "address": "",
+   "lat": 25.059473,
+   "lng": 121.369275,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pdwf7li",
+   "brands": [
+    "carmochi"
+   ],
+   "name": "鼎豐中山二停車場",
+   "city": "桃園市",
+   "district": "",
+   "address": "",
+   "lat": 25.035666,
+   "lng": 121.213267,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pk4kg3i",
+   "brands": [
+    "carmochi"
+   ],
+   "name": "國雲停車南門市場停車場",
+   "city": "桃園市",
+   "district": "",
+   "address": "",
+   "lat": null,
+   "lng": null,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p792g",
+   "brands": [
+    "carmochi"
+   ],
+   "name": "鼎豐新富停車場",
+   "city": "桃園市",
+   "district": "",
+   "address": "",
+   "lat": 24.9450929,
+   "lng": 121.2167131,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pk0vql7",
+   "brands": [
+    "carmochi"
+   ],
+   "name": "鼎豐楊梅停車場",
+   "city": "桃園市",
+   "district": "",
+   "address": "",
+   "lat": 24.908228,
+   "lng": 121.145282,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "purl5wb",
+   "brands": [
+    "carmochi"
+   ],
+   "name": "鼎豐巧合停車場",
+   "city": "桃園市",
+   "district": "",
+   "address": "",
+   "lat": null,
+   "lng": null,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "prywnuf",
+   "brands": [
+    "carmochi"
+   ],
+   "name": "鼎豐大象青山停車場",
+   "city": "桃園市",
+   "district": "",
+   "address": "",
+   "lat": 25.0177136,
+   "lng": 121.2125363,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p8nngql",
+   "brands": [
+    "carmochi"
+   ],
+   "name": "國雲停車站前東平面停車場",
+   "city": "桃園市",
+   "district": "",
+   "address": "",
+   "lat": null,
+   "lng": null,
    "note": "",
    "maxHeight": null,
    "totalSpace": null
@@ -7861,7 +8390,7 @@
    "totalSpace": null
   },
   {
-   "id": "pyvdxvz",
+   "id": "p135vmm",
    "brands": [
     "carmochi"
    ],
@@ -7869,8 +8398,8 @@
    "city": "新竹縣市",
    "district": "",
    "address": "",
-   "lat": 24.8014026,
-   "lng": 120.971678,
+   "lat": 24.808398,
+   "lng": 121.032603,
    "note": "",
    "maxHeight": null,
    "totalSpace": null
@@ -8199,8 +8728,8 @@
    "city": "台中市",
    "district": "南屯區",
    "address": "南屯區豐功段167地號",
-   "lat": 23.15993,
-   "lng": 120.277188,
+   "lat": null,
+   "lng": null,
    "note": "",
    "maxHeight": null,
    "totalSpace": null
@@ -8373,7 +8902,6 @@
   {
    "id": "p1n718wd",
    "brands": [
-    "carmochi",
     "carmochi"
    ],
    "name": "城市車旅沙鹿竹林北溪三站",
@@ -8627,17 +9155,17 @@
    "totalSpace": null
   },
   {
-   "id": "p9sz4v5",
+   "id": "p141a6tm",
    "brands": [
     "carmochi"
    ],
-   "name": "城市車旅國豐站（西屯區永安里國安二路179號",
+   "name": "城市車旅國豐站",
    "city": "台中市",
-   "district": "",
-   "address": "旁",
-   "lat": 24.1498449,
-   "lng": 120.6908845,
-   "note": "",
+   "district": "西屯區",
+   "address": "西屯區永安里國安二路179號",
+   "lat": 24.1909286,
+   "lng": 120.6164031,
+   "note": "旁",
    "maxHeight": null,
    "totalSpace": null
   },
@@ -8652,6 +9180,21 @@
    "address": "西屯區大容東街&大容東一街交叉口",
    "lat": 24.156696,
    "lng": 120.64779,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pyayos6",
+   "brands": [
+    "carmochi"
+   ],
+   "name": "城市車旅沙鹿竹林北溪二站",
+   "city": "台中市",
+   "district": "沙鹿區",
+   "address": "沙鹿區鹿寮里光華路308號旁停車場",
+   "lat": 24.2441334,
+   "lng": 120.5701957,
    "note": "",
    "maxHeight": null,
    "totalSpace": null
@@ -8740,8 +9283,8 @@
    "city": "台中市",
    "district": "大里區",
    "address": "大里區新里里大里路與大新街口",
-   "lat": 25.13258,
-   "lng": 121.49862,
+   "lat": 24.09777,
+   "lng": 120.675808,
    "note": "",
    "maxHeight": null,
    "totalSpace": null
@@ -8749,7 +9292,6 @@
   {
    "id": "p117f04w",
    "brands": [
-    "carmochi",
     "carmochi"
    ],
    "name": "城市車旅台中新光市場二站",
@@ -9161,8 +9703,8 @@
    "city": "台中市",
    "district": "太平區",
    "address": "太平區平安里太平路135號旁",
-   "lat": 22.9938988,
-   "lng": 120.1807642,
+   "lat": 24.120145,
+   "lng": 120.721275,
    "note": "",
    "maxHeight": null,
    "totalSpace": null
@@ -9410,7 +9952,6 @@
   {
    "id": "p18twyuu",
    "brands": [
-    "carmochi",
     "carmochi"
    ],
    "name": "城市車旅潭子慈濟站",
@@ -9479,6 +10020,21 @@
    "address": "大雅區大雅里大雅路149號旁",
    "lat": 24.2242543,
    "lng": 120.6489131,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1x9q6wg",
+   "brands": [
+    "carmochi"
+   ],
+   "name": "城市車旅台中新光市場一站",
+   "city": "台中市",
+   "district": "東區",
+   "address": "東區東英里十甲路600號停車場",
+   "lat": 24.142053,
+   "lng": 120.708658,
    "note": "",
    "maxHeight": null,
    "totalSpace": null
@@ -9569,6 +10125,21 @@
    "address": "北屯區舊社里長安段393､419-1地號停車場",
    "lat": 24.249413,
    "lng": 120.720768,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p3oj6q1",
+   "brands": [
+    "carmochi"
+   ],
+   "name": "城市車旅潭子慈濟一場",
+   "city": "台中市",
+   "district": "潭子區",
+   "address": "潭子區聚興里豐興路一段88號",
+   "lat": 24.2000755,
+   "lng": 120.7222347,
    "note": "",
    "maxHeight": null,
    "totalSpace": null
@@ -9816,14 +10387,84 @@
   {
    "id": "p29t2rv",
    "brands": [
-    "carmochi",
-    "carmochi",
-    "carmochi",
-    "carmochi",
-    "carmochi",
     "carmochi"
    ],
    "name": "城市車旅中科管理局",
+   "city": "台中市",
+   "district": "大雅區",
+   "address": "大雅區橫山里中科路6號地下停車場",
+   "lat": 24.2054285,
+   "lng": 120.6317401,
+   "note": "含機車位",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pessf6h",
+   "brands": [
+    "carmochi"
+   ],
+   "name": "城市車旅中科停一站",
+   "city": "台中市",
+   "district": "大雅區",
+   "address": "大雅區橫山里中科路6號地下停車場",
+   "lat": 24.2054285,
+   "lng": 120.6317401,
+   "note": "含機車位",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pessiqt",
+   "brands": [
+    "carmochi"
+   ],
+   "name": "城市車旅中科停二站",
+   "city": "台中市",
+   "district": "大雅區",
+   "address": "大雅區橫山里中科路6號地下停車場",
+   "lat": 24.2054285,
+   "lng": 120.6317401,
+   "note": "含機車位",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pest1ie",
+   "brands": [
+    "carmochi"
+   ],
+   "name": "城市車旅中科停六站",
+   "city": "台中市",
+   "district": "大雅區",
+   "address": "大雅區橫山里中科路6號地下停車場",
+   "lat": 24.2054285,
+   "lng": 120.6317401,
+   "note": "含機車位",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pest1gk",
+   "brands": [
+    "carmochi"
+   ],
+   "name": "城市車旅中科停八站",
+   "city": "台中市",
+   "district": "大雅區",
+   "address": "大雅區橫山里中科路6號地下停車場",
+   "lat": 24.2054285,
+   "lng": 120.6317401,
+   "note": "含機車位",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pesshjq",
+   "brands": [
+    "carmochi"
+   ],
+   "name": "城市車旅中科停九站",
    "city": "台中市",
    "district": "大雅區",
    "address": "大雅區橫山里中科路6號地下停車場",
@@ -9851,10 +10492,24 @@
   {
    "id": "pue6oks",
    "brands": [
-    "carmochi",
     "carmochi"
    ],
    "name": "校本部地下汽機車停車場",
+   "city": "台中市",
+   "district": "北屯區",
+   "address": "北屯區經貿路一段100號",
+   "lat": 24.1803135,
+   "lng": 120.6583427,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1bw1vcp",
+   "brands": [
+    "carmochi"
+   ],
+   "name": "歷建區汽機車停車場",
    "city": "台中市",
    "district": "北屯區",
    "address": "北屯區經貿路一段100號",
@@ -9895,17 +10550,31 @@
    "totalSpace": null
   },
   {
-   "id": "p1bnfr1c",
+   "id": "p1q3cyco",
    "brands": [
-    "carmochi",
     "carmochi"
    ],
    "name": "國雲停車豐原停車場",
    "city": "台中市",
    "district": "",
    "address": "",
-   "lat": 24.163162,
-   "lng": 120.6478282,
+   "lat": null,
+   "lng": null,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p3zk557",
+   "brands": [
+    "carmochi"
+   ],
+   "name": "一德洋樓停車場",
+   "city": "台中市",
+   "district": "",
+   "address": "",
+   "lat": 24.316148,
+   "lng": 120.704462,
    "note": "",
    "maxHeight": null,
    "totalSpace": null
@@ -10616,17 +11285,17 @@
    "totalSpace": null
   },
   {
-   "id": "p1tpj5j8",
+   "id": "p3q24bb",
    "brands": [
     "carmochi"
    ],
-   "name": "城市車旅古坑二二八紀念公園（古坑鄉湳仔村台三線旁",
+   "name": "城市車旅古坑二二八紀念公園",
    "city": "雲林縣",
-   "district": "",
-   "address": "二二八紀念公園旁",
-   "lat": 23.814546,
-   "lng": 120.615993,
-   "note": "",
+   "district": "古坑鄉",
+   "address": "古坑鄉湳仔村台三線旁",
+   "lat": 23.648267,
+   "lng": 120.55106,
+   "note": "二二八紀念公園旁",
    "maxHeight": null,
    "totalSpace": null
   },
@@ -10901,17 +11570,17 @@
    "totalSpace": null
   },
   {
-   "id": "p1t65z80",
+   "id": "pqa1kox",
    "brands": [
     "carmochi"
    ],
-   "name": "城市車旅垂楊二站（西區垂楊路908號對面",
+   "name": "城市車旅垂楊二站",
    "city": "嘉義縣市",
-   "district": "",
-   "address": "垂楊大橋停車場",
-   "lat": 23.992462,
-   "lng": 121.608254,
-   "note": "",
+   "district": "西區",
+   "address": "西區垂楊路908號對面",
+   "lat": 23.4739287,
+   "lng": 120.4503318,
+   "note": "垂楊大橋停車場",
    "maxHeight": null,
    "totalSpace": null
   },
@@ -11248,7 +11917,6 @@
   {
    "id": "p1m35c6g",
    "brands": [
-    "carmochi",
     "carmochi"
    ],
    "name": "城市車旅安南醫院地下停車場",
@@ -11257,7 +11925,7 @@
    "address": "安南區長和路二段66號",
    "lat": 23.0641183,
    "lng": 120.2231649,
-   "note": "中醫安南A",
+   "note": "",
    "maxHeight": null,
    "totalSpace": null
   },
@@ -11273,6 +11941,21 @@
    "lat": 22.9892911,
    "lng": 120.195037,
    "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "prehzrz",
+   "brands": [
+    "carmochi"
+   ],
+   "name": "城市車旅安南醫院平面停車場",
+   "city": "台南市",
+   "district": "安南區",
+   "address": "安南區長和路二段66號",
+   "lat": 23.0641183,
+   "lng": 120.2231649,
+   "note": "中醫安南A",
    "maxHeight": null,
    "totalSpace": null
   },
@@ -11352,17 +12035,17 @@
    "totalSpace": null
   },
   {
-   "id": "p1aj9gvx",
+   "id": "pih7e6i",
    "brands": [
     "carmochi"
    ],
-   "name": "城市車旅安南醫院第五停車場（安南區長和路二段66號",
+   "name": "城市車旅安南醫院第五停車場",
    "city": "台南市",
-   "district": "",
-   "address": "對面空地停車場",
-   "lat": 23.992462,
-   "lng": 121.608254,
-   "note": "",
+   "district": "安南區",
+   "address": "安南區長和路二段66號",
+   "lat": 23.0641183,
+   "lng": 120.2231649,
+   "note": "對面空地停車場",
    "maxHeight": null,
    "totalSpace": null
   },
@@ -11397,7 +12080,7 @@
    "totalSpace": null
   },
   {
-   "id": "p1boalvu",
+   "id": "phiyl5a",
    "brands": [
     "carmochi"
    ],
@@ -11405,8 +12088,8 @@
    "city": "台南市",
    "district": "",
    "address": "",
-   "lat": 22.9912348,
-   "lng": 120.184982,
+   "lat": 23.002541,
+   "lng": 120.184136,
    "note": "",
    "maxHeight": null,
    "totalSpace": null
@@ -12224,7 +12907,6 @@
   {
    "id": "p1id6l6v",
    "brands": [
-    "carmochi",
     "carmochi"
    ],
    "name": "ViVi PARK 凱歌路一站停車場",
@@ -12323,6 +13005,21 @@
    "address": "楠梓區後昌路873號對面",
    "lat": 22.7082152,
    "lng": 120.2985495,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p17chvve",
+   "brands": [
+    "carmochi"
+   ],
+   "name": "ViVi PARK 凱歌路二站停車場",
+   "city": "高雄市",
+   "district": "三民區",
+   "address": "三民區凱歌路8號旁空地",
+   "lat": 22.6371062,
+   "lng": 120.317628,
    "note": "",
    "maxHeight": null,
    "totalSpace": null
@@ -12628,7 +13325,7 @@
    "totalSpace": null
   },
   {
-   "id": "p1mrv5r3",
+   "id": "p6ct4n2",
    "brands": [
     "carmochi"
    ],
@@ -12636,8 +13333,8 @@
    "city": "高雄市",
    "district": "",
    "address": "",
-   "lat": 22.6203348,
-   "lng": 120.3120375,
+   "lat": 22.654967,
+   "lng": 120.313525,
    "note": "",
    "maxHeight": null,
    "totalSpace": null
@@ -12883,7 +13580,7 @@
    "totalSpace": null
   },
   {
-   "id": "p1j0rx1f",
+   "id": "p1eg8gle",
    "brands": [
     "carmochi"
    ],
@@ -12891,8 +13588,8 @@
    "city": "花蓮縣",
    "district": "",
    "address": "",
-   "lat": 23.9913421,
-   "lng": 121.6197276,
+   "lat": 23.992462,
+   "lng": 121.608254,
    "note": "",
    "maxHeight": null,
    "totalSpace": null
@@ -13108,7 +13805,7 @@
    "totalSpace": null
   },
   {
-   "id": "p1brsjdx",
+   "id": "p1ivv6ic",
    "brands": [
     "carmochi"
    ],
@@ -13116,8 +13813,8 @@
    "city": "台東縣",
    "district": "",
    "address": "",
-   "lat": 22.7553667,
-   "lng": 121.1506,
+   "lat": 22.793814,
+   "lng": 121.123162,
    "note": "",
    "maxHeight": null,
    "totalSpace": null

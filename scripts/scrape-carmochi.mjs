@@ -34,7 +34,16 @@ function parseLot(line) {
     .map((g) => g[1].trim())
     .filter(Boolean)
     .join('；');
-  return { name, note, address };
+  const lot = { name, note, address };
+  // 來源偶有未閉合括號（如「名稱（地址（別名）」）→ 名稱殘留的「（」後段視為地址、原地址降為備註
+  const cut = lot.name.search(/[（(]/);
+  if (cut !== -1) {
+    const tail = lot.name.slice(cut + 1).trim();
+    lot.note = [lot.note, lot.address].filter(Boolean).join('；');
+    lot.address = tail;
+    lot.name = lot.name.slice(0, cut).trim();
+  }
+  return lot;
 }
 
 const res = await fetch(SOURCE_URL, { headers: { 'user-agent': 'Mozilla/5.0' } });

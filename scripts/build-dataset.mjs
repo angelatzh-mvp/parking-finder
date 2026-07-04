@@ -48,22 +48,36 @@ const cm = JSON.parse(readFileSync(join(ROOT, 'data', 'carmochi-geo.json'), 'utf
 
 const byKey = new Map();
 
-// App 的定位是「信用卡免費停車」，官方名稱明示不提供優惠的場站直接排除
-const NO_DISCOUNT_RE = /不提供信用卡|無信用卡|不適用信用卡/;
+// App 的定位是「信用卡免費停車」，官方名稱明示不提供／無配合優惠的場站直接排除
+const NO_DISCOUNT_RE = /不提供信用卡|無信用卡|不適用信用卡|[無不未]配合(提供)?信用卡/;
+
+// 名稱中的「(不支援線上繳費)」類註記 → 移到備註，名稱保持乾淨
+function splitPayNote(name) {
+  let n = name;
+  let payNote = null;
+  const m = n.match(/[（(]+\s*([^()（）]*不支援線上繳費[^()（）]*)\s*[)）]+/);
+  if (m) {
+    payNote = m[1].trim();
+    n = n.replace(m[0], '');
+  }
+  n = n.replace(/[（(]\s*[)）]/g, '').trim();
+  return { name: n, payNote };
+}
 
 for (const l of utg.lots) {
   if (NO_DISCOUNT_RE.test(l.name + (l.note ?? ''))) continue;
+  const { name, payNote } = splitPayNote(l.name);
   const key = addrKey(l.city, l.address);
   byKey.set(key, {
     id: hashId(key),
     brands: ['utg'],
-    name: l.name,
+    name,
     city: canonCity(l.city),
     district: cleanDistrict(l.district || districtOf(l.address.replace(/^.{2,3}[市縣]/, ""))),
     address: toHalfWidth(l.address),
     lat: l.lat,
     lng: l.lng,
-    note: l.note,
+    note: [l.note, payNote].filter(Boolean).join('；'),
     maxHeight: l.maxHeight,
     totalSpace: l.totalSpace,
   });
@@ -71,18 +85,30 @@ for (const l of utg.lots) {
 
 let merged = 0;
 for (const l of cm.lots) {
+  if (NO_DISCOUNT_RE.test(l.name + (l.note ?? ''))) continue;
   const key = addrKey(l.city, l.address);
-  const existing = byKey.get(key);
+  const hasAddr = key.split('|')[1] !== '';
+  // 只有「地址非空」才能跨品牌合併；空地址的 key 沒有辨識力
+  const existing = hasAddr ? byKey.get(key) : undefined;
   if (existing) {
-    existing.brands.push('carmochi');
-    if (l.note && !existing.note?.includes(l.note)) {
-      existing.note = [existing.note, l.note].filter(Boolean).join('；');
+    if (!existing.brands.includes('carmochi')) {
+      // 跨品牌同地址 → 同一場站，掛雙品牌
+      existing.brands.push('carmochi');
+      if (l.note && !existing.note?.includes(l.note)) {
+        existing.note = [existing.note, l.note].filter(Boolean).join('；');
+      }
+      merged++;
+      continue;
     }
-    merged++;
-    continue;
+    // 同品牌同地址同名 → 來源重複列出，跳過
+    if (existing.name === l.name) continue;
+    // 同品牌同地址不同名（如中科停一～六站）→ 是不同場站，往下各自獨立保留
   }
-  byKey.set(key, {
-    id: hashId(key),
+  // 撞 key（或無地址）時以「key＋名稱」確保各場站獨立且 id 穩定
+  const ownKey = existing || !hasAddr ? `${key}|${l.name}` : key;
+  if (byKey.has(ownKey)) continue;
+  byKey.set(ownKey, {
+    id: hashId(ownKey),
     brands: ['carmochi'],
     name: l.name,
     city: canonCity(l.city),

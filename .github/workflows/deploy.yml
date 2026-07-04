@@ -37,9 +37,11 @@ jobs:
           node scripts/geocode-carmochi.mjs
           node scripts/geocode-fallback.mjs
       - name: Build dataset
-        run: |
-          node scripts/build-dataset.mjs
-          cp data/parking-lots.json web/data/
+        run: node scripts/build-dataset.mjs
+      - name: Validate dataset（未通過即中止，網站保持舊資料）
+        run: node scripts/validate-dataset.mjs
+      - name: Copy to web
+        run: cp data/parking-lots.json web/data/
       - name: Commit updated data
         run: |
           git config user.name "github-actions[bot]"

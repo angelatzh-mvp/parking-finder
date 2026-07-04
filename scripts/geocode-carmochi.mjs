@@ -42,7 +42,9 @@ let misses = 0;
 let queries = 0;
 
 for (const lot of raw.lots) {
-  const query = cityForQuery(lot.city) + cleanAddress(lot.address);
+  const addrPart = cleanAddress(lot.address);
+  // 沒有地址的場站改用「縣市＋場站名」查地標；絕不可只用縣市查（會拿到縣市代表點）
+  const query = cityForQuery(lot.city) + (addrPart || lot.name);
   let geo = cache[query];
   if (geo === undefined) {
     geo = await geocode(query);
