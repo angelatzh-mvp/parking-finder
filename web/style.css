@@ -59,6 +59,7 @@ svg { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 2
   display: flex; align-items: center; gap: 6px;
   padding: 7px 16px; font-size: 12px; color: var(--text-2); background: var(--surface-1);
 }
+#loc-retry { margin-left: auto; flex-shrink: 0; color: var(--accent); font-weight: 500; font-size: 12px; padding: 4px 0 4px 10px; }
 .status-row:empty { display: none; }
 .status-row svg { font-size: 14px; color: var(--accent); flex-shrink: 0; }
 
@@ -129,6 +130,7 @@ svg { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 2
   border: 0.5px solid var(--border); border-bottom: none;
   box-shadow: 0 -4px 16px rgba(0,0,0,.10); z-index: 600;
   max-height: 60%; overflow-y: auto;
+  transition: transform .18s ease;
 }
 .sheet-handle { padding: 6px 0 2px; display: flex; justify-content: center; }
 .sheet-handle span { width: 32px; height: 4px; border-radius: 2px; background: var(--border-2); }

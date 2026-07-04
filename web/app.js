@@ -17,10 +17,11 @@ const state = {
   // 首次進入時選擇的所在縣市，之後每次開啟預設帶入（存在裝置上）
   city: localStorage.getItem(HOME_KEY) || null,
   district: null,
-  tab: 'list',
+  tab: 'map',
   loc: null,
+  locStatus: 'idle', // idle | pending | on | off
   favs: loadFavs(),
-  expanded: new Set(),
+  expanded: null,
   favExpanded: null,
   selectedId: null,
   listLimit: LIST_PAGE,
@@ -125,8 +126,8 @@ function badgesHtml(lot) {
 
 function cardHtml(lot, opts = {}) {
   const { fav = null, inSheet = false } = opts;
-  // 常用清單一次只展開一張（favExpanded 單值）；其他清單維持多張展開
-  const expanded = inSheet || (fav ? state.favExpanded === lot.id : state.expanded.has(lot.id));
+  // 清單與常用皆為手風琴：一次只展開一張
+  const expanded = inSheet || (fav ? state.favExpanded === lot.id : state.expanded === lot.id);
   const stale = fav && !state.lots.some((l) => l.id === fav.id);
   const topLeft = stale
     ? `<span class="badge badge-warn">${I.warn} 已不在最新官方名單</span>`
@@ -177,9 +178,12 @@ function renderStatus() {
   const el = $('#status-row');
   const n = filteredLots().length;
   const parts = [`${n} 個場站`];
-  if (state.loc) parts.push('依距離排序');
   if (state.city) parts.push(state.city + (state.district ? ` ${state.district}` : ''));
-  el.innerHTML = `${I.loc}<span>${parts.join(' · ')}</span>`;
+  let tail = '';
+  if (state.loc) parts.push('依距離近到遠');
+  else if (state.locStatus === 'pending') parts.push('定位中…');
+  else tail = `<button id="loc-retry">開啟定位看距離</button>`;
+  el.innerHTML = `${I.loc}<span>${parts.join(' · ')}</span>${tail}`;
 }
 
 function renderList() {
@@ -203,6 +207,8 @@ function renderList() {
     for (const city of CITY_ORDER) {
       const group = byCity.get(city);
       if (!group) continue;
+      // 未開定位：組內依行政區→名稱排序，順序穩定可預期
+      group.sort((a, b) => (a.district ?? '').localeCompare(b.district ?? '', 'zh-Hant') || a.name.localeCompare(b.name, 'zh-Hant'));
       html += `<div class="group-head">${city}（${group.length}）</div>`;
       html += group.map((l) => cardHtml(l)).join('');
     }
@@ -307,7 +313,7 @@ function selectLot(id) {
 function renderSheet() {
   const sheet = $('#sheet');
   const lot = state.lots.find((l) => l.id === state.selectedId);
-  if (!lot) { sheet.hidden = true; return; }
+  if (!lot) { sheet.hidden = true; sheet.style.transform = ''; return; }
   const withD = { ...lot, dist: state.loc && lot.lat ? haversine(state.loc, lot) : null };
   $('#sheet-body').innerHTML = cardHtml(withD, { inSheet: true });
   sheet.hidden = false;
@@ -316,15 +322,18 @@ function renderSheet() {
 /* ---------- location ---------- */
 
 function requestLocation(pan = false) {
-  if (!navigator.geolocation) return;
+  if (!navigator.geolocation) { state.locStatus = 'off'; renderStatus(); return; }
+  state.locStatus = 'pending';
+  renderStatus();
   navigator.geolocation.getCurrentPosition(
     (pos) => {
       state.loc = { lat: pos.coords.latitude, lng: pos.coords.longitude };
+      state.locStatus = 'on';
       state.listLimit = LIST_PAGE;
       if (map && pan) map.setView([state.loc.lat, state.loc.lng], 15);
       render();
     },
-    () => { state.loc = null; render(); },
+    () => { state.loc = null; state.locStatus = 'off'; render(); },
     { enableHighAccuracy: true, timeout: 8000, maximumAge: 60000 },
   );
 }
@@ -455,8 +464,7 @@ function onCardAction(e) {
       state.favExpanded = state.favExpanded === id ? null : id;
       renderFavs();
     } else {
-      if (state.expanded.has(id)) state.expanded.delete(id);
-      else state.expanded.add(id);
+      state.expanded = state.expanded === id ? null : id;
       renderList();
     }
   }
@@ -504,9 +512,38 @@ async function main() {
   $('#sheet-body').addEventListener('click', onCardAction);
   $('#sheet-close').addEventListener('click', () => selectLot(null));
   $('#locate-btn').addEventListener('click', () => requestLocation(true));
+  $('#status-row').addEventListener('click', (e) => {
+    if (e.target.closest('#loc-retry')) requestLocation(state.tab === 'map');
+  });
   document.querySelectorAll('.nav-item').forEach((b) => b.addEventListener('click', () => switchTab(b.dataset.tab)));
 
-  render();
+  // 蓋板下滑關閉：內容捲到頂端時往下拖，超過門檻收起、否則彈回
+  const sheet = $('#sheet');
+  let dragStartY = null, dragDy = 0;
+  sheet.addEventListener('touchstart', (e) => {
+    if (sheet.scrollTop > 0) { dragStartY = null; return; }
+    dragStartY = e.touches[0].clientY;
+    dragDy = 0;
+  }, { passive: true });
+  sheet.addEventListener('touchmove', (e) => {
+    if (dragStartY == null) return;
+    dragDy = e.touches[0].clientY - dragStartY;
+    if (dragDy > 0) {
+      e.preventDefault();
+      sheet.style.transition = 'none';
+      sheet.style.transform = `translateY(${dragDy}px)`;
+    }
+  }, { passive: false });
+  sheet.addEventListener('touchend', () => {
+    if (dragStartY == null) return;
+    sheet.style.transition = '';
+    sheet.style.transform = '';
+    if (dragDy > 72) selectLot(null);
+    dragStartY = null;
+    dragDy = 0;
+  });
+
+  switchTab('map');
   requestLocation();
 
   // 首次使用：先選所在縣市，之後每次開啟預設顯示該地區
