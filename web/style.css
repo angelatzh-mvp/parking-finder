@@ -202,6 +202,23 @@ svg { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 2
 .nav-item[aria-pressed="true"] .nav-pill { background: var(--accent-bg); color: var(--accent); }
 .nav-item[aria-pressed="true"] .nav-label { color: var(--text); font-weight: 500; }
 
+.user-loc { position: relative; width: 22px; height: 22px; }
+.user-loc-dot {
+  position: absolute; inset: 4px; border-radius: 50%;
+  background: #378add; border: 2.5px solid #fff;
+  box-shadow: 0 1px 4px rgba(0,0,0,.35);
+}
+.user-loc-pulse {
+  position: absolute; inset: 0; border-radius: 50%;
+  background: rgba(55,138,221,.45);
+  animation: loc-pulse 2.2s ease-out infinite;
+}
+@keyframes loc-pulse {
+  0% { transform: scale(.6); opacity: .9; }
+  70% { transform: scale(2.2); opacity: 0; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+
 .pin-utg { --pin: var(--utg); }
 .pin-cm { --pin: var(--cm); }
 .lot-pin { background: var(--pin, #378add); width: 26px; height: 26px; border-radius: 50%; border: 2.5px solid #fff; box-shadow: 0 1px 4px rgba(0,0,0,.3); color: #fff; font-size: 12px; font-weight: 600; display: flex; align-items: center; justify-content: center; }

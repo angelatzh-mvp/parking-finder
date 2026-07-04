@@ -297,11 +297,36 @@ function renderMarkers() {
       map.fitBounds(cluster.getBounds().pad(0.1), { maxZoom: 16 });
     }
   }
-  if (state.loc) {
-    if (locMarker) locMarker.remove();
-    locMarker = L.circleMarker([state.loc.lat, state.loc.lng], {
-      radius: 7, color: '#fff', weight: 2.5, fillColor: '#378add', fillOpacity: 1,
+  updateLocMarker();
+}
+
+// 目前位置：脈動藍點＋GPS 精度圈，位置更新時只移動標記、不重建
+let locAccuracy = null;
+function updateLocMarker() {
+  if (!map || !state.loc) return;
+  const pos = [state.loc.lat, state.loc.lng];
+  if (!locMarker) {
+    locMarker = L.marker(pos, {
+      icon: L.divIcon({
+        className: '',
+        html: '<div class="user-loc"><span class="user-loc-pulse"></span><span class="user-loc-dot"></span></div>',
+        iconSize: [22, 22],
+        iconAnchor: [11, 11],
+      }),
+      zIndexOffset: 1000,
+      interactive: false,
+      keyboard: false,
     }).addTo(map);
+    locAccuracy = L.circle(pos, {
+      radius: state.loc.accuracy ?? 0,
+      color: '#378add', weight: 1, opacity: 0.35,
+      fillColor: '#378add', fillOpacity: 0.08,
+      interactive: false,
+    }).addTo(map);
+  } else {
+    locMarker.setLatLng(pos);
+    locAccuracy.setLatLng(pos);
+    locAccuracy.setRadius(state.loc.accuracy ?? 0);
   }
 }
 
@@ -335,14 +360,34 @@ function requestLocation(pan = false) {
   renderStatus();
   navigator.geolocation.getCurrentPosition(
     (pos) => {
-      state.loc = { lat: pos.coords.latitude, lng: pos.coords.longitude };
+      state.loc = { lat: pos.coords.latitude, lng: pos.coords.longitude, accuracy: pos.coords.accuracy };
       state.locStatus = 'on';
       state.listLimit = LIST_PAGE;
       if (map && pan) map.setView([state.loc.lat, state.loc.lng], 15);
       render();
+      startLocWatch();
     },
     () => { state.loc = null; state.locStatus = 'off'; render(); },
     { enableHighAccuracy: true, timeout: 8000, maximumAge: 60000 },
+  );
+}
+
+// 首次定位成功後持續追蹤：藍點即時跟著走；移動超過 150m 才重算距離排序（省電）
+let locWatchId = null;
+function startLocWatch() {
+  if (locWatchId != null || !navigator.geolocation.watchPosition) return;
+  let lastRenderLoc = state.loc;
+  locWatchId = navigator.geolocation.watchPosition(
+    (pos) => {
+      state.loc = { lat: pos.coords.latitude, lng: pos.coords.longitude, accuracy: pos.coords.accuracy };
+      updateLocMarker();
+      if (lastRenderLoc && haversine(lastRenderLoc, state.loc) > 150) {
+        lastRenderLoc = state.loc;
+        render();
+      }
+    },
+    () => {},
+    { enableHighAccuracy: true, maximumAge: 15000 },
   );
 }
 
@@ -583,7 +628,11 @@ async function main() {
   $('#fav-list').addEventListener('click', onCardAction);
   $('#sheet-body').addEventListener('click', onCardAction);
   $('#sheet-close').addEventListener('click', () => selectLot(null));
-  $('#locate-btn').addEventListener('click', () => requestLocation(true));
+  $('#locate-btn').addEventListener('click', () => {
+    // 已有位置就立即置中，不必等 GPS 重新回應；同時在背景刷新
+    if (state.loc && map) map.setView([state.loc.lat, state.loc.lng], 16);
+    requestLocation(!state.loc);
+  });
   $('#status-row').addEventListener('click', (e) => {
     if (e.target.closest('#loc-retry')) requestLocation(state.tab === 'map');
   });
