@@ -1,6 +1,6 @@
 {
  "meta": {
-  "builtAt": "2026-07-04T01:52:14.152Z",
+  "builtAt": "2026-07-04T02:03:56.737Z",
   "sources": {
    "utg": {
     "label": "台灣聯通",
@@ -16,7 +16,8 @@
   },
   "total": 920,
   "mergedBoth": 0,
-  "noGeo": 5
+  "noGeo": 16,
+  "geoPending": 11
  },
  "lots": [
   {
@@ -4693,11 +4694,12 @@
    "city": "新北市",
    "district": "",
    "address": "",
-   "lat": 24.959626,
-   "lng": 121.510887,
+   "lat": null,
+   "lng": null,
    "note": "",
    "maxHeight": null,
-   "totalSpace": null
+   "totalSpace": null,
+   "geoPending": true
   },
   {
    "id": "p17zstuv",
@@ -4738,11 +4740,12 @@
    "city": "新北市",
    "district": "",
    "address": "",
-   "lat": 24.982234,
-   "lng": 121.540692,
+   "lat": null,
+   "lng": null,
    "note": "",
    "maxHeight": null,
-   "totalSpace": null
+   "totalSpace": null,
+   "geoPending": true
   },
   {
    "id": "p1ohmnv0",
@@ -4753,11 +4756,12 @@
    "city": "新北市",
    "district": "",
    "address": "",
-   "lat": 24.959626,
-   "lng": 121.510887,
+   "lat": null,
+   "lng": null,
    "note": "",
    "maxHeight": null,
-   "totalSpace": null
+   "totalSpace": null,
+   "geoPending": true
   },
   {
    "id": "p12f1gyi",
@@ -6718,11 +6722,12 @@
    "city": "台北市",
    "district": "",
    "address": "",
-   "lat": 24.982234,
-   "lng": 121.540692,
+   "lat": null,
+   "lng": null,
    "note": "",
    "maxHeight": null,
-   "totalSpace": null
+   "totalSpace": null,
+   "geoPending": true
   },
   {
    "id": "pax1rra",
@@ -6733,11 +6738,12 @@
    "city": "台北市",
    "district": "",
    "address": "",
-   "lat": 24.982234,
-   "lng": 121.540692,
+   "lat": null,
+   "lng": null,
    "note": "",
    "maxHeight": null,
-   "totalSpace": null
+   "totalSpace": null,
+   "geoPending": true
   },
   {
    "id": "pfan0i5",
@@ -6748,11 +6754,12 @@
    "city": "台北市",
    "district": "",
    "address": "",
-   "lat": 25.055675,
-   "lng": 121.602152,
+   "lat": null,
+   "lng": null,
    "note": "",
    "maxHeight": null,
-   "totalSpace": null
+   "totalSpace": null,
+   "geoPending": true
   },
   {
    "id": "p1nzpl3s",
@@ -6763,11 +6770,12 @@
    "city": "台北市",
    "district": "",
    "address": "",
-   "lat": 25.055675,
-   "lng": 121.602152,
+   "lat": null,
+   "lng": null,
    "note": "",
    "maxHeight": null,
-   "totalSpace": null
+   "totalSpace": null,
+   "geoPending": true
   },
   {
    "id": "pdziuso",
@@ -6808,11 +6816,12 @@
    "city": "台北市",
    "district": "",
    "address": "",
-   "lat": 25.055675,
-   "lng": 121.602152,
+   "lat": null,
+   "lng": null,
    "note": "",
    "maxHeight": null,
-   "totalSpace": null
+   "totalSpace": null,
+   "geoPending": true
   },
   {
    "id": "p1mgn587",
@@ -6823,11 +6832,12 @@
    "city": "台北市",
    "district": "",
    "address": "",
-   "lat": 24.982234,
-   "lng": 121.540692,
+   "lat": null,
+   "lng": null,
    "note": "",
    "maxHeight": null,
-   "totalSpace": null
+   "totalSpace": null,
+   "geoPending": true
   },
   {
    "id": "p1pxktnu",
@@ -7633,11 +7643,12 @@
    "city": "桃園市",
    "district": "",
    "address": "",
-   "lat": 24.9450929,
-   "lng": 121.2167131,
+   "lat": null,
+   "lng": null,
    "note": "",
    "maxHeight": null,
-   "totalSpace": null
+   "totalSpace": null,
+   "geoPending": true
   },
   {
    "id": "p19zndv8",
@@ -7693,11 +7704,12 @@
    "city": "桃園市",
    "district": "",
    "address": "",
-   "lat": 24.9450929,
-   "lng": 121.2167131,
+   "lat": null,
+   "lng": null,
    "note": "",
    "maxHeight": null,
-   "totalSpace": null
+   "totalSpace": null,
+   "geoPending": true
   },
   {
    "id": "pk0vql7",

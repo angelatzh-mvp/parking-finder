@@ -9,6 +9,8 @@
 // 5. 縣市必須在合法清單內
 // 6. 座標若存在必須落在台灣範圍；不得有場站落在「縣市代表點」（地理編碼污染的特徵）
 // 7. 總筆數不得異常偏低（防止來源改版導致爬蟲大量漏抓）
+// 8. 無官方地址的場站（用場站名查地標補座標，可靠度較低）不得與其他不同名場站座標
+//    完全相同（build-dataset 應已將這類誤配歸零並標記 geoPending，這裡是回歸防護）
 
 import { readFileSync, existsSync } from 'node:fs';
 import { dirname, join } from 'node:path';
@@ -43,7 +45,8 @@ for (const l of lots) {
   if (l.lat != null && (l.lat < 21 || l.lat > 26.5 || l.lng < 118 || l.lng > 122.5)) {
     errors.push(`座標超出台灣範圍: ${tag} ${l.lat},${l.lng}`);
   }
-  if (l.lat == null) warnings.push(`無座標: ${tag}`);
+  if (l.lat == null && !l.geoPending) warnings.push(`無座標: ${tag}`);
+  if (l.geoPending && l.lat != null) errors.push(`geoPending 卻仍有座標（應已歸零）: ${tag}`);
 }
 
 if (lots.length < MIN_TOTAL) errors.push(`總筆數異常偏低: ${lots.length}（下限 ${MIN_TOTAL}，來源可能改版導致漏抓）`);
@@ -75,6 +78,19 @@ for (const l of lots) {
 }
 for (const [k, names] of coordGroups) {
   if (names.size >= 10) errors.push(`同一座標擠了 ${names.size} 個不同場站（疑似污染）: ${k}`);
+}
+
+// 無地址場站的座標互撞（＝地理編碼誤配到不相關地點）：任何 >=2 個不同名稱都不該發生，
+// build-dataset 的碰撞偵測應已攔下並歸零，這裡是回歸測試
+const noAddrCoordGroups = new Map();
+for (const l of lots) {
+  if (l.address || l.lat == null) continue;
+  const k = `${l.lat},${l.lng}`;
+  if (!noAddrCoordGroups.has(k)) noAddrCoordGroups.set(k, new Set());
+  noAddrCoordGroups.get(k).add(l.name);
+}
+for (const [k, names] of noAddrCoordGroups) {
+  if (names.size >= 2) errors.push(`無地址場站座標互撞（疑似誤配到不相關地點）: ${k} ← ${[...names].join('、')}`);
 }
 
 for (const w of warnings) console.warn('警告:', w);

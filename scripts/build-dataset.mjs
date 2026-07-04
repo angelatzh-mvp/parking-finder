@@ -123,6 +123,29 @@ for (const l of cm.lots) {
 }
 
 const lots = [...byKey.values()].filter((l) => l.name);
+
+// 官方無地址的場站是用「縣市＋場站名」查地標補座標，可靠度較低：
+// 業者品牌名（如「嘟嘟房」「鼎豐」）常被地理編碼服務誤配到同一個不相關的點。
+// 若兩個以上不同名稱的無地址場站座標完全相同，視為誤配，全部歸零並標記待確認，
+// 避免地圖顯示假座標、使用者被導航到錯的地方。
+const noAddrByCoord = new Map();
+for (const l of lots) {
+  if (l.address || !l.lat) continue;
+  const k = `${l.lat},${l.lng}`;
+  if (!noAddrByCoord.has(k)) noAddrByCoord.set(k, []);
+  noAddrByCoord.get(k).push(l);
+}
+let geoPending = 0;
+for (const group of noAddrByCoord.values()) {
+  if (new Set(group.map((l) => l.name)).size < 2) continue;
+  for (const l of group) {
+    l.lat = null;
+    l.lng = null;
+    l.geoPending = true;
+    geoPending++;
+  }
+}
+
 const noGeo = lots.filter((l) => !l.lat).length;
 
 // id 不得重複（重複代表 hash 或去重邏輯出錯）
@@ -139,12 +162,13 @@ const dataset = {
     total: lots.length,
     mergedBoth: merged,
     noGeo,
+    geoPending,
   },
   lots,
 };
 
 writeFileSync(join(ROOT, 'data', 'parking-lots.json'), JSON.stringify(dataset, null, 1));
-console.log(`完成：${lots.length} 筆（雙品牌 ${merged} 筆、無座標 ${noGeo} 筆）`);
+console.log(`完成：${lots.length} 筆（雙品牌 ${merged} 筆、無座標 ${noGeo} 筆、地址待確認 ${geoPending} 筆）`);
 const byCity = {};
 for (const l of lots) byCity[l.city] = (byCity[l.city] ?? 0) + 1;
 console.log(byCity);

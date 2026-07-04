@@ -48,13 +48,17 @@ function haversine(a, b) {
   return 2 * R * Math.asin(Math.sqrt(s));
 }
 function fmtDist(m) {
-  if (m == null) return '';
+  if (m == null || !Number.isFinite(m)) return '';
   return m < 1000 ? `${Math.round(m)}m` : `${(m / 1000).toFixed(1)}km`;
 }
 function esc(s) {
   return String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 }
 function gmapUrl(lot) {
+  // 座標未知（地址待確認）時退而求其次：用名稱＋縣市讓 Google 自己搜尋
+  if (lot.lat == null) {
+    return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(lot.city + lot.name)}`;
+  }
   return `https://www.google.com/maps/dir/?api=1&destination=${lot.lat},${lot.lng}`;
 }
 
@@ -68,6 +72,7 @@ const I = {
   del: '<svg viewBox="0 0 24 24"><path d="M4 7h16M10 11v6M14 11v6M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2l1-12M9 7V4h6v3"/></svg>',
   loc: '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/></svg>',
   warn: '<svg viewBox="0 0 24 24"><path d="M12 9v4M12 17h.01M10.3 4.5l-8 14A2 2 0 0 0 4 21.5h16a2 2 0 0 0 1.7-3l-8-14a2 2 0 0 0-3.4 0z"/></svg>',
+  search: '<svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>',
 };
 
 /* ---------- 小P 情境插圖（inline SVG，零網路成本） ---------- */
@@ -162,9 +167,10 @@ function cardHtml(lot, opts = {}) {
         <p class="card-addr">${esc(lot.address)}</p>
         ${fav?.label ? `<p class="card-label">${I.pen} ${esc(fav.label)}</p>` : ''}
         ${stale ? `<p class="card-warn-text">前往前請再確認現場標示</p>` : ''}
+        ${lot.geoPending ? `<p class="card-warn-text">地址待確認，暫無法定位</p>` : ''}
       </div>
       <div class="nav-go">
-        <button data-act="go" aria-label="導航">${I.nav}</button>
+        <button data-act="go" aria-label="${lot.geoPending ? '搜尋位置' : '導航'}">${lot.geoPending ? I.search : I.nav}</button>
         <span class="dist ${lot.dist != null && lot.dist < 800 ? 'near' : ''}">${fmtDist(lot.dist)}</span>
       </div>
     </div>
