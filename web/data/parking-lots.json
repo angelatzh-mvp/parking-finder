@@ -1,16 +1,16 @@
 {
  "meta": {
-  "builtAt": "2026-07-05T08:37:44.105Z",
+  "builtAt": "2026-07-05T21:57:02.234Z",
   "sources": {
    "utg": {
     "label": "台灣聯通",
-    "scrapedAt": "2026-07-03T12:25:48.335Z",
+    "scrapedAt": "2026-07-05T21:55:28.565Z",
     "count": 248
    },
    "carmochi": {
     "label": "車麻吉",
     "updatedAt": "2026-06-26",
-    "scrapedAt": "2026-07-04T01:50:57.379Z",
+    "scrapedAt": "2026-07-05T21:55:29.077Z",
     "count": 685
    }
   },
