@@ -498,8 +498,6 @@ function onCardAction(e) {
   const act = actEl.dataset.act;
 
   if (act === 'go') {
-    // 匿名事件統計：導航點擊＝產品目標達成（無地址場站以 nav-search 區分）
-    window.goatcounter?.count?.({ path: lot.lat == null ? 'nav-search' : 'nav-click', event: true });
     window.open(gmapUrl(lot), '_blank');
   } else if (act === 'star') {
     toggleFav(lot);
@@ -551,7 +549,7 @@ function setupSettings() {
       installRow.querySelector('b').textContent = '已加入主畫面';
       installRow.querySelector('small').textContent = '你已經從主畫面開啟小Ｐ帶路';
     }
-    $('#settings-meta').textContent = `${$('#data-date').textContent}｜小Ｐ帶路｜收集匿名使用統計（無 cookie、不含個資）`;
+    $('#settings-meta').textContent = `${$('#data-date').textContent}｜小Ｐ帶路`;
     modal.hidden = false;
   });
   modal.addEventListener('click', (e) => { if (e.target === modal) modal.hidden = true; });
