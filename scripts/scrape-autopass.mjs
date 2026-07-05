@@ -61,6 +61,7 @@ const COUNTY_BBOX = {
 };
 
 let reqCount = 0;
+let failCount = 0;
 async function getJson(url, tries = 4) {
   for (let i = 0; i < tries; i++) {
     try {
@@ -70,6 +71,7 @@ async function getJson(url, tries = 4) {
     } catch { /* 重試 */ }
     await new Promise((res) => setTimeout(res, 800 * (i + 1)));
   }
+  failCount++;
   console.warn('取得失敗：', url);
   return null;
 }
@@ -117,11 +119,13 @@ async function main() {
   console.log(`需補場站 ${targets.length} 筆，涉及縣市：${counties.join('、')}`);
 
   const candidates = new Map(); // id -> {name,lat,lng}
+  const scanStats = [];
   for (const c of counties) {
     const bbox = COUNTY_BBOX[c];
-    if (!bbox) { console.warn(`無縣市邊界框，略過掃描：${c}`); continue; }
+    if (!bbox) { console.warn(`無縣市邊界框，略過掃描：${c}`); scanStats.push({ city: c, scanned: null }); continue; }
     const lots = await scanCounty(bbox);
     console.log(`  掃描 ${c}：${lots.length} 個場站`);
+    scanStats.push({ city: c, scanned: lots.length });
     for (const l of lots) candidates.set(l.id, { name: l.name, lat: l.lat, lng: l.lng });
   }
 
@@ -175,13 +179,21 @@ async function main() {
   console.log(`\n總請求數 ${reqCount}｜確認補校 ${confirmed} 筆，未匹配 ${skipped.length} 筆`);
   for (const s of skipped) console.log('  略過：', s);
 
+  // 供更新報告(write-update-log.mjs)使用的執行統計；此檔已 gitignore，不進 repo
+  const writeRunStats = (wrote) => writeFileSync(
+    join(ROOT, 'data', '.autopass-run.json'),
+    JSON.stringify({ requests: reqCount, failed: failCount, targets: targets.length,
+      counties: scanStats, confirmed, skipped, wrote }, null, 1));
+
   const prev = existsSync(OUT) ? JSON.parse(readFileSync(OUT, 'utf8')) : {};
   if (confirmed < MIN_KEEP && Object.keys(prev).length > confirmed) {
     console.warn(`\n⚠ 只匹配到 ${confirmed} 筆（低於門檻 ${MIN_KEEP}），疑似來源異常，保留現有 ${Object.keys(prev).length} 筆不覆寫。`);
+    writeRunStats(false);
     return;
   }
   const sorted = Object.fromEntries(Object.entries(overrides).sort());
   writeFileSync(OUT, JSON.stringify(sorted, null, 1));
+  writeRunStats(true);
   console.log(`已寫入 ${OUT}（${Object.keys(sorted).length} 筆）`);
 }
 
