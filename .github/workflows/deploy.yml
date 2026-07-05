@@ -36,6 +36,8 @@ jobs:
         run: |
           node scripts/geocode-carmochi.mjs
           node scripts/geocode-fallback.mjs
+      - name: Refresh Autopass address overrides（補缺地址／座標；來源異常時保留舊檔）
+        run: node scripts/scrape-autopass.mjs
       - name: Build dataset
         run: node scripts/build-dataset.mjs
       - name: Validate dataset（未通過即中止，網站保持舊資料）

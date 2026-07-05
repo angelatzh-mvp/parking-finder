@@ -3,7 +3,7 @@
 // - 以正規化地址跨品牌去重：同場站掛雙品牌
 // - id 用「正規化地址」的 hash，資料更新後保持穩定（收藏功能依賴這點）
 
-import { readFileSync, writeFileSync } from 'node:fs';
+import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -45,6 +45,12 @@ function cleanDistrict(d) {
 
 const utg = JSON.parse(readFileSync(join(ROOT, 'data', 'utg-raw.json'), 'utf8'));
 const cm = JSON.parse(readFileSync(join(ROOT, 'data', 'carmochi-geo.json'), 'utf8'));
+// 人工補校的地址／座標（來源：Autopass 官方場站圖資，比爬蟲缺漏的原始資料可靠）。
+// 以「縣市|場站名」為 key——這正是空地址場站的 id 依據，所以補地址不會改變 id、不影響收藏。
+const overridesPath = join(ROOT, 'data', 'address-overrides.json');
+const overrides = existsSync(overridesPath)
+  ? JSON.parse(readFileSync(overridesPath, 'utf8'))
+  : {};
 
 const byKey = new Map();
 
@@ -124,6 +130,20 @@ for (const l of cm.lots) {
 
 const lots = [...byKey.values()].filter((l) => l.name);
 
+// 套用人工補校圖資：只針對「缺地址或缺座標」的場站補上，不動已同時具備地址與座標的資料。
+// 補上地址＋可靠座標後，該場站自然不再進入下方的無地址碰撞歸零與 geoPending。
+let overridden = 0;
+for (const l of lots) {
+  const ov = overrides[`${l.city}|${l.name}`];
+  if (!ov || (l.address && l.lat != null)) continue;
+  l.address = toHalfWidth(ov.address);
+  l.district = cleanDistrict(l.district || districtOf(ov.address.replace(/^.{2,3}[市縣]/, '')));
+  l.lat = ov.lat;
+  l.lng = ov.lng;
+  delete l.geoPending;
+  overridden++;
+}
+
 // 官方無地址的場站是用「縣市＋場站名」查地標補座標，可靠度較低：
 // 業者品牌名（如「嘟嘟房」「鼎豐」）常被地理編碼服務誤配到同一個不相關的點。
 // 若兩個以上不同名稱的無地址場站座標完全相同，視為誤配，全部歸零並標記待確認，
@@ -163,12 +183,13 @@ const dataset = {
     mergedBoth: merged,
     noGeo,
     geoPending,
+    overridden,
   },
   lots,
 };
 
 writeFileSync(join(ROOT, 'data', 'parking-lots.json'), JSON.stringify(dataset, null, 1));
-console.log(`完成：${lots.length} 筆（雙品牌 ${merged} 筆、無座標 ${noGeo} 筆、地址待確認 ${geoPending} 筆）`);
+console.log(`完成：${lots.length} 筆（雙品牌 ${merged} 筆、人工補校 ${overridden} 筆、無座標 ${noGeo} 筆、地址待確認 ${geoPending} 筆）`);
 const byCity = {};
 for (const l of lots) byCity[l.city] = (byCity[l.city] ?? 0) + 1;
 console.log(byCity);
