@@ -539,6 +539,107 @@ const isIOS = () => /iphone|ipad|ipod/i.test(navigator.userAgent);
 
 const SHARE_ICON = '<svg viewBox="0 0 24 24"><path d="M12 3v13M8 7l4-4 4 4M6 12v7a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1v-7"/></svg>';
 
+/* ---------- 分享 ---------- */
+
+// 分享出去的連結帶 ?ref=share，GoatCounter 會把這些訪客歸到「share」來源
+const SHARE_URL = location.origin + location.pathname.replace(/index\.html$/, '') + '?ref=share';
+const SHARE_TEXT = '我都用「小Ｐ帶路」找信用卡免費停車場 🅿️\n全台 900+ 場站，開網頁就能用、免下載';
+const FLAG = '<path d="M82 6V30" stroke="#04342C" stroke-width="2.5" stroke-linecap="round" fill="none"/><path d="M82 7 L97 11 L82 16 Z" fill="#EF9F27"/>';
+const CONFETTI = '<circle cx="32" cy="12" r="2.6" fill="#EF9F27"/><circle cx="30" cy="42" r="2" fill="#378ADD"/><rect x="68" y="40" width="5" height="5" rx="1" fill="#1D9E75"/><circle cx="94" cy="46" r="2.2" fill="#EF9F27"/><circle cx="40" cy="6" r="1.8" fill="#1D9E75"/>';
+const MASCOT_FLAG = mascotSvg(FLAG);
+const MASCOT_CELEBRATE = mascotSvg(FLAG + CONFETTI);
+
+// QR 產生器 lazy-load（56KB，只在開分享時載入）
+let qrLibPromise = null;
+function ensureQR() {
+  if (window.qrcode) return Promise.resolve();
+  if (!qrLibPromise) {
+    qrLibPromise = new Promise((res, rej) => {
+      const s = document.createElement('script');
+      s.src = 'qrcode.min.js';
+      s.onload = res;
+      s.onerror = rej;
+      document.head.appendChild(s);
+    });
+  }
+  return qrLibPromise;
+}
+
+// 自繪 QR：明確填色＋關掉描邊，避免被全域 svg 樣式（fill:none/stroke）影響
+function qrSvg(text) {
+  const qr = window.qrcode(0, 'M');
+  qr.addData(text);
+  qr.make();
+  const n = qr.getModuleCount();
+  const m = 2;
+  const total = n + m * 2;
+  let cells = '';
+  for (let r = 0; r < n; r++) {
+    for (let c = 0; c < n; c++) {
+      if (qr.isDark(r, c)) cells += `<rect x="${c + m}" y="${r + m}" width="1" height="1"/>`;
+    }
+  }
+  return `<svg viewBox="0 0 ${total} ${total}" shape-rendering="crispEdges"><rect width="${total}" height="${total}" fill="#fff" stroke="none"/><g fill="#1a1a18" stroke="none">${cells}</g></svg>`;
+}
+
+function openShare() {
+  $('#settings').hidden = true;
+  $('#share-invite').hidden = false;
+  $('#share-done').hidden = true;
+  $('#share-hero').innerHTML = MASCOT_FLAG;
+  $('#share-native').hidden = !navigator.share;
+  $('#share').hidden = false;
+  window.goatcounter?.count?.({ path: 'share-open', event: true });
+  ensureQR()
+    .then(() => { $('#share-qr').innerHTML = qrSvg(SHARE_URL); })
+    .catch(() => { $('#share-qr').closest('.share-qr-wrap').hidden = true; });
+}
+
+function onShareSuccess() {
+  window.goatcounter?.count?.({ path: 'share-done', event: true });
+  if (!localStorage.getItem('shared-before')) {
+    // 第一次：小P 舉旗＋彩帶的慶祝畫面
+    localStorage.setItem('shared-before', '1');
+    $('#share-invite').hidden = true;
+    $('#share-done-hero').innerHTML = MASCOT_CELEBRATE;
+    $('#share-done').hidden = false;
+  } else {
+    $('#share').hidden = true;
+    showSnackbar('分享成功！謝謝你，又有朋友要少繳停車費了！');
+  }
+}
+
+function setupShare() {
+  $('#share-row').addEventListener('click', openShare);
+  $('#share').addEventListener('click', (e) => { if (e.target.id === 'share') $('#share').hidden = true; });
+  $('#share-done-close').addEventListener('click', () => { $('#share').hidden = true; });
+  $('#share-native').addEventListener('click', async () => {
+    try {
+      await navigator.share({ text: SHARE_TEXT, url: SHARE_URL });
+      onShareSuccess();
+    } catch { /* 使用者取消分享，不動作 */ }
+  });
+  $('#share-copy').addEventListener('click', async () => {
+    try { await navigator.clipboard.writeText(`${SHARE_TEXT}\n${SHARE_URL}`); } catch { /* 忽略 */ }
+    onShareSuccess();
+  });
+}
+
+// 桌機軟性提示：手機體驗更好，可掃碼帶走；一次關閉後不再出現
+function setupDesktopHint() {
+  const isDesktop = window.matchMedia('(min-width: 820px)').matches && !window.matchMedia('(pointer: coarse)').matches;
+  if (!isDesktop || isStandalone() || localStorage.getItem('desktop-hint-off')) return;
+  const bar = $('#desktop-hint');
+  bar.hidden = false;
+  $('#desktop-hint-close').addEventListener('click', () => {
+    bar.hidden = true;
+    localStorage.setItem('desktop-hint-off', '1');
+    if (map) setTimeout(() => map.invalidateSize(), 60);
+  });
+  $('#desktop-hint-qr').addEventListener('click', openShare);
+  if (map) setTimeout(() => map.invalidateSize(), 60);
+}
+
 function setupSettings() {
   const modal = $('#settings');
   const installRow = $('#install-row');
@@ -640,6 +741,7 @@ async function main() {
   });
   document.querySelectorAll('.nav-item').forEach((b) => b.addEventListener('click', () => switchTab(b.dataset.tab)));
   setupSettings();
+  setupShare();
 
   // 蓋板下滑關閉：內容捲到頂端時往下拖，超過門檻收起、否則彈回
   const sheet = $('#sheet');
@@ -668,6 +770,7 @@ async function main() {
   });
 
   switchTab('map');
+  setupDesktopHint();
   requestLocation();
 
   // 首次使用：先選所在縣市，之後每次開啟預設顯示該地區

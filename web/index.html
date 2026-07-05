@@ -38,6 +38,14 @@
   <div class="status-row" id="status-row"></div>
 </header>
 
+<div class="desktop-hint" id="desktop-hint" hidden>
+  <span class="dh-text">📱 小Ｐ帶路在手機上最順手</span>
+  <button class="dh-qr" id="desktop-hint-qr">掃碼帶著走</button>
+  <button class="dh-close" id="desktop-hint-close" aria-label="關閉此提示">
+    <svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>
+  </button>
+</div>
+
 <main id="main">
   <section id="view-map" class="view">
     <div id="map"></div>
@@ -81,6 +89,11 @@
   <div class="modal-sheet">
     <div class="sheet-handle"><span></span></div>
     <h2>設定與說明</h2>
+    <button class="settings-row" id="share-row">
+      <span class="s-icon"><svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="2.6"/><circle cx="6" cy="12" r="2.6"/><circle cx="18" cy="19" r="2.6"/><path d="M8.3 10.8l7.4-4.3M8.3 13.2l7.4 4.3"/></svg></span>
+      <span class="s-text"><b>分享給朋友</b><small>揪朋友一起省停車費</small></span>
+      <span class="s-chev"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></span>
+    </button>
     <button class="settings-row" id="install-row">
       <span class="s-icon"><svg viewBox="0 0 24 24"><path d="M12 4v10M8 10l4 4 4-4"/><path d="M5 20h14"/></svg></span>
       <span class="s-text"><b>加入主畫面</b><small>像 App 一樣一鍵開啟，離線也能查</small></span>
@@ -93,6 +106,31 @@
       <span class="s-chev"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></span>
     </button>
     <p class="settings-meta" id="settings-meta"></p>
+  </div>
+</div>
+
+<div class="modal-backdrop" id="share" hidden>
+  <div class="modal-sheet">
+    <div class="sheet-handle"><span></span></div>
+    <div id="share-invite">
+      <div class="share-hero" id="share-hero"></div>
+      <h2 class="share-title">揪朋友一起省停車費</h2>
+      <p class="share-sub">把小Ｐ帶路傳給朋友，開網頁就能用、免下載。</p>
+      <div class="share-btns">
+        <button class="share-native" id="share-native" hidden>分享給朋友</button>
+        <button class="share-copy" id="share-copy">複製連結</button>
+      </div>
+      <div class="share-qr-wrap">
+        <div class="share-qr" id="share-qr"></div>
+        <p class="share-qr-cap">用手機掃描開啟</p>
+      </div>
+    </div>
+    <div id="share-done" hidden>
+      <div class="share-hero" id="share-done-hero"></div>
+      <h2 class="share-title">分享成功！</h2>
+      <p class="share-sub">謝謝你，又有朋友要少繳停車費了！</p>
+      <button class="share-copy" id="share-done-close">太好了</button>
+    </div>
   </div>
 </div>
 
