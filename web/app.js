@@ -612,7 +612,6 @@ function onShareSuccess() {
 function setupShare() {
   $('#share-row').addEventListener('click', openShare);
   $('#share').addEventListener('click', (e) => { if (e.target.id === 'share') $('#share').hidden = true; });
-  $('#share-done-close').addEventListener('click', () => { $('#share').hidden = true; });
   $('#share-native').addEventListener('click', async () => {
     try {
       await navigator.share({ text: SHARE_TEXT, url: SHARE_URL });
