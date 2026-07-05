@@ -73,6 +73,7 @@ const I = {
   loc: '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/></svg>',
   warn: '<svg viewBox="0 0 24 24"><path d="M12 9v4M12 17h.01M10.3 4.5l-8 14A2 2 0 0 0 4 21.5h16a2 2 0 0 0 1.7-3l-8-14a2 2 0 0 0-3.4 0z"/></svg>',
   search: '<svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>',
+  report: '<svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>',
 };
 
 /* ---------- 小P 情境插圖（inline SVG，零網路成本） ---------- */
@@ -158,6 +159,7 @@ function cardHtml(lot, opts = {}) {
         <a href="${BRAND_META[srcBrand].sourceUrl}" target="_blank" rel="noopener">${I.ext}官方來源</a>
       </div>
       <div class="detail-meta">來源：${lot.brands.map((b) => BRAND_META[b].label).join('、')}官方名單 · 以現場標示為準</div>
+      <button class="report-link" data-act="report">${I.report}資訊有誤？回報給小P</button>
     </div>` : '';
   return `
   <article class="card" data-id="${lot.id}" ${fav ? 'data-fav="1"' : ''}>
@@ -514,6 +516,8 @@ function onCardAction(e) {
     const fav = state.favs.find((f) => f.id === id);
     const label = prompt('備註（例如：公司附近）', fav?.label ?? '');
     if (label !== null && fav) { fav.label = label.trim(); saveFavs(); render(); }
+  } else if (act === 'report') {
+    openReport(lot);
   } else if (act === 'expand') {
     if (isFavCard) {
       state.favExpanded = state.favExpanded === id ? null : id;
@@ -548,6 +552,9 @@ const FLAG = '<path d="M82 6V30" stroke="#04342C" stroke-width="2.5" stroke-line
 const CONFETTI = '<circle cx="32" cy="12" r="2.6" fill="#EF9F27"/><circle cx="30" cy="42" r="2" fill="#378ADD"/><rect x="68" y="40" width="5" height="5" rx="1" fill="#1D9E75"/><circle cx="94" cy="46" r="2.2" fill="#EF9F27"/><circle cx="40" cy="6" r="1.8" fill="#1D9E75"/>';
 const MASCOT_FLAG = mascotSvg(FLAG);
 const MASCOT_CELEBRATE = mascotSvg(FLAG + CONFETTI);
+// 回報道謝：小P 手邊冒出愛心＋彩帶
+const HEART = '<path d="M84 31 C74 23 76 13 84 18 C92 13 94 23 84 31 Z" fill="#E8607D"/>';
+const MASCOT_THANKS = mascotSvg(HEART + CONFETTI);
 
 // QR 產生器 lazy-load（56KB，只在開分享時載入）
 let qrLibPromise = null;
@@ -621,6 +628,71 @@ function setupShare() {
   $('#share-copy').addEventListener('click', async () => {
     try { await navigator.clipboard.writeText(`${SHARE_TEXT}\n${SHARE_URL}`); } catch { /* 忽略 */ }
     onShareSuccess();
+  });
+}
+
+/* ---------- 回報／建議（mailto，無後端） ---------- */
+
+const REPORT_TO = 'angela.tzh@gmail.com';
+let pendingReportLot = null;
+
+// 依情境預填信件：帶場站入口自動填名稱／地址／id，一般入口給勾選式引導
+function reportMailto(lot) {
+  const subject = lot ? `[小Ｐ帶路] 場站回報 — ${lot.name}` : '[小Ｐ帶路] 問題回報／建議';
+  const body = (lot ? [
+    `場站：${lot.name}（${lot.city}）`,
+    `地址：${lot.address || '（未提供）'}`,
+    '',
+    '──── 以下請幫小P填寫 ────',
+    '問題類型（地址錯／位置錯／已無免停／已歇業／其他）：',
+    '補充說明：',
+    '',
+    `（系統資訊，請保留）id: ${lot.id} · src: ${lot.brands.join(',')}`,
+  ] : [
+    '想回報什麼呢？（可留下想說的）',
+    '・找不到某個停車場',
+    '・某站資訊有誤',
+    '・App 使用問題',
+    '・功能建議',
+    '',
+    '內容：',
+  ]).join('\n');
+  return `mailto:${REPORT_TO}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+}
+
+function openReport(lot = null) {
+  pendingReportLot = lot;
+  $('#settings').hidden = true;
+  $('#report-invite').hidden = false;
+  $('#report-done').hidden = true;
+  const ctx = $('#report-context');
+  ctx.textContent = lot ? `正在回報：${lot.name}` : '';
+  ctx.hidden = !lot;
+  $('#report').hidden = false;
+  window.goatcounter?.count?.({ path: 'report-open', event: true });
+}
+
+// mailto 無法確認實際寄出 → 道謝時機＝使用者點了回報、我們把信開起來（與分享一致）
+function onReportSent() {
+  window.goatcounter?.count?.({ path: 'report-sent', event: true });
+  if (!localStorage.getItem('reported-before')) {
+    // 第一次：小P 比愛心＋彩帶的道謝畫面
+    localStorage.setItem('reported-before', '1');
+    $('#report-invite').hidden = true;
+    $('#report-done-hero').innerHTML = MASCOT_THANKS;
+    $('#report-done').hidden = false;
+  } else {
+    $('#report').hidden = true;
+    showSnackbar('謝謝你的回報！小P會把資料修得更準 💚');
+  }
+}
+
+function setupReport() {
+  $('#report-row').addEventListener('click', () => openReport(null));
+  $('#report').addEventListener('click', (e) => { if (e.target.id === 'report') $('#report').hidden = true; });
+  $('#report-send').addEventListener('click', () => {
+    window.location.href = reportMailto(pendingReportLot);
+    onReportSent();
   });
 }
 
@@ -741,6 +813,7 @@ async function main() {
   document.querySelectorAll('.nav-item').forEach((b) => b.addEventListener('click', () => switchTab(b.dataset.tab)));
   setupSettings();
   setupShare();
+  setupReport();
 
   // 蓋板下滑關閉：內容捲到頂端時往下拖，超過門檻收起、否則彈回
   const sheet = $('#sheet');

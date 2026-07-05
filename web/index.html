@@ -100,6 +100,11 @@
       <span class="s-chev"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></span>
     </button>
     <div class="install-hint" id="install-hint" hidden></div>
+    <button class="settings-row" id="report-row">
+      <span class="s-icon"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
+      <span class="s-text"><b>回報問題或建議</b><small>資訊有誤、找不到場站，或想給小P建議</small></span>
+      <span class="s-chev"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></span>
+    </button>
     <button class="settings-row" id="refresh-row">
       <span class="s-icon"><svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 0 1 13.7-5.7L20 8M20 4v4h-4M20 12a8 8 0 0 1-13.7 5.7L4 16M4 20v-4h4"/></svg></span>
       <span class="s-text"><b>清除快取、強制更新</b><small>抓取最新場站資料</small></span>
@@ -129,6 +134,30 @@
       <div class="share-hero" id="share-done-hero"></div>
       <h2 class="share-title">分享成功！</h2>
       <p class="share-sub">謝謝你，又有朋友要少繳停車費了！</p>
+    </div>
+  </div>
+</div>
+
+<div class="modal-backdrop" id="report" hidden>
+  <div class="modal-sheet">
+    <div class="sheet-handle"><span></span></div>
+    <div id="report-invite">
+      <div class="picker-greeting">
+        <svg viewBox="28 14 52 78" aria-hidden="true"><rect x="34" y="24" width="15" height="50" rx="7.5" fill="#1D9E75"/><circle cx="55" cy="40" r="21" fill="#1D9E75"/><circle cx="57" cy="38" r="11" fill="#FFFFFF"/><circle cx="53" cy="36" r="2.6" fill="#04342C"/><circle cx="61" cy="36" r="2.6" fill="#04342C"/><path d="M52.5 41.5 Q57 46 61.5 41.5" fill="none" stroke="#04342C" stroke-width="2.4" stroke-linecap="round"/><circle cx="41" cy="79" r="7.5" fill="#04342C" stroke="#FFFFFF" stroke-width="2.5"/><circle cx="60" cy="79" r="7.5" fill="#04342C" stroke="#FFFFFF" stroke-width="2.5"/></svg>
+        <div class="bubble">
+          <p class="bubble-title">發現哪裡怪怪的嗎？</p>
+          <p>告訴小P，我會把資料修得更準。點下方會開啟 Email，補上說明送出就好。</p>
+        </div>
+      </div>
+      <p class="report-context" id="report-context" hidden></p>
+      <div class="share-btns">
+        <button class="share-native" id="report-send">用 Email 回報</button>
+      </div>
+    </div>
+    <div id="report-done" hidden>
+      <div class="share-hero" id="report-done-hero"></div>
+      <h2 class="share-title">謝謝你的回報！</h2>
+      <p class="share-sub">你讓小Ｐ帶路更準，也幫到後面來找車位的人 💚</p>
     </div>
   </div>
 </div>
