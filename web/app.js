@@ -62,6 +62,34 @@ function gmapUrl(lot) {
   return `https://www.google.com/maps/dir/?api=1&destination=${lot.lat},${lot.lng}`;
 }
 
+// 蓋板下滑關閉：捲到頂端時往下拖，超過門檻呼叫 onClose、否則彈回。所有蓋板共用同一邏輯。
+function enableSwipeClose(scrollEl, onClose) {
+  if (!scrollEl) return;
+  let startY = null, dy = 0;
+  scrollEl.addEventListener('touchstart', (e) => {
+    if (scrollEl.scrollTop > 0) { startY = null; return; }
+    startY = e.touches[0].clientY;
+    dy = 0;
+  }, { passive: true });
+  scrollEl.addEventListener('touchmove', (e) => {
+    if (startY == null) return;
+    dy = e.touches[0].clientY - startY;
+    if (dy > 0) {
+      e.preventDefault();
+      scrollEl.style.transition = 'none';
+      scrollEl.style.transform = `translateY(${dy}px)`;
+    }
+  }, { passive: false });
+  scrollEl.addEventListener('touchend', () => {
+    if (startY == null) return;
+    scrollEl.style.transition = '';
+    scrollEl.style.transform = '';
+    if (dy > 72) onClose();
+    startY = null;
+    dy = 0;
+  });
+}
+
 const I = {
   nav: '<svg viewBox="0 0 24 24"><path d="M12 3l7 18-7-4-7 4z"/></svg>',
   star: '<svg viewBox="0 0 24 24"><path d="M12 3l2.7 5.8 6.3.7-4.7 4.3 1.3 6.2-5.6-3.2L6.4 20l1.3-6.2L3 9.5l6.3-.7z"/></svg>',
@@ -144,7 +172,6 @@ function cardHtml(lot, opts = {}) {
   const extra = [];
   if (expanded && lot.maxHeight) extra.push(`限高 ${lot.maxHeight}m`);
   if (expanded && lot.totalSpace) extra.push(`約 ${lot.totalSpace} 格`);
-  const srcBrand = lot.brands[0];
   const starOn = isFav(lot.id);
   const starAction = fav
     ? `<button data-act="label">${I.pen}備註</button><button data-act="unfav">${I.del}移除</button>`
@@ -156,10 +183,9 @@ function cardHtml(lot, opts = {}) {
       <div class="detail-actions">
         ${starAction}
         <button data-act="copy">${I.copy}複製地址</button>
-        <a href="${BRAND_META[srcBrand].sourceUrl}" target="_blank" rel="noopener">${I.ext}官方來源</a>
+        <button data-act="report">${I.report}回報錯誤</button>
       </div>
       <div class="detail-meta">來源：${lot.brands.map((b) => BRAND_META[b].label).join('、')}官方名單 · 以現場標示為準</div>
-      <button class="report-link" data-act="report">${I.report}資訊有誤？回報給小P</button>
     </div>` : '';
   return `
   <article class="card" data-id="${lot.id}" ${fav ? 'data-fav="1"' : ''}>
@@ -723,7 +749,7 @@ function setupSettings() {
       installRow.querySelector('b').textContent = '已加入主畫面';
       installRow.querySelector('small').textContent = '你已經從主畫面開啟小Ｐ帶路';
     }
-    $('#settings-meta').textContent = `${$('#data-date').textContent}｜小Ｐ帶路｜收集匿名使用統計（無 cookie、不含個資）`;
+    $('#settings-meta').textContent = `${$('#data-date').textContent}｜小Ｐ帶路`;
     modal.hidden = false;
   });
   modal.addEventListener('click', (e) => { if (e.target === modal) modal.hidden = true; });
@@ -815,31 +841,12 @@ async function main() {
   setupShare();
   setupReport();
 
-  // 蓋板下滑關閉：內容捲到頂端時往下拖，超過門檻收起、否則彈回
-  const sheet = $('#sheet');
-  let dragStartY = null, dragDy = 0;
-  sheet.addEventListener('touchstart', (e) => {
-    if (sheet.scrollTop > 0) { dragStartY = null; return; }
-    dragStartY = e.touches[0].clientY;
-    dragDy = 0;
-  }, { passive: true });
-  sheet.addEventListener('touchmove', (e) => {
-    if (dragStartY == null) return;
-    dragDy = e.touches[0].clientY - dragStartY;
-    if (dragDy > 0) {
-      e.preventDefault();
-      sheet.style.transition = 'none';
-      sheet.style.transform = `translateY(${dragDy}px)`;
-    }
-  }, { passive: false });
-  sheet.addEventListener('touchend', () => {
-    if (dragStartY == null) return;
-    sheet.style.transition = '';
-    sheet.style.transform = '';
-    if (dragDy > 72) selectLot(null);
-    dragStartY = null;
-    dragDy = 0;
-  });
+  // 所有蓋板統一下滑關閉行為（共用 enableSwipeClose）
+  enableSwipeClose($('#sheet'), () => selectLot(null));
+  enableSwipeClose($('#settings .modal-sheet'), () => { $('#settings').hidden = true; });
+  enableSwipeClose($('#share .modal-sheet'), () => { $('#share').hidden = true; });
+  enableSwipeClose($('#report .modal-sheet'), () => { $('#report').hidden = true; });
+  enableSwipeClose($('#picker .picker-sheet'), () => $('#picker').click());
 
   switchTab('map');
   setupDesktopHint();
