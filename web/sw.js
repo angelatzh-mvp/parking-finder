@@ -1,4 +1,4 @@
-const CACHE = 'parking-v18';
+const CACHE = 'parking-v19';
 const ASSETS = ['.', 'index.html', 'style.css', 'app.js', 'qrcode.min.js', 'data/parking-lots.json', 'icon.svg'];
 
 self.addEventListener('install', (e) => {

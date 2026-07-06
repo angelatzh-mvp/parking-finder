@@ -30,11 +30,7 @@
     </div>
   </div>
   <div class="chips" id="chips">
-    <button class="chip" data-brand="all" aria-pressed="true">全部</button>
-    <button class="chip" data-brand="utg" aria-pressed="false"><span class="dot dot-utg"></span>台灣聯通</button>
-    <button class="chip" data-brand="carmochi" aria-pressed="false"><span class="dot dot-cm"></span>車麻吉</button>
-    <button class="chip" data-brand="dodohome" aria-pressed="false"><span class="dot dot-dodo"></span>嘟嘟房</button>
-    <button class="chip" data-brand="tps" aria-pressed="false"><span class="dot dot-tps"></span>24TPS</button>
+    <button class="chip" id="brand-chip">全部品牌<svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
     <button class="chip" id="city-chip">全台<svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
   </div>
   <div class="status-row" id="status-row"></div>
@@ -69,6 +65,15 @@
 <div class="snackbar" id="snackbar" hidden>
   <span id="snackbar-text"></span>
   <button id="snackbar-action">復原</button>
+</div>
+
+<div class="picker-backdrop" id="brand-picker" hidden>
+  <div class="picker-sheet">
+    <div class="sheet-handle"><span></span></div>
+    <h2>選擇停車場品牌</h2>
+    <p class="picker-hint">可多選；至少保留一個品牌。你的選擇會記在這台裝置。</p>
+    <div class="brand-list" id="brand-list"></div>
+  </div>
 </div>
 
 <div class="picker-backdrop" id="picker" hidden>

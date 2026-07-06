@@ -10,12 +10,24 @@ const BRAND_META = {
 const CITY_ORDER = ['基隆市','台北市','新北市','桃園市','新竹縣市','苗栗縣','台中市','彰化縣','南投縣','雲林縣','嘉義縣市','台南市','高雄市','屏東縣','宜蘭縣','花蓮縣','台東縣','澎湖縣'];
 const FAV_KEY = 'parking-favs-v1';
 const HOME_KEY = 'parking-home-city-v1';
+const BRANDS_KEY = 'parking-brands-v1';
 const LIST_PAGE = 60;
+
+// 品牌篩選：null＝全部（含日後新增品牌）；否則為選取的品牌陣列（至少一個）。
+function loadBrands() {
+  const raw = localStorage.getItem(BRANDS_KEY);
+  if (!raw || raw === 'all') return null;
+  try {
+    const arr = JSON.parse(raw).filter((b) => b in BRAND_META);
+    return arr.length ? arr : null;
+  } catch { return null; }
+}
 
 const state = {
   lots: [],
   meta: null,
-  brand: 'all',
+  // 停車場品牌篩選偏好，記在裝置上
+  brands: loadBrands(),
   // 首次進入時選擇的所在縣市，之後每次開啟預設帶入（存在裝置上）
   city: localStorage.getItem(HOME_KEY) || null,
   district: null,
@@ -42,6 +54,25 @@ function loadFavs() {
 }
 function saveFavs() { localStorage.setItem(FAV_KEY, JSON.stringify(state.favs)); }
 function isFav(id) { return state.favs.some((f) => f.id === id); }
+
+const ALL_BRANDS = () => Object.keys(BRAND_META);
+function isAllBrands() { return !state.brands || state.brands.length >= ALL_BRANDS().length; }
+function brandSelected(b) { return !state.brands || state.brands.includes(b); }
+function saveBrands() {
+  localStorage.setItem(BRANDS_KEY, isAllBrands() ? 'all' : JSON.stringify(state.brands));
+}
+// 切換單一品牌（維持至少一個），全選時內部值歸零為 null
+function toggleBrand(b) {
+  let sel = state.brands ? [...state.brands] : ALL_BRANDS();
+  if (sel.includes(b)) {
+    if (sel.length === 1) return; // 至少保留一個
+    sel = sel.filter((x) => x !== b);
+  } else {
+    sel.push(b);
+  }
+  state.brands = sel.length >= ALL_BRANDS().length ? null : sel;
+  saveBrands();
+}
 
 function haversine(a, b) {
   const R = 6371000, rad = Math.PI / 180;
@@ -141,7 +172,7 @@ async function loadData() {
 
 function filteredLots() {
   return state.lots.filter((l) => {
-    if (state.brand !== 'all' && !l.brands.includes(state.brand)) return false;
+    if (state.brands && !l.brands.some((b) => state.brands.includes(b))) return false;
     if (state.city && l.city !== state.city) return false;
     if (state.district && l.district !== state.district) return false;
     return true;
@@ -320,7 +351,7 @@ function renderMarkers() {
     cluster.addLayer(m);
   }
   // 篩選條件變更時把視野帶到結果範圍；有定位且看全台時以定位為中心
-  const fitKey = `${state.brand}|${state.city}|${state.district}`;
+  const fitKey = `${state.brands ? state.brands.join(',') : 'all'}|${state.city}|${state.district}`;
   if (fitKey !== lastFitKey && cluster.getLayers().length) {
     lastFitKey = fitKey;
     if (state.loc && !state.city) {
@@ -461,6 +492,45 @@ function toggleFav(lot) {
 
 function updateCityChip() {
   $('#city-chip').innerHTML = `${esc(state.district ?? state.city ?? '全台')}<svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>`;
+}
+
+const CHEVRON = '<svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>';
+function updateBrandChip() {
+  let label;
+  if (isAllBrands()) label = '全部品牌';
+  else if (state.brands.length === 1) label = BRAND_META[state.brands[0]].label;
+  else label = `${state.brands.length} 個品牌`;
+  const chip = $('#brand-chip');
+  chip.innerHTML = `${esc(label)}${CHEVRON}`;
+  chip.setAttribute('aria-pressed', String(!isAllBrands())); // 非全選時高亮，提示已套用篩選
+}
+
+function openBrandPicker() {
+  const picker = $('#brand-picker');
+  const list = $('#brand-list');
+  const check = '<svg class="chk" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>';
+  const dotCls = (b) => BRAND_META[b].cls.replace('badge-', 'dot-');
+  const paint = () => {
+    const rows = [`<button class="brand-opt brand-all ${isAllBrands() ? 'sel' : ''}" data-brand="all"><span class="brand-opt-label">全部品牌</span>${check}</button>`];
+    for (const b of ALL_BRANDS()) {
+      rows.push(`<button class="brand-opt ${brandSelected(b) ? 'sel' : ''}" data-brand="${b}"><span class="brand-opt-label"><span class="dot ${dotCls(b)}"></span>${esc(BRAND_META[b].label)}</span>${check}</button>`);
+    }
+    list.innerHTML = rows.join('');
+  };
+  list.onclick = (e) => {
+    const btn = e.target.closest('button');
+    if (!btn) return;
+    if (btn.dataset.brand === 'all') { state.brands = null; saveBrands(); }
+    else toggleBrand(btn.dataset.brand);
+    paint();
+    updateBrandChip();
+    state.listLimit = LIST_PAGE;
+    render();
+  };
+  const close = () => { picker.hidden = true; };
+  picker.onclick = (e) => { if (e.target === picker) close(); };
+  paint();
+  picker.hidden = false;
 }
 
 function openPicker(firstRun = false) {
@@ -815,14 +885,8 @@ async function main() {
     return;
   }
 
-  document.querySelectorAll('.chip[data-brand]').forEach((chip) => {
-    chip.addEventListener('click', () => {
-      state.brand = chip.dataset.brand;
-      document.querySelectorAll('.chip[data-brand]').forEach((c) => c.setAttribute('aria-pressed', String(c === chip)));
-      state.listLimit = LIST_PAGE;
-      render();
-    });
-  });
+  $('#brand-chip').addEventListener('click', openBrandPicker);
+  updateBrandChip();
   $('#city-chip').addEventListener('click', () => openPicker(false));
   updateCityChip();
   $('#list').addEventListener('click', (e) => {
@@ -851,6 +915,7 @@ async function main() {
   enableSwipeClose($('#share .modal-sheet'), () => { $('#share').hidden = true; });
   enableSwipeClose($('#report .modal-sheet'), () => { $('#report').hidden = true; });
   enableSwipeClose($('#picker .picker-sheet'), () => $('#picker').click());
+  enableSwipeClose($('#brand-picker .picker-sheet'), () => { $('#brand-picker').hidden = true; });
 
   switchTab('map');
   setupDesktopHint();
