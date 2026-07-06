@@ -1,6 +1,6 @@
 {
  "meta": {
-  "builtAt": "2026-07-05T21:57:02.234Z",
+  "builtAt": "2026-07-06T00:51:08.819Z",
   "sources": {
    "utg": {
     "label": "台灣聯通",
@@ -12,10 +12,20 @@
     "updatedAt": "2026-06-26",
     "scrapedAt": "2026-07-05T21:55:29.077Z",
     "count": 685
+   },
+   "dodohome": {
+    "label": "嘟嘟房",
+    "scrapedAt": "2026-07-05T12:48:13.359Z",
+    "count": 367
+   },
+   "tps": {
+    "label": "24TPS",
+    "scrapedAt": "2026-07-05T12:56:18.848Z",
+    "count": 32
    }
   },
-  "total": 920,
-  "mergedBoth": 0,
+  "total": 1312,
+  "mergedBoth": 7,
   "noGeo": 0,
   "geoPending": 0,
   "overridden": 48
@@ -4074,7 +4084,8 @@
   {
    "id": "p1w6p0sj",
    "brands": [
-    "carmochi"
+    "carmochi",
+    "dodohome"
    ],
    "name": "嘟嘟房捷運紅樹林站停車場",
    "city": "新北市",
@@ -4839,7 +4850,8 @@
   {
    "id": "p15lgdvw",
    "brands": [
-    "carmochi"
+    "carmochi",
+    "dodohome"
    ],
    "name": "寶盛塔城公園停車場",
    "city": "台北市",
@@ -5334,7 +5346,8 @@
   {
    "id": "p4rq5n",
    "brands": [
-    "carmochi"
+    "carmochi",
+    "dodohome"
    ],
    "name": "嘟嘟房吳興站",
    "city": "台北市",
@@ -5514,7 +5527,8 @@
   {
    "id": "p12ioun",
    "brands": [
-    "carmochi"
+    "carmochi",
+    "dodohome"
    ],
    "name": "嘟嘟房捷運新北投站停車場",
    "city": "台北市",
@@ -5529,7 +5543,8 @@
   {
    "id": "p1jh4nir",
    "brands": [
-    "carmochi"
+    "carmochi",
+    "dodohome"
    ],
    "name": "嘟嘟房捷運忠義站停車場",
    "city": "台北市",
@@ -5589,7 +5604,8 @@
   {
    "id": "pz59vbb",
    "brands": [
-    "carmochi"
+    "carmochi",
+    "dodohome"
    ],
    "name": "嘟嘟房捷運唭哩岸站停車場",
    "city": "台北市",
@@ -5949,7 +5965,8 @@
   {
    "id": "p1az40z3",
    "brands": [
-    "carmochi"
+    "carmochi",
+    "dodohome"
    ],
    "name": "嘟嘟房興旺站停車場",
    "city": "台北市",
@@ -13817,6 +13834,5886 @@
    "address": "台東縣台東市岩灣路101巷598號",
    "lat": 22.7915725,
    "lng": 121.1246231,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p19b4fcm",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "七星公園站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市北投區七星街3號地下停車場",
+   "lat": 25.136731,
+   "lng": 121.502236,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pjn2nsz",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "八德立體站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市松山區八德路4段580號B1-10F停車場",
+   "lat": 25.049819,
+   "lng": 121.571946,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pc7oj38",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "士林基河站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市士林區基河路240巷10號對面",
+   "lat": 25.091116,
+   "lng": 121.521112,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1w626lu",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "大安高工站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市大安區信義路3段166巷6弄12號B1-B2",
+   "lat": 25.032646,
+   "lng": 121.541889,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pk9ondy",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "大直站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市中山區敬業一路141號旁",
+   "lat": 25.083909,
+   "lng": 121.552407,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pjzyehc",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "大稻埕站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市大同區重慶北路2段180號旁空地",
+   "lat": 25.060674,
+   "lng": 121.513329,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1bkvjsu",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "中山北1站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市中山區中山北路二段44號B2-B4",
+   "lat": 25.055182,
+   "lng": 121.522556,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p815xwe",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "中山國中站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市松山區民權東路3段140巷6號B1-B2停車場",
+   "lat": 25.060431,
+   "lng": 121.545528,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p65h9jo",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "中崙3站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市中山區安東街16巷2號對面空地(另一入口：台北市中山區八德路二段278-1號旁)",
+   "lat": 25.045335,
+   "lng": 121.541684,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1sgq8ya",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "中崙高中站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市松山區八德路4段101號B2停車場",
+   "lat": 25.048583,
+   "lng": 121.561108,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pow3i20",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "仁愛新生3站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市中正區仁愛路二段91巷11號",
+   "lat": 25.038601,
+   "lng": 121.531686,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p9wetvo",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "仁愛新生5站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市中正區新生南路一段120巷7號",
+   "lat": 25.039169,
+   "lng": 121.531792,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pj9vpt1",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "內江站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市萬華區內江街126巷4號",
+   "lat": 25.041259,
+   "lng": 121.503025,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "puj5imo",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "內湖行善站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市內湖區行善路383巷29號旁空地",
+   "lat": 25.063841,
+   "lng": 121.58627,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p132lpup",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "內湖基湖站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市內湖區基湖路35巷11號旁停車場",
+   "lat": 25.079814,
+   "lng": 121.5652,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pofgy2d",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "內湖康寧站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市內湖區民權東路6段與民權東路6段296巷口",
+   "lat": 25.070905,
+   "lng": 121.607908,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1ii3y2b",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "內湖堤頂2站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市內湖區堤頂大道2段293號B1,B3",
+   "lat": 25.079212,
+   "lng": 121.56532,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1gnmqfs",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "內湖堤頂5站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市內湖區堤頂大道2段179、181號B3停車場",
+   "lat": 25.077221,
+   "lng": 121.570073,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1gev5oo",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "內湖堤頂站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市內湖區堤頂大道二段207號B1-B3",
+   "lat": 25.0786,
+   "lng": 121.568121,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1gp1f5e",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "內湖新明站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市內湖區新明路138號B2-B3停車場",
+   "lat": 25.058024,
+   "lng": 121.586725,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p4q2bxg",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "內湖新湖站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市內湖區新湖二路295巷與行愛路77巷口",
+   "lat": 25.063961,
+   "lng": 121.583466,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1fe4gvz",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "天母北站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市士林區天母北路85號旁空地",
+   "lat": 25.122399,
+   "lng": 121.526877,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p14e7194",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "天祥站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市中山區民權西路53號",
+   "lat": 25.063446,
+   "lng": 121.520716,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1n82miq",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "文山試院站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市文山區木柵路一段56號地下停車場",
+   "lat": 24.986899,
+   "lng": 121.547189,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p15ug6nr",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "世貿一館站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市信義區信義路五段5號B1停車場",
+   "lat": 25.033658,
+   "lng": 121.563448,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pifyzdq",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "世貿站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市信義區信義路5段1號B1-B2(台北國際會議中心)",
+   "lat": 25.034167,
+   "lng": 121.560727,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p13u363w",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "北投文林站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市北投區文林北路94巷40號旁空地",
+   "lat": 25.106585,
+   "lng": 121.518683,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1vax73b",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "北投榮華站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市榮華三路24巷旁空地",
+   "lat": 25.114038,
+   "lng": 121.521346,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pol3smc",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "台北小巨蛋站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市松山區南京東路四段2號B1-B2",
+   "lat": 25.049934,
+   "lng": 121.5492,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p9xtx2h",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "台北西門站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市中正區中華路一段57號B1-B5停車場",
+   "lat": 25.041687,
+   "lng": 121.508538,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "puza6e9",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "四平站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市中山區伊通街87巷與四平街134巷口停車場",
+   "lat": 25.052803,
+   "lng": 121.535932,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1uxwg4q",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "市民大道-中林站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市中山區市民大道2段(中山北路至林森北路)地下1、2樓停車場",
+   "lat": 25.047978,
+   "lng": 121.524276,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pvnjpsd",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "市民大道-公中站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市中山區市民大道公園路至中山北路地下停車場(鄰近市民大道一段256號)",
+   "lat": 25.04827,
+   "lng": 121.520549,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1prqp4e",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "市民大道-林金站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市中山區市民大道2段(林森北路至金山北路)地下1、2樓停車場",
+   "lat": 25.046278,
+   "lng": 121.530579,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1pc9v84",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "市民大道-塔城站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市大同區西寧北路至塔城街地下停車場(鄰近大同區鄭州路139號)",
+   "lat": 25.050362,
+   "lng": 121.51009,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pt0s6ao",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "市民延吉1站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市松山區市民大道四段259號旁空地",
+   "lat": 25.044877,
+   "lng": 121.554947,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "plto195",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "民族西站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市大同區民族西路303巷臨47號後方空地",
+   "lat": 25.069806,
+   "lng": 121.510303,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1wf131h",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "汀州站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市中正區汀州路二段31號停車場",
+   "lat": 25.026067,
+   "lng": 121.515054,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1bo4cps",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "玉成2站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市南港區玉成街149號B1-B4停車場",
+   "lat": 25.045112,
+   "lng": 121.583573,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p8whp6y",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "玉成國小站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市南港區昆陽街23號B1-B2地下停車場",
+   "lat": 25.053197,
+   "lng": 121.59264,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "poepxv4",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "石潭站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市內湖區民權東路6段與民權東路6段174巷口",
+   "lat": 25.068815,
+   "lng": 121.591996,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1bkn8fv",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "光復南站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市松山區光復南路46巷37號",
+   "lat": 25.045964,
+   "lng": 121.554971,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p58t0le",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "合庫大樓站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市松山區長安東路二段225號B1-B5F",
+   "lat": 25.049252,
+   "lng": 121.546045,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "phfbkw5",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "安康公車調度站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市內湖區五分街12號空地旁",
+   "lat": 25.066654,
+   "lng": 121.613367,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1fzv471",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "行天宮1站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市中山區民權東路二段137號後方停車場",
+   "lat": 25.062601,
+   "lng": 121.535058,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1aj99",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "西門中華1站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市中正區延平南路110號B2-B3停車場",
+   "lat": 25.042801,
+   "lng": 121.509311,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p13mzuq0",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "西門漢口站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市萬華區中華路一段88號B1-B5停車場(請由漢口街二段進入本場)",
+   "lat": 25.044853,
+   "lng": 121.508635,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pc45sgy",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "宏匯瑞光廣場站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市內湖區瑞光路333號B1停車場",
+   "lat": 25.077038,
+   "lng": 121.575213,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p13s3wsj",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "京華城站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市松山區東寧路21號旁",
+   "lat": 25.047813,
+   "lng": 121.562979,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pyg2jit",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "府前廣場站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市信義區松壽路1號B1-B2",
+   "lat": 25.035939,
+   "lng": 121.562989,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pvt88zi",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "承德公園站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市士林區基河路150號B1-B2停車場",
+   "lat": 25.089713,
+   "lng": 121.522571,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pkapj81",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "昆明站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市萬華區昆明街46號B2-B3停車場(由漢口街二段83巷入)",
+   "lat": 25.046496,
+   "lng": 121.505049,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "ps0nfjj",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "明倫社會住宅站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市大同區承德路3段285號B1-B2",
+   "lat": 25.072696,
+   "lng": 121.519824,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pzeguax",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "杭州南站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市中正區杭州南路一段71巷28號旁",
+   "lat": 25.039191,
+   "lng": 121.527538,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1xza9at",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "東湖站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市內湖區康樂街61巷",
+   "lat": 25.068569,
+   "lng": 121.618496,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pa9337s",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "東興站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市信義區東興路65號B2~B4停車場",
+   "lat": 25.046858,
+   "lng": 121.566492,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p2eq3z4",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "林森公園站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市中山區南京東路1段35號B1-B3",
+   "lat": 25.05223,
+   "lng": 121.52643,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1t6msh9",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "林森北站",
+   "city": "台北市",
+   "district": "",
+   "address": "台北中山區市林森北路67巷68號",
+   "lat": 25.04814,
+   "lng": 121.526575,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1p6crxj",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "林森站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市中山區林森北路302號",
+   "lat": 25.05603,
+   "lng": 121.525358,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1cx9lxo",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "松江南京2站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市中山區松江路106號B2-B3(由松江路108巷進出)",
+   "lat": 25.051298,
+   "lng": 121.532854,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "ptv4j70",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "松江南京站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市中山區松江路111號B2、B5停車場",
+   "lat": 25.051296,
+   "lng": 121.533766,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1h58ej8",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "長安東站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市中山區長安東路一段77巷4弄停車場",
+   "lat": 25.048993,
+   "lng": 121.528333,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pfme8zk",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "長春站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市松山區長春路445號",
+   "lat": 25.054637,
+   "lng": 121.547647,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pce8y9c",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "信義1站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市大安區信義路三段140號旁空地",
+   "lat": 25.033341,
+   "lng": 121.539628,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1sxb18s",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "信義廣場站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市信義區信義路五段11號地下停車場",
+   "lat": 25.033008,
+   "lng": 121.5663,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pwswxz9",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "南京復興站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市中山區南京東路三段132-136號B1-B2F",
+   "lat": 25.051784,
+   "lng": 121.541001,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pwvr1sk",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "南昌1站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市中正區南昌路二段2巷近牯嶺街口空地",
+   "lat": 25.027971,
+   "lng": 121.517997,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p3csr5",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "南港全聯站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市南港區研究院路一段99號B4停車場(車道入口位於富康街80號旁)",
+   "lat": 25.05219,
+   "lng": 121.617041,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p11muv40",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "南港成功站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市南港區成功路一段32號對面空地",
+   "lat": 25.055584,
+   "lng": 121.592522,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1lmhoq8",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "南港展覽館2站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市南港區經貿二路2號B1-B3停車場",
+   "lat": 25.056216,
+   "lng": 121.615577,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p5p1q6y",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "南港展覽館站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市南港區經貿二路1號B1停車場",
+   "lat": 25.056118,
+   "lng": 121.617503,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1hmspg3",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "南港軟體園區站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市南港區三重路19-2、19-3、19-4號園區內B1停車場",
+   "lat": 25.056221,
+   "lng": 121.613386,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1t55s5b",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "建南高架站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市大安區建國南路高架橋下停車場(忠孝東路-和平東路)",
+   "lat": 25.028079,
+   "lng": 121.537732,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1rjgbrp",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "建國民權站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市中山區建國北路二段238號B2-B5停車場",
+   "lat": 25.061459,
+   "lng": 121.536624,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pcf0mte",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "建國高架站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市中山區建國北路高架橋下停車場(八德路-民族東路)",
+   "lat": 25.060284,
+   "lng": 121.537136,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p146rwqs",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "重慶南站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市中正區重慶南路一段38號B1-B3停車場",
+   "lat": 25.044856,
+   "lng": 121.513121,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pzbqr5f",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "健康國小站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市松山區延壽街168號B1-B2停車場(由三民路43巷入場)",
+   "lat": 25.056079,
+   "lng": 121.562698,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pdzwszy",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "偶戲博物館站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市松山區市民大道5段99號B1停車場",
+   "lat": 25.047963,
+   "lng": 121.561201,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "paigo93",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "國父紀念館-光復站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市信義區仁愛路4段505號(光復南路側停車場)",
+   "lat": 25.03893,
+   "lng": 121.557728,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pgcsjnw",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "國父紀念館-忠孝站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市信義區仁愛路4段505號(忠孝東路側停車場)",
+   "lat": 25.041236,
+   "lng": 121.558957,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p7mau7l",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "捷運士林站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市士林區福德路1號",
+   "lat": 25.084612,
+   "lng": 121.524756,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pghfw61",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "捷運內湖機廠站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市南港區經貿一路265號3~5F",
+   "lat": 25.061262,
+   "lng": 121.618124,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "plr55d8",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "捷運文德站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市內湖區文德路216號",
+   "lat": 25.078479,
+   "lng": 121.585104,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1oaztqk",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "捷運北投站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市北投區光明路1號",
+   "lat": 25.13177,
+   "lng": 121.498532,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pesflvf",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "捷運石牌站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市北投區石牌路1段200號",
+   "lat": 25.113845,
+   "lng": 121.516067,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1ttlb5n",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "捷運芝山站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市士林區福國路70號",
+   "lat": 25.103028,
+   "lng": 121.52261,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pjyttgv",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "富邦信義A25站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市信義區松勇路1、3號B1-B4停車場",
+   "lat": 25.039018,
+   "lng": 121.571914,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1fzwsc1",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "富邦遼寧大樓站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市中山區遼寧街177號B1-B6F",
+   "lat": 25.053109,
+   "lng": 121.5421,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1bo6325",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "復興北(平面)站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市中山區復興北路456號",
+   "lat": 25.064408,
+   "lng": 121.544102,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1w172h0",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "敦化南京站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市松山區敦化北路135號B5停車場",
+   "lat": 25.053008,
+   "lng": 121.549249,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pbbv0h4",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "敦南3站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市大安區敦化南路2段63巷41號旁",
+   "lat": 25.030953,
+   "lng": 121.550947,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pdkdmza",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "晴光站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市中山區農安街19號B1",
+   "lat": 25.065136,
+   "lng": 121.524247,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p9nkyji",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "景美愛買站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市文山區景中街30巷12號B1停車場",
+   "lat": 24.992168,
+   "lng": 121.542661,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p18k6144",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "開封站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市中正區開封街一段33號B1停車場",
+   "lat": 25.046045,
+   "lng": 121.512882,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pffgd6s",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "廈門站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市中正區廈門街81巷57號",
+   "lat": 25.02435,
+   "lng": 121.52042,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pwt168p",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "新生公園站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市中山區民族東路與吉林路口(新生公園溫水游泳池旁)",
+   "lat": 25.068414,
+   "lng": 121.530942,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p146qiem",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "新和庭園站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市萬華區中華路二段416巷46號對面停車場(近南機場夜市)",
+   "lat": 25.027789,
+   "lng": 121.504964,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pe32d8h",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "僑安站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市大安區忠孝東路四段306號B1-B3停車場",
+   "lat": 25.041086,
+   "lng": 121.556678,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1kyf9w7",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "樂活公園站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市內湖區康樂街85巷34號旁地下停車場",
+   "lat": 25.070143,
+   "lng": 121.620987,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1dw5cr8",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "樂群二路站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市中山區樂群二路267號B1停車場",
+   "lat": 25.079912,
+   "lng": 121.560516,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1gqeqr3",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "龍江八德站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市中山區龍江路15號B1-B2",
+   "lat": 25.047461,
+   "lng": 121.540508,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pbwx9xs",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "瀚寓酒店站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市信義區基隆路一段206號B1-B2停車場",
+   "lat": 25.039721,
+   "lng": 121.563132,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1mkfyp4",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "關渡宮站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市北投區知行路183號旁(關渡宮3分鐘路程)",
+   "lat": 25.119571,
+   "lng": 121.462792,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pgzmfz5",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "八里頂寮站",
+   "city": "新北市",
+   "district": "新北市",
+   "address": "新北市八里區頂寮三街7號停車場",
+   "lat": 25.125812,
+   "lng": 121.452017,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pktzh6v",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "三重三陽站",
+   "city": "新北市",
+   "district": "新北市",
+   "address": "新北市三重區三陽路100巷3弄與疏洪東路1段口空地",
+   "lat": 25.057748,
+   "lng": 121.481594,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1d81n8p",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "三重三德站",
+   "city": "新北市",
+   "district": "新北市",
+   "address": "新北市三重區集仁街與三德街口空地",
+   "lat": 25.086874,
+   "lng": 121.484547,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p180s5xc",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "三重仁義2站",
+   "city": "新北市",
+   "district": "新北市",
+   "address": "新北市三重區仁義街及元信一街交叉口空地",
+   "lat": 25.07839,
+   "lng": 121.498516,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1275oh0",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "三重平安站",
+   "city": "新北市",
+   "district": "新北市",
+   "address": "新北市三重區平安街17號空地",
+   "lat": 25.064381,
+   "lng": 121.49855,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pr6gm1t",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "三重朝陽站",
+   "city": "新北市",
+   "district": "新北市",
+   "address": "新北市三重區疏洪東路一段與朝陽街口空地(近捷運三重站,大台北都會公園)",
+   "lat": 25.057746,
+   "lng": 121.481619,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p13krilv",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "三重興穀站",
+   "city": "新北市",
+   "district": "新北市",
+   "address": "新北市三重區五谷王北街48巷與神農街口旁停車場",
+   "lat": 25.05078,
+   "lng": 121.474217,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1y440il",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "三峽大德2站",
+   "city": "新北市",
+   "district": "新北市",
+   "address": "新北市三峽區大德路33號旁停車場",
+   "lat": 24.94281,
+   "lng": 121.377527,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p15jmwgh",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "三峽大德站",
+   "city": "新北市",
+   "district": "新北市",
+   "address": "新北市三峽區大德路181號旁停車場",
+   "lat": 24.945599,
+   "lng": 121.375607,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p10t9942",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "土城延和站",
+   "city": "新北市",
+   "district": "新北市",
+   "address": "新北市土城區延和路250巷13號對面停車場",
+   "lat": 24.989395,
+   "lng": 121.469339,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1onc948",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "中平全聯站",
+   "city": "新北市",
+   "district": "新北市",
+   "address": "新北市新莊區中平路82巷27號B1(車道出入口位於中平路92巷)",
+   "lat": 25.044941,
+   "lng": 121.446019,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1bnglgv",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "中和映象太和站",
+   "city": "新北市",
+   "district": "新北市",
+   "address": "新北市中和區建康路178號B1停車場",
+   "lat": 25.000206,
+   "lng": 121.491749,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p7nj8yj",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "五工1站",
+   "city": "新北市",
+   "district": "新北市",
+   "address": "新北市新莊區五工路95號旁(近機場捷運線新北產業園區站)",
+   "lat": 25.063799,
+   "lng": 121.4574,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "poe0cgv",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "五工福慧站",
+   "city": "新北市",
+   "district": "新北市",
+   "address": "新北市新莊區福慧路與五工六路交叉口空地",
+   "lat": 25.061474,
+   "lng": 121.451026,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p9nu3u8",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "汐止福德站",
+   "city": "新北市",
+   "district": "新北市",
+   "address": "新北市汐止區福德二路225號旁停車場",
+   "lat": 25.064604,
+   "lng": 121.627566,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pquj2tq",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "林口文化一路站",
+   "city": "新北市",
+   "district": "新北市",
+   "address": "新北市林口區文化一路一段100巷16號旁停車場",
+   "lat": 25.070395,
+   "lng": 121.374198,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p65rhdf",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "林口文化二路2站",
+   "city": "新北市",
+   "district": "新北市",
+   "address": "新北市林口區文化二路二段88巷與民享路口停車場",
+   "lat": 25.080268,
+   "lng": 121.380435,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p12lyn6i",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "林口文化二路站",
+   "city": "新北市",
+   "district": "新北市",
+   "address": "新北市林口區文化二路一段68巷2號B1",
+   "lat": 25.067669,
+   "lng": 121.366169,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "putoepj",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "林口文化三路1站",
+   "city": "新北市",
+   "district": "新北市",
+   "address": "新北市林口區文化三路一段402巷2號旁空地",
+   "lat": 25.074316,
+   "lng": 121.368129,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p12nhcs2",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "林口文化三路3站",
+   "city": "新北市",
+   "district": "新北市",
+   "address": "新北市林口區文化三路2段251號旁停車場",
+   "lat": 25.084839,
+   "lng": 121.377592,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "puc7bhh",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "林口昕境廣場站",
+   "city": "新北市",
+   "district": "新北市",
+   "address": "新北市林口區文化三路一段402巷2號B1F",
+   "lat": 25.073746,
+   "lng": 121.368835,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1jsphd9",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "林口南勢站",
+   "city": "新北市",
+   "district": "新北市",
+   "address": "新北市林口區南勢街258號旁停車場",
+   "lat": 25.075943,
+   "lng": 121.358351,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p7fk9wd",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "林口麗林全聯站",
+   "city": "新北市",
+   "district": "新北市",
+   "address": "新北市林口區公園路59號B1~B2停車場",
+   "lat": 25.068819,
+   "lng": 121.367713,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pybq6ir",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "板橋三民站",
+   "city": "新北市",
+   "district": "新北市",
+   "address": "新北市板橋區三民路一段210、212號B5-B6停車場",
+   "lat": 25.019542,
+   "lng": 121.479094,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1ar3iq2",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "板橋巨蛋站",
+   "city": "新北市",
+   "district": "新北市",
+   "address": "新北市板橋區環河西路四段及大漢街旁空地",
+   "lat": 25.03213,
+   "lng": 121.461275,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p4nzaw7",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "板橋英士站",
+   "city": "新北市",
+   "district": "新北市",
+   "address": "新北市板橋區英士路58巷19號旁停車場",
+   "lat": 25.025539,
+   "lng": 121.460442,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p7rtwph",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "金龍市場站",
+   "city": "新北市",
+   "district": "新北市",
+   "address": "新北市汐止區中興路與民族六街交叉口停車場",
+   "lat": 25.068576,
+   "lng": 121.629435,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pv2313s",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "泰山泰林站",
+   "city": "新北市",
+   "district": "新北市",
+   "address": "新北市泰山區泰林路二段66號旁空地",
+   "lat": 25.05806,
+   "lng": 121.435272,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p14745vi",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "捷運蘆洲站",
+   "city": "新北市",
+   "district": "新北市",
+   "address": "新北市蘆洲區三民路386號B1",
+   "lat": 25.091569,
+   "lng": 121.46446,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1wx3mal",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "淡水新市站",
+   "city": "新北市",
+   "district": "新北市",
+   "address": "新北市淡水區新市二路三段90號旁空地",
+   "lat": 25.193226,
+   "lng": 121.434644,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1leemt",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "深坑站",
+   "city": "新北市",
+   "district": "新北市",
+   "address": "新北市深坑區北深路二段142號旁停車場",
+   "lat": 25.002788,
+   "lng": 121.615581,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pzftpga",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "新北美術館站",
+   "city": "新北市",
+   "district": "新北市",
+   "address": "新北市鶯歌區館前路停車場(捷運鶯歌站旁)",
+   "lat": 24.953158,
+   "lng": 121.356663,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p11j58gt",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "新店北新站",
+   "city": "新北市",
+   "district": "新北市",
+   "address": "新北市新店區北新路三段51號B1停車場(請由北新路三段65巷13弄進出)",
+   "lat": 24.980819,
+   "lng": 121.541109,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pa6nrhz",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "新店民權站",
+   "city": "新北市",
+   "district": "新北市",
+   "address": "新北市新店區民權路78號B2停車場",
+   "lat": 24.983038,
+   "lng": 121.537968,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pg2ee1q",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "新店莊敬站",
+   "city": "新北市",
+   "district": "新北市",
+   "address": "新北市新店區中正路四維巷2弄2號B2(莊敬高職對面)",
+   "lat": 24.985139,
+   "lng": 121.534342,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "plvjwrd",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "新莊大觀全聯站",
+   "city": "新北市",
+   "district": "新北市",
+   "address": "新北市新莊區大觀街41號B1",
+   "lat": 25.035938,
+   "lng": 121.453642,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p8yomtw",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "新莊中原2站",
+   "city": "新北市",
+   "district": "新北市",
+   "address": "新北市新莊區昌智路與福壽街交叉口旁",
+   "lat": 25.05626,
+   "lng": 121.45795,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p11c5tx5",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "新莊中港國小站",
+   "city": "新北市",
+   "district": "新北市",
+   "address": "新北市新莊區中和街與中和街82巷口(中港國小東側門對面)",
+   "lat": 25.046483,
+   "lng": 121.447639,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pf2qyef",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "新莊公園站",
+   "city": "新北市",
+   "district": "新北市",
+   "address": "新北市新莊區公園路129號旁停車場",
+   "lat": 25.040642,
+   "lng": 121.45723,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p17y9fnd",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "新莊化成站",
+   "city": "新北市",
+   "district": "新莊區",
+   "address": "新莊區化成路222號旁空地",
+   "lat": 25.047137,
+   "lng": 121.465641,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p6ujux0",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "新莊民樂站",
+   "city": "新北市",
+   "district": "新北市",
+   "address": "新北市新莊區民樂街66號旁空地",
+   "lat": 25.042166,
+   "lng": 121.457971,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p3z04u",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "新莊昌隆站",
+   "city": "新北市",
+   "district": "新北市",
+   "address": "新北市新莊區昌隆街87號B1",
+   "lat": 25.051214,
+   "lng": 121.456745,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p185ygs3",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "蘆洲中山B站",
+   "city": "新北市",
+   "district": "新北市",
+   "address": "新北市蘆洲區中山二路195巷12號",
+   "lat": 25.080616,
+   "lng": 121.470891,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p15rb0is",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "蘆洲中山站",
+   "city": "新北市",
+   "district": "新北市",
+   "address": "新北市蘆洲區中山一路281巷口",
+   "lat": 25.079567,
+   "lng": 121.471874,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1detp4o",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "蘆洲功學社站",
+   "city": "新北市",
+   "district": "新北市",
+   "address": "新北市蘆洲區中山二路162號B1~B2",
+   "lat": 25.081451,
+   "lng": 121.470795,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pzsjrjd",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "蘆洲長榮站",
+   "city": "新北市",
+   "district": "新北市",
+   "address": "新北市蘆洲區長榮路58、60號B1~B3停車場",
+   "lat": 25.083269,
+   "lng": 121.462623,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1vx8edk",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "蘆洲站",
+   "city": "新北市",
+   "district": "新北市",
+   "address": "新北市蘆洲區三民路256號旁",
+   "lat": 25.090185,
+   "lng": 121.467481,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1iew3gb",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "鶯歌建國站",
+   "city": "新北市",
+   "district": "新北市",
+   "address": "新北市鶯歌區建國路71號旁停車場",
+   "lat": 24.954341,
+   "lng": 121.353756,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "prr7zs6",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "大園2站",
+   "city": "桃園市",
+   "district": "桃園市",
+   "address": "桃園市大園區國際路一段188號旁空地",
+   "lat": 25.068294,
+   "lng": 121.191688,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "psf87wo",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "大園3站",
+   "city": "桃園市",
+   "district": "桃園市",
+   "address": "桃園市大園區國際路一段199號旁空地",
+   "lat": 25.068226,
+   "lng": 121.190459,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1uy7kbi",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "中壢五福站",
+   "city": "桃園市",
+   "district": "桃園市",
+   "address": "桃園市中壢區中正路635號旁停車場",
+   "lat": 24.959654,
+   "lng": 121.210733,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p10vc1q1",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "中壢青園站",
+   "city": "桃園市",
+   "district": "桃園市",
+   "address": "桃園市中壢區青園路與青境路口(中厝福德祠旁)",
+   "lat": 25.009318,
+   "lng": 121.215684,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1wq0h74",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "中壢威尼斯站",
+   "city": "桃園市",
+   "district": "桃園市",
+   "address": "桃園市中壢區九和一街70號B1-B3(海華世紀宮廷停車場)",
+   "lat": 24.961529,
+   "lng": 121.224858,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pjo7kx",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "平鎮開封站",
+   "city": "桃園市",
+   "district": "桃園區",
+   "address": "桃園區平鎮區長沙街與長沙街46巷口停車場",
+   "lat": 24.911979,
+   "lng": 121.204684,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "plvfusx",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "南崁站",
+   "city": "桃園市",
+   "district": "桃園市",
+   "address": "桃園市蘆竹區南崁路二段297巷32號斜對面空地",
+   "lat": 25.059694,
+   "lng": 121.27049,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1yau6h2",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "桃園民族站",
+   "city": "桃園市",
+   "district": "桃園市",
+   "address": "桃園市桃園區新生路165號",
+   "lat": 24.996222,
+   "lng": 121.308045,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p14zqveu",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "桃園永福西站",
+   "city": "桃園市",
+   "district": "桃園市",
+   "address": "桃園市桃園區永福西街115巷24號對面停車場",
+   "lat": 24.963298,
+   "lng": 121.294922,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1o2j1j9",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "桃園東門市場站",
+   "city": "桃園市",
+   "district": "桃園市",
+   "address": "桃園市桃園區春日路69-1號B1~B3停車場",
+   "lat": 24.992723,
+   "lng": 121.317178,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p158t60",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "桃園統領站",
+   "city": "桃園市",
+   "district": "桃園市",
+   "address": "桃園市桃園區中正路60號B2〔統領百貨斜對面〕",
+   "lat": 24.992289,
+   "lng": 121.313228,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "poqplug",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "桃園新埔1站",
+   "city": "桃園市",
+   "district": "桃園市",
+   "address": "桃園市桃園區新埔七街102號旁停車場",
+   "lat": 25.020414,
+   "lng": 121.301163,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pedbgsx",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "高鐵桃園3站",
+   "city": "桃園市",
+   "district": "桃園市",
+   "address": "桃園市中壢區青埔里高鐵北路1段6號(P3立體停車場區-含機車停車場)",
+   "lat": 25.014077,
+   "lng": 121.215969,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1b1uuzm",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "龍潭中正站",
+   "city": "桃園市",
+   "district": "桃園市",
+   "address": "桃園市龍潭區中正路311之3號後方停車場",
+   "lat": 24.861672,
+   "lng": 121.218459,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p97x14v",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "龜山文化站",
+   "city": "桃園市",
+   "district": "桃園市",
+   "address": "桃園市龜山區文化一路86-6號旁空地",
+   "lat": 25.054317,
+   "lng": 121.376673,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p17ss7wm",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "龜山站",
+   "city": "桃園市",
+   "district": "桃園市",
+   "address": "桃園市龜山區文三二街15號對面停車場",
+   "lat": 25.056528,
+   "lng": 121.36119,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1h23rr1",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "蘆竹2站",
+   "city": "桃園市",
+   "district": "桃園市",
+   "address": "桃園市蘆竹區機捷路二段999巷及山鼻二路口空地",
+   "lat": 25.078939,
+   "lng": 121.282398,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pmpmywq",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "蘆竹站",
+   "city": "桃園市",
+   "district": "桃園市",
+   "address": "桃園市蘆竹區機捷路二段768巷29弄35號旁空地",
+   "lat": 25.081518,
+   "lng": 121.28751,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1du84oq",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "竹北六家站",
+   "city": "新竹縣市",
+   "district": "",
+   "address": "新竹縣竹北市六家五路一段211號旁空地",
+   "lat": 24.808087,
+   "lng": 121.028004,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p4xq6ff",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "竹北光明商圈站",
+   "city": "新竹縣市",
+   "district": "",
+   "address": "新竹縣竹北市光明一路197號地下停車場(竹北光明商圈停車場)",
+   "lat": 24.830408,
+   "lng": 121.014117,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pfkozil",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "竹北博愛站",
+   "city": "新竹縣市",
+   "district": "",
+   "address": "新竹縣竹北市博愛街314號對面停車場",
+   "lat": 24.835195,
+   "lng": 121.007865,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1qr40xj",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "高鐵新竹1站",
+   "city": "新竹縣市",
+   "district": "",
+   "address": "新竹縣竹北市高鐵七路6號(P1汽車停車場)",
+   "lat": 24.806131,
+   "lng": 121.039966,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1reetzs",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "高鐵新竹2站",
+   "city": "新竹縣市",
+   "district": "",
+   "address": "新竹縣竹北市高鐵七路6號(P2汽車停車場)",
+   "lat": 24.806056,
+   "lng": 121.04035,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1s1pn21",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "高鐵新竹3站",
+   "city": "新竹縣市",
+   "district": "",
+   "address": "新竹縣竹北市高鐵七路6號(P3汽車停車場)",
+   "lat": 24.808994,
+   "lng": 121.041367,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1qhny0k",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "新瓦屋客家園區站",
+   "city": "新竹縣市",
+   "district": "",
+   "address": "新竹縣竹北市永興段722地號部份土地",
+   "lat": 24.811371,
+   "lng": 121.026932,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1ofdtg1",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "新竹第二運動場站",
+   "city": "新竹縣市",
+   "district": "",
+   "address": "新竹縣竹北市莊敬一路2號停車場",
+   "lat": 24.822798,
+   "lng": 121.0199,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1aqxj7s",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "新竹新埔1站",
+   "city": "新竹縣市",
+   "district": "",
+   "address": "新竹縣新埔鎮福德街646號旁空地",
+   "lat": 24.826616,
+   "lng": 121.073344,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1gao6wc",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "新竹新埔2站",
+   "city": "新竹縣市",
+   "district": "",
+   "address": "新竹縣新埔鎮田新五街與仁愛路口旁空地",
+   "lat": 24.826235,
+   "lng": 121.080427,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "phu67i5",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "新竹縣體育場站",
+   "city": "新竹縣市",
+   "district": "",
+   "address": "新竹縣竹北市福興東路一段1號",
+   "lat": 24.822424,
+   "lng": 121.017498,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p6xtml3",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "高鐵苗栗站",
+   "city": "苗栗縣",
+   "district": "",
+   "address": "苗栗縣後龍鎮高鐵三路268號停車場",
+   "lat": 24.60655,
+   "lng": 120.826839,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1g89z03",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "竹科站",
+   "city": "新竹縣市",
+   "district": "新竹市",
+   "address": "新竹市東區工業東二路一號旁(全家新竹科學園區科技生活館)",
+   "lat": 24.779661,
+   "lng": 121.005312,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p10cyxnz",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "新竹光復站",
+   "city": "新竹縣市",
+   "district": "新竹市",
+   "address": "新竹市東區光復路二段287號B1停車場",
+   "lat": 24.799877,
+   "lng": 120.989684,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pgi9a0m",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "大甲甲后站",
+   "city": "台中市",
+   "district": "台中市",
+   "address": "台中市大甲區甲后路5段519巷側停車場",
+   "lat": 24.346659,
+   "lng": 120.628385,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1xvd9xf",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "大甲經國2站",
+   "city": "台中市",
+   "district": "台中市",
+   "address": "台中市大甲區經國路892號旁停車場",
+   "lat": 24.355796,
+   "lng": 120.620419,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1qxemtm",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "大甲鎮瀾站",
+   "city": "台中市",
+   "district": "台中市",
+   "address": "台中市大甲區鎮瀾街140號停車場",
+   "lat": 24.345084,
+   "lng": 120.623826,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1esdnfi",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "大里中湖站",
+   "city": "台中市",
+   "district": "台中市",
+   "address": "台中市大里區中湖路100號對面停車場",
+   "lat": 24.086845,
+   "lng": 120.693564,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1vahmhn",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "大墩文化中心站",
+   "city": "台中市",
+   "district": "台中市",
+   "address": "台中市西區英才路600號停車場",
+   "lat": 24.141479,
+   "lng": 120.66598,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "psf5sg7",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "大墩四街站",
+   "city": "台中市",
+   "district": "台中市",
+   "address": "台中市南屯區大墩四街34號對面空地",
+   "lat": 24.141031,
+   "lng": 120.653779,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pjgrbpp",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "大墩惠中站",
+   "city": "台中市",
+   "district": "台中市",
+   "address": "台中市南屯區大墩四街490號對面停車場",
+   "lat": 24.142357,
+   "lng": 120.641522,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1an4xe8",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "中信市政站",
+   "city": "台中市",
+   "district": "台中市",
+   "address": "台中市西屯區惠中路一段88號B1~B5停車場",
+   "lat": 24.162391,
+   "lng": 120.644892,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1no70sy",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "中清太原站",
+   "city": "台中市",
+   "district": "台中市",
+   "address": "台中市北區中清路一段562號左方空地",
+   "lat": 24.166689,
+   "lng": 120.673505,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p72n1cp",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "太平中山站",
+   "city": "台中市",
+   "district": "台中市",
+   "address": "台中市太平區中山路三段25號旁空地",
+   "lat": 24.14891,
+   "lng": 120.720156,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1wc2es9",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "文心一路站",
+   "city": "台中市",
+   "district": "台中市",
+   "address": "台中市南屯區文心一路79號旁空地",
+   "lat": 24.154633,
+   "lng": 120.644548,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p37rlyf",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "文昌加盟-台中機場2站",
+   "city": "台中市",
+   "district": "",
+   "address": "台中清泉崗機場正對面",
+   "lat": 24.253704,
+   "lng": 120.598768,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1axty06",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "台中十甲站",
+   "city": "台中市",
+   "district": "台中市",
+   "address": "台中市東區東英八街61號旁空地",
+   "lat": 24.14158,
+   "lng": 120.70386,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p15wxn0g",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "台中大甲站",
+   "city": "台中市",
+   "district": "台中市",
+   "address": "台中市大甲區順天路267號旁空地",
+   "lat": 24.347274,
+   "lng": 120.624559,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "prmcdlk",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "台中大里站",
+   "city": "台中市",
+   "district": "台中市",
+   "address": "台中市大里區大里路29號對面空地",
+   "lat": 24.107284,
+   "lng": 120.689208,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "px0o28s",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "台中中平站",
+   "city": "台中市",
+   "district": "台中市",
+   "address": "台中市北屯區中平路760號旁空地",
+   "lat": 24.184897,
+   "lng": 120.66387,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pkf6ohq",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "台中太和站",
+   "city": "台中市",
+   "district": "台中市",
+   "address": "台中市北屯區太和路一段130號旁空地",
+   "lat": 24.159235,
+   "lng": 120.72486,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1xoyo8d",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "台中文山站",
+   "city": "台中市",
+   "district": "台中市",
+   "address": "台中市南屯區文山六街99號停車場",
+   "lat": 24.148608,
+   "lng": 120.612059,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1c37pwt",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "台中江興B站",
+   "city": "台中市",
+   "district": "台中市",
+   "address": "台中市北屯區三光巷50弄3號右前方空地",
+   "lat": 24.163601,
+   "lng": 120.695644,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pr0gc4g",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "台中江興站",
+   "city": "台中市",
+   "district": "台中市",
+   "address": "台中市北屯區三光巷50弄3號左前方空地",
+   "lat": 24.163798,
+   "lng": 120.695225,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pgfelie",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "台中東山站",
+   "city": "台中市",
+   "district": "台中市",
+   "address": "台中市北屯區東山路一段50-18號B1停車場",
+   "lat": 24.169829,
+   "lng": 120.701953,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1u6qymx",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "台中建國南站",
+   "city": "台中市",
+   "district": "台中市",
+   "address": "台中市南區建國南路一段143號旁空地",
+   "lat": 24.12159,
+   "lng": 120.652778,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p19c30ym",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "台中泉源站",
+   "city": "台中市",
+   "district": "台中市",
+   "address": "台中市東區泉源街13號停車場",
+   "lat": 24.14,
+   "lng": 120.694717,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pjw2s8c",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "台中益文站",
+   "city": "台中市",
+   "district": "台中市",
+   "address": "台中市南屯區益文一街與文昌街口空地",
+   "lat": 24.137889,
+   "lng": 120.638345,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p9gbmyq",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "台中崇德站",
+   "city": "台中市",
+   "district": "台中市",
+   "address": "台中市北屯區崇德路二段103號旁停車場",
+   "lat": 24.171147,
+   "lng": 120.685261,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1uu0gbj",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "台中復興站",
+   "city": "台中市",
+   "district": "台中市",
+   "address": "台中市南區復興路一段140號後方停車場",
+   "lat": 24.205085,
+   "lng": 120.707514,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p16fd87p",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "台中敦化站",
+   "city": "台中市",
+   "district": "台中市",
+   "address": "台中市北屯區中平路579巷6號後方空地",
+   "lat": 24.184875,
+   "lng": 120.663676,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pb32xsi",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "台中景賢站",
+   "city": "台中市",
+   "district": "台中市",
+   "address": "台中市北屯區景賢路8號左後方空地",
+   "lat": 24.166713,
+   "lng": 120.731259,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1awq017",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "台中榮華B站",
+   "city": "台中市",
+   "district": "台中市",
+   "address": "台中市北區榮華街42號旁停車場",
+   "lat": 24.160473,
+   "lng": 120.686708,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p4u7iyy",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "台中榮華C站",
+   "city": "台中市",
+   "district": "台中市",
+   "address": "台中市北區榮華街23號旁停車場",
+   "lat": 24.160005,
+   "lng": 120.686577,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "ppjtcyy",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "台中榮華站",
+   "city": "台中市",
+   "district": "台中市",
+   "address": "台中市北區榮華街32號旁停車場",
+   "lat": 24.159923,
+   "lng": 120.686709,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1hz4zl",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "台中德化站",
+   "city": "台中市",
+   "district": "台中市",
+   "address": "台中市北區德化街147號旁空地",
+   "lat": 24.161533,
+   "lng": 120.68695,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p3m46hq",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "台中豐樂站",
+   "city": "台中市",
+   "district": "台中市",
+   "address": "台中市北屯區豐樂路二段與豐樂二街交叉口空地",
+   "lat": 24.19478,
+   "lng": 120.678938,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1rdi74s",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "台中霧峰2站",
+   "city": "台中市",
+   "district": "台中市",
+   "address": "台中市霧峰區曾厝街9號旁停車場",
+   "lat": 24.066169,
+   "lng": 120.698347,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p5hc45",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "台中霧峰站",
+   "city": "台中市",
+   "district": "台中市",
+   "address": "台中市霧峰區振德街27號對面空地",
+   "lat": 24.065433,
+   "lng": 120.697829,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1ac9psz",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "后庄七街站",
+   "city": "台中市",
+   "district": "台中市",
+   "address": "台中市北屯區后庄七街76號後方",
+   "lat": 24.188645,
+   "lng": 120.667222,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pif80ot",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "東海2站",
+   "city": "台中市",
+   "district": "台中市",
+   "address": "台中市龍井區台灣大道5段127號旁空地",
+   "lat": 24.184341,
+   "lng": 120.589442,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p18i8e2u",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "東海站",
+   "city": "台中市",
+   "district": "台中市",
+   "address": "台中市龍井區藝術北街68巷旁",
+   "lat": 24.188783,
+   "lng": 120.592719,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1gyafrt",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "青島文昌站",
+   "city": "台中市",
+   "district": "台中市",
+   "address": "台中市北屯區文昌東八街30號旁空地",
+   "lat": 24.168497,
+   "lng": 120.690567,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1jgpnxb",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "南京四街站",
+   "city": "台中市",
+   "district": "台中市",
+   "address": "台中市東區南京四街1號對面停車場",
+   "lat": 24.140978,
+   "lng": 120.687281,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pxrnh3s",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "柳川民權站",
+   "city": "台中市",
+   "district": "台中市",
+   "address": "台中市中區柳川西路三段2號2樓至3樓",
+   "lat": 24.142042,
+   "lng": 120.675926,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1pjys3e",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "烏日九德站",
+   "city": "台中市",
+   "district": "台中市",
+   "address": "台中市烏日區九如段222-1、222-3地號(環中路六段高架橋下)",
+   "lat": 24.115268,
+   "lng": 120.641578,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1wh49is",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "烏日三榮2站",
+   "city": "台中市",
+   "district": "台中市",
+   "address": "台中市烏日區三榮八路25號對面停車場",
+   "lat": 24.107753,
+   "lng": 120.603068,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1jb0k16",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "烏日三榮站",
+   "city": "台中市",
+   "district": "台中市",
+   "address": "台中市烏日區三榮路一段188號旁停車場",
+   "lat": 24.106058,
+   "lng": 120.608335,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pcivdgp",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "烏日大同站",
+   "city": "台中市",
+   "district": "台中市",
+   "address": "台中市烏日區大同六街53號前空地",
+   "lat": 24.111227,
+   "lng": 120.627963,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1h7hkxq",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "烏日明德站",
+   "city": "台中市",
+   "district": "台中市",
+   "address": "台中市烏日區明德街130號旁停車場",
+   "lat": 24.10765,
+   "lng": 120.634891,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pjadrvl",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "烏日長春站",
+   "city": "台中市",
+   "district": "台中市",
+   "address": "台中市烏日區長春街336號後方停車場",
+   "lat": 24.108664,
+   "lng": 120.636786,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p19dspio",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "烏日信義站",
+   "city": "台中市",
+   "district": "台中市",
+   "address": "台中市烏日區信義街214巷3號旁停車場",
+   "lat": 24.104674,
+   "lng": 120.637779,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p14y2a0d",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "烏日興祥站",
+   "city": "台中市",
+   "district": "台中市",
+   "address": "台中市烏日區興祥街與興祥街42巷口空地",
+   "lat": 24.106263,
+   "lng": 120.638742,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p15sijeo",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "高鐵台中1站",
+   "city": "台中市",
+   "district": "台中市",
+   "address": "台中市烏日區站區二路8號(P1汽車立體停車場)",
+   "lat": 24.111007,
+   "lng": 120.616975,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p16qudr7",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "崇德五路站",
+   "city": "台中市",
+   "district": "台中市",
+   "address": "台中市北屯區崇德五路369號旁停車場",
+   "lat": 24.179264,
+   "lng": 120.682451,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p11tv4s2",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "新平公園2站",
+   "city": "台中市",
+   "district": "台中市",
+   "address": "台中市北屯區敦化路2段與仁平路交叉口",
+   "lat": 24.185097,
+   "lng": 120.661555,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p16kpl82",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "新平公園站",
+   "city": "台中市",
+   "district": "台中市",
+   "address": "台中市北屯區中平路876號對面空地",
+   "lat": 24.186888,
+   "lng": 120.66259,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1nxgswl",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "豐原中正公園站",
+   "city": "台中市",
+   "district": "台中市",
+   "address": "台中市豐原區水源路1號旁停車場(中正公園停車場)",
+   "lat": 24.254785,
+   "lng": 120.747481,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1ka83hm",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "豐原中興2站",
+   "city": "台中市",
+   "district": "台中市",
+   "address": "台中市豐原區中興路76號旁空地",
+   "lat": 24.24838,
+   "lng": 120.716544,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pa8sigl",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "豐原中興站",
+   "city": "台中市",
+   "district": "台中市",
+   "address": "台中市豐原區中興路128號對面停車場(與興安街交叉口)",
+   "lat": 24.248093,
+   "lng": 120.714831,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pfy8jqj",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "豐原北陽站",
+   "city": "台中市",
+   "district": "台中市",
+   "address": "台中市豐原區北陽路1號對面停車場",
+   "lat": 24.251887,
+   "lng": 120.731327,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1iuk0tx",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "豐原永康站",
+   "city": "台中市",
+   "district": "台中市",
+   "address": "台中市豐原區永康路266號旁空地",
+   "lat": 24.240592,
+   "lng": 120.723876,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pnlioq1",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "豐原富春國小站",
+   "city": "台中市",
+   "district": "台中市",
+   "address": "台中市豐原區中山路473巷15號B1",
+   "lat": 24.252964,
+   "lng": 120.712978,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pl0lcwo",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "豐原慈濟公園站",
+   "city": "台中市",
+   "district": "台中市",
+   "address": "台中市豐原區豐東路555號旁停車場",
+   "lat": 24.257946,
+   "lng": 120.733024,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p6ndz1i",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "豐原漆藝館站",
+   "city": "台中市",
+   "district": "台中市",
+   "address": "台中市豐原區水源路1之1號後方停車場(由水源路2巷進出)",
+   "lat": 24.256344,
+   "lng": 120.73569,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pye5i3o",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "豐原環北站",
+   "city": "台中市",
+   "district": "台中市",
+   "address": "台中市豐原區圓環北路一段319號旁停車場",
+   "lat": 24.25833,
+   "lng": 120.719391,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1r1xq5k",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "台鐵嘉北站",
+   "city": "嘉義縣市",
+   "district": "嘉義市",
+   "address": "嘉義市東區忠孝路541之13號旁空地",
+   "lat": 23.499664,
+   "lng": 120.44822,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pulf04p",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "嘉義大雅站",
+   "city": "嘉義縣市",
+   "district": "嘉義市",
+   "address": "嘉義市東區大雅路2段495巷7號對面",
+   "lat": 23.477297,
+   "lng": 120.47115,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1hy8xez",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "嘉義小雅2站",
+   "city": "嘉義縣市",
+   "district": "嘉義市",
+   "address": "嘉義市東區小雅路331號對面停車場",
+   "lat": 23.47408,
+   "lng": 120.473936,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pb6h4ze",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "嘉義小雅站",
+   "city": "嘉義縣市",
+   "district": "嘉義市",
+   "address": "嘉義市東區小雅路499號對面停車場",
+   "lat": 23.4768,
+   "lng": 120.469239,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p2mj9on",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "嘉義中山2站",
+   "city": "嘉義縣市",
+   "district": "嘉義市",
+   "address": "嘉義市西區中山路621號旁空地",
+   "lat": 23.477959,
+   "lng": 120.441137,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p79blps",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "嘉義中山站",
+   "city": "嘉義縣市",
+   "district": "嘉義市",
+   "address": "嘉義市東區中山路155號",
+   "lat": 23.48182,
+   "lng": 120.456162,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1ts8y7x",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "嘉義中正站",
+   "city": "嘉義縣市",
+   "district": "嘉義市",
+   "address": "嘉義市東區中正路與新生路交叉口",
+   "lat": 23.480207,
+   "lng": 120.461121,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pcg3f5e",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "嘉義仁愛站",
+   "city": "嘉義縣市",
+   "district": "嘉義市",
+   "address": "嘉義市西區仁愛路347號B1",
+   "lat": 23.47471,
+   "lng": 120.442263,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1udj9gw",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "嘉義世賢站",
+   "city": "嘉義縣市",
+   "district": "嘉義市",
+   "address": "嘉義市西區世賢路三段451號旁停車場",
+   "lat": 23.461848,
+   "lng": 120.437771,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1o71k7k",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "嘉義北港站",
+   "city": "嘉義縣市",
+   "district": "嘉義市",
+   "address": "嘉義市西區北港路246號對面停車場",
+   "lat": 23.478016,
+   "lng": 120.433456,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1i96nsy",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "嘉義民生北站",
+   "city": "嘉義縣市",
+   "district": "嘉義市",
+   "address": "嘉義市西區民生北路173巷12號旁",
+   "lat": 23.478737,
+   "lng": 120.445491,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "prcue2m",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "嘉義民族國小站",
+   "city": "嘉義縣市",
+   "district": "嘉義市",
+   "address": "嘉義市東區垂楊路223號對面地下停車場",
+   "lat": 23.474227,
+   "lng": 120.455032,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p5l3jy8",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "嘉義西市場B站",
+   "city": "嘉義縣市",
+   "district": "嘉義市",
+   "address": "嘉義市西區國華街245號B1(出入口位於忠義街)",
+   "lat": 23.481738,
+   "lng": 120.447177,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pi8gzo6",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "嘉義西市場站",
+   "city": "嘉義縣市",
+   "district": "嘉義市",
+   "address": "嘉義市西區國華街245號3F、4F",
+   "lat": 23.481831,
+   "lng": 120.448181,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1oqk0zy",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "嘉義西榮站",
+   "city": "嘉義縣市",
+   "district": "嘉義市",
+   "address": "嘉義市西區西榮街14號對面",
+   "lat": 23.473133,
+   "lng": 120.445785,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pfdpqvp",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "嘉義和平站",
+   "city": "嘉義縣市",
+   "district": "嘉義市",
+   "address": "嘉義市東區和平路339號",
+   "lat": 23.482899,
+   "lng": 120.456044,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1r8e03l",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "嘉義忠孝3站",
+   "city": "嘉義縣市",
+   "district": "嘉義市",
+   "address": "嘉義市東區忠孝路346巷59號旁空地",
+   "lat": 23.489223,
+   "lng": 120.453994,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "ppir5wb",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "嘉義忠孝4站",
+   "city": "嘉義縣市",
+   "district": "嘉義市",
+   "address": "嘉義市東區忠孝路346巷21號前方空地",
+   "lat": 23.490179,
+   "lng": 120.454833,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p18q2b2a",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "嘉義杭州2站",
+   "city": "嘉義縣市",
+   "district": "嘉義市",
+   "address": "嘉義市西區杭州三街與杭州六街交叉口停車場",
+   "lat": 23.466855,
+   "lng": 120.444229,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p17u8jmy",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "嘉義芳安站",
+   "city": "嘉義縣市",
+   "district": "嘉義市",
+   "address": "嘉義市東區芳安路17巷與宣信街98巷口空地",
+   "lat": 23.466345,
+   "lng": 120.464775,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pwkvjhz",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "嘉義軍輝站",
+   "city": "嘉義縣市",
+   "district": "嘉義市",
+   "address": "嘉義市東區軍輝路70號後方空地",
+   "lat": 23.455984,
+   "lng": 120.463063,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pkhqds",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "嘉義健康站",
+   "city": "嘉義縣市",
+   "district": "嘉義市",
+   "address": "嘉義市西區湖子內路203號對面停車場",
+   "lat": 23.45093,
+   "lng": 120.441746,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pyxtj6z",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "嘉義湖子內站",
+   "city": "嘉義縣市",
+   "district": "嘉義市",
+   "address": "嘉義市西區健康三路與湖子內路口停車場",
+   "lat": 23.447867,
+   "lng": 120.440449,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pstx0rn",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "嘉義雅竹站",
+   "city": "嘉義縣市",
+   "district": "嘉義市",
+   "address": "嘉義市東區雅竹路76號旁",
+   "lat": 23.475983,
+   "lng": 120.473189,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1mevyv7",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "嘉義順興站",
+   "city": "嘉義縣市",
+   "district": "嘉義市",
+   "address": "嘉義市東區興美一街與順興二路口停車場",
+   "lat": 23.456569,
+   "lng": 120.44993,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p7uej79",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "嘉義精忠站",
+   "city": "嘉義縣市",
+   "district": "嘉義市",
+   "address": "嘉義市東區圳頭里精忠一村1-6號旁空地",
+   "lat": 23.491915,
+   "lng": 120.47716,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pd4ro75",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "嘉義維新站",
+   "city": "嘉義縣市",
+   "district": "嘉義市",
+   "address": "嘉義市東區維新路76號",
+   "lat": 23.4827,
+   "lng": 120.458817,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pfelcdy",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "嘉義興安站",
+   "city": "嘉義縣市",
+   "district": "嘉義市",
+   "address": "嘉義市東區興美十街與興安街口右後側停車場",
+   "lat": 23.461662,
+   "lng": 120.449122,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p96oxdh",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "嘉義興美站",
+   "city": "嘉義縣市",
+   "district": "嘉義市",
+   "address": "嘉義市東區興美九街26號旁停車場",
+   "lat": 23.459741,
+   "lng": 120.449366,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1k9nbsr",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "嘉義蘭州站",
+   "city": "嘉義縣市",
+   "district": "嘉義市",
+   "address": "嘉義市西區蘭州二街93號旁空地",
+   "lat": 23.468029,
+   "lng": 120.432637,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1lsvfcp",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "伸港中正站",
+   "city": "彰化縣",
+   "district": "",
+   "address": "彰化縣伸港鄉中正路33號旁停車場",
+   "lat": 24.146066,
+   "lng": 120.485096,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p8txmk1",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "伸港忠孝東站",
+   "city": "彰化縣",
+   "district": "",
+   "address": "彰化縣伸港鄉忠孝東街46號對面停車場",
+   "lat": 24.148422,
+   "lng": 120.487262,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p122xu6k",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "伸港新興站",
+   "city": "彰化縣",
+   "district": "",
+   "address": "彰化縣伸港鄉新興路100號旁停車場",
+   "lat": 24.145095,
+   "lng": 120.486789,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1krofsn",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "和美全民運動館站",
+   "city": "彰化縣",
+   "district": "",
+   "address": "彰化縣和美鎮西興路321號停車場",
+   "lat": 24.130827,
+   "lng": 120.483347,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1e7b1b2",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "員林法院南站",
+   "city": "彰化縣",
+   "district": "",
+   "address": "彰化縣員林市法院南街65號旁空地",
+   "lat": 23.965835,
+   "lng": 120.572163,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "ps29fn2",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "員林新生B站",
+   "city": "彰化縣",
+   "district": "",
+   "address": "彰化縣員林市新生路301號對面空地",
+   "lat": 23.963051,
+   "lng": 120.568597,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pgk3acc",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "員林新生站",
+   "city": "彰化縣",
+   "district": "",
+   "address": "彰化縣員林市新生路297號對面空地",
+   "lat": 23.96297,
+   "lng": 120.568586,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p6mrhk8",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "員林萬年站",
+   "city": "彰化縣",
+   "district": "",
+   "address": "彰化縣員林市萬年路三段184號旁停車場",
+   "lat": 23.959798,
+   "lng": 120.573891,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p386350",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "員林雙平站",
+   "city": "彰化縣",
+   "district": "",
+   "address": "彰化縣員林市雙平路76號對面空地",
+   "lat": 23.964468,
+   "lng": 120.56901,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pqbkd6x",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "高鐵彰化站",
+   "city": "彰化縣",
+   "district": "",
+   "address": "彰化縣田中鎮站區路二段99號停車場",
+   "lat": 23.874115,
+   "lng": 120.573606,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1w5zpsa",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "鹿港站",
+   "city": "彰化縣",
+   "district": "",
+   "address": "彰化縣鹿港鎮復興南路813巷12弄18號旁空地",
+   "lat": 24.05664,
+   "lng": 120.428381,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1r7zves",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "溪湖糖北站",
+   "city": "彰化縣",
+   "district": "",
+   "address": "彰化縣溪湖鎮糖北街與糖北東街口對面停車場",
+   "lat": 23.956831,
+   "lng": 120.481006,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "prsrlap",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "彰化中山站",
+   "city": "彰化縣",
+   "district": "",
+   "address": "彰化縣彰化市中山路1段378號旁空地",
+   "lat": 24.068232,
+   "lng": 120.539876,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p184isec",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "彰化四維站",
+   "city": "彰化縣",
+   "district": "",
+   "address": "彰化縣彰化市四維路69巷56號旁空地",
+   "lat": 24.065318,
+   "lng": 120.535479,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1bkfcl",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "彰化民族站",
+   "city": "彰化縣",
+   "district": "",
+   "address": "彰化縣彰化市民族路37號旁空地",
+   "lat": 24.066944,
+   "lng": 120.536923,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1dhrxd0",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "南投名間站",
+   "city": "南投縣",
+   "district": "",
+   "address": "南投縣名間鄉彰南路46-2號停車場",
+   "lat": 23.838692,
+   "lng": 120.702603,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p10xmlfr",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "草屯平等站",
+   "city": "南投縣",
+   "district": "",
+   "address": "南投縣草屯鎮平等街140號旁停車場中國醫藥大學附設醫院草屯分院旁",
+   "lat": 23.984595,
+   "lng": 120.685858,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1d1bq42",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "斗六太平站",
+   "city": "雲林縣",
+   "district": "",
+   "address": "雲林縣斗六市太平路181號停車場",
+   "lat": 23.707374,
+   "lng": 120.54099,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1igbozg",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "斗六民生南站",
+   "city": "雲林縣",
+   "district": "",
+   "address": "雲林縣斗六市民生南路135號旁停車場",
+   "lat": 23.70219,
+   "lng": 120.53713,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pjjkz5x",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "斗六民生站",
+   "city": "雲林縣",
+   "district": "",
+   "address": "雲林縣斗六市民生路112號",
+   "lat": 23.710531,
+   "lng": 120.540075,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1l9ywjt",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "斗六城頂站",
+   "city": "雲林縣",
+   "district": "",
+   "address": "雲林縣斗六市城頂街5號旁停車場",
+   "lat": 23.706896,
+   "lng": 120.545794,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "popn83t",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "斗六站",
+   "city": "雲林縣",
+   "district": "",
+   "address": "雲林縣斗六市雲林路2段229號旁停車場",
+   "lat": 23.703381,
+   "lng": 120.531891,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1gck3ba",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "斗六埤口站",
+   "city": "雲林縣",
+   "district": "",
+   "address": "雲林縣斗六市埤口路上空地(埤口段93~103地號)",
+   "lat": 23.696378,
+   "lng": 120.525905,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pk3fzkm",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "斗六鎮南站",
+   "city": "雲林縣",
+   "district": "",
+   "address": "雲林縣斗六市鎮南路41號旁空地",
+   "lat": 23.704401,
+   "lng": 120.539917,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p5jqdbl",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "北港仁和站",
+   "city": "雲林縣",
+   "district": "",
+   "address": "雲林縣北港鎮仁和路46號旁空地",
+   "lat": 23.569403,
+   "lng": 120.305491,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1m7eg4j",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "北港民主站",
+   "city": "雲林縣",
+   "district": "",
+   "address": "雲林縣北港鎮民主路111、113、115號前停車場",
+   "lat": 23.568913,
+   "lng": 120.300318,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p3a2h2v",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "北港光明站",
+   "city": "雲林縣",
+   "district": "",
+   "address": "雲林縣北港鎮光明路55之1號旁空地",
+   "lat": 23.566494,
+   "lng": 120.302283,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p142bgg8",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "西螺延平站",
+   "city": "雲林縣",
+   "district": "",
+   "address": "雲林縣西螺鎮延平路288號旁停車場",
+   "lat": 23.800971,
+   "lng": 120.458075,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p17r98x1",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "虎尾忠孝站",
+   "city": "雲林縣",
+   "district": "",
+   "address": "雲林縣虎尾鎮忠孝路8號旁停車場",
+   "lat": 23.705083,
+   "lng": 120.431033,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pvsio8",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "虎尾林森站",
+   "city": "雲林縣",
+   "district": "",
+   "address": "雲林縣虎尾鎮林森路二段20號旁空地",
+   "lat": 23.707539,
+   "lng": 120.43064,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1qxsw6y",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "高鐵雲林站",
+   "city": "雲林縣",
+   "district": "",
+   "address": "雲林縣虎尾鎮站前東路301號停車場",
+   "lat": 23.73541,
+   "lng": 120.416777,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pv9g9du",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "朴子光復站",
+   "city": "嘉義縣市",
+   "district": "",
+   "address": "嘉義縣朴子市光復路36號旁停車場",
+   "lat": 23.465304,
+   "lng": 120.246698,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pzpcw0t",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "高鐵嘉義2站",
+   "city": "嘉義縣市",
+   "district": "",
+   "address": "嘉義縣太保市高鐵西路168號(P2汽車停車場)",
+   "lat": 23.457569,
+   "lng": 120.323308,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p10cnp32",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "高鐵嘉義3站",
+   "city": "嘉義縣市",
+   "district": "",
+   "address": "嘉義縣太保市高鐵西路168號(P3汽車停車場)",
+   "lat": 23.460255,
+   "lng": 120.323439,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p15uibjc",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "新港奉天宮2站",
+   "city": "嘉義縣市",
+   "district": "",
+   "address": "嘉義縣新港鄉文昌街15號對面空地",
+   "lat": 23.554169,
+   "lng": 120.349079,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1js4q2s",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "新港奉天宮站",
+   "city": "嘉義縣市",
+   "district": "",
+   "address": "嘉義縣新港鄉登雲路88號對面空地",
+   "lat": 23.555831,
+   "lng": 120.346741,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p13u8jga",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "台南大同站",
+   "city": "台南市",
+   "district": "台南市",
+   "address": "台南市東區大同路一段307號後方空地",
+   "lat": 22.981775,
+   "lng": 120.211806,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pg3j71n",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "台南中華西站",
+   "city": "台南市",
+   "district": "台南市",
+   "address": "台南市中西區中華西路2段64號旁停車場",
+   "lat": 22.993827,
+   "lng": 120.18679,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p17gurcj",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "台南永康中正站",
+   "city": "台南市",
+   "district": "台南市",
+   "address": "台南市永康區中正路970巷9號2F-4F停車場",
+   "lat": 23.040772,
+   "lng": 120.238586,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1szmqek",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "台南立賢站",
+   "city": "台南市",
+   "district": "台南市",
+   "address": "台南市北區立賢路一段與立賢路一段650巷交叉口",
+   "lat": 23.010011,
+   "lng": 120.202874,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pcuwx0l",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "台南安平古堡站",
+   "city": "台南市",
+   "district": "台南市",
+   "address": "台南市安平區古堡街146巷空地(安平稅關舊址)",
+   "lat": 23.003718,
+   "lng": 120.158116,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pr3vncg",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "台南自由站",
+   "city": "台南市",
+   "district": "台南市",
+   "address": "台南市東區自由路2段37號旁停車場",
+   "lat": 22.97107,
+   "lng": 120.237605,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pen9ofm",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "台南和緯站",
+   "city": "台南市",
+   "district": "台南市",
+   "address": "台南市北區和緯路2段53號對面空地",
+   "lat": 23.011065,
+   "lng": 120.20951,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1m9mbeg",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "台南美術館站",
+   "city": "台南市",
+   "district": "台南市",
+   "address": "台南市中西區永福路一段與永福路一段275巷交叉口",
+   "lat": 22.988855,
+   "lng": 120.199491,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1u8pr1b",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "台南崇善站",
+   "city": "台南市",
+   "district": "台南市",
+   "address": "台南市東區崇善十六街55號旁空地",
+   "lat": 22.963095,
+   "lng": 120.233888,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pkw1prj",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "台南崇德站",
+   "city": "台南市",
+   "district": "台南市",
+   "address": "台南市東區崇德十五街1號停車場",
+   "lat": 22.970146,
+   "lng": 120.228074,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1kf5plg",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "民族東寧站",
+   "city": "台南市",
+   "district": "台南市",
+   "address": "台南市東區民族路一段45號西側停車場",
+   "lat": 22.994319,
+   "lng": 120.214242,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1erqtg7",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "永康東橋站",
+   "city": "台南市",
+   "district": "台南市",
+   "address": "台南市永康區東橋六街15號對面空地",
+   "lat": 23.019155,
+   "lng": 120.2338,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1cd4vdd",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "安南安和站",
+   "city": "台南市",
+   "district": "台南市",
+   "address": "台南市安南區安和路1段199號旁停車場",
+   "lat": 23.030791,
+   "lng": 120.21285,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p15ct4kp",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "高鐵台南2站",
+   "city": "台南市",
+   "district": "台南市",
+   "address": "台南市歸仁區歸仁大道100號(P2汽車停車場)",
+   "lat": 22.923061,
+   "lng": 120.286009,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1603xmy",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "高鐵台南3站",
+   "city": "台南市",
+   "district": "台南市",
+   "address": "台南市歸仁區歸仁大道100號(P3汽車停車場)",
+   "lat": 22.92544,
+   "lng": 120.284461,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p11smvhb",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "三民民族站",
+   "city": "高雄市",
+   "district": "高雄市",
+   "address": "高雄市三民區民族一路157號旁停車場",
+   "lat": 22.646524,
+   "lng": 120.314278,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1n0g47g",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "左營文學站",
+   "city": "高雄市",
+   "district": "高雄市",
+   "address": "高雄市左營區文學路467號停車場",
+   "lat": 22.690293,
+   "lng": 120.316575,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p6huw4",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "立文富國站",
+   "city": "高雄市",
+   "district": "高雄市",
+   "address": "高雄市左營區立文路51號停車場",
+   "lat": 22.66442,
+   "lng": 120.306272,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pjgbc4o",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "前鎮和平站",
+   "city": "高雄市",
+   "district": "高雄市",
+   "address": "高雄市前鎮區和平二路145號旁停車場",
+   "lat": 22.611158,
+   "lng": 120.322071,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p3zfjvm",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "高雄大同站",
+   "city": "高雄市",
+   "district": "高雄市",
+   "address": "高雄市前金區大同一路258號旁空地停車場",
+   "lat": 22.628063,
+   "lng": 120.298065,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "ppqk2yx",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "高雄中山站",
+   "city": "高雄市",
+   "district": "高雄市",
+   "address": "高雄市新興區中山一路83號旁停車場",
+   "lat": 22.630415,
+   "lng": 120.301715,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1n76uq1",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "高雄五福中山站",
+   "city": "高雄市",
+   "district": "高雄市",
+   "address": "高雄市前金區五福三路與中山一路口停車場",
+   "lat": 22.622903,
+   "lng": 120.300861,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p16hiuma",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "高雄仁義站",
+   "city": "高雄市",
+   "district": "高雄市",
+   "address": "高雄市前金區仁義街208號旁空地",
+   "lat": 22.6201,
+   "lng": 120.301204,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1goz2vu",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "高雄文自站",
+   "city": "高雄市",
+   "district": "高雄市",
+   "address": "高雄市左營區文自路390號旁停車場",
+   "lat": 22.676365,
+   "lng": 120.309497,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p2timhp",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "高雄文武站",
+   "city": "高雄市",
+   "district": "高雄市",
+   "address": "高雄市前金區文武三街120號旁",
+   "lat": 22.620981,
+   "lng": 120.29822,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1vcl66",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "高雄正言站",
+   "city": "高雄市",
+   "district": "高雄區",
+   "address": "高雄區苓雅區正言路87號旁停車場",
+   "lat": 22.631843,
+   "lng": 120.33036,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pxzienu",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "高雄有光站",
+   "city": "高雄市",
+   "district": "高雄市",
+   "address": "高雄市三民區有光路43號停車場",
+   "lat": 22.636869,
+   "lng": 120.334002,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1f535wf",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "高雄身修站",
+   "city": "高雄市",
+   "district": "高雄區",
+   "address": "高雄區苓雅區身修路37號旁停車場",
+   "lat": 22.631445,
+   "lng": 120.329225,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p10bydon",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "高雄美術館站",
+   "city": "高雄市",
+   "district": "高雄市",
+   "address": "高雄市鼓山區美術館路121號對面空地",
+   "lat": 22.655926,
+   "lng": 120.287939,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "plp24m",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "高雄凱國站",
+   "city": "高雄市",
+   "district": "高雄市",
+   "address": "高雄市三民區凱國路35號旁停車場",
+   "lat": 22.636938,
+   "lng": 120.315789,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "paiagj4",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "高雄博愛站",
+   "city": "高雄市",
+   "district": "高雄市",
+   "address": "高雄市鼓山區博愛一路515號後方空地",
+   "lat": 22.655765,
+   "lng": 120.303275,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pkr2cdn",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "高雄富野站",
+   "city": "高雄市",
+   "district": "高雄市",
+   "address": "高雄市鹽埕區富野路25號旁空地",
+   "lat": 22.627504,
+   "lng": 120.285512,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p16555m9",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "高雄陽明2站",
+   "city": "高雄市",
+   "district": "高雄市",
+   "address": "高雄市三民區陽明路169號2樓至4樓",
+   "lat": 22.640806,
+   "lng": 120.341519,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1cgcyey",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "高雄壽山站",
+   "city": "高雄市",
+   "district": "高雄市",
+   "address": "高雄市鼓山區壽山街13-4號旁停車場",
+   "lat": 22.624217,
+   "lng": 120.270925,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1wrgxef",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "高雄駁二站",
+   "city": "高雄市",
+   "district": "高雄市",
+   "address": "高雄市鹽埕區瀨南街8號對面空地",
+   "lat": 22.620911,
+   "lng": 120.280367,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1qffcuo",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "高雄德惠站",
+   "city": "高雄市",
+   "district": "高雄市",
+   "address": "高雄市楠梓區德惠路70巷11號對面空地",
+   "lat": 22.727315,
+   "lng": 120.303548,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1ohv8rg",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "高雄憲政2站",
+   "city": "高雄市",
+   "district": "高雄市",
+   "address": "高雄市苓雅區憲政路105號前方空地",
+   "lat": 22.635637,
+   "lng": 120.324498,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1u82ef3",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "高雄憲政站",
+   "city": "高雄市",
+   "district": "高雄市",
+   "address": "高雄市苓雅區憲政路86號旁停車場",
+   "lat": 22.635188,
+   "lng": 120.326023,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1j2fl4d",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "高鐵左營1站",
+   "city": "高雄市",
+   "district": "高雄市",
+   "address": "高雄市左營區高鐵路103號(P1立體停車場)",
+   "lat": 22.686126,
+   "lng": 120.306438,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1rm8u02",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "鹽埕站",
+   "city": "高雄市",
+   "district": "高雄市",
+   "address": "高雄市鹽埕區安石街13號旁停車場",
+   "lat": 22.626675,
+   "lng": 120.279433,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1s9zu2v",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "鹽埕新樂站",
+   "city": "高雄市",
+   "district": "高雄市",
+   "address": "高雄市鹽埕區新樂街111號旁停車場",
+   "lat": 22.6238,
+   "lng": 120.285575,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p18vk8fq",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "屏東東港站",
+   "city": "屏東縣",
+   "district": "",
+   "address": "屏東縣東港鎮光復路一段299號旁空地",
+   "lat": 22.469801,
+   "lng": 120.459098,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p179rcd4",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "屏東廣東路站",
+   "city": "屏東縣",
+   "district": "",
+   "address": "屏東縣屏東市廣東路1013號旁空地",
+   "lat": 22.687302,
+   "lng": 120.483124,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p8irjz3",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "宜蘭中山公園站",
+   "city": "宜蘭縣",
+   "district": "",
+   "address": "宜蘭縣宜蘭市中山路二段482號B1-B2地下停車場",
+   "lat": 24.753308,
+   "lng": 121.75269,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1947ky1",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "宜蘭中山站",
+   "city": "宜蘭縣",
+   "district": "",
+   "address": "宜蘭縣宜蘭市中山路2段518號",
+   "lat": 24.753168,
+   "lng": 121.752643,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1xif6js",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "宜蘭幸福轉運(加盟)站",
+   "city": "宜蘭縣",
+   "district": "宜蘭市",
+   "address": "宜蘭市和睦段172地號",
+   "lat": 24.746792,
+   "lng": 121.755159,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pq3fkib",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "宜蘭城隍廟站",
+   "city": "宜蘭縣",
+   "district": "",
+   "address": "宜蘭縣宜蘭市西後街126號旁",
+   "lat": 24.760051,
+   "lng": 121.752286,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1hm77f5",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "宜蘭新月廣場站",
+   "city": "宜蘭縣",
+   "district": "宜蘭市",
+   "address": "宜蘭市民權路二段與國榮路交叉路口",
+   "lat": 24.753458,
+   "lng": 121.750114,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p7dab3l",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "羅東站前南站",
+   "city": "宜蘭縣",
+   "district": "",
+   "address": "宜蘭縣羅東鎮站前南路235號旁停車場",
+   "lat": 24.674112,
+   "lng": 121.774024,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1ukh4yt",
+   "brands": [
+    "tps"
+   ],
+   "name": "林森三",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市林森南路4-1.4-2號及青島東路9號地下一樓",
+   "lat": 25.0387603,
+   "lng": 121.5216376,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p71cuqp",
+   "brands": [
+    "tps"
+   ],
+   "name": "天祥站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市中山區中山北路3段2之1號",
+   "lat": 25.0494348,
+   "lng": 121.5380675,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1wcqnov",
+   "brands": [
+    "tps"
+   ],
+   "name": "民生站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市民生東路3段8號地下2-6樓",
+   "lat": 25.0596995,
+   "lng": 121.5637521,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1m8tu6t",
+   "brands": [
+    "tps"
+   ],
+   "name": "建國三",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市建國北路一段90號地下2.3.4樓",
+   "lat": 25.023602,
+   "lng": 121.5494592,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p18rij15",
+   "brands": [
+    "tps"
+   ],
+   "name": "八德站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市松山區八德路四段106巷內空地",
+   "lat": 25.046623,
+   "lng": 121.561213,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pavrd33",
+   "brands": [
+    "tps"
+   ],
+   "name": "八德三",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市松山區八德路四段16號地下1樓",
+   "lat": 25.049521,
+   "lng": 121.577697,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pyqmyxe",
+   "brands": [
+    "tps"
+   ],
+   "name": "萬國站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市松山區敦化南路1段2號",
+   "lat": 25.0521372,
+   "lng": 121.5488713,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p7fdvvn",
+   "brands": [
+    "tps"
+   ],
+   "name": "金華站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市大安區金華街與金華街48巷交口空地",
+   "lat": 25.0307433,
+   "lng": 121.5230236,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pf3t5u4",
+   "brands": [
+    "tps"
+   ],
+   "name": "富敦站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市大安區敦化南路一段111號b1-b4",
+   "lat": 25.0185086,
+   "lng": 121.5459511,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "py73100",
+   "brands": [
+    "tps"
+   ],
+   "name": "地政站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市大安區信義路四段335巷6號B1~B3",
+   "lat": 25.0332853,
+   "lng": 121.5524395,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1yp7l1o",
+   "brands": [
+    "tps"
+   ],
+   "name": "信義二",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市信義區松智路與信義路交口空地",
+   "lat": 25.0349343,
+   "lng": 121.5654484,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pv598rr",
+   "brands": [
+    "tps"
+   ],
+   "name": "港墘站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市內湖區內湖路1段596號旁空地",
+   "lat": 25.0625839,
+   "lng": 121.6056403,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p39vevw",
+   "brands": [
+    "tps"
+   ],
+   "name": "潭美站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市內湖區金莊街18號(B棟)26號(A棟)地下b-b4",
+   "lat": 25.061716,
+   "lng": 121.587481,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1eqxo35",
+   "brands": [
+    "tps"
+   ],
+   "name": "創世紀",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市內湖區洲子街118、120號B1~3",
+   "lat": 25.0806223,
+   "lng": 121.5696626,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p893j3p",
+   "brands": [
+    "tps"
+   ],
+   "name": "內湖momo站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市內湖區洲子街90-98之1地下室",
+   "lat": 25.0806223,
+   "lng": 121.5696626,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "po7shdp",
+   "brands": [
+    "tps"
+   ],
+   "name": "元吉站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市內湖區基湖路3巷47號B1~2",
+   "lat": 25.078848,
+   "lng": 121.5643819,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pdca14",
+   "brands": [
+    "tps"
+   ],
+   "name": "大眾站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市內湖區陽光街300號地下一層B1",
+   "lat": 25.0746398,
+   "lng": 121.5813007,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p8j7nd9",
+   "brands": [
+    "tps"
+   ],
+   "name": "中時站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市內湖區瑞光路26巷36弄6號(優仕咖啡對面空地)",
+   "lat": 25.0744077,
+   "lng": 121.5780408,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1bcacaa",
+   "brands": [
+    "tps"
+   ],
+   "name": "瑞光站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市內湖區瑞光路68號b1-b3",
+   "lat": 25.0744077,
+   "lng": 121.5780408,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p19okcgn",
+   "brands": [
+    "tps"
+   ],
+   "name": "忠孝三",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市南港區忠孝東路7段528號",
+   "lat": 25.0522923,
+   "lng": 121.6076461,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p12vgboc",
+   "brands": [
+    "tps"
+   ],
+   "name": "南港站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市南港區新民街37號旁空地",
+   "lat": 25.0557063,
+   "lng": 121.6111332,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1pvbsw1",
+   "brands": [
+    "tps"
+   ],
+   "name": "新巨蛋站",
+   "city": "新北市",
+   "district": "新北市",
+   "address": "新北市板橋區文化路1段360號B2及B2-1",
+   "lat": 25.0151621,
+   "lng": 121.4623465,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1wkwfon",
+   "brands": [
+    "tps"
+   ],
+   "name": "大同三",
+   "city": "新北市",
+   "district": "新北市",
+   "address": "新北市汐止區大同路二段169巷右側空地",
+   "lat": 25.0559231,
+   "lng": 121.6356667,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pi34w6q",
+   "brands": [
+    "tps"
+   ],
+   "name": "汐止二",
+   "city": "新北市",
+   "district": "新北市",
+   "address": "新北市汐止區新台五路一段75號B1",
+   "lat": 25.0597325,
+   "lng": 121.6415461,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p11h4qas",
+   "brands": [
+    "tps"
+   ],
+   "name": "汐止PC站",
+   "city": "新北市",
+   "district": "新北市",
+   "address": "新北市汐止區新台五路一段79號地下3樓",
+   "lat": 25.0597325,
+   "lng": 121.6415461,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pi3r8c0",
+   "brands": [
+    "tps"
+   ],
+   "name": "汐止PB",
+   "city": "新北市",
+   "district": "新北市",
+   "address": "新北市汐止區新台五路一段81號B2",
+   "lat": 25.0597325,
+   "lng": 121.6415461,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p5np8a3",
+   "brands": [
+    "tps"
+   ],
+   "name": "華江站",
+   "city": "新北市",
+   "district": "新北市",
+   "address": "新北市板橋區文化路2段華江橋旁空地",
+   "lat": 25.0338229,
+   "lng": 121.4760622,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p13j292t",
+   "brands": [
+    "tps"
+   ],
+   "name": "威力站",
+   "city": "新北市",
+   "district": "新北市",
+   "address": "新北市中和區中山路二段291號5-10樓",
+   "lat": 25.0037192,
+   "lng": 121.4897313,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p3txgq8",
+   "brands": [
+    "tps"
+   ],
+   "name": "三重三",
+   "city": "新北市",
+   "district": "新北市",
+   "address": "新北市三重區中正北路 29 號地下 1層",
+   "lat": 25.062146,
+   "lng": 121.492309,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1osjone",
+   "brands": [
+    "tps"
+   ],
+   "name": "輔大站",
+   "city": "新北市",
+   "district": "新北市",
+   "address": "新北市新莊區中正路562號旁空地",
+   "lat": 25.0419567,
+   "lng": 121.4655095,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1y5i5p2",
+   "brands": [
+    "tps"
+   ],
+   "name": "新莊二",
+   "city": "新北市",
+   "district": "新北市",
+   "address": "新北市新莊區中正路649-1號地下2樓",
+   "lat": 25.0419567,
+   "lng": 121.4655095,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1c8fm9u",
+   "brands": [
+    "tps"
+   ],
+   "name": "台南一站",
+   "city": "台南市",
+   "district": "台南市",
+   "address": "台南市中華東路101號旁空地",
+   "lat": 22.9927654,
+   "lng": 120.234739,
    "note": "",
    "maxHeight": null,
    "totalSpace": null

@@ -1,9 +1,11 @@
-/* 免費停車場 — 台灣聯通 & 車麻吉免停場站速查 */
+/* 免費停車場 — 台灣聯通 & 車麻吉 & 嘟嘟房 & 24TPS 免停場站速查 */
 'use strict';
 
 const BRAND_META = {
   utg: { label: '台灣聯通', cls: 'badge-utg', sourceUrl: 'https://www.taiwan-parking.com.tw/#/parking-lots' },
   carmochi: { label: '車麻吉', cls: 'badge-cm', sourceUrl: 'https://help.carmochi.com/cityparking/available' },
+  dodohome: { label: '嘟嘟房', cls: 'badge-dodo', sourceUrl: 'https://www.dodohome.com.tw/p2_map.aspx' },
+  tps: { label: '24TPS', cls: 'badge-tps', sourceUrl: 'http://www.24tps.com.tw/OtherServiceADV/CreditCardParkList.aspx' },
 };
 const CITY_ORDER = ['基隆市','台北市','新北市','桃園市','新竹縣市','苗栗縣','台中市','彰化縣','南投縣','雲林縣','嘉義縣市','台南市','高雄市','屏東縣','宜蘭縣','花蓮縣','台東縣','澎湖縣'];
 const FAV_KEY = 'parking-favs-v1';
@@ -293,7 +295,9 @@ function initMap() {
 }
 
 function pinIcon(lot, selected) {
-  const cls = lot.brands.includes('utg') ? 'pin-utg' : 'pin-cm';
+  const PIN_CLS = { utg: 'pin-utg', carmochi: 'pin-cm', dodohome: 'pin-dodo', tps: 'pin-tps' };
+  const primary = ['utg', 'carmochi', 'dodohome', 'tps'].find((b) => lot.brands.includes(b)) || 'utg';
+  const cls = PIN_CLS[primary];
   return L.divIcon({
     className: '',
     html: `<div class="lot-pin ${cls} ${selected ? 'sel' : ''}">P</div>`,

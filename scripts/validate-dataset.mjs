@@ -19,11 +19,11 @@ import { fileURLToPath } from 'node:url';
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const { lots } = JSON.parse(readFileSync(join(ROOT, 'data', 'parking-lots.json'), 'utf8'));
 
-const VALID_BRANDS = new Set(['utg', 'carmochi']);
+const VALID_BRANDS = new Set(['utg', 'carmochi', 'dodohome', 'tps']);
 const CITIES = new Set(['基隆市', '台北市', '新北市', '桃園市', '新竹縣市', '苗栗縣', '台中市', '彰化縣', '南投縣', '雲林縣', '嘉義縣市', '台南市', '高雄市', '屏東縣', '宜蘭縣', '花蓮縣', '台東縣', '澎湖縣', '金門縣', '連江縣']);
 // 與 build-dataset.mjs 的 NO_DISCOUNT_RE 同步
 const NO_DISCOUNT_RE = /不提供信用卡|無信用卡|不適用信用卡|[無不未]配合(提供)?信用卡/;
-const MIN_TOTAL = 800;
+const MIN_TOTAL = 1100;
 
 const errors = [];
 const warnings = [];

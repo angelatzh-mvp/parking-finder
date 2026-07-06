@@ -15,6 +15,12 @@
   --cm: #ef9f27;
   --cm-bg: #faeeda;
   --cm-text: #633806;
+  --dodo: #d5487f;
+  --dodo-bg: #fbe6ef;
+  --dodo-text: #7a1f47;
+  --tps: #6b57c8;
+  --tps-bg: #ece8fa;
+  --tps-text: #362a6e;
   --warn-bg: #faeeda;
   --warn-text: #854f0b;
   --nav-h: 76px;
@@ -99,6 +105,8 @@ svg { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 2
 .dot { width: 8px; height: 8px; border-radius: 50%; }
 .dot-utg { background: var(--utg); }
 .dot-cm { background: var(--cm); }
+.dot-dodo { background: var(--dodo); }
+.dot-tps { background: var(--tps); }
 
 .status-row {
   display: flex; align-items: center; gap: 6px;
@@ -119,6 +127,8 @@ svg { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 2
 .badge { font-size: 12px; padding: 2px 8px; border-radius: 4px; }
 .badge-utg { background: var(--utg-bg); color: var(--utg-text); }
 .badge-cm { background: var(--cm-bg); color: var(--cm-text); }
+.badge-dodo { background: var(--dodo-bg); color: var(--dodo-text); }
+.badge-tps { background: var(--tps-bg); color: var(--tps-text); }
 .badge-warn { background: var(--warn-bg); color: var(--warn-text); }
 
 .card-main { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
@@ -252,6 +262,8 @@ svg { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 2
 
 .pin-utg { --pin: var(--utg); }
 .pin-cm { --pin: var(--cm); }
+.pin-dodo { --pin: var(--dodo); }
+.pin-tps { --pin: var(--tps); }
 .lot-pin { background: var(--pin, #378add); width: 26px; height: 26px; border-radius: 50%; border: 2.5px solid #fff; box-shadow: 0 1px 4px rgba(0,0,0,.3); color: #fff; font-size: 12px; font-weight: 600; display: flex; align-items: center; justify-content: center; }
 .lot-pin.sel { transform: scale(1.35); z-index: 10; }
 .marker-cluster-small, .marker-cluster-medium, .marker-cluster-large { background: rgba(29,158,117,.3) !important; }

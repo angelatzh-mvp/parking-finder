@@ -45,6 +45,8 @@ function cleanDistrict(d) {
 
 const utg = JSON.parse(readFileSync(join(ROOT, 'data', 'utg-raw.json'), 'utf8'));
 const cm = JSON.parse(readFileSync(join(ROOT, 'data', 'carmochi-geo.json'), 'utf8'));
+const dodo = JSON.parse(readFileSync(join(ROOT, 'data', 'dodohome-raw.json'), 'utf8')); // 嘟嘟房：官方自帶座標
+const tps = JSON.parse(readFileSync(join(ROOT, 'data', 'tps-geo.json'), 'utf8')); // 24TPS：geocode 後
 // 人工補校的地址／座標（來源：Autopass 官方場站圖資，比爬蟲缺漏的原始資料可靠）。
 // 以「縣市|場站名」為 key——這正是空地址場站的 id 依據，所以補地址不會改變 id、不影響收藏。
 const overridesPath = join(ROOT, 'data', 'address-overrides.json');
@@ -89,44 +91,58 @@ for (const l of utg.lots) {
   });
 }
 
+// 把一個品牌的場站併入 byKey：同地址跨品牌合掛雙品牌，撞 key／無地址則以「key＋名稱」獨立保留。
+// utg 是首個種子來源（上方單獨處理其行政區邏輯），其餘品牌都走這裡。
 let merged = 0;
-for (const l of cm.lots) {
-  if (NO_DISCOUNT_RE.test(l.name + (l.note ?? ''))) continue;
-  const key = addrKey(l.city, l.address);
-  const hasAddr = key.split('|')[1] !== '';
-  // 只有「地址非空」才能跨品牌合併；空地址的 key 沒有辨識力
-  const existing = hasAddr ? byKey.get(key) : undefined;
-  if (existing) {
-    if (!existing.brands.includes('carmochi')) {
-      // 跨品牌同地址 → 同一場站，掛雙品牌
-      existing.brands.push('carmochi');
-      if (l.note && !existing.note?.includes(l.note)) {
-        existing.note = [existing.note, l.note].filter(Boolean).join('；');
+function mergeBrand(brand, srcLots) {
+  for (const l of srcLots) {
+    if (NO_DISCOUNT_RE.test(l.name + (l.note ?? ''))) continue;
+    const key = addrKey(l.city, l.address);
+    const hasAddr = key.split('|')[1] !== '';
+    // 只有「地址非空」才能跨品牌合併；空地址的 key 沒有辨識力
+    const existing = hasAddr ? byKey.get(key) : undefined;
+    if (existing) {
+      if (!existing.brands.includes(brand)) {
+        // 跨品牌同地址 → 同一場站，加掛品牌
+        existing.brands.push(brand);
+        if (l.note && !existing.note?.includes(l.note)) {
+          existing.note = [existing.note, l.note].filter(Boolean).join('；');
+        }
+        // 既有場站缺座標、此來源帶可靠座標（如嘟嘟房官方座標）→ 補上
+        if (existing.lat == null && l.lat != null) {
+          existing.lat = l.lat;
+          existing.lng = l.lng;
+          delete existing.geoPending;
+        }
+        merged++;
+        continue;
       }
-      merged++;
-      continue;
+      // 同品牌同地址同名 → 來源重複列出，跳過
+      if (existing.name === l.name) continue;
+      // 同品牌同地址不同名（如中科停一～六站）→ 是不同場站，往下各自獨立保留
     }
-    // 同品牌同地址同名 → 來源重複列出，跳過
-    if (existing.name === l.name) continue;
-    // 同品牌同地址不同名（如中科停一～六站）→ 是不同場站，往下各自獨立保留
+    // 撞 key（或無地址）時以「key＋名稱」確保各場站獨立且 id 穩定
+    const ownKey = existing || !hasAddr ? `${key}|${l.name}` : key;
+    if (byKey.has(ownKey)) continue;
+    byKey.set(ownKey, {
+      id: hashId(ownKey),
+      brands: [brand],
+      name: l.name,
+      city: canonCity(l.city),
+      district: cleanDistrict(districtOf(l.address)),
+      address: toHalfWidth(l.address),
+      lat: l.lat,
+      lng: l.lng,
+      note: l.note || '',
+      maxHeight: null,
+      totalSpace: null,
+    });
   }
-  // 撞 key（或無地址）時以「key＋名稱」確保各場站獨立且 id 穩定
-  const ownKey = existing || !hasAddr ? `${key}|${l.name}` : key;
-  if (byKey.has(ownKey)) continue;
-  byKey.set(ownKey, {
-    id: hashId(ownKey),
-    brands: ['carmochi'],
-    name: l.name,
-    city: canonCity(l.city),
-    district: cleanDistrict(districtOf(l.address)),
-    address: toHalfWidth(l.address),
-    lat: l.lat,
-    lng: l.lng,
-    note: l.note || '',
-    maxHeight: null,
-    totalSpace: null,
-  });
 }
+
+mergeBrand('carmochi', cm.lots);
+mergeBrand('dodohome', dodo.lots);
+mergeBrand('tps', tps.lots);
 
 const lots = [...byKey.values()].filter((l) => l.name);
 
@@ -178,6 +194,8 @@ const dataset = {
     sources: {
       utg: { label: '台灣聯通', scrapedAt: utg.scrapedAt, count: utg.count },
       carmochi: { label: '車麻吉', updatedAt: cm.updatedAt, scrapedAt: cm.scrapedAt, count: cm.count },
+      dodohome: { label: '嘟嘟房', scrapedAt: dodo.scrapedAt, count: dodo.count },
+      tps: { label: '24TPS', scrapedAt: tps.scrapedAt, count: tps.count },
     },
     total: lots.length,
     mergedBoth: merged,

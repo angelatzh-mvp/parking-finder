@@ -96,6 +96,8 @@ const srcDelta = (k) => (prev && pm[k] ? (() => { const d = (src[k]?.count ?? 0)
 const srcRows = [
   `| 台灣聯通 | ${fmtTs(src.utg?.scrapedAt)} | ${src.utg?.count ?? '—'} | ${srcDelta('utg')} |`,
   `| 車麻吉 | ${fmtTs(src.carmochi?.scrapedAt)} | ${src.carmochi?.count ?? '—'} | ${srcDelta('carmochi')} |`,
+  `| 嘟嘟房 | ${fmtTs(src.dodohome?.scrapedAt)} | ${src.dodohome?.count ?? '—'} | ${srcDelta('dodohome')} |`,
+  `| 24TPS | ${fmtTs(src.tps?.scrapedAt)} | ${src.tps?.count ?? '—'} | ${srcDelta('tps')} |`,
   run
     ? `| Autopass 補校 | 本次 | ${run.confirmed} 筆（掃 ${run.counties.length} 縣市 · ${run.requests} 請求） | — |`
     : `| Autopass 補校 | — | 未執行/無統計 | — |`,
