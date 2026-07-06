@@ -65,6 +65,11 @@ const overrides = existsSync(overridesPath)
   ? JSON.parse(readFileSync(overridesPath, 'utf8'))
   : {};
 
+// 人工判定的合併修正（未來使用者回報也走此檔）。doNotMerge 列出的核心地址不做二次合併，
+// 維持各品牌原始場站各自獨立——用於「同門牌號其實是多個獨立停車場」的情況。
+const mergeOvPath = join(ROOT, 'data', 'merge-overrides.json');
+const mergeOv = existsSync(mergeOvPath) ? JSON.parse(readFileSync(mergeOvPath, 'utf8')) : {};
+
 const byKey = new Map();
 
 // App 的定位是「信用卡免費停車」，官方名稱明示不提供／無配合優惠的場站直接排除
@@ -175,9 +180,11 @@ for (const l of lots) {
 // 以「核心地址（截到門牌號）」歸併。放在補校之後，讓原本空地址、補校後才有地址的場站也能參與合併。安全閥：
 //  1. 只在真正跨品牌時合併；
 //  2. 若同一核心地址下「任一品牌出現 2 筆以上不同名場站」（如中科停一~六同址），視為同址多場站，整組不動，避免誤併；
-//  3. 保留品牌資歷最高者（utg>carmochi>dodohome>tps）的 id → 既有收藏不受影響（dodohome/tps 為新品牌，尚無收藏）。
+//  3. 保留品牌資歷最高者（utg>carmochi>dodohome>tps）的 id → 既有收藏不受影響（dodohome/tps 為新品牌，尚無收藏）；
+//  4. 人工判定 doNotMerge 名單（merge-overrides.json）內的核心地址一律不合併（同門牌號其實是多個獨立停車場）。
 const BRAND_RANK = { utg: 0, carmochi: 1, dodohome: 2, tps: 3 };
 const seniority = (l) => Math.min(...l.brands.map((b) => BRAND_RANK[b] ?? 99));
+const doNotMerge = new Set((mergeOv.doNotMerge ?? []).map((o) => coreKey(o.city, o.address)));
 const coreGroups = new Map();
 for (const l of lots) {
   if (!l.address) continue;
@@ -188,7 +195,8 @@ for (const l of lots) {
 }
 const removedIds = new Set();
 let consolidated = 0;
-for (const group of coreGroups.values()) {
+for (const [ck, group] of coreGroups) {
+  if (doNotMerge.has(ck)) continue; // 人工判定：同門牌號實為多個獨立停車場，不合併
   if (group.length < 2) continue;
   const brandCounts = {};
   for (const l of group) for (const b of l.brands) brandCounts[b] = (brandCounts[b] ?? 0) + 1;

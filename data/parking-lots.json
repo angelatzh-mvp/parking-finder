@@ -1,6 +1,6 @@
 {
  "meta": {
-  "builtAt": "2026-07-06T01:26:14.433Z",
+  "builtAt": "2026-07-06T02:02:30.664Z",
   "sources": {
    "utg": {
     "label": "台灣聯通",
@@ -24,9 +24,9 @@
     "count": 32
    }
   },
-  "total": 1301,
+  "total": 1302,
   "mergedBoth": 7,
-  "consolidated": 11,
+  "consolidated": 10,
   "noGeo": 0,
   "geoPending": 0,
   "overridden": 48
@@ -6317,8 +6317,7 @@
   {
    "id": "p1xhqhad",
    "brands": [
-    "carmochi",
-    "dodohome"
+    "carmochi"
    ],
    "name": "ViVi PARK 敬業一路場",
    "city": "台北市",
@@ -13891,6 +13890,21 @@
    "address": "台北市大安區信義路3段166巷6弄12號B1-B2",
    "lat": 25.032646,
    "lng": 121.541889,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pk9ondy",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "大直站",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市中山區敬業一路141號旁",
+   "lat": 25.083909,
+   "lng": 121.552407,
    "note": "",
    "maxHeight": null,
    "totalSpace": null
