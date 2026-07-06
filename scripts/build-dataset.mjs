@@ -26,6 +26,17 @@ function addrKey(city, address) {
   return canonCity(city) + '|' + a;
 }
 
+// 「核心地址」指紋：截到門牌號為止（丟掉樓層／方位／「停車場」等尾綴），用於跨品牌二次合併。
+// 例：「延壽街168號B1-B2」「168號地下停車場」「168號後方空地」→ 同一核心地址 168號。
+const CITY_PREFIX_RE = /^[^區鄉鎮市]*?(台北市|新北市|桃園市|台中市|台南市|高雄市|基隆市|新竹市|新竹縣|苗栗縣|彰化縣|南投縣|雲林縣|嘉義市|嘉義縣|屏東縣|宜蘭縣|花蓮縣|台東縣|澎湖縣|金門縣|連江縣)/;
+function coreKey(city, address) {
+  let a = toHalfWidth(address).replace(/臺/g, '台');
+  const m = a.match(/^(.*?\d+(?:之\d+)?號)/); // 截到第一個「…號」
+  if (m) a = m[1];
+  a = a.replace(/[\s,，。()（）-]/g, '').replace(CITY_PREFIX_RE, '');
+  return canonCity(city) + '|' + a;
+}
+
 function hashId(s) {
   let h = 5381;
   for (let i = 0; i < s.length; i++) h = ((h << 5) + h + s.charCodeAt(i)) >>> 0;
@@ -144,7 +155,7 @@ mergeBrand('carmochi', cm.lots);
 mergeBrand('dodohome', dodo.lots);
 mergeBrand('tps', tps.lots);
 
-const lots = [...byKey.values()].filter((l) => l.name);
+let lots = [...byKey.values()].filter((l) => l.name);
 
 // 套用人工補校圖資：只針對「缺地址或缺座標」的場站補上，不動已同時具備地址與座標的資料。
 // 補上地址＋可靠座標後，該場站自然不再進入下方的無地址碰撞歸零與 geoPending。
@@ -159,6 +170,42 @@ for (const l of lots) {
   delete l.geoPending;
   overridden++;
 }
+
+// 跨品牌同場站二次合併：主 addrKey 含樓層／方位尾綴，會讓「同一門牌號」的同一場站在不同品牌下分裂成多筆。
+// 以「核心地址（截到門牌號）」歸併。放在補校之後，讓原本空地址、補校後才有地址的場站也能參與合併。安全閥：
+//  1. 只在真正跨品牌時合併；
+//  2. 若同一核心地址下「任一品牌出現 2 筆以上不同名場站」（如中科停一~六同址），視為同址多場站，整組不動，避免誤併；
+//  3. 保留品牌資歷最高者（utg>carmochi>dodohome>tps）的 id → 既有收藏不受影響（dodohome/tps 為新品牌，尚無收藏）。
+const BRAND_RANK = { utg: 0, carmochi: 1, dodohome: 2, tps: 3 };
+const seniority = (l) => Math.min(...l.brands.map((b) => BRAND_RANK[b] ?? 99));
+const coreGroups = new Map();
+for (const l of lots) {
+  if (!l.address) continue;
+  const ck = coreKey(l.city, l.address);
+  if (ck.split('|')[1] === '') continue;
+  if (!coreGroups.has(ck)) coreGroups.set(ck, []);
+  coreGroups.get(ck).push(l);
+}
+const removedIds = new Set();
+let consolidated = 0;
+for (const group of coreGroups.values()) {
+  if (group.length < 2) continue;
+  const brandCounts = {};
+  for (const l of group) for (const b of l.brands) brandCounts[b] = (brandCounts[b] ?? 0) + 1;
+  if (Object.values(brandCounts).some((c) => c > 1)) continue; // 同址多場站 → 不動
+  if (new Set(group.flatMap((l) => l.brands)).size < 2) continue; // 非跨品牌 → 不動
+  group.sort((a, b) => seniority(a) - seniority(b));
+  const primary = group[0];
+  for (const l of group.slice(1)) {
+    for (const b of l.brands) if (!primary.brands.includes(b)) primary.brands.push(b);
+    if (l.note && !primary.note?.includes(l.note)) primary.note = [primary.note, l.note].filter(Boolean).join('；');
+    if (primary.lat == null && l.lat != null) { primary.lat = l.lat; primary.lng = l.lng; delete primary.geoPending; }
+    removedIds.add(l.id);
+    consolidated++;
+  }
+  primary.brands.sort((a, b) => BRAND_RANK[a] - BRAND_RANK[b]); // 標籤依品牌資歷排序，與地圖 pin 優先序一致
+}
+lots = lots.filter((l) => !removedIds.has(l.id));
 
 // 官方無地址的場站是用「縣市＋場站名」查地標補座標，可靠度較低：
 // 業者品牌名（如「嘟嘟房」「鼎豐」）常被地理編碼服務誤配到同一個不相關的點。
@@ -199,6 +246,7 @@ const dataset = {
     },
     total: lots.length,
     mergedBoth: merged,
+    consolidated,
     noGeo,
     geoPending,
     overridden,
@@ -207,7 +255,7 @@ const dataset = {
 };
 
 writeFileSync(join(ROOT, 'data', 'parking-lots.json'), JSON.stringify(dataset, null, 1));
-console.log(`完成：${lots.length} 筆（雙品牌 ${merged} 筆、人工補校 ${overridden} 筆、無座標 ${noGeo} 筆、地址待確認 ${geoPending} 筆）`);
+console.log(`完成：${lots.length} 筆（跨品牌合併 ${merged}＋二次合併 ${consolidated} 筆、人工補校 ${overridden} 筆、無座標 ${noGeo} 筆、地址待確認 ${geoPending} 筆）`);
 const byCity = {};
 for (const l of lots) byCity[l.city] = (byCity[l.city] ?? 0) + 1;
 console.log(byCity);

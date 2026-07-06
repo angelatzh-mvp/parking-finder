@@ -1,6 +1,6 @@
 {
  "meta": {
-  "builtAt": "2026-07-06T00:51:08.819Z",
+  "builtAt": "2026-07-06T01:26:14.433Z",
   "sources": {
    "utg": {
     "label": "台灣聯通",
@@ -24,8 +24,9 @@
     "count": 32
    }
   },
-  "total": 1312,
+  "total": 1301,
   "mergedBoth": 7,
+  "consolidated": 11,
   "noGeo": 0,
   "geoPending": 0,
   "overridden": 48
@@ -5106,7 +5107,8 @@
   {
    "id": "p16vezjc",
    "brands": [
-    "carmochi"
+    "carmochi",
+    "dodohome"
    ],
    "name": "寶盛健康國小站",
    "city": "台北市",
@@ -5512,7 +5514,8 @@
   {
    "id": "p17uqvj5",
    "brands": [
-    "carmochi"
+    "carmochi",
+    "dodohome"
    ],
    "name": "嘟嘟房七星公園站",
    "city": "台北市",
@@ -5785,7 +5788,8 @@
   {
    "id": "p1qbbrf2",
    "brands": [
-    "carmochi"
+    "carmochi",
+    "dodohome"
    ],
    "name": "嘟嘟房玉成國小地下停車場",
    "city": "台北市",
@@ -5800,7 +5804,8 @@
   {
    "id": "p1fo9h3a",
    "brands": [
-    "carmochi"
+    "carmochi",
+    "dodohome"
    ],
    "name": "嘟嘟房捷運內湖機廠站停車場",
    "city": "台北市",
@@ -5950,7 +5955,8 @@
   {
    "id": "pp4r0rz",
    "brands": [
-    "carmochi"
+    "carmochi",
+    "dodohome"
    ],
    "name": "嘟嘟房民族西站",
    "city": "台北市",
@@ -6311,7 +6317,8 @@
   {
    "id": "p1xhqhad",
    "brands": [
-    "carmochi"
+    "carmochi",
+    "dodohome"
    ],
    "name": "ViVi PARK 敬業一路場",
    "city": "台北市",
@@ -6731,7 +6738,8 @@
   {
    "id": "p1g082w4",
    "brands": [
-    "carmochi"
+    "carmochi",
+    "dodohome"
    ],
    "name": "嘟嘟房捷運北投站停車場",
    "city": "台北市",
@@ -6746,7 +6754,8 @@
   {
    "id": "pax1rra",
    "brands": [
-    "carmochi"
+    "carmochi",
+    "dodohome"
    ],
    "name": "嘟嘟房捷運芝山站停車場",
    "city": "台北市",
@@ -6776,7 +6785,8 @@
   {
    "id": "p1nzpl3s",
    "brands": [
-    "carmochi"
+    "carmochi",
+    "dodohome"
    ],
    "name": "嘟嘟房新和庭園停車場",
    "city": "台北市",
@@ -6881,7 +6891,8 @@
   {
    "id": "p1vld75t",
    "brands": [
-    "carmochi"
+    "carmochi",
+    "dodohome"
    ],
    "name": "樂活公園",
    "city": "台北市",
@@ -11606,7 +11617,8 @@
   {
    "id": "p7anr20",
    "brands": [
-    "carmochi"
+    "carmochi",
+    "dodohome"
    ],
    "name": "城市車旅嘉義機6站",
    "city": "嘉義縣市",
@@ -13839,21 +13851,6 @@
    "totalSpace": null
   },
   {
-   "id": "p19b4fcm",
-   "brands": [
-    "dodohome"
-   ],
-   "name": "七星公園站",
-   "city": "台北市",
-   "district": "台北市",
-   "address": "台北市北投區七星街3號地下停車場",
-   "lat": 25.136731,
-   "lng": 121.502236,
-   "note": "",
-   "maxHeight": null,
-   "totalSpace": null
-  },
-  {
    "id": "pjn2nsz",
    "brands": [
     "dodohome"
@@ -13894,21 +13891,6 @@
    "address": "台北市大安區信義路3段166巷6弄12號B1-B2",
    "lat": 25.032646,
    "lng": 121.541889,
-   "note": "",
-   "maxHeight": null,
-   "totalSpace": null
-  },
-  {
-   "id": "pk9ondy",
-   "brands": [
-    "dodohome"
-   ],
-   "name": "大直站",
-   "city": "台北市",
-   "district": "台北市",
-   "address": "台北市中山區敬業一路141號旁",
-   "lat": 25.083909,
-   "lng": 121.552407,
    "note": "",
    "maxHeight": null,
    "totalSpace": null
@@ -14379,21 +14361,6 @@
    "totalSpace": null
   },
   {
-   "id": "plto195",
-   "brands": [
-    "dodohome"
-   ],
-   "name": "民族西站",
-   "city": "台北市",
-   "district": "台北市",
-   "address": "台北市大同區民族西路303巷臨47號後方空地",
-   "lat": 25.069806,
-   "lng": 121.510303,
-   "note": "",
-   "maxHeight": null,
-   "totalSpace": null
-  },
-  {
    "id": "p1wf131h",
    "brands": [
     "dodohome"
@@ -14419,21 +14386,6 @@
    "address": "台北市南港區玉成街149號B1-B4停車場",
    "lat": 25.045112,
    "lng": 121.583573,
-   "note": "",
-   "maxHeight": null,
-   "totalSpace": null
-  },
-  {
-   "id": "p8whp6y",
-   "brands": [
-    "dodohome"
-   ],
-   "name": "玉成國小站",
-   "city": "台北市",
-   "district": "台北市",
-   "address": "台北市南港區昆陽街23號B1-B2地下停車場",
-   "lat": 25.053197,
-   "lng": 121.59264,
    "note": "",
    "maxHeight": null,
    "totalSpace": null
@@ -14979,21 +14931,6 @@
    "totalSpace": null
   },
   {
-   "id": "pzbqr5f",
-   "brands": [
-    "dodohome"
-   ],
-   "name": "健康國小站",
-   "city": "台北市",
-   "district": "台北市",
-   "address": "台北市松山區延壽街168號B1-B2停車場(由三民路43巷入場)",
-   "lat": 25.056079,
-   "lng": 121.562698,
-   "note": "",
-   "maxHeight": null,
-   "totalSpace": null
-  },
-  {
    "id": "pdzwszy",
    "brands": [
     "dodohome"
@@ -15054,21 +14991,6 @@
    "totalSpace": null
   },
   {
-   "id": "pghfw61",
-   "brands": [
-    "dodohome"
-   ],
-   "name": "捷運內湖機廠站",
-   "city": "台北市",
-   "district": "台北市",
-   "address": "台北市南港區經貿一路265號3~5F",
-   "lat": 25.061262,
-   "lng": 121.618124,
-   "note": "",
-   "maxHeight": null,
-   "totalSpace": null
-  },
-  {
    "id": "plr55d8",
    "brands": [
     "dodohome"
@@ -15084,21 +15006,6 @@
    "totalSpace": null
   },
   {
-   "id": "p1oaztqk",
-   "brands": [
-    "dodohome"
-   ],
-   "name": "捷運北投站",
-   "city": "台北市",
-   "district": "台北市",
-   "address": "台北市北投區光明路1號",
-   "lat": 25.13177,
-   "lng": 121.498532,
-   "note": "",
-   "maxHeight": null,
-   "totalSpace": null
-  },
-  {
    "id": "pesflvf",
    "brands": [
     "dodohome"
@@ -15109,21 +15016,6 @@
    "address": "台北市北投區石牌路1段200號",
    "lat": 25.113845,
    "lng": 121.516067,
-   "note": "",
-   "maxHeight": null,
-   "totalSpace": null
-  },
-  {
-   "id": "p1ttlb5n",
-   "brands": [
-    "dodohome"
-   ],
-   "name": "捷運芝山站",
-   "city": "台北市",
-   "district": "台北市",
-   "address": "台北市士林區福國路70號",
-   "lat": 25.103028,
-   "lng": 121.52261,
    "note": "",
    "maxHeight": null,
    "totalSpace": null
@@ -15279,21 +15171,6 @@
    "totalSpace": null
   },
   {
-   "id": "p146qiem",
-   "brands": [
-    "dodohome"
-   ],
-   "name": "新和庭園站",
-   "city": "台北市",
-   "district": "台北市",
-   "address": "台北市萬華區中華路二段416巷46號對面停車場(近南機場夜市)",
-   "lat": 25.027789,
-   "lng": 121.504964,
-   "note": "",
-   "maxHeight": null,
-   "totalSpace": null
-  },
-  {
    "id": "pe32d8h",
    "brands": [
     "dodohome"
@@ -15304,21 +15181,6 @@
    "address": "台北市大安區忠孝東路四段306號B1-B3停車場",
    "lat": 25.041086,
    "lng": 121.556678,
-   "note": "",
-   "maxHeight": null,
-   "totalSpace": null
-  },
-  {
-   "id": "p1kyf9w7",
-   "brands": [
-    "dodohome"
-   ],
-   "name": "樂活公園站",
-   "city": "台北市",
-   "district": "台北市",
-   "address": "台北市內湖區康樂街85巷34號旁地下停車場",
-   "lat": 25.070143,
-   "lng": 121.620987,
    "note": "",
    "maxHeight": null,
    "totalSpace": null
@@ -17764,21 +17626,6 @@
    "address": "嘉義市東區忠孝路346巷59號旁空地",
    "lat": 23.489223,
    "lng": 120.453994,
-   "note": "",
-   "maxHeight": null,
-   "totalSpace": null
-  },
-  {
-   "id": "ppir5wb",
-   "brands": [
-    "dodohome"
-   ],
-   "name": "嘉義忠孝4站",
-   "city": "嘉義縣市",
-   "district": "嘉義市",
-   "address": "嘉義市東區忠孝路346巷21號前方空地",
-   "lat": 23.490179,
-   "lng": 120.454833,
    "note": "",
    "maxHeight": null,
    "totalSpace": null
