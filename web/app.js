@@ -436,22 +436,72 @@ function renderSheet() {
 
 /* ---------- location ---------- */
 
+// 定位鍵的視覺狀態：轉圈（pending）/ 驚嘆號（error），讓使用者知道 App 有在反應
+function setLocIcon(status) {
+  const btn = $('#locate-btn');
+  if (!btn) return;
+  btn.classList.toggle('is-pending', status === 'pending');
+  btn.classList.toggle('is-error', status === 'error');
+}
+
 function requestLocation(pan = false) {
   if (!navigator.geolocation) { state.locStatus = 'off'; renderStatus(); return; }
   state.locStatus = 'pending';
+  setLocIcon('pending');
   renderStatus();
   navigator.geolocation.getCurrentPosition(
     (pos) => {
       state.loc = { lat: pos.coords.latitude, lng: pos.coords.longitude, accuracy: pos.coords.accuracy };
       state.locStatus = 'on';
       state.listLimit = LIST_PAGE;
+      setLocIcon('ok');
       if (map && pan) map.setView([state.loc.lat, state.loc.lng], 15);
       render();
       startLocWatch();
     },
-    () => { state.loc = null; state.locStatus = 'off'; render(); },
+    (err) => {
+      state.loc = null; state.locStatus = 'off';
+      setLocIcon('error');
+      render();
+      handleLocError(err, pan);
+    },
     { enableHighAccuracy: true, timeout: 8000, maximumAge: 60000 },
   );
+}
+
+// 把 error code 轉成看得懂、可行動的回饋：權限問題 → 教學卡；其餘暫時性問題 → 可重試的 toast
+function handleLocError(err, pan = false) {
+  if (err && err.code === 1) { // PERMISSION_DENIED
+    openLocHelp();
+    return;
+  }
+  const msg = err && err.code === 3 // TIMEOUT
+    ? '定位逾時，可能訊號較弱'
+    : '暫時定不到位置，請到空曠處再試'; // POSITION_UNAVAILABLE / 其他
+  showSnackbar(msg, { label: '重試', onAction: () => requestLocation(pan) });
+}
+
+// 依瀏覽器給對應的重設步驟（denied 時系統不會再跳詢問，只能引導去設定）
+function openLocHelp() {
+  const steps = isIOS()
+    ? (/crios|fxios|edgios/i.test(navigator.userAgent)
+      ? ['點網址列左側的「ᴀA」或選單，找到網站設定', '把「位置」改成「允許」', '回到這裡點下方「重新整理」']
+      : ['點網址列左側的「ᴀA」', '選「網站設定」', '把「位置」改成「允許」', '回到這裡點下方「重新整理」'])
+    : ['點網址列左側的鎖頭 🔒 圖示', '找到「位置／location」權限', '改成「允許」', '回到這裡點下方「重新整理」'];
+  $('#loc-help-steps').innerHTML = steps.map((s) => `<li>${s}</li>`).join('');
+  $('#loc-help').hidden = false;
+}
+
+// 進場先體檢定位權限：denied 直接引導、不讓使用者撞牆；granted/prompt 才正常請求
+async function checkLocPermission() {
+  if (!navigator.permissions || !navigator.permissions.query) return null;
+  try {
+    const st = await navigator.permissions.query({ name: 'geolocation' });
+    if (st.onchange !== undefined) {
+      st.onchange = () => { if (st.state === 'granted') requestLocation(); };
+    }
+    return st.state; // granted | prompt | denied
+  } catch { return null; }
 }
 
 // 首次定位成功後持續追蹤：藍點即時跟著走；移動超過 150m 才重算距離排序（省電）
@@ -476,15 +526,21 @@ function startLocWatch() {
 /* ---------- favorites ---------- */
 
 let snackTimer = null;
-function showSnackbar(text, undo) {
+// opts 可為 function（＝復原鍵，向下相容）或物件 { label, onAction, timeout }
+function showSnackbar(text, opts) {
   const bar = $('#snackbar');
   const btn = $('#snackbar-action');
+  const cfg = typeof opts === 'function' ? { label: '復原', onAction: opts, timeout: 4000 } : (opts || {});
   $('#snackbar-text').textContent = text;
-  btn.hidden = !undo;
-  if (undo) btn.onclick = () => { undo(); bar.hidden = true; clearTimeout(snackTimer); };
+  const hasAction = typeof cfg.onAction === 'function';
+  btn.hidden = !hasAction;
+  if (hasAction) {
+    btn.textContent = cfg.label || '復原';
+    btn.onclick = () => { bar.hidden = true; clearTimeout(snackTimer); cfg.onAction(); };
+  }
   bar.hidden = false;
   clearTimeout(snackTimer);
-  snackTimer = setTimeout(() => { bar.hidden = true; }, undo ? 4000 : 2000);
+  snackTimer = setTimeout(() => { bar.hidden = true; }, cfg.timeout || (hasAction ? 4000 : 2000));
 }
 
 function toggleFav(lot) {
@@ -978,12 +1034,30 @@ async function main() {
   enableSwipeClose($('#settings .modal-sheet'), () => { $('#settings').hidden = true; });
   enableSwipeClose($('#share .modal-sheet'), () => { $('#share').hidden = true; });
   enableSwipeClose($('#report .modal-sheet'), () => { $('#report').hidden = true; });
+  enableSwipeClose($('#loc-help .modal-sheet'), () => { $('#loc-help').hidden = true; });
   enableSwipeClose($('#picker .picker-sheet'), () => $('#picker').click());
   enableSwipeClose($('#brand-picker .picker-sheet'), () => { $('#brand-picker').hidden = true; });
 
   switchTab('map');
   setupDesktopHint();
-  requestLocation();
+
+  // 定位權限自我檢測：已拒絕就先給教學卡，不讓使用者點了半天沒反應
+  checkLocPermission().then((perm) => {
+    if (perm === 'denied') { state.locStatus = 'off'; setLocIcon('error'); renderStatus(); openLocHelp(); }
+    else requestLocation();
+  });
+
+  // loc-help 教學卡：重新整理 / 關閉 / 點背景關閉
+  $('#loc-help-reload').addEventListener('click', () => location.reload());
+  $('#loc-help-dismiss').addEventListener('click', () => { $('#loc-help').hidden = true; });
+  $('#loc-help').addEventListener('click', (e) => { if (e.target.id === 'loc-help') $('#loc-help').hidden = true; });
+
+  // iOS Safari 對 permissions onchange 支援不穩：切回 App 時，若使用者已在設定裡開啟，重新嘗試
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'visible' && !state.loc && !$('#loc-help').hidden) {
+      checkLocPermission().then((perm) => { if (perm === 'granted') { $('#loc-help').hidden = true; requestLocation(state.tab === 'map'); } });
+    }
+  });
 
   // 首次使用：先選所在縣市，之後每次開啟預設顯示該地區
   if (localStorage.getItem(HOME_KEY) === null) openPicker(true);

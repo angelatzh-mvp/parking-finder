@@ -187,6 +187,24 @@
   </div>
 </div>
 
+<div class="modal-backdrop" id="loc-help" hidden>
+  <div class="modal-sheet">
+    <div class="sheet-handle"><span></span></div>
+    <div class="picker-greeting">
+      <svg viewBox="28 14 52 78" aria-hidden="true"><rect x="34" y="24" width="15" height="50" rx="7.5" fill="#1D9E75"/><circle cx="55" cy="40" r="21" fill="#1D9E75"/><circle cx="57" cy="38" r="11" fill="#FFFFFF"/><circle cx="53" cy="36" r="2.6" fill="#04342C"/><circle cx="61" cy="36" r="2.6" fill="#04342C"/><path d="M52.5 41.5 Q57 46 61.5 41.5" fill="none" stroke="#04342C" stroke-width="2.4" stroke-linecap="round"/><circle cx="41" cy="79" r="7.5" fill="#04342C" stroke="#FFFFFF" stroke-width="2.5"/><circle cx="60" cy="79" r="7.5" fill="#04342C" stroke="#FFFFFF" stroke-width="2.5"/></svg>
+      <div class="bubble">
+        <p class="bubble-title">定位權限被關掉了</p>
+        <p>系統定位是開的，但這個瀏覽器不讓小Ｐ帶路用你的位置。跟著下面的步驟開啟就好。</p>
+      </div>
+    </div>
+    <ol class="loc-steps" id="loc-help-steps"></ol>
+    <div class="share-btns">
+      <button class="share-native" id="loc-help-reload">我已重設，重新整理</button>
+    </div>
+    <button class="loc-help-dismiss" id="loc-help-dismiss">先不用，繼續瀏覽</button>
+  </div>
+</div>
+
 <nav class="navbar">
   <button class="nav-item" data-tab="map" aria-pressed="true">
     <span class="nav-pill"><svg viewBox="0 0 24 24"><path d="M9 4l-5 2v14l5-2 6 2 5-2V4l-5 2-6-2zM9 4v14M15 6v14"/></svg></span>
