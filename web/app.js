@@ -16,7 +16,7 @@ const LIST_PAGE = 60;
 // 商業化推廣（分潤導流）。未來多筆時 pill 升級為「好康」清單入口，結構沿用。
 const OFFER = {
   id: 'starbucks-klook-egift',
-  pill: '星巴克好康',
+  pill: '星巴克91折',
   // 優惠券線條圖示；fill:none/stroke:currentColor 沿用全域規則，繼承 pill 綠字、背景透明
   pillIcon: '<svg class="offer-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9a2 2 0 0 0 0 6v2a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1v-2a2 2 0 0 1 0-6V7a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1z"/><path d="M14 6v12" stroke-dasharray="1.5 2"/></svg>',
   image: 'img/offer-starbucks.jpg',
