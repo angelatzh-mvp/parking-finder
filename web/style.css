@@ -82,6 +82,23 @@ svg { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 2
 #share-done { text-align: center; padding-bottom: 4px; }
 #share-done .share-copy { margin-top: 16px; }
 
+/* 商業化好康彈窗（點 pill 後的圖文說明，主 CTA 才外連） */
+.offer-sheet { position: relative; }
+.offer-close { position: absolute; top: 12px; right: 12px; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; color: var(--text-3); background: rgba(255,255,255,.7); border-radius: 50%; z-index: 1; }
+.offer-close svg { font-size: 17px; }
+.offer-hero { display: flex; justify-content: center; padding-top: 4px; }
+.offer-hero img { height: 200px; width: auto; max-width: 100%; display: block; border-radius: 12px; }
+.offer-title { font-size: 18px; font-weight: 700; text-align: center; padding: 14px 0 0; }
+.offer-sub { font-size: 13px; color: var(--text-2); text-align: center; line-height: 1.6; margin-top: 6px; }
+.offer-tiers { margin-top: 14px; border: 0.5px solid var(--border); border-radius: 12px; overflow: hidden; }
+.offer-tier { display: flex; align-items: baseline; gap: 8px; padding: 11px 14px; border-bottom: 0.5px solid var(--border); }
+.offer-tier:last-child { border-bottom: 0; }
+.offer-tier .t-name { font-size: 14px; color: var(--text); flex: 1; }
+.offer-tier .t-price { font-size: 15px; font-weight: 700; color: var(--accent); }
+.offer-tier .t-save { font-size: 12px; color: var(--text-3); }
+.offer-cta { text-decoration: none; display: flex; align-items: center; justify-content: center; }
+.offer-note { font-size: 11px; color: var(--text-3); text-align: center; line-height: 1.6; margin-top: 10px; }
+
 /* 桌機軟性提示 */
 .desktop-hint {
   flex-shrink: 0; display: flex; align-items: center; gap: 10px;
@@ -102,6 +119,23 @@ svg { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 2
 }
 .chip svg { font-size: 14px; }
 .chip[aria-pressed="true"] { background: var(--accent-bg); border-color: var(--accent-bg); color: var(--accent); font-weight: 500; }
+/* 商業化好康：靠右、實心綠 pill，與左側篩選工具做出區隔 */
+.offer-chip {
+  display: inline-flex; align-items: center; flex-shrink: 0;
+  margin-left: auto; position: relative; padding-left: 14px;
+  font-size: 13px; font-weight: 600; padding: 8px 14px; min-height: 36px;
+  background: var(--accent-bg); color: var(--accent); border-radius: 999px; white-space: nowrap;
+  animation: offer-hint 8s ease-in-out 2.5s infinite;
+}
+.offer-chip::before { content: ""; position: absolute; left: -8px; top: 6px; bottom: 6px; width: 0.5px; background: var(--border-2); }
+.offer-chip .offer-ic { width: 16px; height: 16px; margin-right: 5px; flex-shrink: 0; }
+/* 偶爾輕閃一下提示，其餘時間保持安靜；大部分週期無動作，僅 ~1 秒柔和高亮 */
+@keyframes offer-hint {
+  0%, 84%, 100% { background: var(--accent-bg); box-shadow: 0 0 0 0 rgba(29,158,117,0); }
+  90% { background: #cdeee0; box-shadow: 0 0 0 4px rgba(29,158,117,.22); }
+  96% { background: var(--accent-bg); box-shadow: 0 0 0 0 rgba(29,158,117,0); }
+}
+@media (prefers-reduced-motion: reduce) { .offer-chip { animation: none; } }
 .dot { width: 8px; height: 8px; border-radius: 50%; }
 .dot-utg { background: var(--utg); }
 .dot-cm { background: var(--cm); }

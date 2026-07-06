@@ -13,6 +13,25 @@ const HOME_KEY = 'parking-home-city-v1';
 const BRANDS_KEY = 'parking-brands-v1';
 const LIST_PAGE = 60;
 
+// 商業化推廣（分潤導流）。未來多筆時 pill 升級為「好康」清單入口，結構沿用。
+const OFFER = {
+  id: 'starbucks-klook-egift',
+  pill: '星巴克好康',
+  // 優惠券線條圖示；fill:none/stroke:currentColor 沿用全域規則，繼承 pill 綠字、背景透明
+  pillIcon: '<svg class="offer-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9a2 2 0 0 0 0 6v2a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1v-2a2 2 0 0 1 0-6V7a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1z"/><path d="M14 6v12" stroke-dasharray="1.5 2"/></svg>',
+  image: 'img/offer-starbucks.jpg',
+  title: '星巴克飲料券 · 91 折起',
+  subtitle: '電子票券，買了隨時能用 — 自己喝、送人都方便',
+  tiers: [
+    { name: '星巴克 TWD110 星享飲料券', price: 100, face: 110, save: 10 },
+    { name: '星巴克 TWD155 星享飲料券', price: 145, face: 155, save: 10 },
+    { name: '星巴克 TWD175 星享飲料券', price: 160, face: 175, save: 15 },
+  ],
+  cta: '到 Klook 買 ›',
+  note: '透過此連結購買，小P會獲得一點回饋，幫助小Ｐ帶路持續營運 💚　（由 Klook 提供，將開啟外部頁面）',
+  url: 'https://onelink.one/s/osdDH',
+};
+
 // 品牌篩選：null＝全部（含日後新增品牌）；否則為選取的品牌陣列（至少一個）。
 function loadBrands() {
   const raw = localStorage.getItem(BRANDS_KEY);
@@ -796,6 +815,50 @@ function setupReport() {
   });
 }
 
+// 商業化好康：pill → 圖文彈窗 → 主 CTA 才外連。四段漏斗埋點供後續分析。
+function setupOffer() {
+  const chip = $('#offer-chip');
+  const modal = $('#offer');
+  if (!chip || !modal) return;
+
+  chip.innerHTML = `${OFFER.pillIcon}<span>${esc(OFFER.pill)}</span>`;
+  window.goatcounter?.count?.({ path: `offer-pill-view-${OFFER.id}`, event: true });
+
+  $('#offer-img').src = OFFER.image;
+  $('#offer-title').textContent = OFFER.title;
+  $('#offer-sub').textContent = OFFER.subtitle;
+  $('#offer-note').textContent = OFFER.note;
+  $('#offer-tiers').innerHTML = OFFER.tiers.map((t) => `
+    <div class="offer-tier">
+      <span class="t-name">${esc(t.name)}</span>
+      <span class="t-price">NT$${t.price}</span>
+      <span class="t-save">省 $${t.save}</span>
+    </div>`).join('');
+  const cta = $('#offer-cta');
+  cta.textContent = OFFER.cta;
+  cta.href = OFFER.url;
+
+  let ctaClicked = false;
+  const closeModal = () => {
+    if (!ctaClicked) window.goatcounter?.count?.({ path: `offer-modal-dismiss-${OFFER.id}`, event: true });
+    modal.hidden = true;
+  };
+
+  chip.addEventListener('click', () => {
+    ctaClicked = false;
+    window.goatcounter?.count?.({ path: `offer-pill-click-${OFFER.id}`, event: true });
+    modal.hidden = false;
+  });
+  cta.addEventListener('click', () => {
+    ctaClicked = true;
+    window.goatcounter?.count?.({ path: `offer-modal-cta-${OFFER.id}`, event: true });
+    modal.hidden = true;
+  });
+  $('#offer-close').addEventListener('click', closeModal);
+  modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+  enableSwipeClose(modal.querySelector('.modal-sheet'), closeModal);
+}
+
 // 桌機軟性提示：手機體驗更好，可掃碼帶走；一次關閉後不再出現
 function setupDesktopHint() {
   const isDesktop = window.matchMedia('(min-width: 820px)').matches && !window.matchMedia('(pointer: coarse)').matches;
@@ -908,6 +971,7 @@ async function main() {
   setupSettings();
   setupShare();
   setupReport();
+  setupOffer();
 
   // 所有蓋板統一下滑關閉行為（共用 enableSwipeClose）
   enableSwipeClose($('#sheet'), () => selectLot(null));

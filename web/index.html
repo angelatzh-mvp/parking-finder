@@ -32,6 +32,7 @@
   <div class="chips" id="chips">
     <button class="chip" id="brand-chip">全部品牌<svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
     <button class="chip" id="city-chip">全台<svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
+    <button class="offer-chip" id="offer-chip" aria-label="星巴克好康優惠">☕ 星巴克好康</button>
   </div>
   <div class="status-row" id="status-row"></div>
 </header>
@@ -166,6 +167,23 @@
       <h2 class="share-title">謝謝你的回報！</h2>
       <p class="share-sub">你讓小Ｐ帶路更準，也幫到後面來找車位的人 💚</p>
     </div>
+  </div>
+</div>
+
+<div class="modal-backdrop" id="offer" hidden>
+  <div class="modal-sheet offer-sheet">
+    <div class="sheet-handle"><span></span></div>
+    <button class="offer-close" id="offer-close" aria-label="關閉">
+      <svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <div class="offer-hero"><img id="offer-img" alt="" src=""></div>
+    <h2 class="offer-title" id="offer-title"></h2>
+    <p class="offer-sub" id="offer-sub"></p>
+    <div class="offer-tiers" id="offer-tiers"></div>
+    <div class="share-btns">
+      <a class="share-native offer-cta" id="offer-cta" href="#" target="_blank" rel="noopener noreferrer"></a>
+    </div>
+    <p class="offer-note" id="offer-note"></p>
   </div>
 </div>
 
