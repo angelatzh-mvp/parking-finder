@@ -58,6 +58,8 @@ const utg = JSON.parse(readFileSync(join(ROOT, 'data', 'utg-raw.json'), 'utf8'))
 const cm = JSON.parse(readFileSync(join(ROOT, 'data', 'carmochi-geo.json'), 'utf8'));
 const dodo = JSON.parse(readFileSync(join(ROOT, 'data', 'dodohome-raw.json'), 'utf8')); // 嘟嘟房：官方自帶座標
 const tps = JSON.parse(readFileSync(join(ROOT, 'data', 'tps-geo.json'), 'utf8')); // 24TPS：geocode 後
+const vivi = JSON.parse(readFileSync(join(ROOT, 'data', 'vivipark-raw.json'), 'utf8')); // ViVi PARK：官方自帶座標
+const pks = JSON.parse(readFileSync(join(ROOT, 'data', 'parkinsys-geo.json'), 'utf8')); // 銓營：geocode 後
 // 人工補校的地址／座標（來源：Autopass 官方場站圖資，比爬蟲缺漏的原始資料可靠）。
 // 以「縣市|場站名」為 key——這正是空地址場站的 id 依據，所以補地址不會改變 id、不影響收藏。
 const overridesPath = join(ROOT, 'data', 'address-overrides.json');
@@ -107,6 +109,14 @@ for (const l of utg.lots) {
   });
 }
 
+// 正規化場站名：去品牌字樣、全形轉半形、去「停車場／場」尾綴。用於「同址多場站」時
+// 以名稱判定跨品牌是否為同一場站（如 ViVi「凱歌路一站場」＝車麻吉「ViVi PARK 凱歌路一站停車場」）。
+const BRAND_WORDS_RE = /(vivi\s*park|嘟嘟房|24tps|永固|台灣聯通|臺灣聯通|車麻吉|銓營|詮營)/gi;
+function normName(name) {
+  return toHalfWidth(name).replace(/臺/g, '台').replace(BRAND_WORDS_RE, '')
+    .replace(/[\s()（）【】-]/g, '').replace(/停車場$/, '').replace(/場$/, '');
+}
+
 // 把一個品牌的場站併入 byKey：同地址跨品牌合掛雙品牌，撞 key／無地址則以「key＋名稱」獨立保留。
 // utg 是首個種子來源（上方單獨處理其行政區邏輯），其餘品牌都走這裡。
 let merged = 0;
@@ -115,30 +125,40 @@ function mergeBrand(brand, srcLots) {
     if (NO_DISCOUNT_RE.test(l.name + (l.note ?? ''))) continue;
     const key = addrKey(l.city, l.address);
     const hasAddr = key.split('|')[1] !== '';
-    // 只有「地址非空」才能跨品牌合併；空地址的 key 沒有辨識力
-    const existing = hasAddr ? byKey.get(key) : undefined;
-    if (existing) {
-      if (!existing.brands.includes(brand)) {
-        // 跨品牌同地址 → 同一場站，加掛品牌
-        existing.brands.push(brand);
-        if (l.note && !existing.note?.includes(l.note)) {
-          existing.note = [existing.note, l.note].filter(Boolean).join('；');
-        }
-        // 既有場站缺座標、此來源帶可靠座標（如嘟嘟房官方座標）→ 補上
-        if (existing.lat == null && l.lat != null) {
-          existing.lat = l.lat;
-          existing.lng = l.lng;
-          delete existing.geoPending;
-        }
-        merged++;
-        continue;
+    // 只有「地址非空」才能跨品牌合併；空地址的 key 沒有辨識力。
+    // 候選＝基本 key ＋ 撞 key 時以「key|名稱」保留的同址其他場站。
+    const candidates = hasAddr
+      ? [byKey.get(key), ...[...byKey.keys()].filter((k) => k.startsWith(key + '|')).map((k) => byKey.get(k))].filter(Boolean)
+      : [];
+    // 同品牌同地址同名 → 來源重複列出，跳過
+    if (candidates.some((c) => c.brands.includes(brand) && c.name === l.name)) continue;
+    const crossBrand = candidates.filter((c) => !c.brands.includes(brand));
+    let target;
+    if (candidates.length === 1 && crossBrand.length === 1) {
+      // 同地址只有一個場站 → 跨品牌同地址＝同一場站
+      target = crossBrand[0];
+    } else if (crossBrand.length) {
+      // 同址多場站（如凱歌路一站／二站同門牌）→ 只在正規化名稱唯一吻合時才合併，避免掛錯站
+      const nm = normName(l.name);
+      const matches = nm ? crossBrand.filter((c) => normName(c.name) === nm) : [];
+      if (matches.length === 1) target = matches[0];
+    }
+    if (target) {
+      target.brands.push(brand);
+      if (l.note && !target.note?.includes(l.note)) {
+        target.note = [target.note, l.note].filter(Boolean).join('；');
       }
-      // 同品牌同地址同名 → 來源重複列出，跳過
-      if (existing.name === l.name) continue;
-      // 同品牌同地址不同名（如中科停一～六站）→ 是不同場站，往下各自獨立保留
+      // 既有場站缺座標、此來源帶可靠座標（如嘟嘟房官方座標）→ 補上
+      if (target.lat == null && l.lat != null) {
+        target.lat = l.lat;
+        target.lng = l.lng;
+        delete target.geoPending;
+      }
+      merged++;
+      continue;
     }
     // 撞 key（或無地址）時以「key＋名稱」確保各場站獨立且 id 穩定
-    const ownKey = existing || !hasAddr ? `${key}|${l.name}` : key;
+    const ownKey = candidates.length || !hasAddr ? `${key}|${l.name}` : key;
     if (byKey.has(ownKey)) continue;
     byKey.set(ownKey, {
       id: hashId(ownKey),
@@ -159,6 +179,8 @@ function mergeBrand(brand, srcLots) {
 mergeBrand('carmochi', cm.lots);
 mergeBrand('dodohome', dodo.lots);
 mergeBrand('tps', tps.lots);
+mergeBrand('vivipark', vivi.lots);
+mergeBrand('parkinsys', pks.lots);
 
 let lots = [...byKey.values()].filter((l) => l.name);
 
@@ -182,7 +204,7 @@ for (const l of lots) {
 //  2. 若同一核心地址下「任一品牌出現 2 筆以上不同名場站」（如中科停一~六同址），視為同址多場站，整組不動，避免誤併；
 //  3. 保留品牌資歷最高者（utg>carmochi>dodohome>tps）的 id → 既有收藏不受影響（dodohome/tps 為新品牌，尚無收藏）；
 //  4. 人工判定 doNotMerge 名單（merge-overrides.json）內的核心地址一律不合併（同門牌號其實是多個獨立停車場）。
-const BRAND_RANK = { utg: 0, carmochi: 1, dodohome: 2, tps: 3 };
+const BRAND_RANK = { utg: 0, carmochi: 1, dodohome: 2, tps: 3, vivipark: 4, parkinsys: 5 };
 const seniority = (l) => Math.min(...l.brands.map((b) => BRAND_RANK[b] ?? 99));
 const doNotMerge = new Set((mergeOv.doNotMerge ?? []).map((o) => coreKey(o.city, o.address)));
 const coreGroups = new Map();
@@ -200,18 +222,36 @@ for (const [ck, group] of coreGroups) {
   if (group.length < 2) continue;
   const brandCounts = {};
   for (const l of group) for (const b of l.brands) brandCounts[b] = (brandCounts[b] ?? 0) + 1;
-  if (Object.values(brandCounts).some((c) => c > 1)) continue; // 同址多場站 → 不動
-  if (new Set(group.flatMap((l) => l.brands)).size < 2) continue; // 非跨品牌 → 不動
-  group.sort((a, b) => seniority(a) - seniority(b));
-  const primary = group[0];
-  for (const l of group.slice(1)) {
-    for (const b of l.brands) if (!primary.brands.includes(b)) primary.brands.push(b);
-    if (l.note && !primary.note?.includes(l.note)) primary.note = [primary.note, l.note].filter(Boolean).join('；');
-    if (primary.lat == null && l.lat != null) { primary.lat = l.lat; primary.lng = l.lng; delete primary.geoPending; }
-    removedIds.add(l.id);
-    consolidated++;
+  // 同址多場站（任一品牌 2 筆以上）→ 不整組合併，退回「正規化名稱相同」的子群
+  // （如凱歌路一站／二站同門牌：一站(車麻吉)與一站場(ViVi) 名稱吻合才併，二站不受波及）
+  let subgroups = [group];
+  if (Object.values(brandCounts).some((c) => c > 1)) {
+    const byName = new Map();
+    for (const l of group) {
+      const nm = normName(l.name);
+      if (!nm) continue;
+      if (!byName.has(nm)) byName.set(nm, []);
+      byName.get(nm).push(l);
+    }
+    subgroups = [...byName.values()];
   }
-  primary.brands.sort((a, b) => BRAND_RANK[a] - BRAND_RANK[b]); // 標籤依品牌資歷排序，與地圖 pin 優先序一致
+  for (const g of subgroups) {
+    if (g.length < 2) continue;
+    const bc = {};
+    for (const l of g) for (const b of l.brands) bc[b] = (bc[b] ?? 0) + 1;
+    if (Object.values(bc).some((c) => c > 1)) continue; // 子群內仍有同品牌多筆 → 不動
+    if (new Set(g.flatMap((l) => l.brands)).size < 2) continue; // 非跨品牌 → 不動
+    g.sort((a, b) => seniority(a) - seniority(b));
+    const primary = g[0];
+    for (const l of g.slice(1)) {
+      for (const b of l.brands) if (!primary.brands.includes(b)) primary.brands.push(b);
+      if (l.note && !primary.note?.includes(l.note)) primary.note = [primary.note, l.note].filter(Boolean).join('；');
+      if (primary.lat == null && l.lat != null) { primary.lat = l.lat; primary.lng = l.lng; delete primary.geoPending; }
+      removedIds.add(l.id);
+      consolidated++;
+    }
+    primary.brands.sort((a, b) => BRAND_RANK[a] - BRAND_RANK[b]); // 標籤依品牌資歷排序，與地圖 pin 優先序一致
+  }
 }
 lots = lots.filter((l) => !removedIds.has(l.id));
 
@@ -251,6 +291,8 @@ const dataset = {
       carmochi: { label: '車麻吉', updatedAt: cm.updatedAt, scrapedAt: cm.scrapedAt, count: cm.count },
       dodohome: { label: '嘟嘟房', scrapedAt: dodo.scrapedAt, count: dodo.count },
       tps: { label: '24TPS', scrapedAt: tps.scrapedAt, count: tps.count },
+      vivipark: { label: 'ViVi PARK', scrapedAt: vivi.scrapedAt, count: vivi.count },
+      parkinsys: { label: '銓營', scrapedAt: pks.scrapedAt, count: pks.count },
     },
     total: lots.length,
     mergedBoth: merged,

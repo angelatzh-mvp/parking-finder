@@ -34,11 +34,14 @@ jobs:
           node scripts/scrape-carmochi.mjs
           node scripts/scrape-dodohome.mjs
           node scripts/scrape-24tps.mjs
+          node scripts/scrape-vivipark.mjs
+          node scripts/scrape-parkinsys.mjs
       - name: Geocode (incremental, cached)
         run: |
           node scripts/geocode-carmochi.mjs
           node scripts/geocode-fallback.mjs
           node scripts/geocode-24tps.mjs
+          node scripts/geocode-parkinsys.mjs
       - name: Refresh Autopass address overrides（補缺地址／座標；來源異常時保留舊檔）
         run: node scripts/scrape-autopass.mjs
       - name: Build dataset
