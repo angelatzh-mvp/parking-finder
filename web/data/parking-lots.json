@@ -1,40 +1,40 @@
 {
  "meta": {
-  "builtAt": "2026-07-15T15:09:11.222Z",
+  "builtAt": "2026-07-19T21:46:05.541Z",
   "sources": {
    "utg": {
     "label": "台灣聯通",
-    "scrapedAt": "2026-07-15T15:07:15.990Z",
+    "scrapedAt": "2026-07-19T21:44:01.852Z",
     "count": 247
    },
    "carmochi": {
     "label": "車麻吉",
     "updatedAt": "2026-06-26",
-    "scrapedAt": "2026-07-15T15:07:16.640Z",
-    "count": 679
+    "scrapedAt": "2026-07-19T21:44:02.440Z",
+    "count": 678
    },
    "dodohome": {
     "label": "嘟嘟房",
-    "scrapedAt": "2026-07-15T15:07:18.778Z",
+    "scrapedAt": "2026-07-19T21:44:05.917Z",
     "count": 368
    },
    "tps": {
     "label": "24TPS",
-    "scrapedAt": "2026-07-15T15:07:20.076Z",
-    "count": 32
+    "scrapedAt": "2026-07-19T21:44:07.384Z",
+    "count": 34
    },
    "vivipark": {
     "label": "ViVi PARK",
-    "scrapedAt": "2026-07-15T15:07:21.343Z",
+    "scrapedAt": "2026-07-19T21:44:08.843Z",
     "count": 228
    },
    "parkinsys": {
     "label": "銓營",
-    "scrapedAt": "2026-07-15T15:07:32.807Z",
+    "scrapedAt": "2026-07-19T21:44:21.593Z",
     "count": 19
    }
   },
-  "total": 1519,
+  "total": 1520,
   "mergedBoth": 23,
   "consolidated": 19,
   "noGeo": 0,
@@ -4830,21 +4830,6 @@
    "address": "大同區延平北路四段205號",
    "lat": 25.0756739,
    "lng": 121.5118405,
-   "note": "",
-   "maxHeight": null,
-   "totalSpace": null
-  },
-  {
-   "id": "p1p6dnv1",
-   "brands": [
-    "carmochi"
-   ],
-   "name": "培宸林森機械停車場",
-   "city": "台北市",
-   "district": "中山區",
-   "address": "中山區林森北路452號",
-   "lat": 25.0505978,
-   "lng": 121.524944,
    "note": "",
    "maxHeight": null,
    "totalSpace": null
@@ -19090,6 +19075,21 @@
    "totalSpace": null
   },
   {
+   "id": "p2ussrk",
+   "brands": [
+    "tps"
+   ],
+   "name": "建國七",
+   "city": "台北市",
+   "district": "台北市",
+   "address": "台北市中山區南京東路三段8號",
+   "lat": 25.051836,
+   "lng": 121.5439651,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
    "id": "p1wcqnov",
    "brands": [
     "tps"
@@ -19490,6 +19490,21 @@
    "address": "新北市三重區中正北路 29 號地下 1層",
    "lat": 25.062146,
    "lng": 121.492309,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pxt4fpn",
+   "brands": [
+    "tps"
+   ],
+   "name": "太平洋三",
+   "city": "新北市",
+   "district": "新北市",
+   "address": "新北市三重區重新路五段609巷10號地下2樓",
+   "lat": 25.0791741,
+   "lng": 121.4990352,
    "note": "",
    "maxHeight": null,
    "totalSpace": null
