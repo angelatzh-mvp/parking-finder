@@ -42,6 +42,9 @@ for (const l of lots) {
   if (/不支援線上繳費/.test(l.name)) errors.push(`名稱殘留繳費註記（應移至備註）: ${tag}`);
   if (NO_DISCOUNT_RE.test(l.name + (l.note ?? ''))) errors.push(`含無信用卡優惠字樣（應排除）: ${tag}`);
   if (!CITIES.has(l.city)) errors.push(`縣市非法: ${tag} ${l.city}`);
+  // 行政區不得填成縣市名（來源髒資料特徵；build-dataset 以地址推導修正，這裡是回歸防護）。
+  // 註：新竹市／嘉義市屬「縣市」分組（新竹縣市／嘉義縣市）下的有效細分，不在 CITIES 內，不會誤報。
+  if (l.district && CITIES.has(l.district)) errors.push(`行政區填成縣市名（應為真正行政區或留空）: ${tag} district=${l.district}`);
   if (l.lat != null && (l.lat < 21 || l.lat > 26.5 || l.lng < 118 || l.lng > 122.5)) {
     errors.push(`座標超出台灣範圍: ${tag} ${l.lat},${l.lng}`);
   }

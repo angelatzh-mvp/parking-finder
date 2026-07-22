@@ -6,6 +6,7 @@
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { realDistrict } from './lib/district.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -41,17 +42,6 @@ function hashId(s) {
   let h = 5381;
   for (let i = 0; i < s.length; i++) h = ((h << 5) + h + s.charCodeAt(i)) >>> 0;
   return 'p' + h.toString(36);
-}
-
-const districtOf = (address) => toHalfWidth(address).match(/^(.{1,4}?[區鄉鎮市])/)?.[1] ?? '';
-
-// 行政區驗證：來源偶有把路名或「鄰近○○區」塞進行政區的髒資料，清不掉的寧可留空
-function cleanDistrict(d) {
-  if (!d) return '';
-  d = d.trim().replace(/^鄰近/, '');
-  if (!/^[一-鿿]{1,3}[區鄉鎮市]$/.test(d)) return '';
-  if (/[路街道段巷弄]/.test(d)) return '';
-  return d;
 }
 
 const utg = JSON.parse(readFileSync(join(ROOT, 'data', 'utg-raw.json'), 'utf8'));
@@ -99,7 +89,7 @@ for (const l of utg.lots) {
     brands: ['utg'],
     name,
     city: canonCity(l.city),
-    district: cleanDistrict(l.district || districtOf(l.address.replace(/^.{2,3}[市縣]/, ""))),
+    district: realDistrict({ address: l.address, city: canonCity(l.city), district: l.district }),
     address: toHalfWidth(l.address),
     lat: l.lat,
     lng: l.lng,
@@ -165,7 +155,7 @@ function mergeBrand(brand, srcLots) {
       brands: [brand],
       name: l.name,
       city: canonCity(l.city),
-      district: cleanDistrict(districtOf(l.address)),
+      district: realDistrict({ address: l.address, city: canonCity(l.city), district: l.district }),
       address: toHalfWidth(l.address),
       lat: l.lat,
       lng: l.lng,
@@ -191,7 +181,7 @@ for (const l of lots) {
   const ov = overrides[`${l.city}|${l.name}`];
   if (!ov || (l.address && l.lat != null)) continue;
   l.address = toHalfWidth(ov.address);
-  l.district = cleanDistrict(l.district || districtOf(ov.address.replace(/^.{2,3}[市縣]/, '')));
+  l.district = realDistrict({ address: ov.address, city: l.city, district: l.district });
   l.lat = ov.lat;
   l.lng = ov.lng;
   delete l.geoPending;
