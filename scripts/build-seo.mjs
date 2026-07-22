@@ -328,7 +328,7 @@ ${cityBlocks}`;
 }
 
 // ===== sitemap.xml + robots.txt =====
-addUrl(APP('seo').replace(/\?ref=seo$/, '/')); // App 首頁（乾淨網址）
+addUrl(SITE + '/'); // App 首頁（乾淨網址，與 index.html canonical 一致；勿用帶 ?ref 的 CTA 連結）
 const lastmod = builtAt || '';
 const sm = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
