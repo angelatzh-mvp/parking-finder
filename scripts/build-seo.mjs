@@ -332,7 +332,7 @@ addUrl(APP('seo').replace(/\?ref=seo$/, '/')); // App 首頁（乾淨網址）
 const lastmod = builtAt || '';
 const sm = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${sitemap.map((loc) => `<url><loc>${esc(encodeURI(loc))}</loc>${lastmod ? `<lastmod>${lastmod}</lastmod>` : ''}<changefreq>weekly</changefreq></url>`).join('\n')}
+${sitemap.map((loc) => `<url><loc>${esc(loc)}</loc>${lastmod ? `<lastmod>${lastmod}</lastmod>` : ''}<changefreq>weekly</changefreq></url>`).join('\n')}
 </urlset>`;
 writeFileSync(join(WEB, 'sitemap.xml'), sm);
 writeFileSync(join(WEB, 'robots.txt'), `User-agent: *\nAllow: /\nSitemap: ${SITE}/sitemap.xml\n`);
