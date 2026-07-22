@@ -54,11 +54,13 @@ jobs:
         run: node scripts/write-update-log.mjs
       - name: Copy to web
         run: cp data/parking-lots.json web/data/
+      - name: Build SEO landing pages（靜態落地頁＋sitemap，讀最終資料集）
+        run: node scripts/build-seo.mjs
       - name: Commit updated data
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data web/data docs
+          git add data web/data web/parking web/sitemap.xml web/robots.txt docs
           git diff --cached --quiet || git commit -m "chore: weekly data update"
           git push
 

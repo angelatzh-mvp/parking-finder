@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://angelatzh-mvp.github.io/parking-finder/sitemap.xml
