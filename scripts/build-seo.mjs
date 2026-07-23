@@ -21,7 +21,7 @@ import { fileURLToPath } from 'node:url';
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const WEB = join(ROOT, 'web');
 const OUT = join(WEB, 'parking');
-const SITE = 'https://angelatzh-mvp.github.io/parking-finder';
+const SITE = 'https://park-park-go.com';
 
 const BRAND_META = {
   utg: { label: '台灣聯通', bg: '#e6f1fb', text: '#0c447c', desc: '台灣聯通是全台據點最多的停車場品牌之一，多處據點配合信用卡消費免費停車優惠。' },
