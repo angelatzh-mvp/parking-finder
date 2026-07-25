@@ -324,11 +324,30 @@ function renderFavs() {
   el.innerHTML = rows.map(({ fav, lot }) => cardHtml(lot, { fav })).join('');
 }
 
+// 桌機（split-view）分流：寬螢幕且非觸控才進桌機版；觸控平板一律走手機 UI
+const DESKTOP_MQ = window.matchMedia('(min-width: 1024px) and (pointer: fine)');
+const isDesktop = () => DESKTOP_MQ.matches;
+
 function render() {
+  if (isDesktop()) renderDesktop();
+  else renderMobile();
+}
+
+// 手機版 render：維持原有分頁式行為
+function renderMobile() {
   renderStatus();
   if (state.tab === 'list') renderList();
   if (state.tab === 'fav') renderFavs();
   if (state.tab === 'map') { renderMarkers(); renderSheet(); }
+}
+
+// 桌機版 render：地圖恆顯，左欄依分段顯示清單或常用（詳情 sheet 於 Phase 2 移入左欄）
+function renderDesktop() {
+  renderStatus();
+  renderMarkers();
+  if (state.tab === 'fav') renderFavs();
+  else renderList();
+  renderSheet();
 }
 
 /* ---------- map ---------- */
@@ -985,14 +1004,25 @@ function setupSettings() {
 function switchTab(tab) {
   state.tab = tab;
   document.querySelectorAll('.nav-item').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.tab === tab)));
-  $('#view-map').hidden = tab !== 'map';
-  $('#view-list').hidden = tab !== 'list';
-  $('#view-fav').hidden = tab !== 'fav';
-  $('#page-title').textContent = '小Ｐ帶路';
-  if (tab === 'map') {
+  if (isDesktop()) {
+    // 桌機：地圖恆顯，左欄依分段顯示清單或常用（tab==='map' 視為清單）
+    const showFav = tab === 'fav';
+    $('#view-map').hidden = false;
+    $('#view-list').hidden = showFav;
+    $('#view-fav').hidden = !showFav;
+    document.querySelectorAll('.panel-tab').forEach((b) => b.setAttribute('aria-pressed', String((b.dataset.tab === 'fav') === showFav)));
     initMap();
     setTimeout(() => map.invalidateSize(), 50);
+  } else {
+    $('#view-map').hidden = tab !== 'map';
+    $('#view-list').hidden = tab !== 'list';
+    $('#view-fav').hidden = tab !== 'fav';
+    if (tab === 'map') {
+      initMap();
+      setTimeout(() => map.invalidateSize(), 50);
+    }
   }
+  $('#page-title').textContent = '小Ｐ帶路';
   render();
 }
 
@@ -1026,6 +1056,9 @@ async function main() {
     if (e.target.closest('#loc-retry')) requestLocation(state.tab === 'map');
   });
   document.querySelectorAll('.nav-item').forEach((b) => b.addEventListener('click', () => switchTab(b.dataset.tab)));
+  document.querySelectorAll('.panel-tab').forEach((b) => b.addEventListener('click', () => switchTab(b.dataset.tab)));
+  // 跨桌機／手機斷點時重套當前分頁的顯示規則並重算地圖尺寸（完整狀態保留於 Phase 4）
+  DESKTOP_MQ.addEventListener('change', () => switchTab(state.tab));
   setupSettings();
   setupShare();
   setupReport();

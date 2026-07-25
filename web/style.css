@@ -30,7 +30,11 @@
   --warn-bg: #faeeda;
   --warn-text: #854f0b;
   --nav-h: 76px;
+  --panel-w: 400px; /* 桌機 split-view 左欄寬度（Phase 1 起使用） */
 }
+
+/* 桌機分段控制（清單／常用）：手機隱藏，桌機版型見檔案末端斷點層 */
+.panel-tabs { display: none; }
 
 * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
 [hidden] { display: none !important; }
@@ -346,3 +350,47 @@ svg { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 2
 .lot-pin.sel { transform: scale(1.35); z-index: 10; }
 .marker-cluster-small, .marker-cluster-medium, .marker-cluster-large { background: rgba(29,158,117,.3) !important; }
 .marker-cluster-small div, .marker-cluster-medium div, .marker-cluster-large div { background: #1d9e75 !important; color: #fff !important; }
+
+/* ============================================================
+   桌機 split-view 斷點層（mobile-first：置於檔案末端以覆蓋 base 規則）
+   寬螢幕且非觸控才進桌機版；觸控平板一律走手機 UI
+   ============================================================ */
+@media (min-width: 1024px) and (pointer: fine) {
+  /* 左欄（分段＋清單／常用）＋ 右側地圖，地圖恆顯 */
+  #main {
+    display: grid;
+    grid-template-columns: var(--panel-w) 1fr;
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+      "tabs map"
+      "panel map";
+  }
+  .panel-tabs {
+    grid-area: tabs;
+    display: flex;
+    gap: 4px;
+    padding: 10px 12px;
+    background: var(--surface);
+    border-right: 0.5px solid var(--border);
+    border-bottom: 0.5px solid var(--border);
+  }
+  .panel-tab {
+    flex: 1; height: 36px; border-radius: 8px;
+    font-size: 14px; font-weight: 500; color: var(--text-2);
+  }
+  .panel-tab[aria-pressed="true"] { background: var(--accent-bg); color: var(--accent); }
+
+  #view-list, #view-fav {
+    grid-area: panel;
+    min-height: 0; height: auto;
+    padding-bottom: 0;
+    border-right: 0.5px solid var(--border);
+  }
+  #view-map { grid-area: map; }
+  #map { bottom: 0; }
+  .sheet { bottom: 0; }
+  .locate-btn { bottom: 24px; }
+
+  .navbar { display: none; }
+  .desktop-hint { display: none; }
+}
