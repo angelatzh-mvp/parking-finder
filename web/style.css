@@ -35,6 +35,8 @@
 
 /* 桌機分段控制（清單／常用）：手機隱藏，桌機版型見檔案末端斷點層 */
 .panel-tabs { display: none; }
+/* 桌機詳情面板：手機不用（走底部 sheet），桌機版型見檔案末端斷點層 */
+.detail-panel { display: none; }
 
 * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
 [hidden] { display: none !important; }
@@ -388,8 +390,29 @@ svg { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 2
   }
   #view-map { grid-area: map; }
   #map { bottom: 0; }
-  .sheet { bottom: 0; }
   .locate-btn { bottom: 24px; }
+
+  /* 桌機詳情走左欄面板，停用底部 sheet */
+  .sheet { display: none; }
+  #detail-panel {
+    grid-area: panel;
+    display: flex; flex-direction: column;
+    min-height: 0; overflow-y: auto;
+    background: var(--surface);
+    border-right: 0.5px solid var(--border);
+    z-index: 5;
+  }
+  .detail-panel-head {
+    position: sticky; top: 0; z-index: 1;
+    padding: 8px 12px; background: var(--surface);
+    border-bottom: 0.5px solid var(--border);
+  }
+  .detail-back {
+    display: inline-flex; align-items: center; gap: 4px;
+    font-size: 14px; font-weight: 500; color: var(--accent);
+    padding: 6px 8px 6px 4px; margin-left: -4px;
+  }
+  .detail-back svg { font-size: 18px; }
 
   .navbar { display: none; }
   .desktop-hint { display: none; }

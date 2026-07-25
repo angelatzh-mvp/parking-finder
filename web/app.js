@@ -446,13 +446,30 @@ function selectLot(id) {
   renderSheet();
 }
 
+// 詳情呈現：手機走底部 sheet、桌機走左欄面板
 function renderSheet() {
+  if (isDesktop()) renderDetailPanel();
+  else renderMobileSheet();
+}
+
+function renderMobileSheet() {
   const sheet = $('#sheet');
   const lot = state.lots.find((l) => l.id === state.selectedId);
   if (!lot) { sheet.hidden = true; sheet.style.transform = ''; return; }
   const withD = { ...lot, dist: state.loc && lot.lat ? haversine(state.loc, lot) : null };
   $('#sheet-body').innerHTML = cardHtml(withD, { inSheet: true });
   sheet.hidden = false;
+}
+
+// 桌機詳情：覆蓋左欄清單，關閉回清單（清單留在 DOM，捲動位置自然保留）
+function renderDetailPanel() {
+  const panel = $('#detail-panel');
+  const lot = state.lots.find((l) => l.id === state.selectedId);
+  if (!lot) { panel.hidden = true; $('#detail-panel-body').innerHTML = ''; return; }
+  const withD = { ...lot, dist: state.loc && lot.lat ? haversine(state.loc, lot) : null };
+  $('#detail-panel-body').innerHTML = cardHtml(withD, { inSheet: true });
+  panel.hidden = false;
+  panel.scrollTop = 0;
 }
 
 /* ---------- location ---------- */
@@ -1047,6 +1064,8 @@ async function main() {
   $('#fav-list').addEventListener('click', onCardAction);
   $('#sheet-body').addEventListener('click', onCardAction);
   $('#sheet-close').addEventListener('click', () => selectLot(null));
+  $('#detail-panel-body').addEventListener('click', onCardAction);
+  $('#detail-back').addEventListener('click', () => selectLot(null));
   $('#locate-btn').addEventListener('click', () => {
     // 已有位置就立即置中，不必等 GPS 重新回應；同時在背景刷新
     if (state.loc && map) map.setView([state.loc.lat, state.loc.lng], 16);
