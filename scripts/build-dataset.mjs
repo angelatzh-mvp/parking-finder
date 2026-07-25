@@ -43,14 +43,31 @@ function hashId(s) {
   return 'p' + h.toString(36);
 }
 
-const districtOf = (address) => toHalfWidth(address).match(/^(.{1,4}?[區鄉鎮市])/)?.[1] ?? '';
+// 縣市名（不含行政區後綴），用於在抽行政區前先剝掉地址開頭的縣市前綴
+const CITY_NAME = '台北|臺北|新北|桃園|台中|臺中|台南|臺南|高雄|基隆|新竹|苗栗|彰化|南投|雲林|嘉義|屏東|宜蘭|花蓮|台東|臺東|澎湖|金門|連江';
+// 直轄市／省轄市：其下級為「區」，本身不會是行政區。若被當成行政區（district==city）即為髒資料
+const MUNICIPALITY_RE = new RegExp(`^(?:${CITY_NAME})市$`);
 
-// 行政區驗證：來源偶有把路名或「鄰近○○區」塞進行政區的髒資料，清不掉的寧可留空
+// 從地址抽行政區。要點：
+// 1. 先剝掉開頭縣市前綴（含髒資料「高雄區苓雅區…」的「高雄區」）——但僅在剝完後仍以行政區開頭時才剝，
+//    以免吃掉「南投市/斗六市」等本身就是行政區的縣轄市（其後接的是路名而非另一個行政區）。
+// 2. 直轄市／市的行政區一律以「區」結尾，故先抓開頭第一個「區」：這讓「前鎮區/新市區」不會在
+//    中間的鎮/市字被截成「前鎮/新市」，也讓「大甲區鎮政路/中山區市場」不會被貪婪多吃成「大甲區鎮/中山區市」。
+// 3. 開頭數字內找不到「區」時才退回第一個鄉／鎮／市（縣轄市與鄉鎮，如南投市／斗六市／草屯鎮）。
+function districtOf(address) {
+  let a = toHalfWidth(address).trim();
+  const stripped = a.replace(new RegExp(`^(?:${CITY_NAME})[市縣區]`), '');
+  if (stripped !== a && /^.{1,3}[區鄉鎮市]/.test(stripped)) a = stripped;
+  return a.match(/^(.{1,3}?區)/)?.[1] ?? a.match(/^(.{1,3}?[鄉鎮市])/)?.[1] ?? '';
+}
+
+// 行政區驗證：來源偶有把路名、縣市名或「鄰近○○區」塞進行政區的髒資料，清不掉的寧可留空
 function cleanDistrict(d) {
   if (!d) return '';
   d = d.trim().replace(/^鄰近/, '');
   if (!/^[一-鿿]{1,3}[區鄉鎮市]$/.test(d)) return '';
   if (/[路街道段巷弄]/.test(d)) return '';
+  if (MUNICIPALITY_RE.test(d)) return ''; // district==直轄市/省轄市名，非真正行政區
   return d;
 }
 
@@ -105,7 +122,7 @@ for (const l of utg.lots) {
     brands: ['utg'],
     name,
     city: canonCity(l.city),
-    district: cleanDistrict(l.district || districtOf(l.address.replace(/^.{2,3}[市縣]/, ""))),
+    district: cleanDistrict(l.district) || cleanDistrict(districtOf(l.address)),
     address: toHalfWidth(l.address),
     lat: l.lat,
     lng: l.lng,
@@ -197,7 +214,7 @@ for (const l of lots) {
   const ov = overrides[`${l.city}|${l.name}`];
   if (!ov || (l.address && l.lat != null)) continue;
   l.address = toHalfWidth(ov.address);
-  l.district = cleanDistrict(l.district || districtOf(ov.address.replace(/^.{2,3}[市縣]/, '')));
+  l.district = cleanDistrict(l.district) || cleanDistrict(districtOf(ov.address));
   l.lat = ov.lat;
   l.lng = ov.lng;
   delete l.geoPending;

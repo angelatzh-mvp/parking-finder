@@ -37,13 +37,18 @@ const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '
 const enc = (s) => encodeURIComponent(s);
 const toHalf = (s) => String(s ?? '').replace(/[０-９Ａ-Ｚａ-ｚ]/g, (ch) => String.fromCharCode(ch.charCodeAt(0) - 0xfee0));
 
-// 從地址重新推導行政區。上游資料集有 488 筆 district 被填成「縣市名」（如台北市）而非真正的行政區，
-// 但地址裡有正確資訊。這裡以地址為準（去掉縣市前綴後的第一個 …區/鄉/鎮/市），失敗才退回原 district。
-const CITY_PREFIX = /^(台北市|臺北市|新北市|桃園市|台中市|臺中市|台南市|臺南市|高雄市|基隆市|新竹市|新竹縣|苗栗縣|彰化縣|南投縣|雲林縣|嘉義市|嘉義縣|屏東縣|宜蘭縣|花蓮縣|台東縣|臺東縣|澎湖縣|金門縣|連江縣)/;
+// 從地址重新推導行政區。上游資料集有數百筆 district 被填成「縣市名」（如台北市）而非真正的行政區，
+// 但地址裡有正確資訊。這裡以地址為準，與 build-dataset.mjs 的 districtOf 同邏輯：
+// 1. 先剝掉開頭縣市前綴（含髒資料「高雄區苓雅區…」的「高雄區」）——僅在剝完後仍以行政區開頭時才剝，
+//    以免吃掉「南投市／斗六市」等本身就是行政區的縣轄市。
+// 2. 直轄市／市的行政區一律以「區」結尾，故先抓第一個「區」：「前鎮區／新市區」不會被截成「前鎮／新市」，
+//    「中山區市民大道／大甲區鎮政路」也不會被貪婪多吃成「中山區市／大甲區鎮」。找不到區才退回鄉／鎮／市。
+const CITY_NAME_SEO = '台北|臺北|新北|桃園|台中|臺中|台南|臺南|高雄|基隆|新竹|苗栗|彰化|南投|雲林|嘉義|屏東|宜蘭|花蓮|台東|臺東|澎湖|金門|連江';
 function realDistrict(l) {
-  const a = toHalf(l.address || '').replace(/臺/g, '台').replace(CITY_PREFIX, '');
-  const m = a.match(/^([一-鿿]{1,3}?[區鄉鎮市])/); // 非貪婪：停在第一個區/鄉/鎮/市，避免「中山區市民大道」被吃成「中山區市」
-  let d = m ? m[1] : '';
+  let a = toHalf(l.address || '').replace(/臺/g, '台').trim();
+  const stripped = a.replace(new RegExp(`^(?:${CITY_NAME_SEO})[市縣區]`), '');
+  if (stripped !== a && /^.{1,3}[區鄉鎮市]/.test(stripped)) a = stripped;
+  let d = a.match(/^([一-鿿]{1,3}?區)/)?.[1] ?? a.match(/^([一-鿿]{1,3}?[鄉鎮市])/)?.[1] ?? '';
   if (!d && l.district && l.district !== l.city) d = l.district;
   if (d === l.city) d = ''; // 「等於縣市名」一律視為無效
   return d;
