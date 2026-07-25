@@ -414,6 +414,14 @@ svg { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 2
   }
   .detail-back svg { font-size: 18px; }
 
+  /* 清單卡片：桌機可點選，hover 與選取態高亮（與地圖雙向連動） */
+  #view-list .card, #view-fav .card { cursor: pointer; }
+  #view-list .card:hover, #view-fav .card:hover { background: var(--surface-1); }
+  #view-list .card.card-selected, #view-fav .card.card-selected {
+    background: var(--accent-bg);
+    box-shadow: inset 3px 0 0 var(--accent);
+  }
+
   .navbar { display: none; }
   .desktop-hint { display: none; }
 }

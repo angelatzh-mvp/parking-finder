@@ -241,8 +241,9 @@ function cardHtml(lot, opts = {}) {
       </div>
       <div class="detail-meta">來源：${lot.brands.map((b) => BRAND_META[b].label).join('、')}官方名單 · 以現場標示為準</div>
     </div>` : '';
+  const selCls = !inSheet && lot.id === state.selectedId ? ' card-selected' : '';
   return `
-  <article class="card" data-id="${lot.id}" ${fav ? 'data-fav="1"' : ''}>
+  <article class="card${selCls}" data-id="${lot.id}" ${fav ? 'data-fav="1"' : ''}>
     <div class="card-top">${topLeft}</div>
     <div class="card-main" data-act="expand">
       <div class="card-info">
@@ -443,7 +444,36 @@ function selectLot(id) {
     const m = markers.get(changed);
     if (lot && m) m.setIcon(pinIcon(lot, changed === id));
   }
+  // 桌機：清單與地圖雙向連動——高亮對應卡片、地圖飛入該場站
+  if (isDesktop()) {
+    highlightListCard(id);
+    if (id) flyToLot(id);
+  }
   renderSheet();
+}
+
+// 桌機：把清單中對應卡片高亮並捲入視野（詳情覆蓋清單時仍先就位，返回即見）
+function highlightListCard(id) {
+  document.querySelectorAll('.card.card-selected').forEach((c) => c.classList.remove('card-selected'));
+  if (!id) return;
+  const card = document.querySelector(`#list .card[data-id="${id}"], #fav-list .card[data-id="${id}"]`);
+  if (card) {
+    card.classList.add('card-selected');
+    card.scrollIntoView({ block: 'nearest' });
+  }
+}
+
+// 桌機：地圖飛到場站；若在叢集內先展開再置中
+function flyToLot(id) {
+  if (!map) return;
+  const lot = state.lots.find((l) => l.id === id);
+  if (!lot || lot.lat == null) return;
+  const m = markers.get(id);
+  if (m && typeof cluster.zoomToShowLayer === 'function') {
+    cluster.zoomToShowLayer(m, () => map.panTo([lot.lat, lot.lng], { animate: true }));
+  } else {
+    map.flyTo([lot.lat, lot.lng], Math.max(map.getZoom(), 15), { duration: 0.4 });
+  }
 }
 
 // 詳情呈現：手機走底部 sheet、桌機走左欄面板
@@ -464,7 +494,7 @@ function renderMobileSheet() {
 // 桌機詳情：覆蓋左欄清單，關閉回清單（清單留在 DOM，捲動位置自然保留）
 function renderDetailPanel() {
   const panel = $('#detail-panel');
-  const lot = state.lots.find((l) => l.id === state.selectedId);
+  const lot = state.lots.find((l) => l.id === state.selectedId) ?? state.favs.find((f) => f.id === state.selectedId);
   if (!lot) { panel.hidden = true; $('#detail-panel-body').innerHTML = ''; return; }
   const withD = { ...lot, dist: state.loc && lot.lat ? haversine(state.loc, lot) : null };
   $('#detail-panel-body').innerHTML = cardHtml(withD, { inSheet: true });
@@ -732,6 +762,10 @@ function onCardAction(e) {
   } else if (act === 'report') {
     openReport(lot);
   } else if (act === 'expand') {
+    // 詳情視圖（sheet／左欄面板）內的卡片本身即為展開態，點內文不再切換
+    if (e.target.closest('#sheet-body, #detail-panel-body')) return;
+    // 桌機：點清單卡片＝選取（飛入地圖＋開左欄詳情），取代手風琴展開
+    if (isDesktop()) { selectLot(id); return; }
     if (isFavCard) {
       state.favExpanded = state.favExpanded === id ? null : id;
       renderFavs();
