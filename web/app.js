@@ -113,8 +113,36 @@ const OFFERS = [
     url: 'https://onelink.one/s/osdDH',
   },
 ];
-// 進站隨機擇一（每次載入重新抽），供 pill 與 modal 共用
-const OFFER = OFFERS[Math.floor(Math.random() * OFFERS.length)];
+// 取台北當地小時（0–23），不受使用者裝置時區影響
+function taipeiHour() {
+  try {
+    const s = new Intl.DateTimeFormat('en-US', { timeZone: 'Asia/Taipei', hour: '2-digit', hour12: false }).format(new Date());
+    const h = parseInt(s, 10);
+    return Number.isFinite(h) ? h % 24 : new Date().getHours();
+  } catch {
+    return new Date().getHours();
+  }
+}
+
+// 依台北時段調整「星巴克（咖啡）被選中的機率」，其餘給「飯店（訂房）」：
+// 咖啡在早晨通勤／下午茶時段最強；飯店在晚上、深夜（在家規劃行程）時最強。
+function coffeeWeightByHour(h) {
+  if (h >= 5 && h < 11) return 0.8;   // 清晨～上午：通勤、早餐咖啡
+  if (h >= 11 && h < 14) return 0.55; // 午間：咖啡略多
+  if (h >= 14 && h < 17) return 0.75; // 下午茶高峰
+  if (h >= 17 && h < 19) return 0.4;  // 傍晚過渡
+  if (h >= 19 && h < 24) return 0.2;  // 晚上：以規劃訂房為主
+  return 0.3;                          // 深夜 0–5：夜間瀏覽偏訂房
+}
+
+// 進站依時段加權擇一（每次載入重新抽），供 pill 與 modal 共用
+function pickOffer() {
+  const coffee = OFFERS.find((o) => o.id === 'starbucks-klook-egift');
+  const hotel = OFFERS.find((o) => o.id === 'klook-hotel-96');
+  if (!coffee || !hotel) return OFFERS[Math.floor(Math.random() * OFFERS.length)];
+  return Math.random() < coffeeWeightByHour(taipeiHour()) ? coffee : hotel;
+}
+const OFFER = pickOffer();
 
 // 品牌篩選：null＝全部（含日後新增品牌）；否則為選取的品牌陣列（至少一個）。
 function loadBrands() {
