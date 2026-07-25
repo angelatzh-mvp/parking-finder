@@ -72,6 +72,12 @@ const overrides = existsSync(overridesPath)
 const mergeOvPath = join(ROOT, 'data', 'merge-overrides.json');
 const mergeOv = existsSync(mergeOvPath) ? JSON.parse(readFileSync(mergeOvPath, 'utf8')) : {};
 
+// 人工座標校正：地址／自動座標大致正確、但偏錯路的哪一側或偏移過大，經人工從地圖確認入口後釘死。
+// 與 address-overrides 不同——這是最高優先、無條件覆蓋 lat/lng，套在所有合併之後（見下方）。key 同樣是
+// 「縣市|場站名」，只改座標不改 id → 收藏安全。未來使用者「位置回報」也匯入此檔。
+const coordOvPath = join(ROOT, 'data', 'coord-overrides.json');
+const coordOverrides = existsSync(coordOvPath) ? JSON.parse(readFileSync(coordOvPath, 'utf8')) : {};
+
 const byKey = new Map();
 
 // App 的定位是「信用卡免費停車」，官方名稱明示不提供／無配合優惠的場站直接排除
@@ -277,6 +283,18 @@ for (const group of noAddrByCoord.values()) {
   }
 }
 
+// 人工座標校正（coord-overrides.json）：最高優先、無條件覆蓋座標，且放在所有合併／歸零之後，
+// 確保不被下游改動。用於經人工地圖確認的入口點（如偏錯路側、或自動座標誤配過遠）。
+let coordFixed = 0;
+for (const l of lots) {
+  const cv = coordOverrides[`${l.city}|${l.name}`];
+  if (!cv || cv.lat == null) continue;
+  l.lat = cv.lat;
+  l.lng = cv.lng;
+  delete l.geoPending;
+  coordFixed++;
+}
+
 const noGeo = lots.filter((l) => !l.lat).length;
 
 // id 不得重複（重複代表 hash 或去重邏輯出錯）
@@ -300,12 +318,13 @@ const dataset = {
     noGeo,
     geoPending,
     overridden,
+    coordFixed,
   },
   lots,
 };
 
 writeFileSync(join(ROOT, 'data', 'parking-lots.json'), JSON.stringify(dataset, null, 1));
-console.log(`完成：${lots.length} 筆（跨品牌合併 ${merged}＋二次合併 ${consolidated} 筆、人工補校 ${overridden} 筆、無座標 ${noGeo} 筆、地址待確認 ${geoPending} 筆）`);
+console.log(`完成：${lots.length} 筆（跨品牌合併 ${merged}＋二次合併 ${consolidated} 筆、人工補校 ${overridden} 筆、座標校正 ${coordFixed} 筆、無座標 ${noGeo} 筆、地址待確認 ${geoPending} 筆）`);
 const byCity = {};
 for (const l of lots) byCity[l.city] = (byCity[l.city] ?? 0) + 1;
 console.log(byCity);

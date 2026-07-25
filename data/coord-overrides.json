@@ -1,0 +1,6 @@
+{
+  "高雄市|鼎豐大象德昌停車場": { "lat": 22.718951, "lng": 120.291801, "source": "manual-map", "verifiedAt": "2026-07-25", "note": "Autopass 點偏錯邊（後昌新路38號在右側），現場地圖確認入口；離原 Autopass 約 6m" },
+  "桃園市|國雲停車南門市場停車場": { "lat": 24.991709, "lng": 121.306291, "source": "manual-map", "verifiedAt": "2026-07-25", "note": "Autopass 座標本正確；NLSC 門牌 geocode 誤配 404m，故以人工確認點釘死" },
+  "新北市|捷運南勢角站轉乘停車場": { "lat": 24.990756, "lng": 121.508456, "source": "manual-map", "verifiedAt": "2026-07-25", "note": "捷運站型：門牌≠停車結構；人工確認入口，Autopass 亦近似正確" },
+  "新北市|文強停車淡水新民停車場": { "lat": 25.174144, "lng": 121.438349, "source": "manual-map", "verifiedAt": "2026-07-25", "note": "巷內場（新民街19巷內）；人工確認入口，Autopass 亦近似正確" }
+}

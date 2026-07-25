@@ -1,6 +1,6 @@
 {
  "meta": {
-  "builtAt": "2026-07-19T21:46:05.541Z",
+  "builtAt": "2026-07-25T14:49:14.335Z",
   "sources": {
    "utg": {
     "label": "台灣聯通",
@@ -39,7 +39,8 @@
   "consolidated": 19,
   "noGeo": 0,
   "geoPending": 0,
-  "overridden": 48
+  "overridden": 48,
+  "coordFixed": 4
  },
  "lots": [
   {
@@ -4738,8 +4739,8 @@
    "city": "新北市",
    "district": "中和區",
    "address": "新北市中和區捷運路6號",
-   "lat": 24.9907754,
-   "lng": 121.5084685,
+   "lat": 24.990756,
+   "lng": 121.508456,
    "note": "",
    "maxHeight": null,
    "totalSpace": null
@@ -4798,8 +4799,8 @@
    "city": "新北市",
    "district": "淡水區",
    "address": "新北市淡水區文化路59巷20號之6號（新民街19巷內）",
-   "lat": 25.1741411,
-   "lng": 121.4384539,
+   "lat": 25.174144,
+   "lng": 121.438349,
    "note": "",
    "maxHeight": null,
    "totalSpace": null
@@ -7627,8 +7628,8 @@
    "city": "桃園市",
    "district": "桃園區",
    "address": "桃園市桃園區三民路三段323號",
-   "lat": 24.991697,
-   "lng": 121.3062031,
+   "lat": 24.991709,
+   "lng": 121.306291,
    "note": "",
    "maxHeight": null,
    "totalSpace": null
@@ -13293,8 +13294,8 @@
    "city": "高雄市",
    "district": "楠梓區",
    "address": "高雄市楠梓區後昌新路38號",
-   "lat": 22.7189615,
-   "lng": 120.2917447,
+   "lat": 22.718951,
+   "lng": 120.291801,
    "note": "",
    "maxHeight": null,
    "totalSpace": null
