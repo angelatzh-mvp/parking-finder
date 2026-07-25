@@ -49,6 +49,8 @@ body {
   flex-direction: column;
 }
 button { font: inherit; color: inherit; background: none; border: none; cursor: pointer; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+.leaflet-control-zoom { display: none; } /* 手機隱藏縮放按鈕；桌機於斷點層顯示 */
 svg { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 
 .app-header { flex-shrink: 0; border-bottom: 0.5px solid var(--border); background: var(--surface); }
@@ -421,6 +423,28 @@ svg { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 2
     background: var(--accent-bg);
     box-shadow: inset 3px 0 0 var(--accent);
   }
+
+  /* 蓋板桌機置中、限寬、四角圓角（手機為底部彈出樣式） */
+  .modal-backdrop, .picker-backdrop { align-items: center; justify-content: center; }
+  .modal-sheet, .picker-sheet {
+    width: auto; max-width: 440px; min-width: 380px;
+    max-height: 82vh; border-radius: 16px; padding-top: 12px;
+  }
+  .picker-sheet { padding-bottom: 20px; }
+  /* 拖曳把手是手機的下滑關閉提示，桌機置中卡片不需要 */
+  .modal-sheet .sheet-handle, .picker-sheet .sheet-handle { display: none; }
+
+  /* Snackbar 桌機右下角浮出 */
+  .snackbar { left: auto; right: 24px; bottom: 24px; max-width: 360px; }
+
+  /* 桌機縮放按鈕 */
+  .leaflet-control-zoom { display: block; }
+
+  /* Hover 回饋（桌機才有游標） */
+  .settings-row:hover, .load-more:hover,
+  .detail-actions button:hover, .chip:hover,
+  .panel-tab:not([aria-pressed="true"]):hover { background: var(--surface-1); }
+  .detail-back:hover { text-decoration: underline; }
 
   .navbar { display: none; }
   .desktop-hint { display: none; }

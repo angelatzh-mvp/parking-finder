@@ -391,6 +391,8 @@ function renderDesktop() {
 function initMap() {
   if (map) return;
   map = L.map('map', { zoomControl: false }).setView([23.7, 121], 8);
+  // 桌機顯示縮放按鈕（手機靠雙指縮放，以 CSS 隱藏）；滾輪縮放為 Leaflet 預設
+  L.control.zoom({ position: 'topright' }).addTo(map);
   L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '© OpenStreetMap',
     maxZoom: 19,
@@ -1167,6 +1169,17 @@ async function main() {
 
   switchTab('map');
   setupDesktopHint();
+
+  // Esc：先關最上層蓋板，其次收起詳情（桌機鍵盤操作慣例）
+  document.addEventListener('keydown', (e) => {
+    if (e.key !== 'Escape') return;
+    const overlays = ['#brand-picker', '#picker', '#offer', '#loc-help', '#report', '#share', '#settings'];
+    for (const sel of overlays) {
+      const el = $(sel);
+      if (el && !el.hidden) { el.hidden = true; return; }
+    }
+    if (state.selectedId) selectLot(null);
+  });
 
   // 深連結帶 lot：marker 就緒後選取（飛入地圖＋開詳情）
   if (state._pendingLot) {
