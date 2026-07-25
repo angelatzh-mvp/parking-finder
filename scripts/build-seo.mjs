@@ -105,7 +105,7 @@ footer a{color:var(--text-3)}
 const LOGO = '<svg viewBox="0 0 100 100" aria-hidden="true"><rect width="100" height="100" rx="24" fill="#E1F5EE"/><rect x="34" y="24" width="15" height="50" rx="7.5" fill="#1D9E75"/><circle cx="55" cy="40" r="21" fill="#1D9E75"/><circle cx="57" cy="38" r="11" fill="#fff"/><circle cx="53" cy="36" r="2.6" fill="#04342C"/><circle cx="61" cy="36" r="2.6" fill="#04342C"/><path d="M52.5 41.5 Q57 46 61.5 41.5" fill="none" stroke="#04342C" stroke-width="2.4" stroke-linecap="round"/><circle cx="41" cy="79" r="7.5" fill="#04342C" stroke="#fff" stroke-width="2.5"/><circle cx="60" cy="79" r="7.5" fill="#04342C" stroke="#fff" stroke-width="2.5"/></svg>';
 
 // depth＝此頁相對 web/ 的目錄深度，用來組回 App 與資產的相對路徑
-function page({ title, description, canonical, crumb, h1, lead, body, jsonLd, appHref, builtAt }) {
+function page({ title, description, canonical, crumb, h1, lead, body, jsonLd, appHref, ctaHref = appHref, builtAt }) {
   const ld = jsonLd.map((o) => `<script type="application/ld+json">${JSON.stringify(o)}</script>`).join('\n');
   return `<!doctype html>
 <html lang="zh-TW">
@@ -134,7 +134,7 @@ ${ld}
 <nav class="crumb">${crumb}</nav>
 <h1>${esc(h1)}</h1>
 <p class="lead">${lead}</p>
-<a class="cta" href="${appHref}">📍 開啟小Ｐ帶路，地圖找最近的免費停車場</a>
+<a class="cta" href="${ctaHref}">📍 開啟小Ｐ帶路，地圖找最近的免費停車場</a>
 ${body}
 <footer>
 <p>資料整合自台灣聯通、車麻吉、嘟嘟房、24TPS、ViVi PARK、銓營官方名單${builtAt ? `，最後更新 ${builtAt}` : ''}。優惠須符合各發卡銀行條件（多為消費滿額或綁定 App 折抵），並非無條件免費，實際以停車場現場公告與各銀行規定為準。</p>
@@ -197,7 +197,12 @@ const cityUrl = (c) => `${SITE}/parking/${enc(c)}/`;
 const distUrl = (c, d) => `${SITE}/parking/${enc(c)}/${enc(d)}.html`;
 const brandUrl = (b) => `${SITE}/parking/brand/${b}.html`;
 const HUB = `${SITE}/parking/`;
-const APP = (ref) => `${SITE}/?ref=${ref}`;
+// ref 供 GoatCounter 歸因；extra（city／district／brand）讓 CTA 深連結進已篩選的 App
+const APP = (ref, extra = {}) => {
+  const p = new URLSearchParams({ ref });
+  for (const [k, v] of Object.entries(extra)) if (v) p.set(k, v);
+  return `${SITE}/?${p.toString()}`;
+};
 
 const sitemap = [];
 const addUrl = (loc) => sitemap.push(loc);
@@ -268,7 +273,7 @@ ${faqHtml(FAQ)}`;
   write(`parking/${city}/index.html`, page({
     title: `${city}信用卡免費停車場一覽（${cl.length} 處）｜小Ｐ帶路`,
     description: `${city}共 ${cl.length} 處信用卡優惠免費停車場，涵蓋${namedDists.slice(0, 5).map(([d]) => d).join('、')}等行政區，附地址與導航，找最近的免費停車位。`,
-    canonical: cityUrl(city), appHref: APP('seo'), builtAt,
+    canonical: cityUrl(city), appHref: APP('seo'), ctaHref: APP('seo', { city }), builtAt,
     crumb: `<a href="${APP('seo')}">小Ｐ帶路</a> › <a href="${HUB}">全台</a> › ${esc(city)}`,
     h1: `${city}信用卡免費停車場`,
     lead: `${city}地區台灣聯通、車麻吉、嘟嘟房、ViVi PARK 等配合信用卡免費停車的場站，共 ${cl.length} 處，點行政區看完整清單。`,
@@ -289,7 +294,7 @@ ${lotsHtml(arr)}
     write(`parking/${city}/${d}.html`, page({
       title: `${city}${d}信用卡免費停車場（${arr.length} 處）｜小Ｐ帶路`,
       description: `${city}${d}信用卡優惠免費停車場完整清單，共 ${arr.length} 處，含地址、車位與一鍵導航。`,
-      canonical: distUrl(city, d), appHref: APP('seo'), builtAt,
+      canonical: distUrl(city, d), appHref: APP('seo'), ctaHref: APP('seo', { city, district: d }), builtAt,
       crumb: `<a href="${APP('seo')}">小Ｐ帶路</a> › <a href="${HUB}">全台</a> › <a href="${cityUrl(city)}">${esc(city)}</a> › ${esc(d)}`,
       h1: `${city}${d}信用卡免費停車場`,
       lead: `${city}${d}配合信用卡優惠的免費停車場，共 ${arr.length} 處，附地址與導航。`,
@@ -317,7 +322,7 @@ ${cityBlocks}`;
   write(`parking/brand/${brand}.html`, page({
     title: `${meta.label}信用卡免費停車場一覽（${bl.length} 處）｜小Ｐ帶路`,
     description: `${meta.label}配合信用卡優惠的免費停車場共 ${bl.length} 處，依縣市分類，含地址與導航。`,
-    canonical: brandUrl(brand), appHref: APP('seo'), builtAt,
+    canonical: brandUrl(brand), appHref: APP('seo'), ctaHref: APP('seo', { brand }), builtAt,
     crumb: `<a href="${APP('seo')}">小Ｐ帶路</a> › <a href="${HUB}">全台</a> › ${esc(meta.label)}`,
     h1: `${meta.label}信用卡免費停車場`,
     lead: `${meta.label}配合信用卡優惠停車的據點，共 ${bl.length} 處，依縣市分類。`,

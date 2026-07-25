@@ -329,9 +329,44 @@ function renderFavs() {
 const DESKTOP_MQ = window.matchMedia('(min-width: 1024px) and (pointer: fine)');
 const isDesktop = () => DESKTOP_MQ.matches;
 
+// 深連結：從網址參數還原篩選／選取（供 SEO 落地頁導流與分享回訪）
+function parseUrlState() {
+  const p = new URLSearchParams(location.search);
+  const city = p.get('city');
+  if (city && CITY_ORDER.includes(city)) state.city = city;
+  const district = p.get('district');
+  if (district) state.district = district;
+  const brand = p.get('brand');
+  if (brand) {
+    const all = ALL_BRANDS();
+    const wanted = brand.split(',').map((s) => s.trim()).filter((b) => all.includes(b));
+    if (wanted.length) state.brands = wanted.length >= all.length ? null : wanted;
+  }
+  // lot 先暫存，待 marker 就緒後再 selectLot（觸發飛入＋詳情，避免 toggle 掉）
+  const lot = p.get('lot');
+  if (lot) state._pendingLot = lot;
+  return { hadCity: !!(city && CITY_ORDER.includes(city)) };
+}
+
+// 操作後把當前狀態寫回網址（replaceState，可分享、可回訪）
+let _lastUrl = '';
+function syncUrl() {
+  const p = new URLSearchParams();
+  if (state.city) p.set('city', state.city);
+  if (state.district) p.set('district', state.district);
+  if (state.brands && state.brands.length) p.set('brand', state.brands.join(','));
+  if (state.selectedId) p.set('lot', state.selectedId);
+  const qs = p.toString();
+  const url = location.pathname + (qs ? '?' + qs : '');
+  if (url === _lastUrl) return;
+  _lastUrl = url;
+  history.replaceState(null, '', url);
+}
+
 function render() {
   if (isDesktop()) renderDesktop();
   else renderMobile();
+  syncUrl();
 }
 
 // 手機版 render：維持原有分頁式行為
@@ -450,6 +485,7 @@ function selectLot(id) {
     if (id) flyToLot(id);
   }
   renderSheet();
+  syncUrl();
 }
 
 // 桌機：把清單中對應卡片高亮並捲入視野（詳情覆蓋清單時仍先就位，返回即見）
@@ -1087,6 +1123,9 @@ async function main() {
     return;
   }
 
+  // 深連結：資料就緒後即套用網址參數，覆蓋 localStorage 預設
+  const { hadCity } = parseUrlState();
+
   $('#brand-chip').addEventListener('click', openBrandPicker);
   updateBrandChip();
   $('#city-chip').addEventListener('click', () => openPicker(false));
@@ -1129,6 +1168,13 @@ async function main() {
   switchTab('map');
   setupDesktopHint();
 
+  // 深連結帶 lot：marker 就緒後選取（飛入地圖＋開詳情）
+  if (state._pendingLot) {
+    const pending = state._pendingLot;
+    state._pendingLot = null;
+    if (state.lots.some((l) => l.id === pending)) selectLot(pending);
+  }
+
   // 定位權限自我檢測：已拒絕就先給教學卡，不讓使用者點了半天沒反應
   checkLocPermission().then((perm) => {
     if (perm === 'denied') { state.locStatus = 'off'; setLocIcon('error'); renderStatus(); openLocHelp(); }
@@ -1147,8 +1193,8 @@ async function main() {
     }
   });
 
-  // 首次使用：先選所在縣市，之後每次開啟預設顯示該地區
-  if (localStorage.getItem(HOME_KEY) === null) openPicker(true);
+  // 首次使用：先選所在縣市，之後每次開啟預設顯示該地區（網址已帶 city 時略過）
+  if (localStorage.getItem(HOME_KEY) === null && !hadCity) openPicker(true);
 
   if ('serviceWorker' in navigator && location.protocol === 'https:') {
     navigator.serviceWorker.register('sw.js');
