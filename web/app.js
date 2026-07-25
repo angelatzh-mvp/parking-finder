@@ -243,9 +243,12 @@ async function loadData() {
   const data = await res.json();
   state.lots = data.lots;
   state.meta = data.meta;
-  // 顯示資料管線最後一次成功建置的時間（builtAt），非來源官方頁的編輯日
-  const d = data.meta.builtAt.slice(0, 10).replace(/-0?/g, '/').slice(2);
-  $('#data-date').textContent = `資料更新 20${d}`;
+  // 顯示資料管線最後一次成功建置的時間（builtAt）。builtAt 是 UTC，須以台北時區換算日期，
+  // 否則凌晨建置（台北 00:00–08:00）會落在前一天 UTC，顯示成早一天（與 SEO 頁 dataDate 一致）。
+  const p = new Intl.DateTimeFormat('zh-TW', { timeZone: 'Asia/Taipei', year: 'numeric', month: 'numeric', day: 'numeric' })
+    .formatToParts(new Date(data.meta.builtAt))
+    .reduce((o, x) => (o[x.type] = x.value, o), {});
+  $('#data-date').textContent = `資料更新 ${p.year}/${p.month}/${p.day}`;
 }
 
 function filteredLots() {
