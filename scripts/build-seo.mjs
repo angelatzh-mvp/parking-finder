@@ -93,6 +93,7 @@ ul.lots li{border:1px solid var(--border);border-radius:12px;padding:13px 15px;m
 ul.lots .name{font-weight:600;font-size:16px}
 ul.lots .addr{color:var(--text-2);font-size:14px;margin:3px 0 6px}
 ul.lots .meta{color:var(--text-3);font-size:13px;margin-top:6px}
+ul.lots ol li{border:0;padding:1px 0;margin:0;background:none;border-radius:0}
 ul.lots .go{font-size:14px;font-weight:600}
 details{border:1px solid var(--border);border-radius:12px;padding:4px 15px;margin-bottom:10px;background:var(--surface-1)}
 details summary{font-weight:600;cursor:pointer;padding:11px 0}
@@ -330,6 +331,67 @@ ${cityBlocks}`;
     jsonLd: [breadcrumbLd([{ name: '小Ｐ帶路', url: APP('seo') }, { name: '全台', url: HUB }, { name: meta.label, url: brandUrl(brand) }])],
   }));
   addUrl(brandUrl(brand));
+}
+
+// ===== 5) 信用卡折抵方式說明頁 =====
+{
+  // 與 web/app.js 的 BRAND_META.redeem 同步；兩種機制：swipe＝帶實體卡過卡、appbind＝先綁 App 車牌自動折抵。
+  const REDEEM = {
+    utg: { type: 'swipe', banks: '多家銀行，實際卡別依各發卡行公告', steps: ['離場前於自動繳費機以信用卡過卡', '或交由現場人員過卡確認'] },
+    carmochi: { type: 'appbind', banks: '台新、中信、上海、聯邦、兆豐', steps: ['App 綁定信用卡', '開啟「卡友免費停車自動折抵」', '出場時車牌辨識、自動折抵免過卡'], note: '每卡每日折抵 1 次；實際適用場站以車麻吉 App 標示為準' },
+    dodohome: { type: 'swipe', banks: '中信、台新、玉山、富邦、一銀、永豐、兆豐等 20+ 家', steps: ['離場前於自動繳費機以信用卡過卡', '或交由現場人員過卡確認'], note: '各家銀行合作場站名單不同，非每站都適用' },
+    tps: { type: 'swipe', banks: '多家銀行，實際卡別依各發卡行公告', steps: ['離場前於自動繳費機以信用卡過卡', '或交由現場人員過卡確認'], note: '正卡持卡人每人每日 1 次、每日最高 3 小時，不與其他優惠併用' },
+    vivipark: { type: 'appbind', banks: '國泰世華、中信、星展、聯邦、一銀、彰銀、兆豐、華南、上海、合庫、台中銀（11 家）', steps: ['App「我的 → 設定」新增停車專用折抵信用卡', '進出場自動折抵'], note: '綁定前請先向發卡行確認你的卡是否符合折抵資格' },
+    parkinsys: { type: 'swipe', banks: null, steps: ['離場前於自動繳費機或現場人員過卡'], note: '官方僅標示「提供折抵服務」，合作銀行與細則未公開' },
+  };
+  const SRC = {
+    utg: 'https://www.taiwan-parking.com.tw/', carmochi: 'https://help.carmochi.com/cityparking/creditcard',
+    dodohome: 'https://www.dodohome.com.tw/p3_dodocard.aspx', tps: 'http://www.24tps.com.tw/OtherServiceADV/CreditCardParkList.aspx',
+    vivipark: 'https://vivi-park.com/Activity_Detail.aspx?News_ID=173', parkinsys: 'https://www.parkinsys.com.tw/product.php?id=1&md=1',
+  };
+  const TYPE_LABEL = { swipe: '實體卡過卡折抵', appbind: 'App 綁卡自動折抵' };
+  const order = ['utg', 'carmochi', 'dodohome', 'tps', 'vivipark', 'parkinsys'].filter((b) => brandCounts[b]);
+  const brandCards = order.map((b) => {
+    const r = REDEEM[b], m = BRAND_META[b];
+    return `<li>
+<div class="name">${brandBadges([b])}${esc(m.label)}<span class="meta" style="display:inline;margin-left:6px">${TYPE_LABEL[r.type]}</span></div>
+<ol style="margin:8px 0;padding-left:20px;color:var(--text-2)">${r.steps.map((s) => `<li>${esc(s)}</li>`).join('')}</ol>
+<div class="meta"><b>支援銀行</b>：${r.banks ? esc(r.banks) : '官方未公開，請以各站現場標示為準'}</div>
+${r.note ? `<div class="meta">${esc(r.note)}</div>` : ''}
+<a class="go" href="${SRC[b]}" target="_blank" rel="noopener">官方說明 →</a>
+</li>`;
+  }).join('\n');
+  const REDEEM_FAQ = [
+    ['信用卡免費停車要先準備什麼？', '分兩種：台灣聯通、嘟嘟房、24TPS、銓營只要帶一張符合資格的實體信用卡，離場前過卡即可；車麻吉、ViVi PARK 則要出發前先在該品牌 App 綁定信用卡，出場才會自動折抵，務必事先綁好。'],
+    ['哪些停車場要下載 App 才能折抵？', '車麻吉與 ViVi PARK 屬「App 綁卡自動折抵」，需先在其 App 綁定信用卡並開啟自動折抵；台灣聯通、嘟嘟房、24TPS、銓營以實體卡過卡即可，不必安裝 App。'],
+    ['免費停幾小時、幾次？', '免費時數與次數都由發卡銀行依你的卡別與當期消費決定，各家不同。小Ｐ帶路不代表銀行條件，請以各發卡行公告與停車場現場標示為準。'],
+    ['銓營支援哪些銀行？', '銓營（詮營）官方僅在場站標示「提供折抵服務」，未公開合作銀行清單與折抵細則，建議以各站現場公告為準。'],
+  ];
+  const body = `
+<div class="note">小Ｐ帶路收錄的停車場，信用卡折抵分成兩種方式。<b>免費時數與次數都由發卡銀行決定</b>（多為當期消費滿額或綁定 App），並非無條件免費，實際以各發卡行公告與現場標示為準。</div>
+<h2>兩種折抵方式</h2>
+<ul class="lots">
+<li><div class="name">A. 實體卡過卡折抵</div><div class="addr">台灣聯通、嘟嘟房、24TPS、銓營</div><div class="meta">帶一張符合資格的實體信用卡，離場前於自動繳費機過卡、或交由現場人員過卡確認即可折抵。<b>免安裝、免事前綁定</b>，記得帶卡就好。</div></li>
+<li><div class="name">B. App 綁卡自動折抵</div><div class="addr">車麻吉、ViVi PARK</div><div class="meta"><b>出發前</b>先在該品牌 App 綁定信用卡，出場時車牌辨識自動折抵、免過卡。務必事先綁好卡，並先向發卡行確認你的卡是否符合資格。</div></li>
+</ul>
+<h2>各品牌折抵方式</h2>
+<ul class="lots">${brandCards}</ul>
+${faqHtml(REDEEM_FAQ)}`;
+  const CCURL = `${SITE}/parking/credit-card/`;
+  write('parking/credit-card/index.html', page({
+    title: '信用卡免費停車怎麼折抵？六大停車品牌折抵方式一次看｜小Ｐ帶路',
+    description: '台灣聯通、車麻吉、嘟嘟房、24TPS、ViVi PARK、銓營的信用卡折抵方式整理：哪些帶卡過卡、哪些要先綁 App、各支援哪些銀行，一次看懂。',
+    canonical: CCURL, appHref: APP('seo'), builtAt,
+    crumb: `<a href="${APP('seo')}">小Ｐ帶路</a> › <a href="${HUB}">全台</a> › 信用卡折抵方式`,
+    h1: '信用卡免費停車怎麼折抵？',
+    lead: '六大停車品牌的信用卡折抵方式整理——哪些帶卡過卡、哪些要先綁 App、各支援哪些銀行，出發前先看懂。',
+    body,
+    jsonLd: [
+      breadcrumbLd([{ name: '小Ｐ帶路', url: APP('seo') }, { name: '全台', url: HUB }, { name: '信用卡折抵方式', url: CCURL }]),
+      faqLd(REDEEM_FAQ),
+    ],
+  }));
+  addUrl(CCURL);
 }
 
 // ===== sitemap.xml + robots.txt =====

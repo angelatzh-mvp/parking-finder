@@ -1,13 +1,68 @@
 /* 免費停車場 — 台灣聯通 & 車麻吉 & 嘟嘟房 & 24TPS & ViVi PARK & 銓營 免停場站速查 */
 'use strict';
 
+// 兩種折抵機制：swipe＝帶實體卡離場過卡；appbind＝先在該品牌 App 綁卡、出場車牌辨識自動折抵。
+const REDEEM_TYPE = {
+  swipe: { tag: '實體卡過卡折抵', prepLabel: '記得帶卡' },
+  appbind: { tag: 'App 綁卡自動折抵', prepLabel: '出發前' },
+};
+// 所有品牌統一附這句免責，避免各家寫法不一致。
+const REDEEM_DISCLAIMER = '免費時數與次數由發卡銀行決定，實際優惠以各行公告與現場標示為準。';
+
 const BRAND_META = {
-  utg: { label: '台灣聯通', cls: 'badge-utg', sourceUrl: 'https://www.taiwan-parking.com.tw/#/parking-lots' },
-  carmochi: { label: '車麻吉', cls: 'badge-cm', sourceUrl: 'https://help.carmochi.com/cityparking/available' },
-  dodohome: { label: '嘟嘟房', cls: 'badge-dodo', sourceUrl: 'https://www.dodohome.com.tw/p2_map.aspx' },
-  tps: { label: '24TPS', cls: 'badge-tps', sourceUrl: 'http://www.24tps.com.tw/OtherServiceADV/CreditCardParkList.aspx' },
-  vivipark: { label: 'ViVi PARK', cls: 'badge-vivi', sourceUrl: 'https://vivi-park.com/parks/' },
-  parkinsys: { label: '銓營', cls: 'badge-pks', sourceUrl: 'https://www.parkinsys.com.tw/product.php?id=1&md=1' },
+  utg: {
+    label: '台灣聯通', cls: 'badge-utg', sourceUrl: 'https://www.taiwan-parking.com.tw/#/parking-lots',
+    redeem: {
+      type: 'swipe', prep: '帶一張符合資格的實體信用卡',
+      steps: ['離場前於自動繳費機以信用卡過卡', '或交由現場人員過卡確認'],
+      banks: '多家銀行，實際卡別依各發卡行公告',
+    },
+  },
+  carmochi: {
+    label: '車麻吉', cls: 'badge-cm', sourceUrl: 'https://help.carmochi.com/cityparking/creditcard',
+    redeem: {
+      type: 'appbind', prep: '先在車麻吉 App 綁定信用卡',
+      steps: ['App 綁定信用卡', '開啟「卡友免費停車自動折抵」', '出場時車牌辨識、自動折抵免過卡'],
+      banks: '台新、中信、上海、聯邦、兆豐',
+      note: '每卡每日折抵 1 次；實際適用場站以車麻吉 App 標示為準',
+    },
+  },
+  dodohome: {
+    label: '嘟嘟房', cls: 'badge-dodo', sourceUrl: 'https://www.dodohome.com.tw/p3_dodocard.aspx',
+    redeem: {
+      type: 'swipe', prep: '帶一張符合資格的實體信用卡',
+      steps: ['離場前於自動繳費機以信用卡過卡', '或交由現場人員過卡確認'],
+      banks: '中信、台新、玉山、富邦、一銀、永豐、兆豐等 20+ 家',
+      note: '各家銀行合作場站名單不同，非每站都適用',
+    },
+  },
+  tps: {
+    label: '24TPS', cls: 'badge-tps', sourceUrl: 'http://www.24tps.com.tw/OtherServiceADV/CreditCardParkList.aspx',
+    redeem: {
+      type: 'swipe', prep: '帶一張符合資格的實體信用卡',
+      steps: ['離場前於自動繳費機以信用卡過卡', '或交由現場人員過卡確認'],
+      banks: '多家銀行，實際卡別依各發卡行公告',
+      note: '正卡持卡人每人每日 1 次、每日最高 3 小時，不與其他優惠併用',
+    },
+  },
+  vivipark: {
+    label: 'ViVi PARK', cls: 'badge-vivi', sourceUrl: 'https://vivi-park.com/Activity_Detail.aspx?News_ID=173',
+    redeem: {
+      type: 'appbind', prep: '先在 ViVi PARK App 綁定「停車專用」折抵信用卡',
+      steps: ['App「我的 → 設定」新增停車專用折抵信用卡', '進出場自動折抵'],
+      banks: '國泰世華、中信、星展、聯邦、一銀、彰銀、兆豐、華南、上海、合庫、台中銀（11 家）',
+      note: '綁定前請先向發卡行確認你的卡是否符合折抵資格',
+    },
+  },
+  parkinsys: {
+    label: '銓營', cls: 'badge-pks', sourceUrl: 'https://www.parkinsys.com.tw/product.php?id=1&md=1',
+    redeem: {
+      type: 'swipe', prep: '帶一張符合資格的實體信用卡',
+      steps: ['離場前於自動繳費機或現場人員過卡'],
+      banks: null, // 官方僅標示「提供折抵服務」，未公開合作銀行
+      note: '官方僅標示「提供折抵服務」，合作銀行與細則未公開',
+    },
+  },
 };
 const CITY_ORDER = ['基隆市','台北市','新北市','桃園市','新竹縣市','苗栗縣','台中市','彰化縣','南投縣','雲林縣','嘉義縣市','台南市','高雄市','屏東縣','宜蘭縣','花蓮縣','台東縣','澎湖縣'];
 const FAV_KEY = 'parking-favs-v1';
@@ -156,6 +211,8 @@ const I = {
   warn: '<svg viewBox="0 0 24 24"><path d="M12 9v4M12 17h.01M10.3 4.5l-8 14A2 2 0 0 0 4 21.5h16a2 2 0 0 0 1.7-3l-8-14a2 2 0 0 0-3.4 0z"/></svg>',
   search: '<svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>',
   report: '<svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>',
+  card: '<svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M7 15h4"/></svg>',
+  chev: '<svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg>',
 };
 
 /* ---------- 小P 情境插圖（inline SVG，零網路成本） ---------- */
@@ -213,6 +270,34 @@ function badgesHtml(lot) {
   return lot.brands.map((b) => `<span class="badge ${BRAND_META[b].cls}">${BRAND_META[b].label}</span>`).join('');
 }
 
+/* ---------- 信用卡折抵說明（每品牌一段，掛在 BRAND_META.redeem） ---------- */
+
+function redeemBlockHtml(b) {
+  const m = BRAND_META[b], r = m.redeem, t = REDEEM_TYPE[r.type];
+  const steps = r.steps.map((s) => `<li>${esc(s)}</li>`).join('');
+  const banks = r.banks
+    ? esc(r.banks)
+    : '<span class="rb-none">官方未公開，請以各站現場標示為準</span>';
+  const note = r.note ? `<p class="redeem-note">${I.info}<span>${esc(r.note)}</span></p>` : '';
+  const prepCls = r.type === 'appbind' ? 'redeem-prep prep-app' : 'redeem-prep';
+  return `
+  <section class="redeem-block">
+    <div class="redeem-bhead"><span class="badge ${m.cls}">${m.label}</span><span class="redeem-tag">${t.tag}</span></div>
+    <div class="${prepCls}">${I.card}<span><b>${t.prepLabel}</b>　${esc(r.prep)}</span></div>
+    <ol class="redeem-steps">${steps}</ol>
+    <div class="redeem-banks"><span class="rb-label">支援銀行</span><span>${banks}</span></div>
+    ${note}
+    <p class="redeem-disc">${REDEEM_DISCLAIMER}</p>
+    <a class="redeem-src" href="${m.sourceUrl}" target="_blank" rel="noopener noreferrer">官方說明${I.ext}</a>
+  </section>`;
+}
+
+function openRedeemSheet(lot) {
+  $('#redeem-body').innerHTML = lot.brands.map(redeemBlockHtml).join('');
+  $('#redeem').hidden = false;
+  window.goatcounter?.count?.({ path: 'redeem-open', event: true });
+}
+
 function cardHtml(lot, opts = {}) {
   const { fav = null, inSheet = false } = opts;
   // 清單與常用皆為手風琴：一次只展開一張
@@ -239,6 +324,7 @@ function cardHtml(lot, opts = {}) {
         <button data-act="copy">${I.copy}複製地址</button>
         <button data-act="report">${I.report}回報錯誤</button>
       </div>
+      <button class="redeem-btn" data-act="redeem">${I.card}<span>如何用信用卡折抵？</span>${I.chev}</button>
       <div class="detail-meta">來源：${lot.brands.map((b) => BRAND_META[b].label).join('、')}官方名單 · 以現場標示為準</div>
     </div>` : '';
   const selCls = !inSheet && lot.id === state.selectedId ? ' card-selected' : '';
@@ -799,6 +885,8 @@ function onCardAction(e) {
     if (label !== null && fav) { fav.label = label.trim(); saveFavs(); render(); }
   } else if (act === 'report') {
     openReport(lot);
+  } else if (act === 'redeem') {
+    openRedeemSheet(lot);
   } else if (act === 'expand') {
     // 詳情視圖（sheet／左欄面板）內的卡片本身即為展開態，點內文不再切換
     if (e.target.closest('#sheet-body, #detail-panel-body')) return;
@@ -1164,6 +1252,10 @@ async function main() {
   enableSwipeClose($('#share .modal-sheet'), () => { $('#share').hidden = true; });
   enableSwipeClose($('#report .modal-sheet'), () => { $('#report').hidden = true; });
   enableSwipeClose($('#loc-help .modal-sheet'), () => { $('#loc-help').hidden = true; });
+  const redeem = $('#redeem');
+  $('#redeem-close').addEventListener('click', () => { redeem.hidden = true; });
+  redeem.addEventListener('click', (e) => { if (e.target === redeem) redeem.hidden = true; });
+  enableSwipeClose(redeem.querySelector('.modal-sheet'), () => { redeem.hidden = true; });
   enableSwipeClose($('#picker .picker-sheet'), () => $('#picker').click());
   enableSwipeClose($('#brand-picker .picker-sheet'), () => { $('#brand-picker').hidden = true; });
 
