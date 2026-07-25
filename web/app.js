@@ -72,21 +72,25 @@ const LIST_PAGE = 60;
 
 // 商業化推廣（分潤導流）。未來多筆時 pill 升級為「好康」清單入口，結構沿用。
 const OFFER = {
-  id: 'starbucks-klook-egift',
-  pill: '星巴克91折',
-  // 優惠券線條圖示；fill:none/stroke:currentColor 沿用全域規則，繼承 pill 綠字、背景透明
-  pillIcon: '<svg class="offer-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9a2 2 0 0 0 0 6v2a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1v-2a2 2 0 0 1 0-6V7a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1z"/><path d="M14 6v12" stroke-dasharray="1.5 2"/></svg>',
-  image: 'img/offer-starbucks.jpg',
-  title: '星巴克飲料券 · 91 折起',
-  subtitle: '電子票券，買了隨時能用 — 自己喝、送人都方便',
-  tiers: [
-    { name: '星巴克 TWD110 星享飲料券', price: 100, face: 110, save: 10 },
-    { name: '星巴克 TWD155 星享飲料券', price: 145, face: 155, save: 10 },
-    { name: '星巴克 TWD175 星享飲料券', price: 160, face: 175, save: 15 },
+  id: 'klook-hotel-96',
+  pill: '全球飯店96折',
+  // 床鋪線條圖示；fill:none/stroke:currentColor 沿用全域規則，繼承 pill 綠字、背景透明
+  pillIcon: '<svg class="offer-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7v11M3 13h18v5M21 13a5 5 0 0 0-5-5H8a5 5 0 0 0-5 5"/></svg>',
+  // 折扣券風格 hero（取代圖片）：品牌／折數／說明三段
+  badge: { brand: '🏨 Klook 全球飯店', num: '96', unit: '折', tag: '折抵 4% · 無低消門檻' },
+  title: '全球飯店訂房 96 折',
+  subtitle: '出國訂房透過 Klook，結帳輸入優惠碼再折 4%，全球飯店皆適用、無低消門檻',
+  code: 'HOTEL96202607',
+  // 重點資訊列（label／value）；沿用 offer-tier 版型
+  facts: [
+    { k: '折扣額度', v: '折抵 4%，無低消門檻' },
+    { k: '最高折抵', v: 'TWD 1,000' },
+    { k: '使用限制', v: '不適用「延後付款」訂單' },
+    { k: '領取／使用期限', v: '2026/07/31 23:59 前' },
   ],
-  cta: '到 Klook 買 ›',
-  note: '透過此連結購買，小P會獲得一點回饋，幫助小Ｐ帶路持續營運 💚　（由 Klook 提供，將開啟外部頁面）',
-  url: 'https://onelink.one/s/osdDH',
+  cta: '到 Klook 訂房 ›',
+  note: '透過此連結訂房，小P會獲得一點回饋，幫助小Ｐ帶路持續營運 💚　（由 Klook 提供，將開啟外部頁面）',
+  url: 'https://vbtrax.com/track/clicks/3731/c627c2bc9b0524d7fa88ec23d62e9e452d6a49c163b2a0f90467b10471401de3c021e7e5593c99616c?t=https%253A%252F%252Fwww.klook.com%252Fzh-TW%252Fpromotion%252Fprogram%252F1374254901%252F',
 };
 
 // 品牌篩選：null＝全部（含日後新增品牌）；否則為選取的品牌陣列（至少一個）。
@@ -1081,19 +1085,38 @@ function setupOffer() {
   chip.innerHTML = `${OFFER.pillIcon}<span>${esc(OFFER.pill)}</span>`;
   window.goatcounter?.count?.({ path: `offer-pill-view-${OFFER.id}`, event: true });
 
-  $('#offer-img').src = OFFER.image;
+  $('#offer-badge-brand').textContent = OFFER.badge.brand;
+  $('#offer-badge-num').innerHTML = `${esc(OFFER.badge.num)}<small>${esc(OFFER.badge.unit)}</small>`;
+  $('#offer-badge-tag').textContent = OFFER.badge.tag;
   $('#offer-title').textContent = OFFER.title;
   $('#offer-sub').textContent = OFFER.subtitle;
   $('#offer-note').textContent = OFFER.note;
-  $('#offer-tiers').innerHTML = OFFER.tiers.map((t) => `
+  $('#offer-code-val').textContent = OFFER.code;
+  $('#offer-tiers').innerHTML = OFFER.facts.map((f) => `
     <div class="offer-tier">
-      <span class="t-name">${esc(t.name)}</span>
-      <span class="t-price">NT$${t.price}</span>
-      <span class="t-save">省 $${t.save}</span>
+      <span class="t-name">${esc(f.k)}</span>
+      <span class="t-val">${esc(f.v)}</span>
     </div>`).join('');
   const cta = $('#offer-cta');
   cta.textContent = OFFER.cta;
   cta.href = OFFER.url;
+
+  // 一鍵複製優惠碼：成功後短暫顯示「已複製」，並埋點
+  const copyBtn = $('#offer-code-copy');
+  copyBtn.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(OFFER.code);
+    } catch {
+      const r = document.createRange(); r.selectNode($('#offer-code-val'));
+      const sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(r);
+      try { document.execCommand('copy'); } catch {}
+      sel.removeAllRanges();
+    }
+    copyBtn.textContent = '已複製';
+    copyBtn.classList.add('copied');
+    window.goatcounter?.count?.({ path: `offer-code-copy-${OFFER.id}`, event: true });
+    setTimeout(() => { copyBtn.textContent = '複製'; copyBtn.classList.remove('copied'); }, 1600);
+  });
 
   let ctaClicked = false;
   const closeModal = () => {

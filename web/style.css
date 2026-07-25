@@ -113,8 +113,24 @@ svg { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 2
 .offer-tier .t-name { font-size: 14px; color: var(--text); flex: 1; }
 .offer-tier .t-price { font-size: 15px; font-weight: 700; color: var(--accent); }
 .offer-tier .t-save { font-size: 12px; color: var(--text-3); }
+.offer-tier .t-val { font-size: 13.5px; font-weight: 600; color: var(--text); text-align: right; }
 .offer-cta { text-decoration: none; display: flex; align-items: center; justify-content: center; }
 .offer-note { font-size: 11px; color: var(--text-3); text-align: center; line-height: 1.6; margin-top: 10px; }
+
+/* 折扣券風格 hero（取代圖片） */
+.offer-hero-badge { flex-direction: column; align-items: center; gap: 4px; padding: 22px 16px; border-radius: 14px; background: linear-gradient(135deg, var(--accent) 0%, #0b5744 100%); color: #fff; }
+.offer-hero-badge .ob-brand { font-size: 13px; font-weight: 600; opacity: .92; }
+.offer-hero-badge .ob-num { font-size: 46px; font-weight: 800; line-height: 1; letter-spacing: -1px; }
+.offer-hero-badge .ob-num small { font-size: 20px; font-weight: 700; margin-left: 2px; }
+.offer-hero-badge .ob-tag { font-size: 13px; font-weight: 600; margin-top: 2px; opacity: .95; }
+
+/* 優惠碼：虛線框 + 一鍵複製 */
+.offer-code { margin-top: 14px; padding: 12px 14px; border: 1px dashed var(--border-2); border-radius: 12px; background: var(--accent-bg); }
+.offer-code .oc-label { font-size: 11px; color: var(--text-2); font-weight: 600; }
+.offer-code .oc-row { display: flex; align-items: center; gap: 10px; margin-top: 6px; }
+.offer-code .oc-val { flex: 1; font-size: 18px; font-weight: 800; letter-spacing: 1px; color: var(--accent); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+.offer-code .oc-copy { flex-shrink: 0; padding: 7px 16px; border-radius: 999px; background: var(--accent); color: #fff; font-size: 13px; font-weight: 600; }
+.offer-code .oc-copy.copied { background: var(--text-2); }
 
 /* 桌機軟性提示 */
 .desktop-hint {
@@ -141,18 +157,23 @@ svg { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 2
   display: inline-flex; align-items: center; flex-shrink: 0;
   margin-left: auto; position: relative; padding-left: 14px;
   font-size: 13px; font-weight: 600; padding: 8px 14px; min-height: 36px;
-  background: var(--accent-bg); color: var(--accent); border-radius: 999px; white-space: nowrap;
-  animation: offer-hint 6s ease-in-out 2s infinite;
+  color: var(--accent); border-radius: 999px; white-space: nowrap;
+  /* 底色 + 一條白色光澤漸層（疊在底色上，隨背景位置移動掃過） */
+  background-color: var(--accent-bg);
+  background-image: linear-gradient(115deg, transparent 36%, rgba(255,255,255,.5) 47%, rgba(255,255,255,.92) 50%, rgba(255,255,255,.5) 53%, transparent 64%);
+  background-repeat: no-repeat;
+  background-size: 210% 100%;
+  background-position: 160% 0;
+  animation: offer-shine 5s ease-in-out infinite;
+  will-change: background-position;
 }
 .offer-chip::before { content: ""; position: absolute; left: -8px; top: 6px; bottom: 6px; width: 0.5px; background: var(--border-2); }
 .offer-chip .offer-ic { width: 16px; height: 16px; margin-right: 5px; flex-shrink: 0; }
-/* 偶爾閃一下提示：安靜約 4 秒後連閃兩下（放大＋綠色光暈＋較深底），較明顯但不長時間干擾 */
-@keyframes offer-hint {
-  0%, 62%, 100% { transform: scale(1); background: var(--accent-bg); box-shadow: 0 0 0 0 rgba(29,158,117,0); }
-  70% { transform: scale(1.07); background: #a9e0cd; box-shadow: 0 0 0 6px rgba(29,158,117,.38); }
-  78% { transform: scale(1); background: var(--accent-bg); box-shadow: 0 0 0 0 rgba(29,158,117,0); }
-  86% { transform: scale(1.07); background: #a9e0cd; box-shadow: 0 0 0 6px rgba(29,158,117,.38); }
-  94% { transform: scale(1); background: var(--accent-bg); box-shadow: 0 0 0 0 rgba(29,158,117,0); }
+/* 每 5 秒閃一條白色光澤：前 ~0.7 秒快速掃過，其餘時間靜止，安靜不干擾 */
+@keyframes offer-shine {
+  0%   { background-position: 160% 0; }
+  14%  { background-position: -60% 0; }
+  100% { background-position: -60% 0; }
 }
 @media (prefers-reduced-motion: reduce) { .offer-chip { animation: none; } }
 .dot { width: 8px; height: 8px; border-radius: 50%; }

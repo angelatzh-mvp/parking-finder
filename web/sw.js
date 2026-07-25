@@ -1,5 +1,5 @@
-const CACHE = 'parking-v25';
-const ASSETS = ['.', 'index.html', 'style.css', 'app.js', 'qrcode.min.js', 'data/parking-lots.json', 'icon.svg', 'img/offer-starbucks.jpg'];
+const CACHE = 'parking-v26';
+const ASSETS = ['.', 'index.html', 'style.css', 'app.js', 'qrcode.min.js', 'data/parking-lots.json', 'icon.svg'];
 
 self.addEventListener('install', (e) => {
   e.waitUntil(caches.open(CACHE).then((c) => c.addAll(ASSETS)));

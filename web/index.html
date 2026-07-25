@@ -40,7 +40,7 @@
   <div class="chips" id="chips">
     <button class="chip" id="brand-chip">全部品牌<svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
     <button class="chip" id="city-chip">全台<svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
-    <button class="offer-chip" id="offer-chip" aria-label="星巴克好康優惠">☕ 星巴克好康</button>
+    <button class="offer-chip" id="offer-chip" aria-label="全球飯店 96 折優惠">🏨 全球飯店96折</button>
   </div>
   <div class="status-row" id="status-row"></div>
 </header>
@@ -205,9 +205,20 @@
     <button class="offer-close" id="offer-close" aria-label="關閉">
       <svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>
     </button>
-    <div class="offer-hero"><img id="offer-img" alt="" src=""></div>
+    <div class="offer-hero offer-hero-badge" id="offer-badge">
+      <span class="ob-brand" id="offer-badge-brand"></span>
+      <span class="ob-num" id="offer-badge-num"></span>
+      <span class="ob-tag" id="offer-badge-tag"></span>
+    </div>
     <h2 class="offer-title" id="offer-title"></h2>
     <p class="offer-sub" id="offer-sub"></p>
+    <div class="offer-code" id="offer-code">
+      <span class="oc-label">專屬優惠碼</span>
+      <div class="oc-row">
+        <code class="oc-val" id="offer-code-val"></code>
+        <button class="oc-copy" id="offer-code-copy" type="button">複製</button>
+      </div>
+    </div>
     <div class="offer-tiers" id="offer-tiers"></div>
     <div class="share-btns">
       <a class="share-native offer-cta" id="offer-cta" href="#" target="_blank" rel="noopener noreferrer"></a>
