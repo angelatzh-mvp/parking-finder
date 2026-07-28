@@ -60,9 +60,25 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+          # 本 job 每次都完整重生資料，故一律「以本輪結果為準」：先把分支對齊到最新
+          # remote（re-run 用舊 SHA、或前一輪已推進時都適用），再把重生檔案疊成一個 commit
+          # push。避免舊基準 push 被拒（! [rejected] fetch first）。
+          git fetch origin main
+          git reset --soft FETCH_HEAD
           git add data web/data web/parking web/sitemap.xml web/robots.txt docs
-          git diff --cached --quiet || git commit -m "chore: weekly data update"
-          git push
+          if git diff --cached --quiet; then
+            echo "無資料變更，略過 commit"
+            exit 0
+          fi
+          git commit -m "chore: weekly data update"
+          # 保險：push 當下 remote 若又被推進，重生檔案已對齊 remote，重試即可乾淨 fast-forward
+          for i in 1 2 3; do
+            if git push origin HEAD:main; then exit 0; fi
+            echo "push 被拒，重新對齊 remote 後重試（第 $i 次）"
+            git fetch origin main && git reset --soft FETCH_HEAD && git commit -m "chore: weekly data update"
+          done
+          echo "::error::多次重試後仍無法 push 更新資料"
+          exit 1
 
   # 每週資料更新失敗時寄信通知（需在 repo Secrets 設定 MAIL_USERNAME／MAIL_PASSWORD，見 deploy.yml 註解）
   notify-failure:
