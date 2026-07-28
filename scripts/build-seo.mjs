@@ -229,6 +229,7 @@ ${(l.totalSpace || l.maxHeight) ? `<div class="meta">${l.totalSpace ? `車位約
     .map(([b, n]) => `${BRAND_META[b]?.label ?? b}（${n}）`).join('、');
   const body = `
 <div class="note">收錄全台 <b>${total}</b> 處配合信用卡優惠的停車場，涵蓋 ${cityOrder.length} 個縣市、${Object.keys(brandCounts).length} 大品牌：${esc(brandLine)}。點縣市查看該區完整名單。</div>
+<p style="margin:14px 0"><b>新手先看：</b><a href="guide/">信用卡免費停車完整攻略</a>　·　<a href="credit-card/">六大品牌怎麼折抵</a></p>
 <h2>依縣市瀏覽</h2>
 <ul class="grid">${cityOrder.map((c) => `<li><a href="${enc(c)}/">${esc(c)}<span class="n">${cities.get(c).length}</span></a></li>`).join('')}</ul>
 <h2>依停車場品牌瀏覽</h2>
@@ -397,6 +398,61 @@ ${faqHtml(REDEEM_FAQ)}`;
     ],
   }));
   addUrl(CCURL);
+}
+
+// ===== 6) 支柱頁：信用卡免費停車完整攻略（懶人包，pillar-cluster 樞紐） =====
+{
+  const GUIDE = `${SITE}/parking/guide/`;
+  const CC = `${SITE}/parking/credit-card/`;
+  const total = lots.length;
+  const brandGrid = Object.entries(brandCounts).sort((a, b) => b[1] - a[1])
+    .map(([b, n]) => `<li><a href="${brandUrl(b)}">${esc(BRAND_META[b]?.label ?? b)}<span class="n">${n}</span></a></li>`).join('');
+  const cityGrid = cityOrder.map((c) => `<li><a href="${cityUrl(c)}">${esc(c)}<span class="n">${cities.get(c).length}</span></a></li>`).join('');
+  const GUIDE_FAQ = [
+    ['信用卡免費停車是真的免費嗎？', '是「有條件的免費」，通常需當期消費滿額、或以指定 App 綁定信用卡折抵，並非無條件。實際以各發卡銀行公告與停車場現場標示為準。'],
+    ['我需要下載哪個 App 嗎？', '看品牌：車麻吉、ViVi PARK 需先在其 App 綁卡自動折抵；台灣聯通、嘟嘟房、24TPS、銓營帶實體卡過卡即可。查「哪裡有免費停車場」用小Ｐ帶路網頁就好，免下載。'],
+    ['小Ｐ帶路和車麻吉 App 差在哪？', '車麻吉只查得到自家場站；小Ｐ帶路把台灣聯通、車麻吉、嘟嘟房、24TPS、ViVi PARK、銓營六大品牌整合成一張地圖，一次看完、還免安裝。'],
+    ['支援哪些信用卡？', '各品牌配合的銀行不同，常見有台新、中信、玉山、聯邦、國泰世華等。請以你持卡的權益說明為準，或見各品牌折抵說明。'],
+    ['資料多久更新？', '小Ｐ帶路每週自動抓取各品牌官方場站名單更新，頁面會顯示最後更新日期。'],
+  ];
+  const body = `
+<div class="note">開車進市區最痛的兩件事：找不到車位、停車費好貴。其實用對信用卡，全台有 <b>${total}</b> 處停車場可以免費或折抵停車——難處是它們散在六大品牌、各綁不同 App。這篇一次講清楚<b>怎麼免費、哪些場站能用</b>，並教你一鍵查到離你最近的免費停車場。</div>
+
+<h2>信用卡免費停車是什麼？真的免費嗎？</h2>
+<p>先講實話：是「<b>有條件的免費</b>」，不是無條件。常見機制是用指定信用卡消費、或把卡綁進停車場 App，達到條件後停車費被折抵或免收。只要用得上，一次省下數十到上百元，一年下來很有感。</p>
+
+<h2>哪些停車場可以用信用卡免費停？（六大品牌）</h2>
+<p>目前全台配合信用卡優惠停車的主要有這六大品牌，涵蓋雙北、桃園、台中、台南、高雄等都會區。點品牌看完整場站清單：</p>
+<ul class="grid">${brandGrid}</ul>
+
+<h2>兩種優惠型態：滿額型 vs 綁卡折抵型</h2>
+<p><b>① 消費滿額型：</b>當期帳單刷滿一定金額（依卡別而定），次期享免費停車時數（常見每次約 2 小時、每日 1 次，每期有上限）。<br>
+<b>② 綁卡／綁 App 折抵型：</b>把指定信用卡綁進停車場 App（如車麻吉、ViVi PARK），出場時自動折抵。</p>
+<div class="note">各品牌是「帶卡過卡」還是「先綁 App」、支援哪些銀行都不同 👉 <a href="${CC}">看六大品牌信用卡折抵方式</a>（出發前先看，才不會到現場才發現卡沒綁）。</div>
+
+<h2>怎麼找到「離我最近」的免費停車場？</h2>
+<p>搞懂規則後，真正麻煩的是：這些場站散在六個品牌、各自的 App，Google 地圖也不會幫你篩「哪些能信用卡免費停」。臨時要停車，總不能開六個 App 一個一個找。</p>
+<p>這就是我把六大品牌、全台 ${total} 個信用卡免費停車場整合成<b>一張地圖</b>的原因——「小Ｐ帶路」：📍 定位找最近、🔍 依縣市／品牌篩選、🧭 一鍵導航＋收藏、📱 免下載開網頁就能用。</p>
+<a class="cta" href="${APP('seo')}">📍 開啟小Ｐ帶路，查離我最近的免費停車場</a>
+
+<h2>各縣市免費停車場快速查</h2>
+<ul class="grid">${cityGrid}</ul>
+
+${faqHtml(GUIDE_FAQ)}`;
+  write('parking/guide/index.html', page({
+    title: '信用卡免費停車攻略 2026｜六大品牌+全台場站地圖｜小Ｐ帶路',
+    description: '信用卡免費停車怎麼用、哪些停車場品牌配合、門檻與時數一次搞懂，還能用地圖查離你最近的免費停車場，免下載開網頁就能用。',
+    canonical: GUIDE, appHref: APP('seo'), builtAt,
+    crumb: `<a href="${APP('seo')}">小Ｐ帶路</a> › <a href="${HUB}">全台</a> › 信用卡免費停車攻略`,
+    h1: '信用卡免費停車完整攻略：六大品牌、怎麼免費、全台場站地圖',
+    lead: `用對信用卡，全台 ${total} 處停車場可以免費停。這篇一次搞懂怎麼免費、哪些場站能用，並教你查到離你最近的免費停車場。`,
+    body,
+    jsonLd: [
+      breadcrumbLd([{ name: '小Ｐ帶路', url: APP('seo') }, { name: '全台', url: HUB }, { name: '信用卡免費停車攻略', url: GUIDE }]),
+      faqLd(GUIDE_FAQ),
+    ],
+  }));
+  addUrl(GUIDE);
 }
 
 // ===== sitemap.xml + robots.txt =====
