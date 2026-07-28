@@ -1,40 +1,40 @@
 {
  "meta": {
-  "builtAt": "2026-07-25T17:05:57.215Z",
+  "builtAt": "2026-07-28T19:30:36.579Z",
   "sources": {
    "utg": {
     "label": "台灣聯通",
-    "scrapedAt": "2026-07-19T21:44:01.852Z",
+    "scrapedAt": "2026-07-28T19:28:18.585Z",
     "count": 247
    },
    "carmochi": {
     "label": "車麻吉",
     "updatedAt": "2026-06-26",
-    "scrapedAt": "2026-07-19T21:44:02.440Z",
-    "count": 678
+    "scrapedAt": "2026-07-28T19:28:19.241Z",
+    "count": 673
    },
    "dodohome": {
     "label": "嘟嘟房",
-    "scrapedAt": "2026-07-19T21:44:05.917Z",
-    "count": 368
+    "scrapedAt": "2026-07-28T19:28:24.854Z",
+    "count": 367
    },
    "tps": {
     "label": "24TPS",
-    "scrapedAt": "2026-07-19T21:44:07.384Z",
+    "scrapedAt": "2026-07-28T19:28:26.408Z",
     "count": 34
    },
    "vivipark": {
     "label": "ViVi PARK",
-    "scrapedAt": "2026-07-19T21:44:08.843Z",
+    "scrapedAt": "2026-07-28T19:28:28.055Z",
     "count": 228
    },
    "parkinsys": {
     "label": "銓營",
-    "scrapedAt": "2026-07-19T21:44:21.593Z",
+    "scrapedAt": "2026-07-28T19:28:41.678Z",
     "count": 19
    }
   },
-  "total": 1520,
+  "total": 1514,
   "mergedBoth": 23,
   "consolidated": 19,
   "noGeo": 0,
@@ -4536,21 +4536,6 @@
    "totalSpace": null
   },
   {
-   "id": "p128tg06",
-   "brands": [
-    "carmochi"
-   ],
-   "name": "捷運迴龍站",
-   "city": "新北市",
-   "district": "新莊區",
-   "address": "新莊區中正路758號",
-   "lat": 25.0403898,
-   "lng": 121.4628936,
-   "note": "",
-   "maxHeight": null,
-   "totalSpace": null
-  },
-  {
    "id": "p1mh5ep1",
    "brands": [
     "carmochi"
@@ -4626,36 +4611,6 @@
    "totalSpace": null
   },
   {
-   "id": "pqv3lpw",
-   "brands": [
-    "carmochi"
-   ],
-   "name": "正好停捷運永寧站",
-   "city": "新北市",
-   "district": "土城區",
-   "address": "土城區中央路三段105號",
-   "lat": 24.9672701,
-   "lng": 121.4369017,
-   "note": "",
-   "maxHeight": null,
-   "totalSpace": null
-  },
-  {
-   "id": "pgw7kvg",
-   "brands": [
-    "carmochi"
-   ],
-   "name": "正好停捷運海山站",
-   "city": "新北市",
-   "district": "土城區",
-   "address": "土城區海山路39號B1",
-   "lat": 24.9867607,
-   "lng": 121.4493473,
-   "note": "",
-   "maxHeight": null,
-   "totalSpace": null
-  },
-  {
    "id": "p1pm1lvv",
    "brands": [
     "carmochi"
@@ -4666,21 +4621,6 @@
    "address": "板橋區四維路177巷4弄22號對面",
    "lat": 25.026739,
    "lng": 121.46343,
-   "note": "",
-   "maxHeight": null,
-   "totalSpace": null
-  },
-  {
-   "id": "pwe9xw",
-   "brands": [
-    "carmochi"
-   ],
-   "name": "正好停捷運頂埔站",
-   "city": "新北市",
-   "district": "土城區",
-   "address": "土城區中央路四段51-6號B1-B3",
-   "lat": 24.959567,
-   "lng": 121.419574,
    "note": "",
    "maxHeight": null,
    "totalSpace": null
@@ -6424,21 +6364,6 @@
    "address": "大同區承德路二段235號之1",
    "lat": 25.0600848,
    "lng": 121.5183019,
-   "note": "",
-   "maxHeight": null,
-   "totalSpace": null
-  },
-  {
-   "id": "p1dt4ui1",
-   "brands": [
-    "carmochi"
-   ],
-   "name": "大安國中站",
-   "city": "台北市",
-   "district": "大安區",
-   "address": "大安區大安路二段63號B1-B2",
-   "lat": 25.028533,
-   "lng": 121.5460078,
    "note": "",
    "maxHeight": null,
    "totalSpace": null
@@ -18876,21 +18801,6 @@
    "address": "高雄市左營區高鐵路103號(P1立體停車場)",
    "lat": 22.686126,
    "lng": 120.306438,
-   "note": "",
-   "maxHeight": null,
-   "totalSpace": null
-  },
-  {
-   "id": "pl5h1s7",
-   "brands": [
-    "dodohome"
-   ],
-   "name": "旗山永平站",
-   "city": "高雄市",
-   "district": "旗山區",
-   "address": "高雄市旗山區太平里永平街65號旁空地",
-   "lat": 22.885824,
-   "lng": 120.481848,
    "note": "",
    "maxHeight": null,
    "totalSpace": null
