@@ -106,6 +106,10 @@ details p{margin:0 0 14px;color:var(--text-2)}
 footer{margin-top:40px;padding-top:20px;border-top:1px solid var(--border);color:var(--text-3);font-size:13px}
 footer a{color:var(--text-3)}
 .note{background:var(--accent-bg);border-radius:12px;padding:12px 16px;font-size:14px;color:var(--text-2);margin:16px 0}
+.note.warn{background:#faeeda;color:#854f0b}
+.note.warn a{color:#6b3e05;text-decoration:underline}
+ul.tips{margin:12px 0 4px;padding-left:22px;color:var(--text-2)}
+ul.tips li{margin:5px 0}
 `;
 
 const LOGO = '<svg viewBox="0 0 100 100" aria-hidden="true"><rect width="100" height="100" rx="24" fill="#E1F5EE"/><rect x="34" y="24" width="15" height="50" rx="7.5" fill="#1D9E75"/><circle cx="55" cy="40" r="21" fill="#1D9E75"/><circle cx="57" cy="38" r="11" fill="#fff"/><circle cx="53" cy="36" r="2.6" fill="#04342C"/><circle cx="61" cy="36" r="2.6" fill="#04342C"/><path d="M52.5 41.5 Q57 46 61.5 41.5" fill="none" stroke="#04342C" stroke-width="2.4" stroke-linecap="round"/><circle cx="41" cy="79" r="7.5" fill="#04342C" stroke="#fff" stroke-width="2.5"/><circle cx="60" cy="79" r="7.5" fill="#04342C" stroke="#fff" stroke-width="2.5"/></svg>';
@@ -222,6 +226,46 @@ ${l.address ? `<div class="addr">${esc(l.address)}</div>` : '<div class="addr">�
 ${(l.totalSpace || l.maxHeight) ? `<div class="meta">${l.totalSpace ? `車位約 ${l.totalSpace} 格` : ''}${l.totalSpace && l.maxHeight ? '｜' : ''}${l.maxHeight ? `限高 ${l.maxHeight} 公尺` : ''}</div>` : ''}
 </li>`).join('\n') + '</ul>';
 
+// ===== 地標周邊停車場（POI 叢集）：先算「有足夠場站」的地標，供 hub 內鏈與下方生頁 =====
+const distM = (a, b, c, d) => {
+  const R = 6371000, rad = (x) => x * Math.PI / 180;
+  const s = Math.sin(rad(c - a) / 2) ** 2 + Math.cos(rad(a)) * Math.cos(rad(c)) * Math.sin(rad(d - b) / 2) ** 2;
+  return 2 * R * Math.asin(Math.sqrt(s));
+};
+const fmtDist = (m) => (m < 1000 ? `約 ${Math.round(m / 10) * 10} 公尺` : `約 ${(m / 1000).toFixed(1)} 公里`);
+const POI_RADIUS = 1500, POI_MIN = 4, POI_CAP = 20;
+// 座標為各地標概略中心點；city 需與資料集縣市名一致（供 ?city= 深連結）。
+const POIS = [
+  // Tier 1
+  { name: '台北101', city: '台北市', lat: 25.0340, lng: 121.5645 },
+  { name: '台北車站', city: '台北市', lat: 25.0478, lng: 121.5170 },
+  { name: '西門町', city: '台北市', lat: 25.0421, lng: 121.5075 },
+  { name: '內湖科技園區', city: '台北市', lat: 25.0797, lng: 121.5745 },
+  { name: '南港展覽館', city: '台北市', lat: 25.0557, lng: 121.6176 },
+  { name: '台中歌劇院', city: '台中市', lat: 24.1626, lng: 120.6403 },
+  { name: '勤美誠品', city: '台中市', lat: 24.1519, lng: 120.6647 },
+  { name: '板橋大遠百', city: '新北市', lat: 25.0138, lng: 121.4637 },
+  { name: '駁二', city: '高雄市', lat: 22.6205, lng: 120.2820 },
+  // Tier 2
+  { name: '六合夜市', city: '高雄市', lat: 22.6320, lng: 120.3016 },
+  { name: '瑞豐夜市', city: '高雄市', lat: 22.6668, lng: 120.3060 },
+  { name: '饒河夜市', city: '台北市', lat: 25.0510, lng: 121.5776 },
+  { name: '逢甲夜市', city: '台中市', lat: 24.1786, lng: 120.6465 },
+  { name: '一中街', city: '台中市', lat: 24.1495, lng: 120.6844 },
+  { name: '中壢SOGO', city: '桃園市', lat: 24.9530, lng: 121.2255 },
+  { name: '台北東區', city: '台北市', lat: 25.0417, lng: 121.5436 },
+  { name: '台中車站', city: '台中市', lat: 24.1369, lng: 120.6857 },
+  { name: '北投', city: '台北市', lat: 25.1321, lng: 121.4986 },
+  { name: '大安森林公園', city: '台北市', lat: 25.0296, lng: 121.5350 },
+];
+const geoLots = lots.filter((l) => l.lat != null);
+const poiData = POIS.map((poi) => {
+  const near = geoLots.map((l) => ({ l, m: distM(poi.lat, poi.lng, l.lat, l.lng) }))
+    .filter((x) => x.m <= POI_RADIUS).sort((a, b) => a.m - b.m);
+  return { ...poi, near };
+}).filter((p) => p.near.length >= POI_MIN); // 場站太少的地標不生頁（避免薄頁）
+const nearUrl = (name) => `${SITE}/parking/near/${enc(name)}.html`;
+
 // ===== 1) 總覽 hub =====
 {
   const total = lots.length;
@@ -234,6 +278,8 @@ ${(l.totalSpace || l.maxHeight) ? `<div class="meta">${l.totalSpace ? `車位約
 <ul class="grid">${cityOrder.map((c) => `<li><a href="${enc(c)}/">${esc(c)}<span class="n">${cities.get(c).length}</span></a></li>`).join('')}</ul>
 <h2>依停車場品牌瀏覽</h2>
 <ul class="grid">${Object.entries(brandCounts).sort((a, b) => b[1] - a[1]).map(([b, n]) => `<li><a href="brand/${b}.html">${esc(BRAND_META[b]?.label ?? b)}<span class="n">${n}</span></a></li>`).join('')}</ul>
+${poiData.length ? `<h2>熱門地點附近停車</h2>
+<ul class="grid">${poiData.map((p) => `<li><a href="near/${enc(p.name)}.html">${esc(p.name)}<span class="n">${p.near.length}</span></a></li>`).join('')}</ul>` : ''}
 ${faqHtml(FAQ)}`;
   write('parking/index.html', page({
     title: `全台信用卡免費停車場一覽（${total} 處）｜小Ｐ帶路`,
@@ -453,6 +499,58 @@ ${faqHtml(GUIDE_FAQ)}`;
     ],
   }));
   addUrl(GUIDE);
+}
+
+// ===== 7) 地標周邊停車場頁（POI 叢集） =====
+for (const poi of poiData) {
+  const shown = poi.near.slice(0, POI_CAP);
+  const deepCta = APP('near', { city: poi.city, lot: shown[0].l.id }); // 送回 App 核心：篩該市＋飛到最近的一站
+  const cityFilter = APP('near', { city: poi.city });
+  const CC = `${SITE}/parking/credit-card/`;
+  const listHtml = '<ul class="lots">' + shown.map(({ l, m }) => `<li>
+<div class="name">${esc(l.name)}<span class="meta" style="display:inline;margin-left:8px;color:var(--accent);font-weight:600">${fmtDist(m)}</span></div>
+<div>${brandBadges(l.brands)}</div>
+${l.address ? `<div class="addr">${esc(l.address)}</div>` : ''}
+<a class="go" href="${mapUrl(l)}" target="_blank" rel="noopener">在 Google 地圖開啟導航 →</a>
+${(l.totalSpace || l.maxHeight) ? `<div class="meta">${l.totalSpace ? `車位約 ${l.totalSpace} 格` : ''}${l.totalSpace && l.maxHeight ? '｜' : ''}${l.maxHeight ? `限高 ${l.maxHeight} 公尺` : ''}</div>` : ''}
+</li>`).join('\n') + '</ul>';
+  const POI_FAQ = [
+    [`${poi.name}附近這些停車場是免費的嗎？`, '不是無條件免費。它們是配合信用卡優惠的停車場，能否免費或折抵，取決於你持有的信用卡與是否達到發卡銀行門檻（多為當期消費滿額，或需先在該品牌 App 綁卡）。實際以各發卡行公告與現場標示為準。'],
+    ['我要怎麼知道我的信用卡適不適用？', '請查你信用卡的權益說明，或參考各品牌的信用卡折抵方式與支援銀行清單。'],
+    ['一定要下載 App 嗎？', '查「附近哪裡有」用小Ｐ帶路網頁即可，免下載。折抵部分：車麻吉、ViVi PARK 需先在其 App 綁卡；台灣聯通、嘟嘟房、24TPS、銓營帶實體卡過卡即可。'],
+  ];
+  const body = `
+<div class="note warn">⚠️ <b>提醒</b>：以下是<b>配合信用卡優惠</b>的停車場，<b>並非無條件免費</b>。能不能免費／折抵，取決於你<b>持有的信用卡</b>與是否達到該銀行<b>門檻</b>（多為當期消費滿額，或需先綁定 App）。各品牌怎麼折抵、支援哪些銀行 👉 <a href="${CC}">看信用卡折抵方式</a>。</div>
+<div class="note">${esc(poi.name)}周邊約 1.5 公里內，收錄 <b>${poi.near.length}</b> 個配合信用卡優惠的停車場，最近的僅 ${fmtDist(shown[0].m)}。以下依距離排序：</div>
+${listHtml}
+<h2>在地圖上看 ${esc(poi.name)} 周邊、找離你最近的</h2>
+<p>上面是靜態速查清單。打開小Ｐ帶路的地圖，你可以做更多：</p>
+<ul class="tips">
+<li>📍 <b>開啟定位</b>，自動把離你最近的排在最前面</li>
+<li>🧭 <b>一鍵導航</b>直接開到停車場入口</li>
+<li>⭐ 把常去的收進「<b>常用</b>」，下次一秒叫出</li>
+<li>📱 <b>免下載</b>，可「加入主畫面」像 App 一樣用、離線也能查</li>
+</ul>
+<p>而且不只 ${esc(poi.name)}——全台 <b>${lots.length}</b> 個信用卡優惠停車場都在同一張地圖，隨走隨查。</p>
+<a class="cta" href="${deepCta}">📍 開地圖看 ${esc(poi.name)} 周邊停車場 →</a>
+<h2>${esc(poi.city)}其他信用卡免費停車場</h2>
+<p>看 <a href="${cityUrl(poi.city)}">${esc(poi.city)}全部信用卡免費停車場</a>，或回 <a href="${HUB}">全台總覽</a>、讀 <a href="${SITE}/parking/guide/">信用卡免費停車攻略</a>。</p>
+${faqHtml(POI_FAQ)}`;
+  write(`parking/near/${poi.name}.html`, page({
+    title: `${poi.name}附近停車場推薦｜信用卡免費／折抵的 ${poi.near.length} 個｜小Ｐ帶路`,
+    description: `${poi.name}附近 ${poi.near.length} 個配合信用卡優惠（免費／折抵）的停車場，依距離排序、含地址與導航。注意：須符合各發卡行條件，非無條件免費。`,
+    canonical: nearUrl(poi.name), appHref: cityFilter, ctaHref: deepCta, builtAt,
+    crumb: `<a href="${cityFilter}">小Ｐ帶路</a> › <a href="${HUB}">全台</a> › <a href="${cityUrl(poi.city)}">${esc(poi.city)}</a> › ${esc(poi.name)}周邊`,
+    h1: `${poi.name} 附近的信用卡優惠停車場`,
+    lead: `${poi.name}周邊配合信用卡免費／折抵的停車場共 ${poi.near.length} 個，依距離排序。提醒：非無條件免費，須符合你持卡的優惠條件。`,
+    body,
+    jsonLd: [
+      breadcrumbLd([{ name: '小Ｐ帶路', url: cityFilter }, { name: '全台', url: HUB }, { name: poi.city, url: cityUrl(poi.city) }, { name: `${poi.name}周邊`, url: nearUrl(poi.name) }]),
+      itemListLd(shown.map((x) => x.l)),
+      faqLd(POI_FAQ),
+    ],
+  }));
+  addUrl(nearUrl(poi.name));
 }
 
 // ===== sitemap.xml + robots.txt =====
