@@ -1,6 +1,6 @@
 {
   "source": "wss://www.taiwan-parking.com.tw/ada/public",
-  "scrapedAt": "2026-07-28T19:28:18.585Z",
+  "scrapedAt": "2026-08-02T21:48:11.395Z",
   "count": 247,
   "byCity": {
     "台北市": 67,
@@ -24,7 +24,7 @@
   "lots": [
     {
       "parkingId": "3625",
-      "name": "台灣聯通-獅子林場",
+      "name": "獅子林場",
       "city": "台北市",
       "district": "萬華區",
       "address": "台北市萬華區西寧南路36號",
@@ -69,7 +69,7 @@
       "address": "桃園市中壢區新生路197-1號旁空地",
       "lat": 24.961481,
       "lng": 121.22225,
-      "maxHeight": 0,
+      "maxHeight": null,
       "totalSpace": 50,
       "note": "",
       "phone": "02-25235000"
@@ -355,7 +355,7 @@
       "address": "台中市北屯區和順路496號旁空地",
       "lat": 24.178301158358302,
       "lng": 120.72263343403952,
-      "maxHeight": 0,
+      "maxHeight": null,
       "totalSpace": 22,
       "note": "",
       "phone": "02-25235000"
@@ -381,7 +381,7 @@
       "address": "台北市大安區基隆路二段234號旁空地",
       "lat": 25.02317805304209,
       "lng": 121.55095449944099,
-      "maxHeight": 0,
+      "maxHeight": null,
       "totalSpace": 22,
       "note": "",
       "phone": "02-25235000"
@@ -394,7 +394,7 @@
       "address": "苗栗縣苗栗市天雲街3號旁空地",
       "lat": 24.5520189216034,
       "lng": 120.81718911661207,
-      "maxHeight": 0,
+      "maxHeight": null,
       "totalSpace": 20,
       "note": "",
       "phone": "02-25235000"
@@ -1168,7 +1168,7 @@
     },
     {
       "parkingId": "3508",
-      "name": "桃園大溪場",
+      "name": "桃園大溪場(平日信用卡每小時折抵30元)",
       "city": "桃園市",
       "district": "大溪區",
       "address": "桃園市大溪區文化路75巷25號",

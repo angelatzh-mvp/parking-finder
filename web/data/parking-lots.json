@@ -1,45 +1,45 @@
 {
  "meta": {
-  "builtAt": "2026-07-28T19:30:36.579Z",
+  "builtAt": "2026-08-02T21:50:00.186Z",
   "sources": {
    "utg": {
     "label": "台灣聯通",
-    "scrapedAt": "2026-07-28T19:28:18.585Z",
+    "scrapedAt": "2026-08-02T21:48:11.395Z",
     "count": 247
    },
    "carmochi": {
     "label": "車麻吉",
     "updatedAt": "2026-06-26",
-    "scrapedAt": "2026-07-28T19:28:19.241Z",
-    "count": 673
+    "scrapedAt": "2026-08-02T21:48:12.222Z",
+    "count": 675
    },
    "dodohome": {
     "label": "嘟嘟房",
-    "scrapedAt": "2026-07-28T19:28:24.854Z",
-    "count": 367
+    "scrapedAt": "2026-08-02T21:48:14.619Z",
+    "count": 369
    },
    "tps": {
     "label": "24TPS",
-    "scrapedAt": "2026-07-28T19:28:26.408Z",
+    "scrapedAt": "2026-08-02T21:48:15.918Z",
     "count": 34
    },
    "vivipark": {
     "label": "ViVi PARK",
-    "scrapedAt": "2026-07-28T19:28:28.055Z",
-    "count": 228
+    "scrapedAt": "2026-08-02T21:48:17.331Z",
+    "count": 224
    },
    "parkinsys": {
     "label": "銓營",
-    "scrapedAt": "2026-07-28T19:28:41.678Z",
+    "scrapedAt": "2026-08-02T21:48:29.144Z",
     "count": 19
    }
   },
   "total": 1514,
   "mergedBoth": 23,
   "consolidated": 19,
-  "noGeo": 0,
+  "noGeo": 1,
   "geoPending": 0,
-  "overridden": 48,
+  "overridden": 44,
   "coordFixed": 4
  },
  "lots": [
@@ -48,7 +48,7 @@
    "brands": [
     "utg"
    ],
-   "name": "台灣聯通-獅子林場",
+   "name": "獅子林場",
    "city": "台北市",
    "district": "萬華區",
    "address": "台北市萬華區西寧南路36號",
@@ -100,7 +100,7 @@
    "lat": 24.961481,
    "lng": 121.22225,
    "note": "",
-   "maxHeight": 0,
+   "maxHeight": null,
    "totalSpace": 50
   },
   {
@@ -415,7 +415,7 @@
    "lat": 24.178301158358302,
    "lng": 120.72263343403952,
    "note": "",
-   "maxHeight": 0,
+   "maxHeight": null,
    "totalSpace": 22
   },
   {
@@ -445,7 +445,7 @@
    "lat": 24.5520189216034,
    "lng": 120.81718911661207,
    "note": "",
-   "maxHeight": 0,
+   "maxHeight": null,
    "totalSpace": 20
   },
   {
@@ -1293,7 +1293,7 @@
    "brands": [
     "utg"
    ],
-   "name": "桃園大溪場",
+   "name": "桃園大溪場(平日信用卡每小時折抵30元)",
    "city": "桃園市",
    "district": "大溪區",
    "address": "桃園市大溪區文化路75巷25號",
@@ -11959,16 +11959,16 @@
    "totalSpace": null
   },
   {
-   "id": "phiyl5a",
+   "id": "pqag6hv",
    "brands": [
     "carmochi"
    ],
    "name": "鼎豐頂美停車場",
    "city": "台南市",
    "district": "中西區",
-   "address": "台南市中西區和緯路五段137號",
-   "lat": 23.0054511,
-   "lng": 120.183223,
+   "address": "中西區和緯路五段137號",
+   "lat": 23.0044918,
+   "lng": 120.1711389,
    "note": "",
    "maxHeight": null,
    "totalSpace": null
@@ -13211,16 +13211,31 @@
    "totalSpace": null
   },
   {
-   "id": "p6ct4n2",
+   "id": "p1b1dkmr",
    "brands": [
     "carmochi"
    ],
    "name": "鼎豐大象德昌停車場",
    "city": "高雄市",
    "district": "楠梓區",
-   "address": "高雄市楠梓區後昌新路38號",
+   "address": "楠梓區後昌新路38號",
    "lat": 22.718951,
    "lng": 120.291801,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pam3xzz",
+   "brands": [
+    "carmochi"
+   ],
+   "name": "城市車旅台鋼科大站",
+   "city": "高雄市",
+   "district": "",
+   "address": "路竹區中山路1821號",
+   "lat": 22.6257367,
+   "lng": 120.3717686,
    "note": "",
    "maxHeight": null,
    "totalSpace": null
@@ -13466,16 +13481,16 @@
    "totalSpace": null
   },
   {
-   "id": "p1eg8gle",
+   "id": "p13pv3pe",
    "brands": [
     "carmochi"
    ],
    "name": "鼎豐大象百悅停車場",
    "city": "花蓮縣",
    "district": "花蓮市",
-   "address": "花蓮縣花蓮市新港街81-1號對面",
-   "lat": 23.9806387,
-   "lng": 121.6055615,
+   "address": "花蓮市新港街81-1號對面",
+   "lat": 23.978517,
+   "lng": 121.607185,
    "note": "",
    "maxHeight": null,
    "totalSpace": null
@@ -13691,16 +13706,31 @@
    "totalSpace": null
   },
   {
-   "id": "p1ivv6ic",
+   "id": "p1qwls9s",
    "brands": [
     "carmochi"
    ],
    "name": "台東火車站D區",
    "city": "台東縣",
    "district": "台東市",
-   "address": "台東縣台東市岩灣路101巷598號",
-   "lat": 22.7915725,
-   "lng": 121.1246231,
+   "address": "台東市岩灣路101巷598號",
+   "lat": 22.7915747,
+   "lng": 121.123383,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1qwls71",
+   "brands": [
+    "carmochi"
+   ],
+   "name": "台東火車站A區",
+   "city": "台東縣",
+   "district": "台東市",
+   "address": "台東市岩灣路101巷598號",
+   "lat": 22.7915747,
+   "lng": 121.123383,
    "note": "",
    "maxHeight": null,
    "totalSpace": null
@@ -14091,6 +14121,36 @@
    "address": "台北市北投區文林北路94巷40號旁空地",
    "lat": 25.106585,
    "lng": 121.518683,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "px04bjr",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "北投復興站",
+   "city": "台北市",
+   "district": "北投區",
+   "address": "台北市北投區進賢路、復興路口停車場",
+   "lat": 25.140486,
+   "lng": 121.503449,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p183z2fa",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "北投開勝站",
+   "city": "台北市",
+   "district": "北投區",
+   "address": "台北市北投區珠海路88號旁停車場",
+   "lat": 25.140847,
+   "lng": 121.505032,
    "note": "",
    "maxHeight": null,
    "totalSpace": null
@@ -14996,6 +15056,21 @@
    "totalSpace": null
   },
   {
+   "id": "p1y1tacf",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "華山站",
+   "city": "台北市",
+   "district": "中正區",
+   "address": "台北市中正區北平東路30-1號B1-B3由紹興北街進入",
+   "lat": null,
+   "lng": null,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
    "id": "p18k6144",
    "brands": [
     "dodohome"
@@ -15321,21 +15396,6 @@
    "address": "新北市新莊區福慧路與五工六路交叉口空地",
    "lat": 25.061474,
    "lng": 121.451026,
-   "note": "",
-   "maxHeight": null,
-   "totalSpace": null
-  },
-  {
-   "id": "p9nu3u8",
-   "brands": [
-    "dodohome"
-   ],
-   "name": "汐止福德站",
-   "city": "新北市",
-   "district": "汐止區",
-   "address": "新北市汐止區福德二路225號旁停車場",
-   "lat": 25.064604,
-   "lng": 121.627566,
    "note": "",
    "maxHeight": null,
    "totalSpace": null
@@ -20966,21 +21026,6 @@
    "totalSpace": null
   },
   {
-   "id": "ptaa81b",
-   "brands": [
-    "vivipark"
-   ],
-   "name": "七堵東新停車場",
-   "city": "基隆市",
-   "district": "七堵區",
-   "address": "基隆市七堵區東新街82號對面空地停車場",
-   "lat": 25.09427872,
-   "lng": 121.7199409,
-   "note": "",
-   "maxHeight": null,
-   "totalSpace": null
-  },
-  {
    "id": "pzbbgqd",
    "brands": [
     "vivipark"
@@ -21476,21 +21521,6 @@
    "totalSpace": null
   },
   {
-   "id": "p1w4fxss",
-   "brands": [
-    "vivipark"
-   ],
-   "name": "Acon-eco台中太原停20停車場",
-   "city": "台中市",
-   "district": "北區",
-   "address": "台中市北區天祥街與東光路交叉口",
-   "lat": 24.1604868835274,
-   "lng": 120.699155971165,
-   "note": "",
-   "maxHeight": null,
-   "totalSpace": null
-  },
-  {
    "id": "pbp07oi",
    "brands": [
     "vivipark"
@@ -21596,21 +21626,6 @@
    "totalSpace": null
   },
   {
-   "id": "pa2u1ox",
-   "brands": [
-    "vivipark"
-   ],
-   "name": "Acon-eco台中頭家厝停14停車場",
-   "city": "台中市",
-   "district": "潭子區",
-   "address": "台中市潭子區中興路88號旁",
-   "lat": 24.1908675534122,
-   "lng": 120.703344028835,
-   "note": "",
-   "maxHeight": null,
-   "totalSpace": null
-  },
-  {
    "id": "p10dnvfd",
    "brands": [
     "vivipark"
@@ -21696,21 +21711,6 @@
    "address": "台中市潭子區中山路二段與圓通南路交叉口",
    "lat": 24.2071731490317,
    "lng": 120.705378171165,
-   "note": "",
-   "maxHeight": null,
-   "totalSpace": null
-  },
-  {
-   "id": "p19vsw17",
-   "brands": [
-    "vivipark"
-   ],
-   "name": "Acon-eco台中潭子停10停車場",
-   "city": "台中市",
-   "district": "潭子區",
-   "address": "台中市潭子區中山路二段與潭子街一段交叉口",
-   "lat": 24.2099208187507,
-   "lng": 120.705586,
    "note": "",
    "maxHeight": null,
    "totalSpace": null
