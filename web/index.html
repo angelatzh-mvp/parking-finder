@@ -272,8 +272,17 @@
   </button>
 </nav>
 
-<script data-goatcounter="https://angela-mvp.goatcounter.com/count"
-        async src="//gc.zgo.at/count.js"></script>
+<script>
+  // 數據衛生：只在真實使用者才載入 GoatCounter；排除自動化瀏覽器（開發／測試工具會設 navigator.webdriver）
+  // 與帶 ?nostat 的自我測試。真實使用者行為完全不變（count.js 仍自行處理 localhost／skipgc 排除）。
+  if (!navigator.webdriver && location.search.indexOf('nostat') === -1) {
+    var _gc = document.createElement('script');
+    _gc.async = true;
+    _gc.src = '//gc.zgo.at/count.js';
+    _gc.setAttribute('data-goatcounter', 'https://angela-mvp.goatcounter.com/count');
+    document.head.appendChild(_gc);
+  }
+</script>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
 <script src="app.js"></script>
