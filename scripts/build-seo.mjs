@@ -257,6 +257,15 @@ const POIS = [
   { name: '台中車站', city: '台中市', lat: 24.1369, lng: 120.6857 },
   { name: '北投', city: '台北市', lat: 25.1321, lng: 121.4986 },
   { name: '大安森林公園', city: '台北市', lat: 25.0296, lng: 121.5350 },
+  // Tier 3 觀光地標（低競爭縣市，GSC 數據顯示小城市/觀光區最先排上；只取「有場站的具體地標」，
+  // 避免整城型與行政區頁自我競爭；city 用資料集正式縣市名以利 ?city= 深連結）
+  { name: '嘉義文化路夜市', city: '嘉義縣市', lat: 23.4790, lng: 120.4490 },
+  { name: '台東鐵花村', city: '台東縣', lat: 22.7560, lng: 121.1440 },
+  { name: '台南神農街', city: '台南市', lat: 22.9970, lng: 120.1970 },
+  { name: '安平老街', city: '台南市', lat: 23.0010, lng: 120.1610 },
+  { name: '羅東夜市', city: '宜蘭縣', lat: 24.6759, lng: 121.7695 },
+  { name: '淡水老街', city: '新北市', lat: 25.1697, lng: 121.4392 },
+  { name: '花蓮東大門夜市', city: '花蓮縣', lat: 23.9760, lng: 121.6060 },
 ];
 const geoLots = lots.filter((l) => l.lat != null);
 const poiData = POIS.map((poi) => {
