@@ -291,8 +291,8 @@ ${poiData.length ? `<h2>熱門地點附近停車</h2>
 <ul class="grid">${poiData.map((p) => `<li><a href="near/${enc(p.name)}.html">${esc(p.name)}<span class="n">${p.near.length}</span></a></li>`).join('')}</ul>` : ''}
 ${faqHtml(FAQ)}`;
   write('parking/index.html', page({
-    title: `全台信用卡免費停車場一覽（${total} 處）｜小Ｐ帶路`,
-    description: `整合台灣聯通、車麻吉、嘟嘟房、ViVi PARK 等 ${total} 處信用卡優惠免費停車場，依縣市、品牌快速查詢，地圖找最近據點。`,
+    title: `全台免費停車場地圖｜信用卡優惠 ${total} 處一次查｜小Ｐ帶路`,
+    description: `整合台灣聯通、車麻吉、嘟嘟房、ViVi PARK 等 ${total} 處可用信用卡免費／折抵的停車場，依縣市、品牌快速查，開網頁免下載、地圖找離你最近的。`,
     canonical: HUB, appHref: APP('seo'), builtAt,
     crumb: `<a href="${APP('seo')}">小Ｐ帶路</a> › 全台免費停車場`,
     h1: `全台信用卡免費停車場一覽`,
@@ -333,8 +333,8 @@ ${distGrid}
 ${noDistBlock}
 ${faqHtml(FAQ)}`;
   write(`parking/${city}/index.html`, page({
-    title: `${city}信用卡免費停車場一覽（${cl.length} 處）｜小Ｐ帶路`,
-    description: `${city}共 ${cl.length} 處信用卡優惠免費停車場，涵蓋${namedDists.slice(0, 5).map(([d]) => d).join('、')}等行政區，附地址與導航，找最近的免費停車位。`,
+    title: `${city}免費停車場｜信用卡優惠 ${cl.length} 處一次查｜小Ｐ帶路`,
+    description: `${city}共 ${cl.length} 處可用信用卡免費／折抵的停車場，涵蓋${namedDists.slice(0, 5).map(([d]) => d).join('、')}等行政區，附地址與一鍵導航，開網頁免下載、查離你最近的免費停車位。`,
     canonical: cityUrl(city), appHref: APP('seo'), ctaHref: APP('seo', { city }), builtAt,
     crumb: `<a href="${APP('seo')}">小Ｐ帶路</a> › <a href="${HUB}">全台</a> › ${esc(city)}`,
     h1: `${city}信用卡免費停車場`,
@@ -354,8 +354,8 @@ ${faqHtml(FAQ)}`;
 ${lotsHtml(arr)}
 <p style="margin-top:24px"><a href="./">← 回${esc(city)}其他行政區</a></p>`;
     write(`parking/${city}/${d}.html`, page({
-      title: `${city}${d}信用卡免費停車場（${arr.length} 處）｜小Ｐ帶路`,
-      description: `${city}${d}信用卡優惠免費停車場完整清單，共 ${arr.length} 處，含地址、車位與一鍵導航。`,
+      title: `${city}${d}免費停車場｜信用卡優惠 ${arr.length} 處一次看｜小Ｐ帶路`,
+      description: `${city}${d}可用信用卡免費／折抵的停車場共 ${arr.length} 處，含地址、車位與一鍵導航，找離你最近的免費停車位、免下載。`,
       canonical: distUrl(city, d), appHref: APP('seo'), ctaHref: APP('seo', { city, district: d }), builtAt,
       crumb: `<a href="${APP('seo')}">小Ｐ帶路</a> › <a href="${HUB}">全台</a> › <a href="${cityUrl(city)}">${esc(city)}</a> › ${esc(d)}`,
       h1: `${city}${d}信用卡免費停車場`,
@@ -382,8 +382,8 @@ for (const [brand, meta] of Object.entries(BRAND_META)) {
 <div class="note">${esc(meta.desc)} 目前收錄 <b>${bl.length}</b> 處配合信用卡優惠的${esc(meta.label)}停車場，分布於 ${byCity.size} 個縣市。</div>
 ${cityBlocks}`;
   write(`parking/brand/${brand}.html`, page({
-    title: `${meta.label}信用卡免費停車場一覽（${bl.length} 處）｜小Ｐ帶路`,
-    description: `${meta.label}配合信用卡優惠的免費停車場共 ${bl.length} 處，依縣市分類，含地址與導航。`,
+    title: `${meta.label}免費停車場一覽｜信用卡優惠 ${bl.length} 處｜小Ｐ帶路`,
+    description: `${meta.label}配合信用卡免費／折抵的停車場共 ${bl.length} 處，依縣市分類、附地址與一鍵導航，開網頁免下載查詢。`,
     canonical: brandUrl(brand), appHref: APP('seo'), ctaHref: APP('seo', { brand }), builtAt,
     crumb: `<a href="${APP('seo')}">小Ｐ帶路</a> › <a href="${HUB}">全台</a> › ${esc(meta.label)}`,
     h1: `${meta.label}信用卡免費停車場`,
