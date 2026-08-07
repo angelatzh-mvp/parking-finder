@@ -350,8 +350,21 @@ function redeemBlockHtml(b) {
   </section>`;
 }
 
+// 折抵彈窗底部「依銀行查」交叉連結 → app 內查詢入口（連到 SEO 銀行明細頁：卡別/門檻/時數/品牌）
+const BANK_LOOKUP_HTML = `
+  <div class="bank-lookup">
+    <p class="bank-lookup-title">想知道「你的信用卡」能停哪、免費幾小時？依銀行查：</p>
+    <div class="bank-lookup-list">
+      <a href="parking/bank/台新.html">台新</a>
+      <a href="parking/bank/中信.html">中信</a>
+      <a href="parking/bank/國泰世華.html">國泰世華</a>
+      <a href="parking/bank/玉山.html">玉山</a>
+      <a href="parking/bank/富邦.html">富邦</a>
+    </div>
+  </div>`;
+
 function openRedeemSheet(lot) {
-  $('#redeem-body').innerHTML = lot.brands.map(redeemBlockHtml).join('');
+  $('#redeem-body').innerHTML = lot.brands.map(redeemBlockHtml).join('') + BANK_LOOKUP_HTML;
   $('#redeem').hidden = false;
   window.goatcounter?.count?.({ path: 'redeem-open', event: true });
 }
@@ -1361,6 +1374,9 @@ async function main() {
   enableSwipeClose($('#loc-help .modal-sheet'), () => { $('#loc-help').hidden = true; });
   const redeem = $('#redeem');
   $('#redeem-close').addEventListener('click', () => { redeem.hidden = true; });
+  $('#redeem-body').addEventListener('click', (e) => {
+    if (e.target.closest('.bank-lookup-list a')) window.goatcounter?.count?.({ path: 'bank-lookup-click', event: true });
+  });
   redeem.addEventListener('click', (e) => { if (e.target === redeem) redeem.hidden = true; });
   enableSwipeClose(redeem.querySelector('.modal-sheet'), () => { redeem.hidden = true; });
   enableSwipeClose($('#picker .picker-sheet'), () => $('#picker').click());
