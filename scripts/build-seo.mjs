@@ -275,6 +275,21 @@ const poiData = POIS.map((poi) => {
 }).filter((p) => p.near.length >= POI_MIN); // 場站太少的地標不生頁（避免薄頁）
 const nearUrl = (name) => `${SITE}/parking/near/${enc(name)}.html`;
 
+// 銀行 × 停車頁：各銀行配合的停車場品牌，以「銀行官方停車優惠頁」核實（2026-08 核對）。
+// 台新／中信／國泰世華＝官方頁；玉山／富邦＝rich01.com 整理（官方未提供對照頁）。順序依 BRAND_RANK。
+const BANK_BRANDS = {
+  台新: ['utg', 'carmochi', 'dodohome', 'tps'],
+  中信: ['utg', 'carmochi', 'dodohome', 'tps', 'parkinsys'],
+  國泰世華: ['utg', 'dodohome', 'tps', 'vivipark', 'parkinsys'],
+  玉山: ['utg', 'dodohome', 'tps'],
+  富邦: ['utg', 'dodohome'],
+};
+const BANK_OFFICIAL = {
+  台新: 'https://www.taishinbank.com.tw/', 中信: 'https://www.ctbcbank.com/', 玉山: 'https://www.esunbank.com/',
+  國泰世華: 'https://www.cathaybk.com.tw/', 富邦: 'https://www.fubon.com/',
+};
+const bankUrl = (b) => `${SITE}/parking/bank/${enc(b)}.html`;
+
 // ===== 1) 總覽 hub =====
 {
   const total = lots.length;
@@ -289,6 +304,8 @@ const nearUrl = (name) => `${SITE}/parking/near/${enc(name)}.html`;
 <ul class="grid">${Object.entries(brandCounts).sort((a, b) => b[1] - a[1]).map(([b, n]) => `<li><a href="brand/${b}.html">${esc(BRAND_META[b]?.label ?? b)}<span class="n">${n}</span></a></li>`).join('')}</ul>
 ${poiData.length ? `<h2>熱門地點附近停車</h2>
 <ul class="grid">${poiData.map((p) => `<li><a href="near/${enc(p.name)}.html">${esc(p.name)}<span class="n">${p.near.length}</span></a></li>`).join('')}</ul>` : ''}
+<h2>依信用卡銀行查</h2>
+<ul class="grid">${Object.keys(BANK_BRANDS).map((b) => `<li><a href="bank/${enc(b)}.html">${esc(b)}信用卡停車</a></li>`).join('')}</ul>
 ${faqHtml(FAQ)}`;
   write('parking/index.html', page({
     title: `全台免費停車場地圖｜信用卡優惠 ${total} 處一次查｜小Ｐ帶路`,
@@ -560,6 +577,40 @@ ${faqHtml(POI_FAQ)}`;
     ],
   }));
   addUrl(nearUrl(poi.name));
+}
+
+// ===== 8) 銀行 × 停車頁（配合品牌以各銀行官方頁核實；卡別條件與折抵方式一律導回官方＋折抵頁） =====
+for (const [bank, brandKeys] of Object.entries(BANK_BRANDS)) {
+  const CC = `${SITE}/parking/credit-card/`;
+  const brandNames = brandKeys.map((b) => BRAND_META[b].label).join('、');
+  const brandList = brandKeys.map((b) => `<li><div class="name">${brandBadges([b])}</div><a class="go" href="${brandUrl(b)}">看${esc(BRAND_META[b].label)}場站 →</a></li>`).join('\n');
+  const deepCta = APP('bank', { brand: brandKeys.join(',') });
+  const BANK_FAQ = [
+    [`${bank}哪張信用卡可以免費停車？`, `依卡別與當期條件不同（多為消費滿額或綁 App），請查你的 ${bank} 信用卡權益說明。本頁整理的是「${bank} 配合哪些停車場品牌」與場站位置，非個別卡片條件。`],
+    [`用 ${bank} 卡停車要下載 App 嗎？`, `視停車場品牌而定：多數帶實體卡於離場前過卡即可，部分品牌需先在其 App 綁卡自動折抵。詳見信用卡折抵方式，並以 ${bank} 官方公告為準。`],
+    ['免費停幾小時、幾次？', `由 ${bank} 依你的卡別與門檻決定，各卡不同，以 ${bank} 官方公告與停車場現場標示為準。`],
+  ];
+  const body = `
+<div class="note warn">⚠️ <b>提醒</b>：能否免費／折抵、免費時數與適用卡別，都由 ${esc(bank)} 依你的卡別與當期條件決定（多為消費滿額或綁 App），<b>並非無條件免費</b>。本頁只整理「${esc(bank)} 配合哪些停車場品牌」與場站位置，實際優惠<b>以 ${esc(bank)} 官方公告為準</b>${BANK_OFFICIAL[bank] ? `（<a href="${BANK_OFFICIAL[bank]}" target="_blank" rel="noopener">${esc(bank)}官網</a>）` : ''}。</div>
+<h2>${esc(bank)}可在這些停車場品牌免費／折抵</h2>
+<ul class="lots">${brandList}</ul>
+<h2>怎麼開始用 ${esc(bank)} 卡免費停車</h2>
+<p>先確認你的 ${esc(bank)} 卡是否有停車權益與消費門檻（以 ${esc(bank)} 官方公告為準）；各停車場品牌的折抵方式（帶實體卡過卡、或先在 App 綁卡）詳見 👉 <a href="${CC}">信用卡折抵方式</a>。</p>
+<h2>${esc(bank)}配合的停車場在哪？（地圖）</h2>
+<p>用小Ｐ帶路只看 ${esc(bank)} 配合的品牌（${esc(brandNames)}）、地圖找離你最近的：</p>
+<a class="cta" href="${deepCta}">📍 開地圖看 ${esc(bank)} 配合的免費停車場 →</a>
+${faqHtml(BANK_FAQ)}`;
+  write(`parking/bank/${bank}.html`, page({
+    title: `${bank}信用卡停車優惠｜可免費／折抵的停車場＋場站地圖｜小Ｐ帶路`,
+    description: `${bank}信用卡配合 ${brandNames} 等停車場品牌免費／折抵停車，用地圖找離你最近的場站。優惠條件依 ${bank} 官方公告，非無條件免費。`,
+    canonical: bankUrl(bank), appHref: APP('bank'), ctaHref: deepCta, builtAt,
+    crumb: `<a href="${APP('bank')}">小Ｐ帶路</a> › <a href="${HUB}">全台</a> › ${esc(bank)}信用卡停車`,
+    h1: `${bank}信用卡免費停車：配合哪些停車場、場站在哪？`,
+    lead: `用 ${bank} 信用卡可在部分停車場品牌享免費／折抵停車。這裡整理配合的品牌、怎麼折抵，並用地圖帶你找到場站（優惠條件依 ${bank} 公告，非無條件免費）。`,
+    body,
+    jsonLd: [breadcrumbLd([{ name: '小Ｐ帶路', url: APP('bank') }, { name: '全台', url: HUB }, { name: `${bank}信用卡停車`, url: bankUrl(bank) }]), faqLd(BANK_FAQ)],
+  }));
+  addUrl(bankUrl(bank));
 }
 
 // ===== sitemap.xml + robots.txt =====
