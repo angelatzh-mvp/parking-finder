@@ -110,6 +110,10 @@ footer a{color:var(--text-3)}
 .note.warn a{color:#6b3e05;text-decoration:underline}
 ul.tips{margin:12px 0 4px;padding-left:22px;color:var(--text-2)}
 ul.tips li{margin:5px 0}
+.tblwrap{overflow-x:auto;margin:12px 0}
+table.tiers{width:100%;border-collapse:collapse;font-size:13px}
+table.tiers th,table.tiers td{border:1px solid var(--border);padding:7px 9px;text-align:left;vertical-align:top}
+table.tiers th{background:var(--surface-1);font-weight:600;white-space:nowrap}
 `;
 
 const LOGO = '<svg viewBox="0 0 100 100" aria-hidden="true"><rect width="100" height="100" rx="24" fill="#E1F5EE"/><rect x="34" y="24" width="15" height="50" rx="7.5" fill="#1D9E75"/><circle cx="55" cy="40" r="21" fill="#1D9E75"/><circle cx="57" cy="38" r="11" fill="#fff"/><circle cx="53" cy="36" r="2.6" fill="#04342C"/><circle cx="61" cy="36" r="2.6" fill="#04342C"/><path d="M52.5 41.5 Q57 46 61.5 41.5" fill="none" stroke="#04342C" stroke-width="2.4" stroke-linecap="round"/><circle cx="41" cy="79" r="7.5" fill="#04342C" stroke="#fff" stroke-width="2.5"/><circle cx="60" cy="79" r="7.5" fill="#04342C" stroke="#fff" stroke-width="2.5"/></svg>';
@@ -275,8 +279,9 @@ const poiData = POIS.map((poi) => {
 }).filter((p) => p.near.length >= POI_MIN); // 場站太少的地標不生頁（避免薄頁）
 const nearUrl = (name) => `${SITE}/parking/near/${enc(name)}.html`;
 
-// 銀行 × 停車頁：各銀行配合的停車場品牌，以「銀行官方停車優惠頁」核實（2026-08 核對）。
-// 台新／中信／國泰世華＝官方頁；玉山／富邦＝rich01.com 整理（官方未提供對照頁）。順序依 BRAND_RANK。
+// 銀行 × 停車頁。配合品牌與明細均以各銀行官方停車優惠頁核實。
+const BANK_VERIFIED = '2026-08-07'; // 人工查證日期（顯示於頁面，供使用者判斷時效）
+const bankUrl = (b) => `${SITE}/parking/bank/${enc(b)}.html`;
 const BANK_BRANDS = {
   台新: ['utg', 'carmochi', 'dodohome', 'tps'],
   中信: ['utg', 'carmochi', 'dodohome', 'tps', 'parkinsys'],
@@ -285,10 +290,68 @@ const BANK_BRANDS = {
   富邦: ['utg', 'dodohome'],
 };
 const BANK_OFFICIAL = {
-  台新: 'https://www.taishinbank.com.tw/', 中信: 'https://www.ctbcbank.com/', 玉山: 'https://www.esunbank.com/',
-  國泰世華: 'https://www.cathaybk.com.tw/', 富邦: 'https://www.fubon.com/',
+  台新: 'https://www.taishinbank.com.tw/TSB/personal/credit/intro/rights/parking/right0301/',
+  中信: 'https://www.ctbcbank.com/twrbo/zh_tw/cc_index/cc_additional/cc_add_index/cc_add_urbanpark.html',
+  國泰世華: 'https://www.cathay-cube.com.tw/cathaybk/personal/event/overview/credit-card/bonus/product/parkingfee',
+  玉山: 'https://www.esunbank.com/zh-tw/personal/credit-card/benefit/parking-discount',
+  富邦: 'https://www.fubon.com/banking/Personal/credit_card/local_parking/local_parking.htm',
 };
-const bankUrl = (b) => `${SITE}/parking/bank/${enc(b)}.html`;
+// 各銀行明細（整理自上方官方頁，2026-08-07 查證）。tiers＝卡別×門檻×免費時數×適用品牌。
+const BANK_DATA = {
+  台新: {
+    intro: '台新依卡別而定，最低「任刷一筆」、一般卡「當期帳單滿 NT$12,000」即可享免費停車。',
+    tiers: [
+      { card: '環球無限卡', threshold: '任刷一筆', free: '每日 4 小時（每期上限 80 小時）', brands: '台灣聯通·車麻吉·嘟嘟房·24TPS' },
+      { card: '卓富無限卡', threshold: '任刷一筆', free: '每日 4 小時（每期 60 小時）', brands: '台灣聯通·車麻吉·嘟嘟房·24TPS' },
+      { card: '昇恆昌／Mercedes-Benz 無限卡', threshold: '任刷一筆', free: '每日 4 小時（每期 40 小時）', brands: '台灣聯通·車麻吉·嘟嘟房·24TPS' },
+      { card: '新光三越無限卡', threshold: '當期滿 12,000', free: '每日 3 小時（每期 40 小時）', brands: '台灣聯通·車麻吉' },
+      { card: '財富／尊爵／國泰航空等世界卡', threshold: '當期滿 12,000', free: '每日 2 小時（每期 40 小時）', brands: '台灣聯通·車麻吉' },
+      { card: '御璽／鈦金／白金／金／普卡', threshold: '當期滿 12,000', free: '每日 2 小時（每期 10 小時）', brands: '台灣聯通' },
+    ],
+    method: '出場時以實體信用卡於自動繳費機過卡感應；車麻吉須先在 App 綁卡並開「自動折抵」（新增車牌後隔日中午生效）。',
+    notes: ['每卡每日限 1 次，正附卡分開計算', '限汽車，不含機車與 eTag', '不適用行動支付（Apple／Google Pay），須用實體卡', '學費、代繳、eTag 儲值、年費等不計入消費門檻'],
+  },
+  中信: {
+    intro: '中信達標門檻擇一：前 1 個月新增消費滿 NT$20,000（或前 3 個月 10 萬、前 12 個月 60 萬），次月起享優惠；約 900 個指定場站。',
+    tiers: [
+      { card: '一般指定卡（鼎極卡／商務卡等）', threshold: '前 1 月滿 20,000（或前 3 月 10 萬／前 12 月 60 萬）', free: '每日 1 次、每次 2 小時（每月 10 次）', brands: '台灣聯通·車麻吉·嘟嘟房·24TPS·詮營' },
+      { card: 'LEXUS 商務世界卡', threshold: '同上', free: '台灣聯通每日 4 小時（每月無上限）；其他場 2 小時（月 10 次）', brands: '台灣聯通·車麻吉·嘟嘟房·24TPS·詮營' },
+      { card: '華航鼎尊／ANA 無限／LEXUS（加碼）', threshold: '前 1 月滿 50,000', free: '加碼 5 次（共 15 次）', brands: '同上' },
+    ],
+    method: '出場以實體卡於自動繳費機或現場人員過卡；或用車麻吉 App 綁卡結帳。',
+    notes: ['不適用行動支付、eTag', '限四輪車，機車不適用', '每日限一家停車場', '正附卡合併計次；持多張本行卡以最高等級為準'],
+  },
+  國泰世華: {
+    intro: '國泰世華採「小樹點(信用卡)」折抵，非消費滿額型：一般卡 33／35 點折抵 1 小時、每日最高 3 小時。',
+    tiers: [
+      { card: '一般信用卡', threshold: '以小樹點折抵', free: '33 點／1 小時', brands: '24TPS·詮營·ViVi PARK' },
+      { card: '一般信用卡', threshold: '以小樹點折抵', free: '35 點／1 小時', brands: '嘟嘟房·台灣聯通' },
+      { card: '世界卡（亞洲萬里通世界卡除外）', threshold: '以小樹點折抵', free: '20 點／1 小時', brands: '嘟嘟房·台灣聯通' },
+    ],
+    method: '限實體信用卡於繳費機過卡折抵（以小樹點扣點）。',
+    notes: ['每人每日 1 次、每日最高 3 小時', '限實體卡，不適用行動支付與第三方支付', '已申辦 eTag 智慧停車者不適用', '機車計次不適用'],
+  },
+  玉山: {
+    intro: '玉山有兩種：當月新增消費滿 NT$5,000 享每日 1 次 2 小時免費；或以玉山 e-Points 每 40 點折抵 1 小時（每次最高 3 小時）。',
+    tiers: [
+      { card: '消費滿額（世界卡／無限卡／商務卡等）', threshold: '當月新增滿 5,000', free: '每日 1 次、每次 2 小時', brands: '嘟嘟房·台灣聯通·24TPS' },
+      { card: '紅利折抵（e-Points）', threshold: '以點數折抵', free: '40 點／1 小時（每次最高 3 小時）', brands: '嘟嘟房·24TPS' },
+    ],
+    method: '離場前於繳費機或票亭以實體卡過卡。',
+    notes: ['適用卡別與會員資格依玉山公告', '部分聯名卡另有賣場免費停車'],
+  },
+  富邦: {
+    intro: '台北富邦以紅利點數或哩程折抵：多數卡 1,200 點／小時、部分商務卡 175 哩／小時。',
+    tiers: [
+      { card: '尊御世界卡', threshold: '滿 10,000（智富／恆富）或 20,000', free: '每日最高 3 小時（1,200 點／時）', brands: '嘟嘟房·台灣聯通' },
+      { card: '世界卡／無限卡', threshold: '滿 20,000', free: '每日最高 2 小時（1,200 點／時）', brands: '嘟嘟房·台灣聯通' },
+      { card: '鈦金／富利生活鈦金／采盟等', threshold: '無特定門檻', free: '每日最高 1 小時（1,200 點／時）', brands: '嘟嘟房·台灣聯通' },
+      { card: '商務卡／a miles 航空白金', threshold: '無門檻', free: '每日最高 3 小時（175 哩／時）', brands: '嘟嘟房·台灣聯通' },
+    ],
+    method: '實體卡於繳費機過卡，以富邦紅利點數（1,200 點／時）或哩程（175 哩／時）折抵。',
+    notes: ['每日限 1 次、限一家停車場、每期上限 10 次', '不足 1 小時以 1 小時計', '限實體卡'],
+  },
+};
 
 // ===== 1) 總覽 hub =====
 {
@@ -582,27 +645,33 @@ ${faqHtml(POI_FAQ)}`;
 // ===== 8) 銀行 × 停車頁（配合品牌以各銀行官方頁核實；卡別條件與折抵方式一律導回官方＋折抵頁） =====
 for (const [bank, brandKeys] of Object.entries(BANK_BRANDS)) {
   const CC = `${SITE}/parking/credit-card/`;
+  const d = BANK_DATA[bank];
+  const official = BANK_OFFICIAL[bank];
   const brandNames = brandKeys.map((b) => BRAND_META[b].label).join('、');
-  const brandList = brandKeys.map((b) => `<li><div class="name">${brandBadges([b])}</div><a class="go" href="${brandUrl(b)}">看${esc(BRAND_META[b].label)}場站 →</a></li>`).join('\n');
   const deepCta = APP('bank', { brand: brandKeys.join(',') });
+  const tierRows = d.tiers.map((t) => `<tr><td>${esc(t.card)}</td><td>${esc(t.threshold)}</td><td>${esc(t.free)}</td><td>${esc(t.brands)}</td></tr>`).join('');
+  const notesList = d.notes.map((n) => `<li>${esc(n)}</li>`).join('');
   const BANK_FAQ = [
-    [`${bank}哪張信用卡可以免費停車？`, `依卡別與當期條件不同（多為消費滿額或綁 App），請查你的 ${bank} 信用卡權益說明。本頁整理的是「${bank} 配合哪些停車場品牌」與場站位置，非個別卡片條件。`],
-    [`用 ${bank} 卡停車要下載 App 嗎？`, `視停車場品牌而定：多數帶實體卡於離場前過卡即可，部分品牌需先在其 App 綁卡自動折抵。詳見信用卡折抵方式，並以 ${bank} 官方公告為準。`],
-    ['免費停幾小時、幾次？', `由 ${bank} 依你的卡別與門檻決定，各卡不同，以 ${bank} 官方公告與停車場現場標示為準。`],
+    [`${bank}哪張信用卡可以免費停車？`, `${d.intro}詳細卡別與免費時數見本頁表格；實際以 ${bank} 官方公告為準。`],
+    [`用 ${bank} 卡停車要下載 App 嗎？`, `多數帶實體卡於離場前過卡即可；車麻吉等少數品牌需先在其 App 綁卡自動折抵。各品牌操作見信用卡折抵方式。`],
+    [`${bank}停車優惠每日幾次、幾小時？`, `多為每日 1 次，免費時數依卡別 1～4 小時不等（見表格），並有每月次數上限；以 ${bank} 官方公告與現場標示為準。`],
   ];
   const body = `
-<div class="note warn">⚠️ <b>提醒</b>：能否免費／折抵、免費時數與適用卡別，都由 ${esc(bank)} 依你的卡別與當期條件決定（多為消費滿額或綁 App），<b>並非無條件免費</b>。本頁只整理「${esc(bank)} 配合哪些停車場品牌」與場站位置，實際優惠<b>以 ${esc(bank)} 官方公告為準</b>${BANK_OFFICIAL[bank] ? `（<a href="${BANK_OFFICIAL[bank]}" target="_blank" rel="noopener">${esc(bank)}官網</a>）` : ''}。</div>
-<h2>${esc(bank)}可在這些停車場品牌免費／折抵</h2>
-<ul class="lots">${brandList}</ul>
-<h2>怎麼開始用 ${esc(bank)} 卡免費停車</h2>
-<p>先確認你的 ${esc(bank)} 卡是否有停車權益與消費門檻（以 ${esc(bank)} 官方公告為準）；各停車場品牌的折抵方式（帶實體卡過卡、或先在 App 綁卡）詳見 👉 <a href="${CC}">信用卡折抵方式</a>。</p>
-<h2>${esc(bank)}配合的停車場在哪？（地圖）</h2>
-<p>用小Ｐ帶路只看 ${esc(bank)} 配合的品牌（${esc(brandNames)}）、地圖找離你最近的：</p>
+<div class="note warn">⚠️ <b>提醒</b>：${esc(bank)} 的停車優惠<b>並非無條件免費</b>——須符合下表的消費門檻，或以紅利點數／哩程折抵，實際權益依你的卡別與當期條件而定。</div>
+<p class="lead" style="margin-top:0">${esc(d.intro)}</p>
+<h2>${esc(bank)} 停車優惠一覽（依卡別）</h2>
+<div class="tblwrap"><table class="tiers"><thead><tr><th>卡別</th><th>門檻</th><th>免費／折抵</th><th>適用停車場</th></tr></thead><tbody>${tierRows}</tbody></table></div>
+<p><b>使用方式：</b>${esc(d.method)}</p>
+<h2>注意事項</h2>
+<ul class="tips">${notesList}</ul>
+<div class="note">📅 本頁資訊整理自 <a href="${official}" target="_blank" rel="noopener">${esc(bank)} 官方停車優惠頁</a>，最後查證 <b>${BANK_VERIFIED}</b>。信用卡優惠與門檻常有變動，實際權益、適用卡別與條件<b>請以 ${esc(bank)} 官方最新公告為準</b>；本頁僅供快速比較參考，請自行斟酌，發現有誤歡迎回報。</div>
+<h2>${esc(bank)} 配合的停車場在哪？（地圖）</h2>
+<p>用小Ｐ帶路只看 ${esc(bank)} 配合的品牌（${esc(brandNames)}）、地圖找離你最近的；各品牌詳細折抵操作見 👉 <a href="${CC}">信用卡折抵方式</a>。</p>
 <a class="cta" href="${deepCta}">📍 開地圖看 ${esc(bank)} 配合的免費停車場 →</a>
 ${faqHtml(BANK_FAQ)}`;
   write(`parking/bank/${bank}.html`, page({
     title: `${bank}信用卡停車優惠｜可免費／折抵的停車場＋場站地圖｜小Ｐ帶路`,
-    description: `${bank}信用卡配合 ${brandNames} 等停車場品牌免費／折抵停車，用地圖找離你最近的場站。優惠條件依 ${bank} 官方公告，非無條件免費。`,
+    description: `${bank}信用卡停車優惠整理：配合 ${brandNames}，各卡別消費門檻與免費時數一次看，再用地圖找離你最近的場站。${BANK_VERIFIED} 查證、非無條件免費。`,
     canonical: bankUrl(bank), appHref: APP('bank'), ctaHref: deepCta, builtAt,
     crumb: `<a href="${APP('bank')}">小Ｐ帶路</a> › <a href="${HUB}">全台</a> › ${esc(bank)}信用卡停車`,
     h1: `${bank}信用卡免費停車：配合哪些停車場、場站在哪？`,
