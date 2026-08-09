@@ -1,11 +1,11 @@
 {
   "source": "wss://www.taiwan-parking.com.tw/ada/public",
-  "scrapedAt": "2026-08-02T21:48:11.395Z",
+  "scrapedAt": "2026-08-09T21:23:57.189Z",
   "count": 247,
   "byCity": {
-    "台北市": 67,
+    "台北市": 68,
     "新北市": 40,
-    "桃園市": 35,
+    "桃園市": 34,
     "台南市": 29,
     "台中市": 36,
     "高雄市": 13,
@@ -22,6 +22,19 @@
     "新竹市": 2
   },
   "lots": [
+    {
+      "parkingId": "3003",
+      "name": "台灣聯通總公司",
+      "city": "台北市",
+      "district": "中山區",
+      "address": "民生東路一段51號9樓",
+      "lat": 25.058134,
+      "lng": 121.526225,
+      "maxHeight": 1.55,
+      "totalSpace": 50,
+      "note": "",
+      "phone": "1234567890"
+    },
     {
       "parkingId": "3625",
       "name": "獅子林場",
@@ -1362,19 +1375,6 @@
       "phone": "02-25235000"
     },
     {
-      "parkingId": "3421",
-      "name": "中壢金峰場",
-      "city": "桃園市",
-      "district": "中壢區",
-      "address": "桃園市中壢區金鋒五街22巷2號對面空地",
-      "lat": 24.9457,
-      "lng": 121.248,
-      "maxHeight": null,
-      "totalSpace": 0,
-      "note": "",
-      "phone": "02-25235000"
-    },
-    {
       "parkingId": "3420",
       "name": "秀峰場",
       "city": "新北市",
@@ -2688,7 +2688,7 @@
       "phone": "02-25235000"
     },
     {
-      "parkingId": "3003",
+      "parkingId": "3177",
       "name": "華泰王子場(不支援線上繳費)",
       "city": "台北市",
       "district": "中山區",
