@@ -360,6 +360,14 @@ const BANK_LOOKUP_HTML = `
       <a href="parking/bank/國泰世華.html">國泰世華</a>
       <a href="parking/bank/玉山.html">玉山</a>
       <a href="parking/bank/富邦.html">富邦</a>
+      <a href="parking/bank/聯邦.html">聯邦</a>
+      <a href="parking/bank/上海商銀.html">上海商銀</a>
+      <a href="parking/bank/兆豐.html">兆豐</a>
+      <a href="parking/bank/星展.html">星展</a>
+      <a href="parking/bank/永豐.html">永豐</a>
+      <a href="parking/bank/第一銀行.html">第一銀行</a>
+      <a href="parking/bank/華南.html">華南</a>
+      <a href="parking/bank/合庫.html">合庫</a>
     </div>
   </div>`;
 
