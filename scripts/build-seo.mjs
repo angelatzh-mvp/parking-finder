@@ -353,6 +353,36 @@ const BANK_DATA = {
   },
 };
 
+// 區域（開車族看大範圍；離島僅澎湖 1 站，併入南部、不單獨開頁）。city 名須與資料集一致。
+const REGIONS = {
+  北部: ['基隆市', '台北市', '新北市', '桃園市', '新竹縣市', '宜蘭縣'],
+  中部: ['苗栗縣', '台中市', '彰化縣', '南投縣', '雲林縣'],
+  南部: ['嘉義縣市', '台南市', '高雄市', '屏東縣', '澎湖縣'],
+  東部: ['花蓮縣', '台東縣'],
+};
+const regionUrl = (r) => `${SITE}/parking/region/${enc(r)}.html`;
+// 反查：某品牌由哪些（已收錄）銀行涵蓋，供「辦哪張卡」建議
+const BRAND_TO_BANKS = {};
+for (const [bk, bks] of Object.entries(BANK_BRANDS)) for (const b of bks) (BRAND_TO_BANKS[b] = BRAND_TO_BANKS[b] || []).push(bk);
+// 「在某地區想免費停車，辦哪張卡？」區塊——只有小P能依地點的品牌分布回答（縣市/區域/全台層級用，不做到行政區）
+function cardAdviceHtml(areaLots, areaName, appCta) {
+  const bc = {};
+  for (const l of areaLots) for (const b of l.brands) bc[b] = (bc[b] || 0) + 1;
+  const label = (b) => BRAND_META[b].label;
+  const distStr = Object.entries(bc).sort((a, b) => b[1] - a[1]).map(([b, n]) => `${label(b)} ${n}`).join('、');
+  const allBanks = Object.keys(BANK_BRANDS).join('／');
+  const common = ['utg', 'dodohome', 'tps'].filter((b) => bc[b]);
+  const lines = [];
+  if (common.length) lines.push(`${common.map(label).join('、')}：${allBanks} 大多都能停`);
+  for (const b of ['carmochi', 'vivipark', 'parkinsys']) if (bc[b]) lines.push(`<b>${label(b)}（${bc[b]} 站）</b>：需 ${(BRAND_TO_BANKS[b] || []).join(' 或 ')}`);
+  const bankLinks = Object.keys(BANK_BRANDS).map((bk) => `<a href="${bankUrl(bk)}">${esc(bk)}</a>`).join('・');
+  return `
+<h2>在${esc(areaName)}想免費停車，辦哪張卡？</h2>
+<div class="note">💳 ${esc(areaName)}的免停場站品牌分布：${esc(distStr)}。<b>每張卡配合的品牌不同</b>，先看你常停哪種再選：</div>
+<ul class="tips">${lines.map((x) => `<li>${x}</li>`).join('')}</ul>
+<p>各家門檻與免費時數比一比：${bankLinks}；或先 <a href="${appCta}">開地圖看${esc(areaName)}有哪些免費停車場</a>，確認住家／常去地點附近的品牌後再決定辦哪張。</p>`;
+}
+
 // ===== 1) 總覽 hub =====
 {
   const total = lots.length;
@@ -363,12 +393,15 @@ const BANK_DATA = {
 <p style="margin:14px 0"><b>新手先看：</b><a href="guide/">信用卡免費停車完整攻略</a>　·　<a href="credit-card/">六大品牌怎麼折抵</a></p>
 <h2>依縣市瀏覽</h2>
 <ul class="grid">${cityOrder.map((c) => `<li><a href="${enc(c)}/">${esc(c)}<span class="n">${cities.get(c).length}</span></a></li>`).join('')}</ul>
+<h2>依區域瀏覽</h2>
+<ul class="grid">${Object.entries(REGIONS).map(([r, cs]) => { const n = cs.filter((c) => cities.has(c)).reduce((s, c) => s + cities.get(c).length, 0); return n ? `<li><a href="region/${enc(r)}.html">${esc(r)}<span class="n">${n}</span></a></li>` : ''; }).join('')}</ul>
 <h2>依停車場品牌瀏覽</h2>
 <ul class="grid">${Object.entries(brandCounts).sort((a, b) => b[1] - a[1]).map(([b, n]) => `<li><a href="brand/${b}.html">${esc(BRAND_META[b]?.label ?? b)}<span class="n">${n}</span></a></li>`).join('')}</ul>
 ${poiData.length ? `<h2>熱門地點附近停車</h2>
 <ul class="grid">${poiData.map((p) => `<li><a href="near/${enc(p.name)}.html">${esc(p.name)}<span class="n">${p.near.length}</span></a></li>`).join('')}</ul>` : ''}
 <h2>依信用卡銀行查</h2>
 <ul class="grid">${Object.keys(BANK_BRANDS).map((b) => `<li><a href="bank/${enc(b)}.html">${esc(b)}信用卡停車</a></li>`).join('')}</ul>
+${cardAdviceHtml(lots, '全台', APP('cardpick'))}
 ${faqHtml(FAQ)}`;
   write('parking/index.html', page({
     title: `全台免費停車場地圖｜信用卡優惠 ${total} 處一次查｜小Ｐ帶路`,
@@ -411,6 +444,7 @@ for (const city of cityOrder) {
 <div class="note">${esc(city)}共有 <b>${cl.length}</b> 處配合信用卡優惠的停車場，分布於 ${namedDists.length} 個行政區。品牌分布：${esc(cityBrandLine)}。</div>
 ${distGrid}
 ${noDistBlock}
+${cardAdviceHtml(cl, city, APP('cardpick', { city }))}
 ${faqHtml(FAQ)}`;
   write(`parking/${city}/index.html`, page({
     title: `${city}免費停車場｜信用卡優惠 ${cl.length} 處一次查｜小Ｐ帶路`,
@@ -680,6 +714,31 @@ ${faqHtml(BANK_FAQ)}`;
     jsonLd: [breadcrumbLd([{ name: '小Ｐ帶路', url: APP('bank') }, { name: '全台', url: HUB }, { name: `${bank}信用卡停車`, url: bankUrl(bank) }]), faqLd(BANK_FAQ)],
   }));
   addUrl(bankUrl(bank));
+}
+
+// ===== 9) 區域頁（北/中/南/東；開車族看大範圍。含「辦哪張卡」建議＋縣市索引） =====
+for (const [region, citiesInR] of Object.entries(REGIONS)) {
+  const rc = citiesInR.filter((c) => cities.has(c));
+  const rLots = rc.flatMap((c) => cities.get(c));
+  if (!rLots.length) continue;
+  const cityGrid = rc.map((c) => `<li><a href="${cityUrl(c)}">${esc(c)}<span class="n">${cities.get(c).length}</span></a></li>`).join('');
+  const body = `
+<div class="note">${esc(region)}（${rc.join('、')}）共收錄 <b>${rLots.length}</b> 個配合信用卡優惠的免費停車場。</div>
+${cardAdviceHtml(rLots, region, APP('cardpick'))}
+<h2>${esc(region)}各縣市</h2>
+<ul class="grid">${cityGrid}</ul>
+${faqHtml(FAQ)}`;
+  write(`parking/region/${region}.html`, page({
+    title: `${region}信用卡免費停車場｜辦哪張卡＋場站地圖一次看｜小Ｐ帶路`,
+    description: `${region}（${rc.join('、')}）信用卡免費停車場整理：品牌分布、該辦哪張信用卡、各縣市場站地圖，共 ${rLots.length} 站。`,
+    canonical: regionUrl(region), appHref: APP('seo'), builtAt,
+    crumb: `<a href="${APP('seo')}">小Ｐ帶路</a> › <a href="${HUB}">全台</a> › ${esc(region)}`,
+    h1: `${region}信用卡免費停車場：辦哪張卡、去哪停`,
+    lead: `${region}地區信用卡免費停車場與選卡建議，共 ${rLots.length} 站，涵蓋 ${rc.join('、')}。`,
+    body,
+    jsonLd: [breadcrumbLd([{ name: '小Ｐ帶路', url: APP('seo') }, { name: '全台', url: HUB }, { name: region, url: regionUrl(region) }])],
+  }));
+  addUrl(regionUrl(region));
 }
 
 // ===== sitemap.xml + robots.txt =====
