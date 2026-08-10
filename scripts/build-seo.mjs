@@ -522,16 +522,20 @@ function cardAdviceHtml(areaLots, areaName, appCta) {
       coveredBrands: bset.filter((b) => bc[b]),
     };
   }).sort((a, b) => b.n - a.n || BANK_REC[b.bank].ease - BANK_REC[a.bank].ease);
-  const rows = ranked.map((r, i) => {
+  const TOP_N = 6; // 只完整推薦覆蓋度最高的前幾家；其餘收成一行（13 家全列太長、失去推薦意義）
+  const pctOf = (n) => (total ? Math.round((n / total) * 100) : 0);
+  const rows = ranked.slice(0, TOP_N).map((r, i) => {
     const rec = BANK_REC[r.bank];
-    const pct = total ? Math.round((r.n / total) * 100) : 0;
     return `<li>
-<div class="name">${i + 1}. ${esc(r.bank)}信用卡 <span class="meta" style="display:inline;margin-left:6px;color:var(--accent);font-weight:600">涵蓋 ${r.n} 站（約 ${pct}%）</span></div>
+<div class="name">${i + 1}. ${esc(r.bank)}信用卡 <span class="meta" style="display:inline;margin-left:6px;color:var(--accent);font-weight:600">涵蓋 ${r.n} 站（約 ${pctOf(r.n)}%）</span></div>
 <div class="addr">在${esc(areaName)}可停：${r.coveredBrands.map(label).join('、')}</div>
 <div class="meta"><b>門檻</b>：${esc(rec.thr)}｜${esc(rec.free)}</div>
 <a class="go" href="${bankUrl(r.bank)}">看${esc(r.bank)}各卡別完整條件 →</a>
 </li>`;
   }).join('\n');
+  const restLine = ranked.length > TOP_N
+    ? `<p class="meta" style="margin-top:8px">其他也有配合（在${esc(areaName)}覆蓋度較低）：${ranked.slice(TOP_N).map((r) => `<a href="${bankUrl(r.bank)}">${esc(r.bank)} ${pctOf(r.n)}%</a>`).join('、')}</p>`
+    : '';
   // 「差異關鍵」＝這區有、但只有少數銀行配合的品牌。依 BANK_BRANDS 動態算，加銀行後不會過時。
   const exclusive = Object.keys(bc)
     .filter((b) => (BRAND_TO_BANKS[b] || []).length && BRAND_TO_BANKS[b].length < WIDE_AT)
@@ -545,7 +549,7 @@ function cardAdviceHtml(areaLots, areaName, appCta) {
   return `
 <h2>在${esc(areaName)}想免費停車，該辦哪張卡？</h2>
 <div class="note">💳 依這區 <b>${total}</b> 個免停場站的<b>覆蓋度</b>排序如下，門檻一併列出供你評估值不值得辦。這區品牌分布：${esc(distStr)}。</div>
-<ul class="lots">${rows}</ul>
+<ul class="lots">${rows}</ul>${restLine}
 ${exclusive.length ? `<p>💡 <b>差異關鍵</b>：${exclusive.join('；')}——你住家／常去地點附近若多這些品牌，優先選對應的卡。</p>` : ''}
 <p style="margin-top:8px">不確定附近是哪些品牌？先 <a href="${appCta}">開地圖看${esc(areaName)}的免費停車場</a>，確認後再挑卡最準。</p>`;
 }
