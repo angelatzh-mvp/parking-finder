@@ -364,23 +364,52 @@ const regionUrl = (r) => `${SITE}/parking/region/${enc(r)}.html`;
 // 反查：某品牌由哪些（已收錄）銀行涵蓋，供「辦哪張卡」建議
 const BRAND_TO_BANKS = {};
 for (const [bk, bks] of Object.entries(BANK_BRANDS)) for (const b of bks) (BRAND_TO_BANKS[b] = BRAND_TO_BANKS[b] || []).push(bk);
-// 「在某地區想免費停車，辦哪張卡？」區塊——只有小P能依地點的品牌分布回答（縣市/區域/全台層級用，不做到行政區）
+// 各卡的門檻／時數摘要（給推薦用；ease 越大＝越好達標，覆蓋度相同時排前面）
+const BANK_REC = {
+  台新: { thr: '當期帳單滿 NT$12,000（環球等無限卡可任刷一筆）', free: '每日 2–4 小時（依卡別）', ease: 2 },
+  中信: { thr: '前 1 個月新增消費滿 NT$20,000', free: '每日 2 小時、每月 10 次', ease: 1 },
+  國泰世華: { thr: '免消費門檻，以小樹點折抵（一般卡 33／35 點抵 1 小時）', free: '每日最高 3 小時', ease: 4 },
+  玉山: { thr: '當月新增消費滿 NT$5,000（或 e-Points 40 點抵 1 小時）', free: '每日 2 小時', ease: 3 },
+  富邦: { thr: '多數卡免門檻，以紅利點數／哩程折抵', free: '每日最高 1–3 小時', ease: 3 },
+};
+
+// 「在某地區想免費停車，辦哪張卡？」——依該地區「這張卡能用的免停場站數」排序推薦，並標門檻供評估
+// （縣市／區域／全台層級用，不做到行政區）
 function cardAdviceHtml(areaLots, areaName, appCta) {
+  const total = areaLots.length;
   const bc = {};
   for (const l of areaLots) for (const b of l.brands) bc[b] = (bc[b] || 0) + 1;
   const label = (b) => BRAND_META[b].label;
   const distStr = Object.entries(bc).sort((a, b) => b[1] - a[1]).map(([b, n]) => `${label(b)} ${n}`).join('、');
-  const allBanks = Object.keys(BANK_BRANDS).join('／');
-  const common = ['utg', 'dodohome', 'tps'].filter((b) => bc[b]);
-  const lines = [];
-  if (common.length) lines.push(`${common.map(label).join('、')}：${allBanks} 大多都能停`);
-  for (const b of ['carmochi', 'vivipark', 'parkinsys']) if (bc[b]) lines.push(`<b>${label(b)}（${bc[b]} 站）</b>：需 ${(BRAND_TO_BANKS[b] || []).join(' 或 ')}`);
-  const bankLinks = Object.keys(BANK_BRANDS).map((bk) => `<a href="${bankUrl(bk)}">${esc(bk)}</a>`).join('・');
+  // 每家：這張卡在這區能用的場站數（站點任一品牌被此卡涵蓋即算）＋此卡在這區實際可用的品牌
+  const ranked = Object.keys(BANK_BRANDS).map((bank) => {
+    const bset = BANK_BRANDS[bank];
+    return {
+      bank,
+      n: areaLots.filter((l) => l.brands.some((b) => bset.includes(b))).length,
+      coveredBrands: bset.filter((b) => bc[b]),
+    };
+  }).sort((a, b) => b.n - a.n || BANK_REC[b.bank].ease - BANK_REC[a.bank].ease);
+  const rows = ranked.map((r, i) => {
+    const rec = BANK_REC[r.bank];
+    const pct = total ? Math.round((r.n / total) * 100) : 0;
+    return `<li>
+<div class="name">${i + 1}. ${esc(r.bank)}信用卡 <span class="meta" style="display:inline;margin-left:6px;color:var(--accent);font-weight:600">涵蓋 ${r.n} 站（約 ${pct}%）</span></div>
+<div class="addr">在${esc(areaName)}可停：${r.coveredBrands.map(label).join('、')}</div>
+<div class="meta"><b>門檻</b>：${esc(rec.thr)}｜${esc(rec.free)}</div>
+<a class="go" href="${bankUrl(r.bank)}">看${esc(r.bank)}各卡別完整條件 →</a>
+</li>`;
+  }).join('\n');
+  const exclusive = [];
+  if (bc.carmochi) exclusive.push(`車麻吉（${bc.carmochi} 站）只有 <b>台新／中信</b> 能停`);
+  if (bc.vivipark) exclusive.push(`ViVi PARK（${bc.vivipark} 站）只有 <b>國泰世華</b> 能停`);
+  if (bc.parkinsys) exclusive.push(`詮營（${bc.parkinsys} 站）需 <b>中信／國泰世華</b>`);
   return `
-<h2>在${esc(areaName)}想免費停車，辦哪張卡？</h2>
-<div class="note">💳 ${esc(areaName)}的免停場站品牌分布：${esc(distStr)}。<b>每張卡配合的品牌不同</b>，先看你常停哪種再選：</div>
-<ul class="tips">${lines.map((x) => `<li>${x}</li>`).join('')}</ul>
-<p>各家門檻與免費時數比一比：${bankLinks}；或先 <a href="${appCta}">開地圖看${esc(areaName)}有哪些免費停車場</a>，確認住家／常去地點附近的品牌後再決定辦哪張。</p>`;
+<h2>在${esc(areaName)}想免費停車，該辦哪張卡？</h2>
+<div class="note">💳 依這區 <b>${total}</b> 個免停場站的<b>覆蓋度</b>排序如下，門檻一併列出供你評估值不值得辦。這區品牌分布：${esc(distStr)}。</div>
+<ul class="lots">${rows}</ul>
+${exclusive.length ? `<p>💡 <b>差異關鍵</b>：${exclusive.join('；')}——你住家／常去地點附近若多這些品牌，優先選對應的卡。</p>` : ''}
+<p style="margin-top:8px">不確定附近是哪些品牌？先 <a href="${appCta}">開地圖看${esc(areaName)}的免費停車場</a>，確認後再挑卡最準。</p>`;
 }
 
 // ===== 1) 總覽 hub =====
