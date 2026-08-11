@@ -561,7 +561,7 @@ ${exclusive.length ? `<p>💡 <b>差異關鍵</b>：${exclusive.join('；')}—�
     .map(([b, n]) => `${BRAND_META[b]?.label ?? b}（${n}）`).join('、');
   const body = `
 <div class="note">收錄全台 <b>${total}</b> 處配合信用卡優惠的停車場，涵蓋 ${cityOrder.length} 個縣市、${Object.keys(brandCounts).length} 大品牌：${esc(brandLine)}。點縣市查看該區完整名單。</div>
-<p style="margin:14px 0"><b>新手先看：</b><a href="guide/">信用卡免費停車完整攻略</a>　·　<a href="credit-card/">六大品牌怎麼折抵</a></p>
+<p style="margin:14px 0"><b>新手先看：</b><a href="選卡/">3 題幫你選對停車信用卡</a>　·　<a href="guide/">免費停車完整攻略</a>　·　<a href="credit-card/">六大品牌怎麼折抵</a></p>
 <h2>依縣市瀏覽</h2>
 <ul class="grid">${cityOrder.map((c) => `<li><a href="${enc(c)}/">${esc(c)}<span class="n">${cities.get(c).length}</span></a></li>`).join('')}</ul>
 <h2>依區域瀏覽</h2>
@@ -912,6 +912,105 @@ ${faqHtml(FAQ)}`;
     jsonLd: [breadcrumbLd([{ name: '小Ｐ帶路', url: APP('seo') }, { name: '全台', url: HUB }, { name: region, url: regionUrl(region) }])],
   }));
   addUrl(regionUrl(region));
+}
+
+// ===== 10) 選卡問卷工具頁 /parking/選卡/ =====
+// spend=消費門檻NT$（0=免門檻/任刷/紅利折抵）；tier general一般/premium頂級（無限卡/世界卡/世界之極/極致，華南尊榮卡人工確認）；
+// benefit direct直接免費（滿額/任刷）/points紅利點數折抵。排序：覆蓋度→direct優先→門檻低→一般卡。
+const CARD_OPTIONS = [
+  { bank: '台新', card: '環球無限卡', brands: ['utg', 'carmochi', 'dodohome', 'tps'], spend: 0, freeHr: '每日 4hr', tier: 'premium', benefit: 'direct' },
+  { bank: '台新', card: '財富無限卡／尊爵世界卡', brands: ['utg', 'carmochi'], spend: 12000, freeHr: '每日 2hr', tier: 'premium', benefit: 'direct' },
+  { bank: '台新', card: '御璽／鈦金卡', brands: ['utg'], spend: 12000, freeHr: '每日 2hr', tier: 'general', benefit: 'direct' },
+  { bank: '中信', card: '一般指定卡（鼎極／商務）', brands: ['utg', 'carmochi', 'dodohome', 'tps', 'parkinsys'], spend: 20000, freeHr: '每日 2hr（月10次）', tier: 'general', benefit: 'direct' },
+  { bank: '中信', card: 'LEXUS 商務世界卡', brands: ['utg', 'carmochi', 'dodohome', 'tps', 'parkinsys'], spend: 20000, freeHr: '聯通每日 4hr', tier: 'premium', benefit: 'direct' },
+  { bank: '國泰世華', card: '一般信用卡（小樹點折抵）', brands: ['utg', 'dodohome', 'tps', 'vivipark', 'parkinsys'], spend: 0, freeHr: '每日 3hr', tier: 'general', benefit: 'points' },
+  { bank: '國泰世華', card: '世界卡', brands: ['utg', 'dodohome'], spend: 0, freeHr: '每日 3hr（20點/hr）', tier: 'premium', benefit: 'points' },
+  { bank: '玉山', card: 'Unicard（紅利折抵）', brands: ['dodohome', 'tps'], spend: 0, freeHr: '40點/hr·最高3hr', tier: 'general', benefit: 'points' },
+  { bank: '玉山', card: '世界卡／無限卡（滿額）', brands: ['utg', 'dodohome', 'tps'], spend: 5000, freeHr: '每日 2hr', tier: 'premium', benefit: 'direct' },
+  { bank: '富邦', card: '鈦金／富利生活鈦金卡', brands: ['utg', 'dodohome'], spend: 0, freeHr: '每日 1hr', tier: 'general', benefit: 'points' },
+  { bank: '富邦', card: '尊御世界卡', brands: ['utg', 'dodohome'], spend: 10000, freeHr: '每日 3hr', tier: 'premium', benefit: 'points' },
+  { bank: '聯邦', card: '珍鑽／大立無限卡', brands: ['utg', 'carmochi', 'dodohome', 'vivipark', 'parkinsys'], spend: 0, freeHr: '每日 2hr（月不限）', tier: 'premium', benefit: 'direct' },
+  { bank: '聯邦', card: '全國加油／樂活御璽鈦金卡', brands: ['utg', 'carmochi', 'dodohome', 'vivipark', 'parkinsys'], spend: 12000, freeHr: '每日 2hr（月5次）', tier: 'general', benefit: 'direct' },
+  { bank: '上海商銀', card: '世界商務卡等', brands: ['utg', 'carmochi', 'dodohome', 'vivipark'], spend: 10000, freeHr: '每日 3hr', tier: 'premium', benefit: 'direct' },
+  { bank: '上海商銀', card: '紅利折抵（全卡友）', brands: ['utg', 'carmochi', 'dodohome', 'vivipark'], spend: 0, freeHr: '每日 2hr（600點/hr）', tier: 'general', benefit: 'points' },
+  { bank: '兆豐', card: '無限卡／世界卡', brands: ['utg', 'carmochi', 'dodohome', 'vivipark'], spend: 0, freeHr: '每日 3hr（300點/hr）', tier: 'premium', benefit: 'points' },
+  { bank: '兆豐', card: '個人商旅卡 Plus', brands: ['utg', 'carmochi', 'dodohome', 'vivipark'], spend: 0, freeHr: '每日 3hr', tier: 'general', benefit: 'points' },
+  { bank: '星展', card: 'everyday 鈦金卡', brands: ['utg'], spend: 20000, freeHr: '天天 2hr', tier: 'general', benefit: 'direct', note: '僅台灣聯通' },
+  { bank: '星展', card: '極耀無限卡', brands: ['utg', 'dodohome'], spend: 20000, freeHr: '週末 4hr', tier: 'premium', benefit: 'direct', note: '限週六日' },
+  { bank: '永豐', card: '財富無限卡／永豐世界卡', brands: ['utg', 'dodohome'], spend: 10000, freeHr: '每日 2hr', tier: 'premium', benefit: 'direct' },
+  { bank: '永豐', card: '永傳世界卡', brands: ['utg', 'dodohome'], spend: 10000, freeHr: '每日 4hr（月30次）', tier: 'premium', benefit: 'direct' },
+  { bank: '第一銀行', card: '鈦金／御璽卡', brands: ['utg', 'dodohome', 'tps', 'vivipark'], spend: 20000, freeHr: '每日 2hr', tier: 'general', benefit: 'direct' },
+  { bank: '第一銀行', card: 'Glory+ 世界卡', brands: ['utg', 'dodohome', 'tps', 'vivipark'], spend: 0, freeHr: '每日 2hr（月20次）', tier: 'premium', benefit: 'direct', note: '高資產客戶' },
+  { bank: '華南', card: '領航極致尊榮卡', brands: ['utg', 'dodohome', 'tps', 'vivipark'], spend: 3000, freeHr: '每日 3hr', tier: 'premium', benefit: 'direct' },
+  { bank: '華南', card: '領航尊榮卡／The ONE', brands: ['utg', 'dodohome', 'tps', 'vivipark'], spend: 15000, freeHr: '每日 2hr', tier: 'premium', benefit: 'direct' },
+  { bank: '合庫', card: '無限卡／金鑽卡', brands: ['utg', 'dodohome', 'tps', 'vivipark'], spend: 10000, freeHr: '每日 3hr', tier: 'premium', benefit: 'direct' },
+];
+{
+  const PICK = `${SITE}/parking/${enc('選卡')}/`;
+  const pickAreas = ['全台', ...cityOrder];
+  // 每個地區 × 每張卡的覆蓋度（站點任一品牌被此卡涵蓋即算），前端據此排序
+  const cov = {};
+  for (const a of pickAreas) {
+    const al = a === '全台' ? lots : cities.get(a);
+    cov[a] = { t: al.length, c: CARD_OPTIONS.map((cd) => al.filter((l) => l.brands.some((b) => cd.brands.includes(b))).length) };
+  }
+  const dataJson = JSON.stringify({
+    cards: CARD_OPTIONS.map(({ bank, card, spend, freeHr, tier, benefit, note }) => ({ bank, card, spend, freeHr, tier, benefit, note: note || '' })),
+    cov,
+  });
+  const bankTable = Object.keys(BANK_BRANDS).map((bk) => `<tr><td>${esc(bk)}</td><td>${esc(BANK_REC[bk].thr)}</td><td>${esc(BANK_REC[bk].free)}</td><td>${BANK_BRANDS[bk].map((b) => BRAND_META[b].label).join('、')}</td><td><a href="${bankUrl(bk)}">明細</a></td></tr>`).join('');
+  const areaOpts = pickAreas.map((a) => `<option value="${esc(a)}">${esc(a)}</option>`).join('');
+  // 前端問卷邏輯（純字串，勿用反引號或 ${}，以免破壞外層樣板）
+  const QUIZ_JS = '(function(){var D=JSON.parse(document.getElementById("q-data").textContent);var g=function(i){return document.getElementById(i);};'
+    + 'function esc(s){return String(s).replace(/[&<>]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;"}[c];});}'
+    + 'function run(){var area=g("q-area").value,sp=g("q-spend").value,ti=g("q-tier").value;'
+    + 'var maxSpend=sp==="lt1"?9999:sp==="1to2"?19999:1e12;var cv=D.cov[area],total=cv.t,L=[];'
+    + 'for(var i=0;i<D.cards.length;i++){var cd=D.cards[i];if(cd.spend>maxSpend)continue;if(ti==="general"&&cd.tier==="premium")continue;L.push({cd:cd,n:cv.c[i]});}'
+    + 'var bR={direct:0,points:1},tR={general:0,premium:1};'
+    + 'L.sort(function(a,b){return b.n-a.n||bR[a.cd.benefit]-bR[b.cd.benefit]||a.cd.spend-b.cd.spend||tR[a.cd.tier]-tR[b.cd.tier];});'
+    + 'var o="";if(!L.length){g("q-result").innerHTML="<p>依你的條件暫時找不到適合的卡，可放寬「卡等級」或「刷卡額」再試。</p>";return;}'
+    + 'var top=L.slice(0,3),rest=L.slice(3);o="<h3>依你的條件（"+esc(area)+"），推薦這幾張：</h3><ul class=\\"lots\\">";'
+    + 'for(var j=0;j<top.length;j++){var r=top[j],cd=r.cd,pct=total?Math.round(r.n/total*100):0;'
+    + 'var bt=cd.benefit==="direct"?"直接免費":"紅利/點數折抵",tt=cd.tier==="premium"?"頂級卡":"一般卡",th=cd.spend===0?"免門檻":"刷滿 NT$"+cd.spend.toLocaleString();'
+    + 'o+="<li><div class=\\"name\\">"+(j+1)+". "+esc(cd.bank)+" "+esc(cd.card)+" <span class=\\"meta\\" style=\\"display:inline;margin-left:6px;color:var(--accent);font-weight:600\\">涵蓋 "+r.n+" 站（"+pct+"%）</span></div>"'
+    + '+"<div class=\\"meta\\">"+tt+"｜"+bt+"｜門檻："+th+"｜"+esc(cd.freeHr)+(cd.note?"｜"+esc(cd.note):"")+"</div>"'
+    + '+"<a class=\\"go\\" href=\\"../bank/"+encodeURIComponent(cd.bank)+".html\\">看"+esc(cd.bank)+"各卡別條件 →</a></li>";}'
+    + 'o+="</ul>";if(rest.length){o+="<p class=\\"meta\\">其他符合條件："+rest.map(function(r){return esc(r.cd.bank)+" "+esc(r.cd.card)+"（"+(total?Math.round(r.n/total*100):0)+"%）";}).join("、")+"</p>";}'
+    + 'o+="<p style=\\"margin-top:8px\\">💡「直接免費」型不用花你的紅利點數，同覆蓋度下優先；頂級卡（無限卡/世界卡等）通常有年費、需財力、可能為邀請制，實際核卡與優惠以各發卡行公告為準。</p>";'
+    + 'g("q-result").innerHTML=o;if(window.goatcounter&&window.goatcounter.count)window.goatcounter.count({path:"cardquiz-result",event:true});}'
+    + 'g("q-go").addEventListener("click",run);})();';
+  const body = `
+<style>
+.quiz-form{display:flex;flex-direction:column;gap:12px;background:var(--surface-1);border:1px solid var(--border);border-radius:12px;padding:16px;margin:14px 0}
+.quiz-form label{display:flex;flex-direction:column;gap:5px;font-size:14px;font-weight:600}
+.quiz-form select{padding:9px 10px;border:1px solid var(--border);border-radius:8px;font-size:15px;background:#fff}
+.quiz-form button{border:none;cursor:pointer;margin-top:2px}
+#q-result h3{font-size:17px;margin:18px 0 8px}
+</style>
+<div class="note warn">⚠️ 本工具依你選的條件與各地區停車場品牌分布，推薦「涵蓋度高、你用得到」的信用卡，<b>非投資／申辦建議</b>。頂級卡（無限卡／世界卡等）通常<b>有年費、需財力、可能為邀請制</b>，實際核卡與優惠條件以各發卡行公告為準（資料查證 ${BANK_VERIFIED}）。</div>
+<div class="quiz-form">
+<label>① 你最常停哪一區？<select id="q-area">${areaOpts}</select></label>
+<label>② 每月刷卡大約多少？<select id="q-spend"><option value="any">不一定</option><option value="lt1">1 萬以下</option><option value="1to2">1–2 萬</option><option value="gt2">2 萬以上</option></select></label>
+<label>③ 卡等級？<select id="q-tier"><option value="all">含頂級卡（可能有年費/需財力/邀請制）</option><option value="general">只看一般卡（多免年費、好申辦）</option></select></label>
+<button class="cta" id="q-go">看推薦 →</button>
+</div>
+<div id="q-result"></div>
+<h2>全銀行市區停車優惠比較（13 家）</h2>
+<div class="tblwrap"><table class="tiers"><thead><tr><th>銀行</th><th>門檻</th><th>免費時數</th><th>適用品牌</th><th></th></tr></thead><tbody>${bankTable}</tbody></table></div>
+<p>想直接看你家附近該辦哪張卡，也可 <a href="${APP('cardpick')}">開地圖看免費停車場</a>，或看 <a href="${HUB}">全台總覽</a>。</p>
+<script id="q-data" type="application/json">${dataJson}</script>
+<script>${QUIZ_JS}</script>`;
+  write('parking/選卡/index.html', page({
+    title: '停車信用卡推薦｜3 題幫你選對卡（13 家比較）｜小Ｐ帶路',
+    description: '回答 3 題（常停哪區、每月刷卡、要不要頂級卡），依覆蓋度幫你選信用卡市區停車優惠，附 13 家銀行比較表。',
+    canonical: PICK, appHref: APP('seo'), builtAt,
+    crumb: `<a href="${APP('seo')}">小Ｐ帶路</a> › <a href="${HUB}">全台</a> › 停車信用卡怎麼選`,
+    h1: '停車信用卡怎麼選？3 題幫你挑對卡',
+    lead: '先選你常停的地區，再依刷卡額與卡等級，幫你排出「涵蓋度最高、你用得到」的信用卡停車優惠。',
+    body,
+    jsonLd: [breadcrumbLd([{ name: '小Ｐ帶路', url: APP('seo') }, { name: '全台', url: HUB }, { name: '停車信用卡怎麼選', url: PICK }])],
+  }));
+  addUrl(PICK);
 }
 
 // ===== sitemap.xml + robots.txt =====
