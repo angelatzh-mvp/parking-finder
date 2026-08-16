@@ -1,6 +1,6 @@
 {
  "meta": {
-  "builtAt": "2026-08-16T18:46:32.462Z",
+  "builtAt": "2026-08-16T18:56:43.585Z",
   "sources": {
    "utg": {
     "label": "台灣聯通",
@@ -40,7 +40,7 @@
   "noGeo": 1,
   "geoPending": 0,
   "overridden": 13,
-  "coordFixed": 281
+  "coordFixed": 293
  },
  "lots": [
   {
@@ -5313,8 +5313,8 @@
    "city": "台北市",
    "district": "士林區",
    "address": "士林區忠誠路1段與德行東路132巷7弄交叉口旁",
-   "lat": 25.106865,
-   "lng": 121.529779,
+   "lat": 25.1070046,
+   "lng": 121.5296682,
    "note": "二",
    "maxHeight": null,
    "totalSpace": null
@@ -6119,8 +6119,8 @@
    "city": "台北市",
    "district": "南港區",
    "address": "南港區成福路1號",
-   "lat": 25.0385924,
-   "lng": 121.5902824,
+   "lat": 25.0457,
+   "lng": 121.5863,
    "note": "室外平面",
    "maxHeight": null,
    "totalSpace": null
@@ -7148,8 +7148,8 @@
    "city": "桃園市",
    "district": "桃園區",
    "address": "桃園區同安街322號",
-   "lat": 25.0237097,
-   "lng": 121.2973791,
+   "lat": 25.0166137,
+   "lng": 121.3028791,
    "note": "",
    "maxHeight": null,
    "totalSpace": null
@@ -9235,8 +9235,8 @@
    "city": "台中市",
    "district": "大甲區",
    "address": "大甲區新美里經國路321號停車場",
-   "lat": 24.3443017,
-   "lng": 120.6171696,
+   "lat": 24.3465739,
+   "lng": 120.6170777,
    "note": "HA536；大義",
    "maxHeight": null,
    "totalSpace": null
@@ -13264,8 +13264,8 @@
    "city": "屏東縣",
    "district": "內埔鄉",
    "address": "內埔鄉成功路251號",
-   "lat": 22.7098799,
-   "lng": 120.6454484,
+   "lat": 22.7099823,
+   "lng": 120.6365277,
    "note": "小車",
    "maxHeight": null,
    "totalSpace": null
@@ -14014,8 +14014,8 @@
    "city": "台北市",
    "district": "中山區",
    "address": "台北市中山區民權西路53號",
-   "lat": 25.063446,
-   "lng": 121.520716,
+   "lat": 25.063819,
+   "lng": 121.521682,
    "note": "",
    "maxHeight": null,
    "totalSpace": null
@@ -18994,8 +18994,8 @@
    "city": "台北市",
    "district": "中山區",
    "address": "台北市中山區中山北路3段2之1號",
-   "lat": 25.0494348,
-   "lng": 121.5380675,
+   "lat": 25.063819,
+   "lng": 121.521682,
    "note": "",
    "maxHeight": null,
    "totalSpace": null
@@ -19159,8 +19159,8 @@
    "city": "台北市",
    "district": "內湖區",
    "address": "台北市內湖區內湖路1段596號旁空地",
-   "lat": 25.0625839,
-   "lng": 121.6056403,
+   "lat": 25.0788498,
+   "lng": 121.5778278,
    "note": "",
    "maxHeight": null,
    "totalSpace": null
@@ -19264,8 +19264,8 @@
    "city": "台北市",
    "district": "內湖區",
    "address": "台北市內湖區瑞光路68號b1-b3",
-   "lat": 25.0744077,
-   "lng": 121.5780408,
+   "lat": 25.0702647,
+   "lng": 121.5817202,
    "note": "",
    "maxHeight": null,
    "totalSpace": null
@@ -19369,8 +19369,8 @@
    "city": "新北市",
    "district": "汐止區",
    "address": "新北市汐止區新台五路一段81號B2",
-   "lat": 25.0597325,
-   "lng": 121.6415461,
+   "lat": 25.0607921,
+   "lng": 121.6459402,
    "note": "",
    "maxHeight": null,
    "totalSpace": null
@@ -19399,8 +19399,8 @@
    "city": "新北市",
    "district": "中和區",
    "address": "新北市中和區中山路二段291號5-10樓",
-   "lat": 25.0037192,
-   "lng": 121.4897313,
+   "lat": 25.0022899,
+   "lng": 121.4960981,
    "note": "",
    "maxHeight": null,
    "totalSpace": null
@@ -19474,8 +19474,8 @@
    "city": "台南市",
    "district": "",
    "address": "台南市中華東路101號旁空地",
-   "lat": 22.9927654,
-   "lng": 120.234739,
+   "lat": 22.986331,
+   "lng": 120.23363,
    "note": "",
    "maxHeight": null,
    "totalSpace": null
