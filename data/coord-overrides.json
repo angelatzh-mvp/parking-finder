@@ -1,6 +1,1969 @@
 {
-  "高雄市|鼎豐大象德昌停車場": { "lat": 22.718951, "lng": 120.291801, "source": "manual-map", "verifiedAt": "2026-07-25", "note": "Autopass 點偏錯邊（後昌新路38號在右側），現場地圖確認入口；離原 Autopass 約 6m" },
-  "桃園市|國雲停車南門市場停車場": { "lat": 24.991709, "lng": 121.306291, "source": "manual-map", "verifiedAt": "2026-07-25", "note": "Autopass 座標本正確；NLSC 門牌 geocode 誤配 404m，故以人工確認點釘死" },
-  "新北市|捷運南勢角站轉乘停車場": { "lat": 24.990756, "lng": 121.508456, "source": "manual-map", "verifiedAt": "2026-07-25", "note": "捷運站型：門牌≠停車結構；人工確認入口，Autopass 亦近似正確" },
-  "新北市|文強停車淡水新民停車場": { "lat": 25.174144, "lng": 121.438349, "source": "manual-map", "verifiedAt": "2026-07-25", "note": "巷內場（新民街19巷內）；人工確認入口，Autopass 亦近似正確" }
+ "高雄市|鼎豐大象德昌停車場": {
+  "lat": 22.718951,
+  "lng": 120.291801,
+  "source": "manual-map",
+  "verifiedAt": "2026-07-25",
+  "note": "Autopass 點偏錯邊（後昌新路38號在右側），現場地圖確認入口；離原 Autopass 約 6m"
+ },
+ "桃園市|國雲停車南門市場停車場": {
+  "lat": 24.991709,
+  "lng": 121.306291,
+  "source": "manual-map",
+  "verifiedAt": "2026-07-25",
+  "note": "Autopass 座標本正確；NLSC 門牌 geocode 誤配 404m，故以人工確認點釘死"
+ },
+ "新北市|捷運南勢角站轉乘停車場": {
+  "lat": 24.990756,
+  "lng": 121.508456,
+  "source": "manual-map",
+  "verifiedAt": "2026-07-25",
+  "note": "捷運站型：門牌≠停車結構；人工確認入口，Autopass 亦近似正確"
+ },
+ "新北市|文強停車淡水新民停車場": {
+  "lat": 25.174144,
+  "lng": 121.438349,
+  "source": "manual-map",
+  "verifiedAt": "2026-07-25",
+  "note": "巷內場（新民街19巷內）；人工確認入口，Autopass 亦近似正確"
+ },
+ "高雄市|城市車旅左營辛亥站": {
+  "lat": 22.664754,
+  "lng": 120.310074,
+  "source": "manual-verified",
+  "verifiedAt": "2026-08-17",
+  "note": "原 Nominatim 以「高雄市左營區裕誠路213號」geocode 得 22.6669198/120.301623，實際位置在東南約 900m；人工現地確認"
+ },
+ "高雄市|城市車旅台鋼科大站": {
+  "lat": 22.841176,
+  "lng": 120.263982,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "A 類（NLSC 落差 26270m）；改以 Autopass POI「城市車旅台鋼科大站（附機車位）」座標為準，原座標偏 26383m"
+ },
+ "嘉義縣市|城市車旅嘉義中正二站": {
+  "lat": 23.4798425,
+  "lng": 120.4582485,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "A 類（NLSC 落差 14878m）；改以 Autopass POI「城市車旅嘉義中正二站」座標為準，原座標偏 1096m"
+ },
+ "新竹縣市|城市車旅竹北嘉豐二": {
+  "lat": 24.8097807,
+  "lng": 121.0243813,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "A 類（NLSC 落差 13201m）；改以 Autopass POI「城市車旅竹北嘉豐二」座標為準，原座標偏 13197m"
+ },
+ "新北市|ViVi PARK 林口信義路場": {
+  "lat": 25.0798847,
+  "lng": 121.3804261,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "A 類（NLSC 落差 12683m）；改以 Autopass POI「ViVi PARK 林口信義路場（跨時段重新計費）」座標為準，原座標偏 186m"
+ },
+ "新北市|鳳凰花園地下停車場": {
+  "lat": 25.036151,
+  "lng": 121.444902,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "A 類（NLSC 落差 10384m）；改以 Autopass POI「鳳凰花園地下停車場」座標為準，原座標偏 1873m"
+ },
+ "桃園市|城市車旅中壢復華站": {
+  "lat": 24.9746767,
+  "lng": 121.2481821,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "A 類（NLSC 落差 5485m）；改以 Autopass POI「城市車旅中壢復華站」座標為準，原座標偏 5495m"
+ },
+ "新竹縣市|城市車旅新社停車場": {
+  "lat": 24.8439867,
+  "lng": 120.9991274,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "A 類（NLSC 落差 5354m）；改以 Autopass POI「城市車旅新社停車場」座標為準，原座標偏 5351m"
+ },
+ "新北市|太平洋三": {
+  "lat": 25.0464936,
+  "lng": 121.4681171,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "A 類（NLSC 落差 4811m）；改以 Autopass POI「太平洋三站停車場」座標為準，原座標偏 4786m"
+ },
+ "高雄市|城市車旅楠梓運動公園站": {
+  "lat": 22.7324017,
+  "lng": 120.331968,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "A 類（NLSC 落差 4421m）；改以 Autopass POI「城市車旅楠梓運動公園站」座標為準，原座標偏 4671m"
+ },
+ "新北市|詮營新莊特力場": {
+  "lat": 25.029083,
+  "lng": 121.422621,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "A 類（NLSC 落差 4241m）；改以 Autopass POI「詮營新莊特力場」座標為準，原座標偏 4248m"
+ },
+ "新北市|輔大站": {
+  "lat": 25.0309073,
+  "lng": 121.4287355,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "A 類（NLSC 落差 3879m）；改以 Autopass POI「【USPACE 共享車位】永固輔大站」座標為準，原座標偏 3903m"
+ },
+ "新北市|新莊二": {
+  "lat": 25.030879,
+  "lng": 121.4293,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "A 類（NLSC 落差 3768m）；改以 Autopass POI「便利停車場新莊二站」座標為準，原座標偏 3850m"
+ },
+ "高雄市|城市車旅苓雅永平站": {
+  "lat": 22.6129989,
+  "lng": 120.2923163,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "A 類（NLSC 落差 3497m）；改以 Autopass POI「城市車旅苓雅永平站」座標為準，原座標偏 3603m"
+ },
+ "台北市|建國三": {
+  "lat": 25.049831,
+  "lng": 121.536409,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "A 類（NLSC 落差 3214m）；改以 Autopass POI「便利停車場建國三站」座標為準，原座標偏 3199m"
+ },
+ "新北市|大日土城延吉立體": {
+  "lat": 24.9874478,
+  "lng": 121.4692353,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "A 類（NLSC 落差 3150m）；改以 Autopass POI「大日土城延吉立體」座標為準，原座標偏 171m"
+ },
+ "高雄市|城市車旅陽明網球中心站": {
+  "lat": 22.646004,
+  "lng": 120.3378878,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "A 類（NLSC 落差 3103m）；改以 Autopass POI「城市車旅陽明網球中心站」座標為準，原座標偏 3034m"
+ },
+ "高雄市|前瞻科技大樓立體停車場": {
+  "lat": 22.602688,
+  "lng": 120.291166,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "A 類（NLSC 落差 2989m）；改以 Autopass POI「前瞻科技大樓立體停車場」座標為準，原座標偏 3032m"
+ },
+ "台北市|富敦站": {
+  "lat": 25.044221,
+  "lng": 121.549599,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "A 類（NLSC 落差 2905m）；改以 Autopass POI「永固停車場富敦站」座標為準，原座標偏 2883m"
+ },
+ "高雄市|城市車旅楠梓立民站": {
+  "lat": 22.7420409,
+  "lng": 120.3367344,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "A 類（NLSC 落差 2766m）；改以 Autopass POI「城市車旅楠梓立民站」座標為準，原座標偏 2786m"
+ },
+ "高雄市|城市車旅楠梓惠民站": {
+  "lat": 22.7234307,
+  "lng": 120.2941888,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "A 類（NLSC 落差 2477m）；改以 Autopass POI「城市車旅楠梓惠民站」座標為準，原座標偏 2495m"
+ },
+ "台北市|城市車旅臺北市網球中心": {
+  "lat": 25.0681417,
+  "lng": 121.5960948,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "A 類（NLSC 落差 2330m）；改以 Autopass POI「城市車旅臺北市網球中心（含機車位）」座標為準，原座標偏 2276m"
+ },
+ "高雄市|城市車旅西海岸大自然站": {
+  "lat": 22.6510328,
+  "lng": 120.2507198,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "A 類（NLSC 落差 2275m）；改以 Autopass POI「城市車旅西海岸大自然站」座標為準，原座標偏 2297m"
+ },
+ "台北市|嘟嘟房石潭站停車場": {
+  "lat": 25.0685136,
+  "lng": 121.5922131,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "A 類（NLSC 落差 1968m）；改以 Autopass POI「嘟嘟房石潭站停車場」座標為準，原座標偏 1896m"
+ },
+ "新竹縣市|城市車旅芎林停一": {
+  "lat": 24.776805,
+  "lng": 121.0782127,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "A 類（NLSC 落差 1950m）；改以 Autopass POI「城市車旅芎林停一」座標為準，原座標偏 1974m"
+ },
+ "台北市|八德三": {
+  "lat": 25.0477146,
+  "lng": 121.5584753,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "A 類（NLSC 落差 1941m）；改以 Autopass POI「便利停車場八德三站」座標為準，原座標偏 1947m"
+ },
+ "嘉義縣市|城市車旅中福站": {
+  "lat": 23.4741752,
+  "lng": 120.4331155,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "A 類（NLSC 落差 1837m）；改以 Autopass POI「城市車旅中福站」座標為準，原座標偏 1833m"
+ },
+ "新北市|千斗五股台64橋下": {
+  "lat": 25.1049351,
+  "lng": 121.4538657,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "A 類（NLSC 落差 1679m）；改以 Autopass POI「千斗五股台64橋下」座標為準，原座標偏 1612m"
+ },
+ "台中市|國雲停車豐原停車場": {
+  "lat": 24.2516389,
+  "lng": 120.7166614,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "A 類（NLSC 落差 1650m）；改以 Autopass POI「國雲停車豐原停車場」座標為準，原座標偏 1651m"
+ },
+ "台北市|民生站": {
+  "lat": 25.057713,
+  "lng": 121.538982,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "A 類（NLSC 落差 1650m）；改以 Autopass POI「便利停車場民生站」座標為準，原座標偏 2505m"
+ },
+ "台北市|大日北流場": {
+  "lat": 25.0526976,
+  "lng": 121.5981787,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "A 類（NLSC 落差 1543m）；改以 Autopass POI「大日北流場」座標為準，原座標偏 1576m"
+ },
+ "台南市|城市車旅台南成大站": {
+  "lat": 23.0016483,
+  "lng": 120.2184623,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "A 類（NLSC 落差 1421m）；改以 Autopass POI「城市車旅台南成大站（含機車位）」座標為準，原座標偏 1358m"
+ },
+ "嘉義縣市|城市車旅垂楊二站": {
+  "lat": 23.4736943,
+  "lng": 120.4362748,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "A 類（NLSC 落差 1416m）；改以 Autopass POI「城市車旅垂楊二站」座標為準，原座標偏 1434m"
+ },
+ "台中市|城市車旅中科管理局": {
+  "lat": 24.2086276,
+  "lng": 120.6184047,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "A 類（NLSC 落差 1408m）；改以 Autopass POI「城市車旅中科管理局 （含機車位）」座標為準，原座標偏 1398m"
+ },
+ "台中市|城市車旅中科停一站": {
+  "lat": 24.2220543,
+  "lng": 120.6282334,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "A 類（NLSC 落差 1408m）；改以 Autopass POI「城市車旅中科停一站 （含機車位）」座標為準，原座標偏 1883m"
+ },
+ "台中市|城市車旅中科停二站": {
+  "lat": 24.2203966,
+  "lng": 120.6272649,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "A 類（NLSC 落差 1408m）；改以 Autopass POI「城市車旅中科停二站 （含機車位）」座標為準，原座標偏 1725m"
+ },
+ "台中市|城市車旅中科停六站": {
+  "lat": 24.2042921,
+  "lng": 120.6089868,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "A 類（NLSC 落差 1408m）；改以 Autopass POI「城市車旅中科停六站 （含機車位）」座標為準，原座標偏 2311m"
+ },
+ "台中市|城市車旅中科停八站": {
+  "lat": 24.210155,
+  "lng": 120.6234396,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "A 類（NLSC 落差 1408m）；改以 Autopass POI「城市車旅中科停八站 （含機車位）」座標為準，原座標偏 992m"
+ },
+ "台中市|城市車旅中科停九站": {
+  "lat": 24.2103212,
+  "lng": 120.6173838,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "A 類（NLSC 落差 1408m）；改以 Autopass POI「城市車旅中科停九站 （含機車位）」座標為準，原座標偏 1554m"
+ },
+ "台中市|城市車旅下石碑站": {
+  "lat": 24.1767372,
+  "lng": 120.6631894,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "A 類（NLSC 落差 1348m）；改以 Autopass POI「城市車旅下石碑站」座標為準，原座標偏 1320m"
+ },
+ "台南市|鼎豐頂美停車場": {
+  "lat": 23.0054511,
+  "lng": 120.183223,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "A 類（NLSC 落差 1271m）；改以 Autopass POI「鼎豐頂美停車場」座標為準，原座標偏 1241m"
+ },
+ "桃園市|全方位停車場中正二站": {
+  "lat": 25.015403,
+  "lng": 121.2987818,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "A 類（NLSC 落差 1254m）；改以 Autopass POI「全方位停車場中正二站」座標為準，原座標偏 1265m"
+ },
+ "新北市|山發新莊國中停車場": {
+  "lat": 25.034185,
+  "lng": 121.4513105,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "A 類（NLSC 落差 1248m）；改以 Autopass POI「山發新莊國中停車場」座標為準，原座標偏 1238m"
+ },
+ "台東縣|台東波浪屋": {
+  "lat": 22.7534225,
+  "lng": 121.1472995,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "A 類（NLSC 落差 1244m）；改以 Autopass POI「台東波浪屋」座標為準，原座標偏 325m"
+ },
+ "新北市|三峽花市": {
+  "lat": 24.9435161,
+  "lng": 121.4027346,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "A 類（NLSC 落差 1122m）；改以 Autopass POI「三峽花市(三峽介壽)」座標為準，原座標偏 179m"
+ },
+ "新北市|新巨蛋站": {
+  "lat": 25.0237732,
+  "lng": 121.4689748,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "A 類（NLSC 落差 1117m）；改以 Autopass POI「便利停車場新巨蛋站」座標為準，原座標偏 1167m"
+ },
+ "桃園市|城市車旅龍潭東龍站": {
+  "lat": 24.863776,
+  "lng": 121.2159673,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "A 類（NLSC 落差 1114m）；改以 Autopass POI「城市車旅龍潭東龍站」座標為準，原座標偏 1136m"
+ },
+ "高雄市|城市車旅楠梓加昌站": {
+  "lat": 22.7129606,
+  "lng": 120.2927111,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "A 類（NLSC 落差 1098m）；改以 Autopass POI「城市車旅楠梓加昌站」座標為準，原座標偏 1113m"
+ },
+ "台中市|城市車旅交通局忠孝站": {
+  "lat": 24.1330932,
+  "lng": 120.6904135,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "A 類（NLSC 落差 1089m）；改以 Autopass POI「城市車旅交通局忠孝站」座標為準，原座標偏 1100m"
+ },
+ "新北市|台灣科學園區停車場": {
+  "lat": 25.0578335,
+  "lng": 121.6348861,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "A 類（NLSC 落差 1056m）；改以 Autopass POI「台灣科學園區停車場」座標為準，原座標偏 1065m"
+ },
+ "嘉義縣市|城市車旅嘉義榮總站": {
+  "lat": 23.468284,
+  "lng": 120.4230877,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "A 類（NLSC 落差 1030m）；改以 Autopass POI「城市車旅嘉義榮總站 （含機車位）」座標為準，原座標偏 954m"
+ },
+ "台東縣|台東基督教醫院停車場": {
+  "lat": 22.7635803,
+  "lng": 121.1457532,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "A 類（NLSC 落差 1012m）；改以 Autopass POI「台東基督教醫院停車場」座標為準，原座標偏 975m"
+ },
+ "台北市|華山站": {
+  "lat": 25.045006,
+  "lng": 121.5262669,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "D 類（原本無座標）；採 Autopass POI「嘟嘟房華山站」座標"
+ },
+ "台中市|城市車旅大慶站": {
+  "lat": 24.1200232,
+  "lng": 120.6490532,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "D 類；改以 Autopass POI「城市車旅大慶站（含機車位）」座標為準，原座標偏 16122m"
+ },
+ "新北市|千斗五股水碓平面": {
+  "lat": 25.0709761,
+  "lng": 121.4296954,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「千斗五股水碓平面」座標為準，原座標偏 11027m"
+ },
+ "台中市|城市車旅舊社公園地下站": {
+  "lat": 24.1824253,
+  "lng": 120.7002538,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "D 類；改以 Autopass POI「城市車旅舊社公園地下站」座標為準，原座標偏 7734m"
+ },
+ "新北市|大日興穀國小操場地下停車場": {
+  "lat": 25.0499024,
+  "lng": 121.475774,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「大日興穀國小操場地下停車場」座標為準，原座標偏 5136m"
+ },
+ "台中市|城市車旅台中精科站": {
+  "lat": 24.1479173,
+  "lng": 120.6062604,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "D 類；改以 Autopass POI「城市車旅台中精科站」座標為準，原座標偏 2573m"
+ },
+ "台北市|洛陽綜合立體停車場": {
+  "lat": 25.0483157,
+  "lng": 121.5063687,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "B 類；改以 Autopass POI「洛陽綜合立體停車場」座標為準，原座標偏 1258m"
+ },
+ "台中市|佳禾亭大雅停六停車場": {
+  "lat": 24.2162927,
+  "lng": 120.6658969,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "D 類；改以 Autopass POI「佳禾亭大雅停六停車場」座標為準，原座標偏 1225m"
+ },
+ "新北市|汐止二": {
+  "lat": 25.0564972,
+  "lng": 121.6325896,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「聯永物業股份有限公司-汐止二站停車場」座標為準，原座標偏 971m"
+ },
+ "台中市|城市車旅沙鹿竹林北溪二站": {
+  "lat": 24.2417572,
+  "lng": 120.5610323,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "B 類；改以 Autopass POI「城市車旅沙鹿竹林北溪二站」座標為準，原座標偏 966m"
+ },
+ "新北市|大日錦和平面停車場": {
+  "lat": 24.9945234,
+  "lng": 121.4904675,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "B 類；改以 Autopass POI「大日錦和平面停車場」座標為準，原座標偏 956m"
+ },
+ "台東縣|台東傳廣": {
+  "lat": 22.7584754,
+  "lng": 121.1439362,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "B 類；改以 Autopass POI「台東傳廣」座標為準，原座標偏 933m"
+ },
+ "雲林縣|城市車旅斗六停二站": {
+  "lat": 23.6961079,
+  "lng": 120.5253032,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "B 類；改以 Autopass POI「城市車旅斗六停二站」座標為準，原座標偏 933m"
+ },
+ "高雄市|詮營高雄重和停車場": {
+  "lat": 22.6869634,
+  "lng": 120.3096395,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "B 類；改以 Autopass POI「詮營高雄重和停車場」座標為準，原座標偏 917m"
+ },
+ "桃園市|城市車旅龜山龍華二": {
+  "lat": 25.0164355,
+  "lng": 121.397419,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "B 類；改以 Autopass POI「城市車旅龜山龍華二」座標為準，原座標偏 850m"
+ },
+ "高雄市|城市車旅高雄四維": {
+  "lat": 22.6212696,
+  "lng": 120.3112005,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "B 類；改以 Autopass POI「城市車旅高雄四維（含機車位）」座標為準，原座標偏 849m"
+ },
+ "桃園市|豐駿廣興停車場": {
+  "lat": 24.958288,
+  "lng": 121.238244,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "B 類；改以 Autopass POI「豐駿廣興停車場」座標為準，原座標偏 836m"
+ },
+ "台北市|國雲明德平面停車場": {
+  "lat": 25.115479,
+  "lng": 121.520752,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "B 類；改以 Autopass POI「國雲明德平面停車場」座標為準，原座標偏 836m"
+ },
+ "台北市|千斗社子國小地下停車場": {
+  "lat": 25.0914057,
+  "lng": 121.5020238,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "B 類；改以 Autopass POI「千斗社子國小地下停車場」座標為準，原座標偏 833m"
+ },
+ "高雄市|城市車旅左營果貿站": {
+  "lat": 22.6682821,
+  "lng": 120.2880381,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "B 類；改以 Autopass POI「城市車旅左營果貿站」座標為準，原座標偏 826m"
+ },
+ "台中市|城市車旅臺中榮總北三停車場": {
+  "lat": 24.1846209,
+  "lng": 120.6054063,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "B 類；改以 Autopass POI「城市車旅臺中榮總北三停車場」座標為準，原座標偏 825m"
+ },
+ "新竹縣市|城市車旅停十八停車場": {
+  "lat": 24.8149251,
+  "lng": 121.0201932,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "B 類；改以 Autopass POI「城市車旅停十八停車場」座標為準，原座標偏 789m"
+ },
+ "台中市|韻臻軍功停車場": {
+  "lat": 24.1769052,
+  "lng": 120.7189547,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "B 類；改以 Autopass POI「韻臻軍功停車場」座標為準，原座標偏 785m"
+ },
+ "台中市|城市車旅潭子慈濟站": {
+  "lat": 24.1934658,
+  "lng": 120.7196379,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「城市車旅潭子慈濟站（含機車位）」座標為準，原座標偏 781m"
+ },
+ "台北市|福林公園地下停車場": {
+  "lat": 25.0962239,
+  "lng": 121.5306488,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "B 類；改以 Autopass POI「福林公園地下停車場」座標為準，原座標偏 778m"
+ },
+ "新北市|正好停捷運府中站": {
+  "lat": 25.009368,
+  "lng": 121.458591,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "B 類；改以 Autopass POI「正好停捷運府中站」座標為準，原座標偏 770m"
+ },
+ "嘉義縣市|城市車旅嘉義停九": {
+  "lat": 23.4773041,
+  "lng": 120.4747603,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "B 類；改以 Autopass POI「城市車旅嘉義停九」座標為準，原座標偏 746m"
+ },
+ "台中市|城市車旅交通局福順站": {
+  "lat": 24.1798206,
+  "lng": 120.6273102,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "B 類；改以 Autopass POI「城市車旅交通局福順站」座標為準，原座標偏 741m"
+ },
+ "台北市|嘟嘟房捷運唭哩岸站停車場": {
+  "lat": 25.1207708,
+  "lng": 121.5079001,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "B 類；改以 Autopass POI「嘟嘟房捷運唭哩岸站停車場」座標為準，原座標偏 728m"
+ },
+ "桃園市|城市車旅龍潭運動公園站": {
+  "lat": 24.8676721,
+  "lng": 121.2185555,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "D 類；改以 Autopass POI「城市車旅龍潭運動公園站」座標為準，原座標偏 722m"
+ },
+ "台北市|龍門國中地下停車場": {
+  "lat": 25.0240894,
+  "lng": 121.5378853,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "B 類；改以 Autopass POI「龍門國中地下停車場」座標為準，原座標偏 720m"
+ },
+ "台北市|ViVi PARK 中央北路場": {
+  "lat": 25.1280663,
+  "lng": 121.4675023,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "B 類；改以 Autopass POI「ViVi PARK 中央北路場（跨時段重新計費）」座標為準，原座標偏 710m"
+ },
+ "台中市|城市車旅西屯區公所站": {
+  "lat": 24.1657682,
+  "lng": 120.6334671,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "B 類；改以 Autopass POI「城市車旅西屯區公所站」座標為準，原座標偏 710m"
+ },
+ "台北市|建國七": {
+  "lat": 25.051557,
+  "lng": 121.537123,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "B 類；改以 Autopass POI「便利停車建國七站」座標為準，原座標偏 690m"
+ },
+ "高雄市|城市車旅八卦里站": {
+  "lat": 22.682715,
+  "lng": 120.3323242,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "B 類；改以 Autopass POI「城市車旅八卦里站」座標為準，原座標偏 687m"
+ },
+ "台北市|萬華車站地下停車場": {
+  "lat": 25.0335256,
+  "lng": 121.4993794,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "B 類；改以 Autopass POI「萬華車站地下停車場」座標為準，原座標偏 683m"
+ },
+ "台北市|大眾站": {
+  "lat": 25.073283,
+  "lng": 121.57472,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "B 類；改以 Autopass POI「便利停車場大眾站」座標為準，原座標偏 680m"
+ },
+ "宜蘭縣|城市車旅陽明交大醫院蘭陽院區": {
+  "lat": 24.7491874,
+  "lng": 121.7585064,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "B 類；改以 Autopass POI「城市車旅陽明交大醫院蘭陽院區（含機車位）」座標為準，原座標偏 680m"
+ },
+ "台中市|韻臻自由停車場": {
+  "lat": 24.1426197,
+  "lng": 120.7050698,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "B 類；改以 Autopass POI「韻臻自由停車場」座標為準，原座標偏 675m"
+ },
+ "台北市|中時站": {
+  "lat": 25.06944,
+  "lng": 121.581776,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "B 類；改以 Autopass POI「便利停車場中時站」座標為準，原座標偏 668m"
+ },
+ "新竹縣市|城市車旅北興停車場": {
+  "lat": 24.8272865,
+  "lng": 121.0254611,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "B 類；改以 Autopass POI「城市車旅北興停車場」座標為準，原座標偏 666m"
+ },
+ "台中市|城市車旅沙鹿竹林北溪三站": {
+  "lat": 24.2409082,
+  "lng": 120.5648461,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "B 類；改以 Autopass POI「城市車旅沙鹿竹林北溪三站」座標為準，原座標偏 650m"
+ },
+ "新竹縣市|國雲縣華二停車場": {
+  "lat": 24.8258456,
+  "lng": 121.0090882,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "B 類；改以 Autopass POI「國雲縣華二停車場」座標為準，原座標偏 649m"
+ },
+ "台中市|城市車旅佛教正德醫院站": {
+  "lat": 24.143635,
+  "lng": 120.6316162,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "B 類；改以 Autopass POI「城市車旅佛教正德醫院站（含機車位）」座標為準，原座標偏 644m"
+ },
+ "高雄市|ViVi PARK 岡山車站停車場": {
+  "lat": 22.7929247,
+  "lng": 120.2993847,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "B 類；改以 Autopass POI「ViVi PARK 岡山車站停車場（跨時段重新計費）」座標為準，原座標偏 643m"
+ },
+ "高雄市|正好停高雄高工站汽車": {
+  "lat": 22.6473747,
+  "lng": 120.3254763,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "B 類；改以 Autopass POI「正好停高雄高工站汽車」座標為準，原座標偏 635m"
+ },
+ "高雄市|城市車旅楠梓後昌站": {
+  "lat": 22.7124226,
+  "lng": 120.2943761,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "B 類；改以 Autopass POI「城市車旅楠梓後昌站」座標為準，原座標偏 634m"
+ },
+ "新北市|捷運新店站轉乘停車場": {
+  "lat": 24.957032,
+  "lng": 121.537577,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "B 類；改以 Autopass POI「捷運新店站轉乘停車場」座標為準，原座標偏 630m"
+ },
+ "台中市|中國醫藥大學校本部生醫產學研發大樓": {
+  "lat": 24.182587,
+  "lng": 120.6605243,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「中國醫藥大學校本部生醫產學研發大樓（含機車位）」座標為準，原座標偏 629m"
+ },
+ "台北市|明倫社會住宅": {
+  "lat": 25.0726966,
+  "lng": 121.5198464,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "B 類；改以 Autopass POI「明倫社會住宅（含機車位）」座標為準，原座標偏 628m"
+ },
+ "台南市|佳禾亭台南裕文停車場": {
+  "lat": 22.9823385,
+  "lng": 120.2456605,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "B 類；改以 Autopass POI「佳禾亭台南裕文停車場」座標為準，原座標偏 628m"
+ },
+ "高雄市|詮營高雄青海場": {
+  "lat": 22.6514751,
+  "lng": 120.285626,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "B 類；改以 Autopass POI「詮營高雄青海場」座標為準，原座標偏 620m"
+ },
+ "高雄市|高雄青海": {
+  "lat": 22.6514751,
+  "lng": 120.285626,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "B 類；改以 Autopass POI「詮營高雄青海場」座標為準，原座標偏 620m"
+ },
+ "台北市|林森三": {
+  "lat": 25.044213,
+  "lng": 121.522702,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "B 類；改以 Autopass POI「便利停車林森三站」座標為準，原座標偏 616m"
+ },
+ "台北市|民權公園地下停車場": {
+  "lat": 25.062152,
+  "lng": 121.558862,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「民權公園地下停車場」座標為準，原座標偏 613m"
+ },
+ "台北市|ViVi PARK 開勝場": {
+  "lat": 25.1407894,
+  "lng": 121.5048925,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "B 類；改以 Autopass POI「ViVi PARK 開勝場（跨時段重新計費）」座標為準，原座標偏 607m"
+ },
+ "台北市|大豐公園地下停車場": {
+  "lat": 25.1311187,
+  "lng": 121.5042455,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "B 類；改以 Autopass POI「大豐公園地下停車場」座標為準，原座標偏 605m"
+ },
+ "台中市|塔吉特停車場": {
+  "lat": 24.1745392,
+  "lng": 120.6374313,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「塔吉特停車場」座標為準，原座標偏 600m"
+ },
+ "台中市|城市車旅大里停六站": {
+  "lat": 24.113954,
+  "lng": 120.6762731,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "B 類；改以 Autopass POI「城市車旅大里停六站」座標為準，原座標偏 599m"
+ },
+ "台南市|城市車旅善化陽光站": {
+  "lat": 23.11274,
+  "lng": 120.3067032,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "B 類；改以 Autopass POI「城市車旅善化陽光站」座標為準，原座標偏 596m"
+ },
+ "雲林縣|城市車旅斗六慈濟站": {
+  "lat": 23.7024718,
+  "lng": 120.5298311,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "B 類；改以 Autopass POI「城市車旅斗六慈濟站」座標為準，原座標偏 591m"
+ },
+ "基隆市|基隆東岸停車場": {
+  "lat": 25.1303234,
+  "lng": 121.743731,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "B 類；改以 Autopass POI「基隆東岸停車場（汽車入口）」座標為準，原座標偏 577m"
+ },
+ "台中市|城市車旅台中交通局黎明站": {
+  "lat": 24.1519064,
+  "lng": 120.6304494,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "B 類；改以 Autopass POI「城市車旅台中交通局黎明站」座標為準，原座標偏 573m"
+ },
+ "新北市|汐止PC站": {
+  "lat": 25.061368,
+  "lng": 121.646924,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「便利停車場汐止PC站」座標為準，原座標偏 571m"
+ },
+ "台北市|詮營北投央北": {
+  "lat": 25.1285214,
+  "lng": 121.4689373,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "B 類；改以 Autopass POI「詮營北投央北」座標為準，原座標偏 562m"
+ },
+ "新北市|文強土城大安停車場": {
+  "lat": 24.9661622,
+  "lng": 121.4327092,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "B 類；改以 Autopass POI「文強土城大安停車場」座標為準，原座標偏 561m"
+ },
+ "嘉義縣市|城市車旅嘉義崇仁站": {
+  "lat": 23.4803142,
+  "lng": 120.4842809,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "B 類；改以 Autopass POI「城市車旅嘉義崇仁站」座標為準，原座標偏 558m"
+ },
+ "台中市|城市車旅潭子慈濟一場": {
+  "lat": 24.195236,
+  "lng": 120.7213056,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「城市車旅潭子慈濟一場」座標為準，原座標偏 546m"
+ },
+ "台中市|佳禾亭新光廣兼停一停車場": {
+  "lat": 24.1624385,
+  "lng": 120.7071028,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "B 類；改以 Autopass POI「佳禾亭新光廣兼停一停車場」座標為準，原座標偏 542m"
+ },
+ "台北市|大港墘公園地下停車場": {
+  "lat": 25.0785916,
+  "lng": 121.5745263,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "B 類；改以 Autopass POI「大港墘公園地下停車場」座標為準，原座標偏 539m"
+ },
+ "彰化縣|城市車旅社頭農會站": {
+  "lat": 23.8967042,
+  "lng": 120.5847541,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "B 類；改以 Autopass POI「城市車旅社頭農會站」座標為準，原座標偏 538m"
+ },
+ "新北市|詮營恩主公場": {
+  "lat": 24.9386011,
+  "lng": 121.3632132,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "B 類；改以 Autopass POI「詮營恩主公場」座標為準，原座標偏 531m"
+ },
+ "新北市|蘆洲佳瑪機車": {
+  "lat": 25.0823315,
+  "lng": 121.4637552,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "B 類；改以 Autopass POI「蘆洲佳瑪機車」座標為準，原座標偏 527m"
+ },
+ "嘉義縣市|城市車旅嘉義東市站": {
+  "lat": 23.4787767,
+  "lng": 120.4532963,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "B 類；改以 Autopass POI「城市車旅嘉義東市站」座標為準，原座標偏 525m"
+ },
+ "高雄市|特力屋高雄大順店": {
+  "lat": 22.631746,
+  "lng": 120.323838,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「特力屋高雄大順店」座標為準，原座標偏 525m"
+ },
+ "台北市|玉成公園地下停車場": {
+  "lat": 25.0423254,
+  "lng": 121.5871582,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "B 類；改以 Autopass POI「玉成公園地下停車場」座標為準，原座標偏 521m"
+ },
+ "台中市|城市車旅交通局同心站": {
+  "lat": 24.1789975,
+  "lng": 120.637849,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "B 類；改以 Autopass POI「城市車旅交通局同心站」座標為準，原座標偏 519m"
+ },
+ "高雄市|城市車旅岡山和平公園站": {
+  "lat": 22.7971747,
+  "lng": 120.3036095,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「城市車旅岡山和平公園站」座標為準，原座標偏 511m"
+ },
+ "雲林縣|城市車旅斗六文化處站": {
+  "lat": 23.6946755,
+  "lng": 120.5245008,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「城市車旅斗六文化處站」座標為準，原座標偏 501m"
+ },
+ "彰化縣|城市車旅員林基督教停車場": {
+  "lat": 23.9630187,
+  "lng": 120.5676822,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "B 類；改以 Autopass POI「城市車旅員林基督教停車場」座標為準，原座標偏 500m"
+ },
+ "嘉義縣市|城市車旅垂楊站": {
+  "lat": 23.4707671,
+  "lng": 120.4390791,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「城市車旅垂楊站」座標為準，原座標偏 495m"
+ },
+ "台北市|嘟嘟房捷運石牌站停車場": {
+  "lat": 25.116006,
+  "lng": 121.514615,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「嘟嘟房捷運石牌站停車場」座標為準，原座標偏 494m"
+ },
+ "台北市|萬國站": {
+  "lat": 25.047705,
+  "lng": 121.548548,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「便利停車場萬國站」座標為準，原座標偏 494m"
+ },
+ "台南市|鼎豐怡平停車場": {
+  "lat": 22.9938737,
+  "lng": 120.1746033,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「鼎豐怡平停車場」座標為準，原座標偏 493m"
+ },
+ "新北市|寶盛捷運淡水站": {
+  "lat": 25.1676803,
+  "lng": 121.4453677,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「寶盛捷運淡水站」座標為準，原座標偏 491m"
+ },
+ "台中市|城市車旅社皮地下站": {
+  "lat": 24.2463992,
+  "lng": 120.7041099,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「城市車旅社皮地下站」座標為準，原座標偏 484m"
+ },
+ "台中市|城市車旅大雅區公所站": {
+  "lat": 24.228482,
+  "lng": 120.6475341,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「城市車旅大雅區公所站」座標為準，原座標偏 481m"
+ },
+ "台北市|詮營信義101場": {
+  "lat": 25.0328241,
+  "lng": 121.5649948,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「詮營信義101場」座標為準，原座標偏 481m"
+ },
+ "台南市|城市車旅台南復興站": {
+  "lat": 22.9986798,
+  "lng": 120.2444005,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「城市車旅台南復興站」座標為準，原座標偏 479m"
+ },
+ "台中市|城市車旅南區區公所站": {
+  "lat": 24.1172396,
+  "lng": 120.6640605,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「城市車旅南區區公所站」座標為準，原座標偏 477m"
+ },
+ "彰化縣|城市車旅員林停2C站": {
+  "lat": 23.964233,
+  "lng": 120.5841808,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「城市車旅員林停2C站」座標為準，原座標偏 474m"
+ },
+ "台中市|城市車旅光田醫院沙鹿院區站": {
+  "lat": 24.2356805,
+  "lng": 120.5577808,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「城市車旅光田醫院沙鹿院區站」座標為準，原座標偏 474m"
+ },
+ "雲林縣|城市車旅國立雲林科技大學站": {
+  "lat": 23.6961165,
+  "lng": 120.5339319,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "B 類；改以 Autopass POI「城市車旅國立雲林科技大學站」座標為準，原座標偏 473m"
+ },
+ "高雄市|城市車旅亞柏會舘站": {
+  "lat": 22.5648859,
+  "lng": 120.3612108,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「城市車旅亞柏會舘站」座標為準，原座標偏 455m"
+ },
+ "新竹縣市|赤土崎停車場": {
+  "lat": 24.7993104,
+  "lng": 120.9938294,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「赤土崎停車場（含機車位）」座標為準，原座標偏 455m"
+ },
+ "花蓮縣|國雲花蓮商校街停車場": {
+  "lat": 23.987215,
+  "lng": 121.600366,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「國雲花蓮商校街停車場」座標為準，原座標偏 450m"
+ },
+ "彰化縣|城市車旅陽明運動場站": {
+  "lat": 24.0872685,
+  "lng": 120.5510716,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「城市車旅陽明運動場站」座標為準，原座標偏 444m"
+ },
+ "台北市|大龍國小地下停車場": {
+  "lat": 25.0741946,
+  "lng": 121.5173249,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「大龍國小地下停車場」座標為準，原座標偏 437m"
+ },
+ "彰化縣|城市車旅員林八條通站": {
+  "lat": 23.9572533,
+  "lng": 120.5758967,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「城市車旅員林八條通站」座標為準，原座標偏 434m"
+ },
+ "苗栗縣|城市車旅公館鄉館二站": {
+  "lat": 24.503203,
+  "lng": 120.824192,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「城市車旅公館鄉館二站」座標為準，原座標偏 430m"
+ },
+ "新竹縣市|城市車旅停十三停車場": {
+  "lat": 24.8360603,
+  "lng": 121.0120631,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「城市車旅停十三停車場（含機車位）」座標為準，原座標偏 424m"
+ },
+ "桃園市|城市車旅龍潭舊鄉代會站": {
+  "lat": 24.8640066,
+  "lng": 121.2167933,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「城市車旅龍潭舊鄉代會站」座標為準，原座標偏 423m"
+ },
+ "台北市|萬華區行政中心地下停車場": {
+  "lat": 25.0345781,
+  "lng": 121.49985,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「萬華區行政中心地下停車場」座標為準，原座標偏 423m"
+ },
+ "台北市|地政站": {
+  "lat": 25.033954,
+  "lng": 121.556522,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「便利停車場地政站」座標為準，原座標偏 418m"
+ },
+ "嘉義縣市|城市車旅署嘉站": {
+  "lat": 23.480997,
+  "lng": 120.4286886,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「城市車旅署嘉站 （含機車位）」座標為準，原座標偏 412m"
+ },
+ "台北市|康樂合署大樓地下停車場": {
+  "lat": 25.0723905,
+  "lng": 121.6189891,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「康樂合署大樓地下停車場」座標為準，原座標偏 408m"
+ },
+ "台中市|城市車旅惠順站": {
+  "lat": 24.164593,
+  "lng": 120.6389534,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「城市車旅惠順站（含機車位）」座標為準，原座標偏 407m"
+ },
+ "桃園市|城市車旅中壢復興站": {
+  "lat": 24.9751949,
+  "lng": 121.2511686,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「城市車旅中壢復興站」座標為準，原座標偏 407m"
+ },
+ "台北市|ViVi PARK 敬業二路場": {
+  "lat": 25.0808882,
+  "lng": 121.5543662,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「ViVi PARK 敬業二路場（跨時段重新計費）」座標為準，原座標偏 406m"
+ },
+ "台中市|校本部地下汽機車停車場": {
+  "lat": 24.1789518,
+  "lng": 120.6619797,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「校本部地下汽機車停車場」座標為準，原座標偏 399m"
+ },
+ "彰化縣|城市車旅員林停2B站": {
+  "lat": 23.9635051,
+  "lng": 120.5841154,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「城市車旅員林停2B站」座標為準，原座標偏 397m"
+ },
+ "高雄市|城市車旅楠梓常德站": {
+  "lat": 22.7319932,
+  "lng": 120.3366599,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「城市車旅楠梓常德站」座標為準，原座標偏 394m"
+ },
+ "高雄市|城市車旅捷運大寮站": {
+  "lat": 22.6219033,
+  "lng": 120.3922278,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「城市車旅捷運大寮站 （含機車位）」座標為準，原座標偏 393m"
+ },
+ "基隆市|詮營基隆東信": {
+  "lat": 25.1282133,
+  "lng": 121.7633677,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「詮營基隆東信」座標為準，原座標偏 392m"
+ },
+ "桃園市|城市車旅虎頭山創新二期": {
+  "lat": 24.9973808,
+  "lng": 121.3237098,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「城市車旅虎頭山創新二期」座標為準，原座標偏 392m"
+ },
+ "高雄市|城市車旅高雄美術館": {
+  "lat": 22.6556177,
+  "lng": 120.2820808,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「城市車旅高雄美術館」座標為準，原座標偏 388m"
+ },
+ "新北市|嘟嘟房捷運紅樹林站停車場": {
+  "lat": 25.153964,
+  "lng": 121.4592166,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「嘟嘟房捷運紅樹林站停車場」座標為準，原座標偏 383m"
+ },
+ "台北市|城市車旅溪洲街": {
+  "lat": 25.0044331,
+  "lng": 121.53533,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "D 類；改以 Autopass POI「城市車旅溪洲街」座標為準，原座標偏 382m"
+ },
+ "彰化縣|城市車旅社頭仁愛站": {
+  "lat": 23.8959901,
+  "lng": 120.5821543,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「城市車旅社頭仁愛站」座標為準，原座標偏 379m"
+ },
+ "台東縣|台東光明": {
+  "lat": 22.7526232,
+  "lng": 121.1491901,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「台東光明」座標為準，原座標偏 372m"
+ },
+ "台中市|歷建區汽機車停車場": {
+  "lat": 24.18096,
+  "lng": 120.6619169,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「歷建區汽機車停車場」座標為準，原座標偏 370m"
+ },
+ "新北市|正好停新莊體育園區": {
+  "lat": 25.0413491,
+  "lng": 121.4526916,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「正好停新莊體育園區」座標為準，原座標偏 365m"
+ },
+ "台中市|城市車旅國豐站": {
+  "lat": 24.1923858,
+  "lng": 120.6131993,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「城市車旅國豐站」座標為準，原座標偏 363m"
+ },
+ "高雄市|正好停福山立體站": {
+  "lat": 22.6833632,
+  "lng": 120.3161547,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「正好停福山立體站」座標為準，原座標偏 361m"
+ },
+ "台北市|康樂立體停車場": {
+  "lat": 25.0719261,
+  "lng": 121.6190998,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「康樂立體停車場」座標為準，原座標偏 359m"
+ },
+ "台北市|嘟嘟房捷運芝山站停車場": {
+  "lat": 25.1046199,
+  "lng": 121.5224575,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「嘟嘟房捷運芝山站停車場」座標為準，原座標偏 359m"
+ },
+ "嘉義縣市|城市車旅嘉義中正站": {
+  "lat": 23.4820113,
+  "lng": 120.4472916,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「城市車旅嘉義中正站」座標為準，原座標偏 355m"
+ },
+ "台中市|佳禾亭興大附中停車場": {
+  "lat": 24.1084884,
+  "lng": 120.6840064,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「佳禾亭興大附中停車場」座標為準，原座標偏 352m"
+ },
+ "新北市|大日三重光榮場": {
+  "lat": 25.072309,
+  "lng": 121.500309,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「大日三重光榮場」座標為準，原座標偏 350m"
+ },
+ "苗栗縣|國雲苗栗停十五停車場": {
+  "lat": 24.569902,
+  "lng": 120.820974,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "D 類；改以 Autopass POI「國雲苗栗停十五停車場」座標為準，原座標偏 346m"
+ },
+ "桃園市|桃園陽光劇場地下停車場": {
+  "lat": 25.0244485,
+  "lng": 121.2175223,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「桃園陽光劇場地下停車場」座標為準，原座標偏 342m"
+ },
+ "台北市|國雲嘉興公園地下停車場": {
+  "lat": 25.0217634,
+  "lng": 121.5518914,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「國雲嘉興公園地下停車場」座標為準，原座標偏 342m"
+ },
+ "新北市|正好停新莊體育園復興平面": {
+  "lat": 25.0431648,
+  "lng": 121.4499506,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「正好停新莊體育園復興平面」座標為準，原座標偏 337m"
+ },
+ "桃園市|國雲新明市場停車場": {
+  "lat": 24.9565218,
+  "lng": 121.2160423,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「國雲新明市場停車場」座標為準，原座標偏 331m"
+ },
+ "彰化縣|城市車旅衛生福利部彰化醫院站": {
+  "lat": 23.9492853,
+  "lng": 120.5273401,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「城市車旅衛生福利部彰化醫院站」座標為準，原座標偏 330m"
+ },
+ "新竹縣市|城市車旅高鐵停三": {
+  "lat": 24.8084281,
+  "lng": 121.0293636,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「城市車旅高鐵停三」座標為準，原座標偏 328m"
+ },
+ "雲林縣|禾亭斗六西平站": {
+  "lat": 23.7115934,
+  "lng": 120.5354757,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「禾亭斗六西平站」座標為準，原座標偏 325m"
+ },
+ "新竹縣市|城市車旅新竹漁港第一": {
+  "lat": 24.8491089,
+  "lng": 120.9267707,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "D 類；改以 Autopass POI「城市車旅新竹漁港第一」座標為準，原座標偏 320m"
+ },
+ "屏東縣|城市車旅萬丹市場停車場": {
+  "lat": 22.58796,
+  "lng": 120.4903813,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「城市車旅萬丹市場停車場」座標為準，原座標偏 318m"
+ },
+ "台南市|城市車旅永康興國站": {
+  "lat": 23.0051782,
+  "lng": 120.2426061,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「城市車旅永康興國站」座標為準，原座標偏 315m"
+ },
+ "彰化縣|城市車旅員林泰山站": {
+  "lat": 23.9652184,
+  "lng": 120.5757262,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「城市車旅員林泰山站」座標為準，原座標偏 314m"
+ },
+ "高雄市|城市車旅岡山平面站": {
+  "lat": 22.791465,
+  "lng": 120.2961781,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「城市車旅岡山平面站」座標為準，原座標偏 312m"
+ },
+ "高雄市|城市車旅交通局-微笑站": {
+  "lat": 22.671658,
+  "lng": 120.3109806,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "B 類；改以 Autopass POI「城市車旅交通局-微笑站」座標為準，原座標偏 302m"
+ },
+ "台中市|城市車旅大里崇光站": {
+  "lat": 24.1145298,
+  "lng": 120.6861637,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「城市車旅大里崇光站」座標為準，原座標偏 301m"
+ },
+ "台中市|城市車旅交通局永興站": {
+  "lat": 24.1651061,
+  "lng": 120.6819231,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「城市車旅交通局永興站」座標為準，原座標偏 299m"
+ },
+ "新北市|正好停音樂公園站": {
+  "lat": 25.0276818,
+  "lng": 121.4804779,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「正好停音樂公園站」座標為準，原座標偏 298m"
+ },
+ "台北市|國雲蓬萊國小停車場": {
+  "lat": 25.0563873,
+  "lng": 121.5157097,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「國雲蓬萊國小停車場」座標為準，原座標偏 296m"
+ },
+ "花蓮縣|鼎豐大象百悅停車場": {
+  "lat": 23.9806387,
+  "lng": 121.6055615,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「鼎豐大象百悅停車場」座標為準，原座標偏 288m"
+ },
+ "台北市|國雲停車至誠場": {
+  "lat": 25.1018918,
+  "lng": 121.531541,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「國雲停車至誠場」座標為準，原座標偏 286m"
+ },
+ "台北市|萬華國中地下停車場": {
+  "lat": 25.029306,
+  "lng": 121.4996053,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「萬華國中地下停車場」座標為準，原座標偏 283m"
+ },
+ "台北市|國雲信義行政中心停車場": {
+  "lat": 25.0376683,
+  "lng": 121.5812757,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「國雲信義行政中心停車場」座標為準，原座標偏 280m"
+ },
+ "桃園市|龜山文興停車場": {
+  "lat": 25.059831,
+  "lng": 121.363636,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「龜山文興停車場」座標為準，原座標偏 278m"
+ },
+ "彰化縣|城市車旅員林停2A站": {
+  "lat": 23.9624353,
+  "lng": 120.5844533,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「城市車旅員林停2A站」座標為準，原座標偏 273m"
+ },
+ "桃園市|桃園醫院停車場": {
+  "lat": 24.9779184,
+  "lng": 121.2670189,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「桃園醫院停車場（含機車位）」座標為準，原座標偏 272m"
+ },
+ "台北市|大業立體停車場": {
+  "lat": 25.1376183,
+  "lng": 121.5028886,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「大業立體停車場」座標為準，原座標偏 269m"
+ },
+ "台北市|捷運木柵站轉乘停車場": {
+  "lat": 24.998093,
+  "lng": 121.57305,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「捷運木柵站轉乘停車場」座標為準，原座標偏 266m"
+ },
+ "台中市|城市車旅雙十國中地下停車場站": {
+  "lat": 24.1539771,
+  "lng": 120.692841,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「城市車旅雙十國中地下停車場站」座標為準，原座標偏 263m"
+ },
+ "高雄市|城市車旅楠梓樂群站": {
+  "lat": 22.7184008,
+  "lng": 120.2969015,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「城市車旅楠梓樂群站」座標為準，原座標偏 261m"
+ },
+ "新北市|英士路平面停車場": {
+  "lat": 25.0237371,
+  "lng": 121.460543,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「英士路平面停車場」座標為準，原座標偏 259m"
+ },
+ "台南市|禾亭仁德展覽館站": {
+  "lat": 22.9736678,
+  "lng": 120.2535972,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「禾亭仁德展覽館站」座標為準，原座標偏 258m"
+ },
+ "高雄市|ViVi PARK 凱歌路一站停車場": {
+  "lat": 22.6348264,
+  "lng": 120.318065,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「ViVi PARK 凱歌路一站停車場（跨時段重新計費）」座標為準，原座標偏 257m"
+ },
+ "台中市|城市車旅本堂公園站": {
+  "lat": 24.0596543,
+  "lng": 120.6996068,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「城市車旅本堂公園站」座標為準，原座標偏 256m"
+ },
+ "台中市|城市車旅交通局弘孝站": {
+  "lat": 24.1710883,
+  "lng": 120.6491371,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「城市車旅交通局弘孝站」座標為準，原座標偏 256m"
+ },
+ "苗栗縣|城市車旅苗栗醫院站": {
+  "lat": 24.574632,
+  "lng": 120.8412916,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「城市車旅苗栗醫院站」座標為準，原座標偏 253m"
+ },
+ "台中市|城市車旅大里停八站": {
+  "lat": 24.1025903,
+  "lng": 120.6869545,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「城市車旅大里停八站」座標為準，原座標偏 252m"
+ },
+ "台南市|城市車旅興濟宮站": {
+  "lat": 22.9983043,
+  "lng": 120.2063332,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「城市車旅興濟宮站」座標為準，原座標偏 245m"
+ },
+ "高雄市|城市車旅楠梓清豐站": {
+  "lat": 22.7376991,
+  "lng": 120.3271233,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「城市車旅楠梓清豐站」座標為準，原座標偏 243m"
+ },
+ "桃園市|國雲八德霄裡公園停車場": {
+  "lat": 24.9328175,
+  "lng": 121.2604989,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "D 類；改以 Autopass POI「國雲八德霄裡公園停車場」座標為準，原座標偏 243m"
+ },
+ "台北市|興隆公園地下停車場": {
+  "lat": 25.0007144,
+  "lng": 121.551196,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「興隆公園地下停車場」座標為準，原座標偏 241m"
+ },
+ "台東縣|城市車旅台東鄭州站": {
+  "lat": 22.7615963,
+  "lng": 121.1443736,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「城市車旅台東鄭州站」座標為準，原座標偏 240m"
+ },
+ "台北市|大湖公園地下停車場": {
+  "lat": 25.0832592,
+  "lng": 121.602124,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「大湖公園地下停車場」座標為準，原座標偏 239m"
+ },
+ "高雄市|ViVi PARK 凱歌路二站停車場": {
+  "lat": 22.6350114,
+  "lng": 120.3180671,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「ViVi PARK 凱歌路二站停車場（跨時段重新計費）」座標為準，原座標偏 237m"
+ },
+ "彰化縣|國雲停車博愛停車場": {
+  "lat": 23.95908,
+  "lng": 120.573215,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「國雲停車博愛停車場」座標為準，原座標偏 229m"
+ },
+ "高雄市|城市車旅岡山高醫站": {
+  "lat": 22.7813067,
+  "lng": 120.3005662,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「城市車旅岡山高醫站（含機車位）」座標為準，原座標偏 223m"
+ },
+ "台中市|城市車旅向上光田醫院站": {
+  "lat": 24.2064236,
+  "lng": 120.5634929,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「城市車旅向上光田醫院站（含機車位）」座標為準，原座標偏 222m"
+ },
+ "南投縣|城市車旅南投藍田站": {
+  "lat": 23.9099352,
+  "lng": 120.6826391,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「城市車旅南投藍田站」座標為準，原座標偏 220m"
+ },
+ "雲林縣|雲林縣立體育館": {
+  "lat": 23.6951289,
+  "lng": 120.5272083,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「雲林縣立體育館」座標為準，原座標偏 220m"
+ },
+ "高雄市|正好停盛興立體站": {
+  "lat": 22.6135937,
+  "lng": 120.3086899,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「正好停盛興立體站」座標為準，原座標偏 220m"
+ },
+ "台南市|城市車旅海安站": {
+  "lat": 22.9911753,
+  "lng": 120.1956249,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「城市車旅海安站」座標為準，原座標偏 218m"
+ },
+ "新北市|國慶平面停車場": {
+  "lat": 24.9994341,
+  "lng": 121.4635587,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「國慶平面停車場」座標為準，原座標偏 218m"
+ },
+ "桃園市|城市車旅桃園太武新村站": {
+  "lat": 24.9023272,
+  "lng": 121.2821603,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「城市車旅桃園太武新村站」座標為準，原座標偏 217m"
+ },
+ "台中市|城市車旅台中交通局吉龍站": {
+  "lat": 24.1324197,
+  "lng": 120.6617154,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「城市車旅台中交通局吉龍站」座標為準，原座標偏 215m"
+ },
+ "高雄市|城市車旅同慶站": {
+  "lat": 22.6277001,
+  "lng": 120.3229117,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「城市車旅同慶站」座標為準，原座標偏 214m"
+ },
+ "台北市|嘟嘟房玉成國小地下停車場": {
+  "lat": 25.0531735,
+  "lng": 121.592662,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「嘟嘟房玉成國小地下停車場」座標為準，原座標偏 212m"
+ },
+ "彰化縣|城市車旅員林惠明站": {
+  "lat": 23.9508242,
+  "lng": 120.568937,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「城市車旅員林惠明站」座標為準，原座標偏 211m"
+ },
+ "高雄市|城市車旅兒童公園北區": {
+  "lat": 22.6888714,
+  "lng": 120.3015972,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「城市車旅兒童公園北區」座標為準，原座標偏 199m"
+ },
+ "台北市|嘟嘟房市民大道林金段停車場": {
+  "lat": 25.0476656,
+  "lng": 121.5255926,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "D 類；改以 Autopass POI「嘟嘟房市民大道林金段停車場」座標為準，原座標偏 199m"
+ },
+ "台北市|國雲民德大樓地下停車場": {
+  "lat": 25.062412,
+  "lng": 121.5177284,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「國雲民德大樓地下停車場」座標為準，原座標偏 195m"
+ },
+ "台南市|城市車旅安平運河站": {
+  "lat": 22.9988727,
+  "lng": 120.1626773,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「城市車旅安平運河站」座標為準，原座標偏 193m"
+ },
+ "台北市|內湖momo站": {
+  "lat": 25.0799877,
+  "lng": 121.5713105,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "D 類；改以 Autopass POI「便利停車場內湖momo站」座標為準，原座標偏 180m"
+ },
+ "雲林縣|城市車旅成大斗六站": {
+  "lat": 23.7023502,
+  "lng": 120.5446707,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「城市車旅成大斗六站」座標為準，原座標偏 173m"
+ },
+ "花蓮縣|國雲花蓮站前停車場": {
+  "lat": 23.993441,
+  "lng": 121.6029948,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "D 類；改以 Autopass POI「國雲花蓮站前停車場」座標為準，原座標偏 173m"
+ },
+ "南投縣|城市車旅埔基站": {
+  "lat": 23.9706258,
+  "lng": 120.9464245,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "B 類；改以 Autopass POI「城市車旅埔基站」座標為準，原座標偏 168m"
+ },
+ "台北市|國雲辛亥國小地下停車場": {
+  "lat": 25.0059129,
+  "lng": 121.5583708,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「國雲辛亥國小地下停車場」座標為準，原座標偏 164m"
+ },
+ "新竹縣市|城市車旅竹北嘉豐國小": {
+  "lat": 24.8145164,
+  "lng": 121.0315634,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「城市車旅竹北嘉豐國小」座標為準，原座標偏 145m"
+ },
+ "彰化縣|城市車旅員林國小站": {
+  "lat": 23.9609119,
+  "lng": 120.5772564,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「城市車旅員林國小站」座標為準，原座標偏 136m"
+ },
+ "台北市|嘟嘟房捷運新北投站停車場": {
+  "lat": 25.1367191,
+  "lng": 121.5014334,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「嘟嘟房捷運新北投站停車場」座標為準，原座標偏 123m"
+ },
+ "新竹縣市|城市車旅高鐵停五": {
+  "lat": 24.8017196,
+  "lng": 121.0422731,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "D 類；改以 Autopass POI「城市車旅高鐵停五」座標為準，原座標偏 116m"
+ },
+ "彰化縣|城市車旅員林廣十站": {
+  "lat": 23.9527942,
+  "lng": 120.5855235,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "D 類；改以 Autopass POI「城市車旅員林廣十站」座標為準，原座標偏 106m"
+ },
+ "新竹縣市|城市車旅縣華停車場": {
+  "lat": 24.8275572,
+  "lng": 121.0089019,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "D 類；改以 Autopass POI「城市車旅縣華停車場」座標為準，原座標偏 105m"
+ },
+ "新北市|正好停新莊運動公園": {
+  "lat": 25.0424346,
+  "lng": 121.4476793,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「正好停新莊運動公園」座標為準，原座標偏 94m"
+ },
+ "新竹縣市|城市車旅高鐵停九": {
+  "lat": 24.8108318,
+  "lng": 121.0368781,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "D 類；改以 Autopass POI「城市車旅高鐵停九」座標為準，原座標偏 86m"
+ },
+ "南投縣|城市車旅南投體育館站": {
+  "lat": 23.9036289,
+  "lng": 120.6822038,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「城市車旅南投體育館站」座標為準，原座標偏 85m"
+ },
+ "桃園市|鼎豐力行停車場": {
+  "lat": 24.998412,
+  "lng": 121.294518,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "D 類；改以 Autopass POI「鼎豐力行停車場」座標為準，原座標偏 85m"
+ },
+ "桃園市|城市車旅A20停二": {
+  "lat": 24.981259,
+  "lng": 121.2163026,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "D 類；改以 Autopass POI「城市車旅A20停二(桃交)」座標為準，原座標偏 71m"
+ },
+ "新北市|永權實業有限公司中和區員山市場臨時平面停車場": {
+  "lat": 25.00663,
+  "lng": 121.4806504,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "B 類；改以 Autopass POI「永權實業有限公司中和區員山市場臨時平面停車場」座標為準，原座標偏 65m"
+ },
+ "彰化縣|城市車旅員林公二十站": {
+  "lat": 23.9645493,
+  "lng": 120.5853087,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "D 類；改以 Autopass POI「城市車旅員林公二十站」座標為準，原座標偏 64m"
+ },
+ "台南市|詮營台南新建站": {
+  "lat": 22.9676405,
+  "lng": 120.1852801,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "D 類；改以 Autopass POI「台南新建站」座標為準，原座標偏 63m"
+ },
+ "南投縣|佳禾亭日月潭中興停車場": {
+  "lat": 23.8658824,
+  "lng": 120.911505,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「佳禾亭日月潭中興停車場」座標為準，原座標偏 59m"
+ },
+ "高雄市|城市車旅岡山中華路圓環站": {
+  "lat": 22.7936448,
+  "lng": 120.2880934,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "D 類；改以 Autopass POI「城市車旅岡山中華路圓環站」座標為準，原座標偏 57m"
+ },
+ "高雄市|正好停旅運中心站汽車": {
+  "lat": 22.6109548,
+  "lng": 120.2951794,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「正好停旅運中心站汽車」座標為準，原座標偏 53m"
+ },
+ "台中市|城市車旅交通局福恩站": {
+  "lat": 24.1824397,
+  "lng": 120.6146713,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "D 類；改以 Autopass POI「城市車旅交通局福恩站」座標為準，原座標偏 53m"
+ },
+ "台北市|嘟嘟房內湖康寧站停車場": {
+  "lat": 25.0724319,
+  "lng": 121.6056034,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "D 類；改以 Autopass POI「嘟嘟房內湖康寧站停車場」座標為準，原座標偏 53m"
+ },
+ "台中市|城市車旅竹興站": {
+  "lat": 24.1741721,
+  "lng": 120.705849,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "D 類；改以 Autopass POI「城市車旅竹興站」座標為準，原座標偏 53m"
+ },
+ "台中市|城市車旅交通局大墩站": {
+  "lat": 24.1562171,
+  "lng": 120.6477831,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "D 類；改以 Autopass POI「城市車旅交通局大墩站」座標為準，原座標偏 53m"
+ },
+ "桃園市|國雲華安平面停車場": {
+  "lat": 24.9137093,
+  "lng": 121.2477056,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "C 類；改以 Autopass POI「國雲華安平面停車場」座標為準，原座標偏 49m"
+ },
+ "新北市|城市車旅北大停一": {
+  "lat": 24.9452043,
+  "lng": 121.3782833,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "D 類；改以 Autopass POI「城市車旅北大停一」座標為準，原座標偏 45m"
+ },
+ "台中市|城市車旅本堂里多功能站": {
+  "lat": 24.058305,
+  "lng": 120.6974577,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "D 類；改以 Autopass POI「城市車旅本堂里多功能站」座標為準，原座標偏 37m"
+ },
+ "新北市|正好停三重停八站": {
+  "lat": 25.0537347,
+  "lng": 121.4764091,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "D 類；改以 Autopass POI「正好停三重停八站」座標為準，原座標偏 34m"
+ },
+ "台北市|城市車旅信義路5段150巷": {
+  "lat": 25.0258509,
+  "lng": 121.5704197,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "D 類；改以 Autopass POI「城市車旅信義路5段150巷」座標為準，原座標偏 33m"
+ },
+ "新北市|環河公園平面停車場": {
+  "lat": 25.0164543,
+  "lng": 121.4499445,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "D 類；改以 Autopass POI「環河公園平面停車場」座標為準，原座標偏 32m"
+ },
+ "台中市|城市車旅同榮站": {
+  "lat": 24.1978635,
+  "lng": 120.6640522,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "D 類；改以 Autopass POI「城市車旅同榮站」座標為準，原座標偏 32m"
+ },
+ "桃園市|詮營中壢元生": {
+  "lat": 24.975221,
+  "lng": 121.2515377,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "D 類；改以 Autopass POI「詮營中壢元生」座標為準，原座標偏 31m"
+ },
+ "屏東縣|城市車旅東港成功站": {
+  "lat": 22.468788,
+  "lng": 120.4546685,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "D 類；改以 Autopass POI「城市車旅東港成功站」座標為準，原座標偏 31m"
+ },
+ "高雄市|城市車旅中山網球站": {
+  "lat": 22.6435807,
+  "lng": 120.3211297,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "D 類；改以 Autopass POI「城市車旅中山網球站」座標為準，原座標偏 30m"
+ }
 }
