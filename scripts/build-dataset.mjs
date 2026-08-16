@@ -93,6 +93,8 @@ const mergeOv = existsSync(mergeOvPath) ? JSON.parse(readFileSync(mergeOvPath, '
 // 人工座標校正：地址／自動座標大致正確、但偏錯路的哪一側或偏移過大，經人工從地圖確認入口後釘死。
 // 與 address-overrides 不同——這是最高優先、無條件覆蓋 lat/lng，套在所有合併之後（見下方）。key 同樣是
 // 「縣市|場站名」，只改座標不改 id → 收藏安全。未來使用者「位置回報」也匯入此檔。
+// 同名場站（如榮總本院／北二院區）用「縣市|場站名」會一次套到兩筆，這種請改用 id 當 key
+// （key 為場站 id，如 "piy7kwq"）；id key 優先於名稱 key。
 const coordOvPath = join(ROOT, 'data', 'coord-overrides.json');
 const coordOverrides = existsSync(coordOvPath) ? JSON.parse(readFileSync(coordOvPath, 'utf8')) : {};
 
@@ -305,7 +307,7 @@ for (const group of noAddrByCoord.values()) {
 // 確保不被下游改動。用於經人工地圖確認的入口點（如偏錯路側、或自動座標誤配過遠）。
 let coordFixed = 0;
 for (const l of lots) {
-  const cv = coordOverrides[`${l.city}|${l.name}`];
+  const cv = coordOverrides[l.id] ?? coordOverrides[`${l.city}|${l.name}`];
   if (!cv || cv.lat == null) continue;
   l.lat = cv.lat;
   l.lng = cv.lng;

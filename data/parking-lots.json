@@ -1,6 +1,6 @@
 {
  "meta": {
-  "builtAt": "2026-08-16T19:01:41.074Z",
+  "builtAt": "2026-08-16T19:11:21.512Z",
   "sources": {
    "utg": {
     "label": "台灣聯通",
@@ -40,7 +40,7 @@
   "noGeo": 1,
   "geoPending": 0,
   "overridden": 13,
-  "coordFixed": 294
+  "coordFixed": 299
  },
  "lots": [
   {
@@ -5740,8 +5740,8 @@
    "city": "台北市",
    "district": "文山區",
    "address": "文山區新光路二段28號",
-   "lat": 24.9998333,
-   "lng": 121.5856446,
+   "lat": 24.996169,
+   "lng": 121.576867,
    "note": "",
    "maxHeight": null,
    "totalSpace": null
@@ -8935,8 +8935,8 @@
    "city": "台中市",
    "district": "西屯區",
    "address": "西屯區福聯里台灣大道四段1650號停車場",
-   "lat": 24.1820247,
-   "lng": 120.5977832,
+   "lat": 24.1917698,
+   "lng": 120.6063434,
    "note": "北二院區",
    "maxHeight": null,
    "totalSpace": null
@@ -9985,8 +9985,8 @@
    "city": "台中市",
    "district": "西區",
    "address": "西區英才路581號對面",
-   "lat": 24.151848,
-   "lng": 120.66559,
+   "lat": 24.1439998,
+   "lng": 120.6653453,
    "note": "民生園區",
    "maxHeight": null,
    "totalSpace": null
@@ -14014,8 +14014,8 @@
    "city": "台北市",
    "district": "中山區",
    "address": "台北市中山區民權西路53號",
-   "lat": 25.063819,
-   "lng": 121.521682,
+   "lat": 25.0634549,
+   "lng": 121.5207712,
    "note": "",
    "maxHeight": null,
    "totalSpace": null
@@ -22594,8 +22594,8 @@
    "city": "新北市",
    "district": "板橋區",
    "address": "新北市板橋區中山路1段1號B2",
-   "lat": 25.012774,
-   "lng": 121.4672858,
+   "lat": 25.0077061,
+   "lng": 121.4597941,
    "note": "",
    "maxHeight": null,
    "totalSpace": null
@@ -22624,8 +22624,8 @@
    "city": "新竹縣市",
    "district": "東區",
    "address": "新竹市東區忠孝路60號旁邊空地",
-   "lat": 24.8056373,
-   "lng": 120.9874771,
+   "lat": 24.8022571,
+   "lng": 120.9908829,
    "note": "",
    "maxHeight": null,
    "totalSpace": null
