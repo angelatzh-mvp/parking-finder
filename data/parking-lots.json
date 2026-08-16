@@ -1,6 +1,6 @@
 {
  "meta": {
-  "builtAt": "2026-08-16T18:56:43.585Z",
+  "builtAt": "2026-08-16T19:01:41.074Z",
   "sources": {
    "utg": {
     "label": "台灣聯通",
@@ -40,7 +40,7 @@
   "noGeo": 1,
   "geoPending": 0,
   "overridden": 13,
-  "coordFixed": 293
+  "coordFixed": 294
  },
  "lots": [
   {
@@ -22609,8 +22609,8 @@
    "city": "新北市",
    "district": "新莊區",
    "address": "新北市新莊區中正路340巷1號(B1、B2)",
-   "lat": 25.0419567,
-   "lng": 121.4655095,
+   "lat": 25.035801,
+   "lng": 121.444903,
    "note": "",
    "maxHeight": null,
    "totalSpace": null
