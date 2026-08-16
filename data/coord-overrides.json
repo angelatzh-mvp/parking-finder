@@ -2091,5 +2091,19 @@
   "source": "autopass",
   "verifiedAt": "2026-08-17",
   "note": "天祥站（嘟嘟房，民權西路53號）；同名 2 筆故用 id 當 key，地址完全吻合 Autopass POI「嘟嘟房天祥站」"
+ },
+ "桃園市|平鎮特力屋": {
+  "lat": 24.940827,
+  "lng": 121.214838,
+  "source": "manual-verified",
+  "verifiedAt": "2026-08-17",
+  "note": "Autopass 查無此場站；人工確認；原座標偏 1263m"
+ },
+ "新北市|天主教耕莘醫院": {
+  "lat": 24.975865,
+  "lng": 121.536705,
+  "source": "manual-verified",
+  "verifiedAt": "2026-08-17",
+  "note": "Autopass 查無此場站；人工確認；原座標偏 1481m"
  }
 }

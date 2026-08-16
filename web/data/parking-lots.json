@@ -1,6 +1,6 @@
 {
  "meta": {
-  "builtAt": "2026-08-16T19:11:21.512Z",
+  "builtAt": "2026-08-16T19:17:17.741Z",
   "sources": {
    "utg": {
     "label": "台灣聯通",
@@ -40,7 +40,7 @@
   "noGeo": 1,
   "geoPending": 0,
   "overridden": 13,
-  "coordFixed": 299
+  "coordFixed": 301
  },
  "lots": [
   {
@@ -22639,8 +22639,8 @@
    "city": "桃園市",
    "district": "平鎮區",
    "address": "桃園市平鎮區環南路2段261號",
-   "lat": 24.9492979,
-   "lng": 121.2064921,
+   "lat": 24.940827,
+   "lng": 121.214838,
    "note": "",
    "maxHeight": null,
    "totalSpace": null
@@ -22669,8 +22669,8 @@
    "city": "新北市",
    "district": "新店區",
    "address": "新北市新店區中正路362號",
-   "lat": 24.9889465,
-   "lng": 121.5339385,
+   "lat": 24.975865,
+   "lng": 121.536705,
    "note": "",
    "maxHeight": null,
    "totalSpace": null
