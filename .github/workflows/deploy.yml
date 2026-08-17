@@ -52,6 +52,11 @@ jobs:
         run: node scripts/validate-dataset.mjs
       - name: Write update log（給人看的每週更新報告；對比 HEAD 舊資料，須在 commit 前）
         run: node scripts/write-update-log.mjs
+      # 座標可疑度稽核：把「位置判斷可能有問題」的場站寫進 docs/待確認位置.md 供人工確認。
+      # 只回報不改資料，故 continue-on-error——稽核本身壞掉不該擋住當週的資料更新與部署。
+      - name: Audit coordinates（產生待確認位置清單）
+        continue-on-error: true
+        run: node scripts/audit-coords.mjs
       - name: Copy to web
         run: cp data/parking-lots.json web/data/
       - name: Build SEO landing pages（靜態落地頁＋sitemap，讀最終資料集）

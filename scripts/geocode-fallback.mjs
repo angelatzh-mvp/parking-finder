@@ -5,6 +5,7 @@
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { inCity } from './lib/city-bbox.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const GEO_PATH = join(ROOT, 'data', 'carmochi-geo.json');
@@ -18,36 +19,6 @@ function cityCandidates(city) {
   if (city === '新竹縣市') return ['新竹市', '新竹縣'];
   if (city === '嘉義縣市') return ['嘉義市', '嘉義縣'];
   return [city];
-}
-
-// 各縣市粗略邊界框 [latMin, latMax, lngMin, lngMax]：座標落在框外＝地理編碼錯置
-const CITY_BBOX = {
-  基隆市: [25.0, 25.21, 121.6, 121.82],
-  台北市: [24.95, 25.22, 121.44, 121.68],
-  新北市: [24.66, 25.31, 121.27, 122.03],
-  桃園市: [24.57, 25.14, 120.97, 121.5],
-  新竹縣市: [24.34, 24.97, 120.86, 121.47],
-  苗栗縣: [24.24, 24.77, 120.58, 121.32],
-  台中市: [23.94, 24.47, 120.44, 121.46],
-  彰化縣: [23.74, 24.24, 120.24, 120.72],
-  南投縣: [23.4, 24.22, 120.58, 121.36],
-  嘉義縣市: [23.18, 23.67, 119.93, 120.97],
-  雲林縣: [23.48, 23.92, 120.08, 120.74],
-  台南市: [22.84, 23.44, 120.0, 120.72],
-  高雄市: [22.44, 23.32, 120.13, 121.07],
-  屏東縣: [21.84, 22.92, 120.38, 120.97],
-  宜蘭縣: [24.28, 24.92, 121.28, 122.07],
-  花蓮縣: [23.06, 24.42, 120.98, 121.82],
-  台東縣: [21.88, 23.47, 120.68, 121.67],
-  澎湖縣: [23.13, 23.82, 119.28, 119.77],
-  金門縣: [24.33, 24.57, 118.13, 118.52],
-  連江縣: [25.88, 26.42, 119.83, 120.57],
-};
-function inCity(city, geo) {
-  if (!geo) return false;
-  const b = CITY_BBOX[city];
-  if (!b) return true;
-  return geo.lat >= b[0] && geo.lat <= b[1] && geo.lng >= b[2] && geo.lng <= b[3];
 }
 
 function cleanAddress(addr) {
