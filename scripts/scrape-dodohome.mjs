@@ -3,12 +3,16 @@
 // server 端已濾好「信用卡優免」名單，且每列電子地圖連結內嵌官方座標（X=lng,Y=lat）
 // → 直接用官方座標，免 Nominatim/NLSC。輸出：data/dodohome-raw.json
 
-import { writeFileSync, mkdirSync } from 'node:fs';
+import { writeFileSync, mkdirSync, existsSync, readFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const SOURCE_URL = 'https://www.dodohome.com.tw/p2_map.aspx/Search';
+const OUT = join(ROOT, 'data', 'dodohome-raw.json');
+// 來源會擋／連不到境外 IP（CI runner 常見 UND_ERR_CONNECT_TIMEOUT），此時保留舊檔即可，
+// 但超過這個天數還取不到就視為真的壞了，讓 CI 失敗提醒人工檢查。
+const MAX_STALE_DAYS = 30;
 
 const CITY_RE = /(台北市|臺北市|新北市|桃園市|台中市|臺中市|台南市|臺南市|高雄市|基隆市|新竹市|新竹縣|苗栗縣|彰化縣|南投縣|雲林縣|嘉義市|嘉義縣|屏東縣|宜蘭縣|花蓮縣|台東縣|臺東縣|澎湖縣|金門縣|連江縣)/;
 
@@ -28,13 +32,39 @@ function deriveCity(address) {
 
 const strip = (s) => s.replace(/<[^>]+>/g, '').replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&').trim();
 
-const res = await fetch(SOURCE_URL, {
-  method: 'POST',
-  headers: { 'content-type': 'application/json', 'user-agent': 'Mozilla/5.0' },
-  body: JSON.stringify({ selCountry: 'ALL', selService: '信用卡優免', strLat: '', strLng: '' }),
-});
-if (!res.ok) throw new Error(`HTTP ${res.status} fetching ${SOURCE_URL}`);
-const { d: html } = await res.json();
+// 來源不可用時保留舊檔（同 scrape-autopass 的作法）：整份資料集不該因單一品牌連不上就整包不更新
+function keepOldOrFail(reason) {
+  if (!existsSync(OUT)) throw new Error(`${reason}，且無既有 ${OUT} 可保留`);
+  const prev = JSON.parse(readFileSync(OUT, 'utf8'));
+  const ageDays = (Date.now() - Date.parse(prev.scrapedAt)) / 86400000;
+  if (!(ageDays <= MAX_STALE_DAYS)) {
+    throw new Error(`${reason}，且既有檔已 ${ageDays.toFixed(1)} 天未更新（上限 ${MAX_STALE_DAYS} 天），請人工檢查來源`);
+  }
+  console.warn(`⚠ ${reason}，保留既有 ${prev.count} 筆（${prev.scrapedAt}，${ageDays.toFixed(1)} 天前）不覆寫。`);
+  process.exit(0);
+}
+
+async function fetchHtml(tries = 3) {
+  let last = '';
+  for (let i = 0; i < tries; i++) {
+    try {
+      const res = await fetch(SOURCE_URL, {
+        method: 'POST',
+        headers: { 'content-type': 'application/json', 'user-agent': 'Mozilla/5.0' },
+        body: JSON.stringify({ selCountry: 'ALL', selService: '信用卡優免', strLat: '', strLng: '' }),
+        signal: AbortSignal.timeout(30000),
+      });
+      if (res.ok) return (await res.json()).d;
+      last = `HTTP ${res.status}`;
+    } catch (e) {
+      last = e.cause?.code ?? e.code ?? e.message; // 連線層錯誤（UND_ERR_CONNECT_TIMEOUT 等）
+    }
+    if (i < tries - 1) await new Promise((r) => setTimeout(r, 3000 * (i + 1)));
+  }
+  keepOldOrFail(`取不到來源 ${SOURCE_URL}（${last}）`);
+}
+
+const html = await fetchHtml();
 if (!html) throw new Error('回傳無 d 欄位，疑似 API 改版');
 
 const lots = [];
