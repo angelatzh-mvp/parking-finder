@@ -391,13 +391,6 @@
   "verifiedAt": "2026-08-17",
   "note": "A 類（NLSC 落差 1012m）；改以 Autopass POI「台東基督教醫院停車場」座標為準，原座標偏 975m"
  },
- "台北市|華山站": {
-  "lat": 25.045006,
-  "lng": 121.5262669,
-  "source": "autopass",
-  "verifiedAt": "2026-08-17",
-  "note": "D 類（原本無座標）；採 Autopass POI「嘟嘟房華山站」座標"
- },
  "台中市|城市車旅大慶站": {
   "lat": 24.1200232,
   "lng": 120.6490532,
@@ -2105,5 +2098,47 @@
   "source": "manual-verified",
   "verifiedAt": "2026-08-17",
   "note": "Autopass 查無此場站；人工確認；原座標偏 1481m"
+ },
+ "新竹縣市|城市車旅竹北公所平面": {
+  "lat": 24.83938,
+  "lng": 121.004098,
+  "source": "manual-verified",
+  "verifiedAt": "2026-08-17",
+  "note": "Autopass 查無此場站；人工確認；原座標偏 1334m"
+ },
+ "台北市|臺北花木批發市場地下停車場": {
+  "lat": 25.004432,
+  "lng": 121.540624,
+  "source": "manual-verified",
+  "verifiedAt": "2026-08-17",
+  "note": "Autopass 查無此場站；人工確認；原座標偏 738m"
+ },
+ "台北市|忠孝三": {
+  "lat": 25.052531,
+  "lng": 121.61172,
+  "source": "manual-verified",
+  "verifiedAt": "2026-08-17",
+  "note": "Autopass 查無此場站；人工確認；原座標偏 411m"
+ },
+ "台北市|元吉站": {
+  "lat": 25.080619,
+  "lng": 121.567429,
+  "source": "manual-verified",
+  "verifiedAt": "2026-08-17",
+  "note": "Autopass 查無此場站；人工確認；原座標偏 365m"
+ },
+ "p1a4c549": {
+  "lat": 24.1838709,
+  "lng": 120.6066629,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "城市車旅臺中榮總（西屯區臺灣大道4段1650號停車場）；同名 2 筆故用 id 當 key，依地址完全吻合對到 Autopass POI「城市車旅臺中榮總(本院南院區)」；原座標偏 1738m"
+ },
+ "p1x9yy29": {
+  "lat": 24.1401466,
+  "lng": 120.6621638,
+  "source": "autopass",
+  "verifiedAt": "2026-08-17",
+  "note": "城市車旅國美館（西區五權西路一段2號）；同名 2 筆故用 id 當 key，依地址完全吻合對到 Autopass POI「城市車旅國美館(美術園區)」；原座標偏 209m"
  }
 }

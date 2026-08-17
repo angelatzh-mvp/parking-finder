@@ -1,6 +1,6 @@
 {
  "meta": {
-  "builtAt": "2026-08-17T00:43:07.175Z",
+  "builtAt": "2026-08-17T15:46:19.009Z",
   "sources": {
    "utg": {
     "label": "台灣聯通",
@@ -40,7 +40,7 @@
   "noGeo": 0,
   "geoPending": 0,
   "overridden": 13,
-  "coordFixed": 301
+  "coordFixed": 306
  },
  "lots": [
   {
@@ -5710,8 +5710,8 @@
    "city": "台北市",
    "district": "文山區",
    "address": "文山區興隆路1段15號",
-   "lat": 24.9987044,
-   "lng": 121.5443313,
+   "lat": 25.004432,
+   "lng": 121.540624,
    "note": "",
    "maxHeight": null,
    "totalSpace": null
@@ -7674,8 +7674,8 @@
    "city": "新竹縣市",
    "district": "竹北市",
    "address": "竹北市中正西路50號",
-   "lat": 24.842998,
-   "lng": 120.9914961,
+   "lat": 24.83938,
+   "lng": 121.004098,
    "note": "",
    "maxHeight": null,
    "totalSpace": null
@@ -9805,8 +9805,8 @@
    "city": "台中市",
    "district": "西屯區",
    "address": "西屯區臺灣大道4段1650號停車場",
-   "lat": 24.1793457,
-   "lng": 120.6230621,
+   "lat": 24.1838709,
+   "lng": 120.6066629,
    "note": "本院南院區",
    "maxHeight": null,
    "totalSpace": null
@@ -10015,8 +10015,8 @@
    "city": "台中市",
    "district": "西區",
    "address": "西區五權西路一段2號",
-   "lat": 24.141526,
-   "lng": 120.663569,
+   "lat": 24.1401466,
+   "lng": 120.6621638,
    "note": "美術園區",
    "maxHeight": null,
    "totalSpace": null
@@ -14914,8 +14914,8 @@
    "city": "台北市",
    "district": "中正區",
    "address": "台北市中正區北平東路30-1號B1-B3由紹興北街進入",
-   "lat": 25.045006,
-   "lng": 121.5262669,
+   "lat": 25.045474,
+   "lng": 121.52651,
    "note": "",
    "maxHeight": null,
    "totalSpace": null
@@ -19099,8 +19099,8 @@
    "city": "台北市",
    "district": "內湖區",
    "address": "台北市內湖區基湖路3巷47號B1~2",
-   "lat": 25.078848,
-   "lng": 121.5643819,
+   "lat": 25.080619,
+   "lng": 121.567429,
    "note": "",
    "maxHeight": null,
    "totalSpace": null
@@ -19159,8 +19159,8 @@
    "city": "台北市",
    "district": "南港區",
    "address": "台北市南港區忠孝東路7段528號",
-   "lat": 25.0522923,
-   "lng": 121.6076461,
+   "lat": 25.052531,
+   "lng": 121.61172,
    "note": "",
    "maxHeight": null,
    "totalSpace": null
