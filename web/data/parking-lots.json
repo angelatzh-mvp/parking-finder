@@ -1,63 +1,48 @@
 {
  "meta": {
-  "builtAt": "2026-08-16T19:17:17.741Z",
+  "builtAt": "2026-08-17T00:43:07.175Z",
   "sources": {
    "utg": {
     "label": "台灣聯通",
-    "scrapedAt": "2026-08-09T21:23:57.189Z",
-    "count": 247
+    "scrapedAt": "2026-08-17T00:42:06.749Z",
+    "count": 246
    },
    "carmochi": {
     "label": "車麻吉",
     "updatedAt": "2026-06-26",
-    "scrapedAt": "2026-08-09T21:23:57.776Z",
-    "count": 672
+    "scrapedAt": "2026-08-17T00:42:07.714Z",
+    "count": 671
    },
    "dodohome": {
     "label": "嘟嘟房",
-    "scrapedAt": "2026-08-09T21:24:03.859Z",
-    "count": 370
+    "scrapedAt": "2026-08-17T00:42:09.946Z",
+    "count": 368
    },
    "tps": {
     "label": "24TPS",
-    "scrapedAt": "2026-08-09T21:24:05.261Z",
+    "scrapedAt": "2026-08-17T00:42:11.138Z",
     "count": 34
    },
    "vivipark": {
     "label": "ViVi PARK",
-    "scrapedAt": "2026-08-09T21:24:07.025Z",
+    "scrapedAt": "2026-08-17T00:42:12.119Z",
     "count": 220
    },
    "parkinsys": {
     "label": "銓營",
-    "scrapedAt": "2026-08-09T21:24:21.374Z",
+    "scrapedAt": "2026-08-17T00:42:24.050Z",
     "count": 19
    }
   },
-  "total": 1508,
+  "total": 1500,
   "mergedBoth": 24,
   "consolidated": 18,
-  "noGeo": 1,
+  "noGeo": 0,
   "geoPending": 0,
   "overridden": 13,
   "coordFixed": 301
  },
  "lots": [
-  {
-   "id": "pmay05c",
-   "brands": [
-    "utg"
-   ],
-   "name": "台灣聯通總公司",
-   "city": "台北市",
-   "district": "中山區",
-   "address": "民生東路一段51號9樓",
-   "lat": 25.058134,
-   "lng": 121.526225,
-   "note": "",
-   "maxHeight": 1.55,
-   "totalSpace": 50
-  },
   {
    "id": "ppj0ro9",
    "brands": [
@@ -1046,21 +1031,6 @@
    "lng": 120.681854,
    "note": "",
    "maxHeight": null,
-   "totalSpace": 0
-  },
-  {
-   "id": "p1vvskkr",
-   "brands": [
-    "utg"
-   ],
-   "name": "中和世紀廣場",
-   "city": "新北市",
-   "district": "中和區",
-   "address": "新北市中和區建一路172號B1樓",
-   "lat": 24.997998,
-   "lng": 121.488014,
-   "note": "",
-   "maxHeight": 1.9,
    "totalSpace": 0
   },
   {
@@ -2064,51 +2034,6 @@
    "address": "台南市永康區永科三路77號",
    "lat": 23.0409878,
    "lng": 120.2786602,
-   "note": "不支援線上繳費",
-   "maxHeight": null,
-   "totalSpace": 0
-  },
-  {
-   "id": "p5fc8m8",
-   "brands": [
-    "utg"
-   ],
-   "name": "永科停四場",
-   "city": "台南市",
-   "district": "永康區",
-   "address": "台南市永康區永科環路309號(秀孟公司旁)",
-   "lat": 23.0439286,
-   "lng": 120.2747765,
-   "note": "不支援線上繳費",
-   "maxHeight": null,
-   "totalSpace": 0
-  },
-  {
-   "id": "pav1yln",
-   "brands": [
-    "utg"
-   ],
-   "name": "永科停三場",
-   "city": "台南市",
-   "district": "永康區",
-   "address": "台南市永康區永科一路19號(綜合汙水廠旁)_",
-   "lat": 23.0442066,
-   "lng": 120.2814943,
-   "note": "不支援線上繳費",
-   "maxHeight": null,
-   "totalSpace": 0
-  },
-  {
-   "id": "p5xle77",
-   "brands": [
-    "utg"
-   ],
-   "name": "永科停一場",
-   "city": "台南市",
-   "district": "永康區",
-   "address": "台南市永康區永科環路397號(長宏人力公司旁)",
-   "lat": 23.0431057,
-   "lng": 120.274568,
    "note": "不支援線上繳費",
    "maxHeight": null,
    "totalSpace": 0
@@ -7646,21 +7571,6 @@
    "address": "竹北市光明六路89號",
    "lat": 24.8258456,
    "lng": 121.0090882,
-   "note": "",
-   "maxHeight": null,
-   "totalSpace": null
-  },
-  {
-   "id": "p1pvkt0m",
-   "brands": [
-    "carmochi"
-   ],
-   "name": "新埔廣停三路外停車場",
-   "city": "新竹縣市",
-   "district": "新埔鎮",
-   "address": "新埔鎮福田段198地號",
-   "lat": 24.835719,
-   "lng": 121.054959,
    "note": "",
    "maxHeight": null,
    "totalSpace": null
@@ -15986,21 +15896,6 @@
    "totalSpace": null
   },
   {
-   "id": "p3nl29y",
-   "brands": [
-    "dodohome"
-   ],
-   "name": "桃園益壽站",
-   "city": "桃園市",
-   "district": "桃園區",
-   "address": "桃園市桃園區益壽七街167號旁停車場",
-   "lat": null,
-   "lng": null,
-   "note": "",
-   "maxHeight": null,
-   "totalSpace": null
-  },
-  {
    "id": "p158t60",
    "brands": [
     "dodohome"
@@ -16041,21 +15936,6 @@
    "address": "桃園市中壢區青埔里高鐵北路1段6號(P3立體停車場區-含機車停車場)",
    "lat": 25.014077,
    "lng": 121.215969,
-   "note": "",
-   "maxHeight": null,
-   "totalSpace": null
-  },
-  {
-   "id": "p1b1uuzm",
-   "brands": [
-    "dodohome"
-   ],
-   "name": "龍潭中正站",
-   "city": "桃園市",
-   "district": "龍潭區",
-   "address": "桃園市龍潭區中正路311之3號後方停車場",
-   "lat": 24.861672,
-   "lng": 121.218459,
    "note": "",
    "maxHeight": null,
    "totalSpace": null
