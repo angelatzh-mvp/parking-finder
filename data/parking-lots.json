@@ -1,40 +1,40 @@
 {
  "meta": {
-  "builtAt": "2026-08-18T02:41:04.891Z",
+  "builtAt": "2026-08-23T21:15:17.272Z",
   "sources": {
    "utg": {
     "label": "台灣聯通",
-    "scrapedAt": "2026-08-17T00:42:06.749Z",
-    "count": 246
+    "scrapedAt": "2026-08-23T21:14:16.334Z",
+    "count": 247
    },
    "carmochi": {
     "label": "車麻吉",
     "updatedAt": "2026-06-26",
-    "scrapedAt": "2026-08-17T00:42:07.714Z",
-    "count": 671
+    "scrapedAt": "2026-08-23T21:14:16.827Z",
+    "count": 670
    },
    "dodohome": {
     "label": "嘟嘟房",
-    "scrapedAt": "2026-08-17T00:42:09.946Z",
-    "count": 368
+    "scrapedAt": "2026-08-23T21:14:18.984Z",
+    "count": 369
    },
    "tps": {
     "label": "24TPS",
-    "scrapedAt": "2026-08-17T00:42:11.138Z",
+    "scrapedAt": "2026-08-23T21:14:19.996Z",
     "count": 34
    },
    "vivipark": {
     "label": "ViVi PARK",
-    "scrapedAt": "2026-08-17T00:42:12.119Z",
-    "count": 220
+    "scrapedAt": "2026-08-23T21:14:21.068Z",
+    "count": 218
    },
    "parkinsys": {
     "label": "銓營",
-    "scrapedAt": "2026-08-17T00:42:24.050Z",
+    "scrapedAt": "2026-08-23T21:14:32.685Z",
     "count": 19
    }
   },
-  "total": 1500,
+  "total": 1499,
   "mergedBoth": 24,
   "consolidated": 18,
   "noGeo": 0,
@@ -43,6 +43,21 @@
   "coordFixed": 407
  },
  "lots": [
+  {
+   "id": "pltx6kv",
+   "brands": [
+    "utg"
+   ],
+   "name": "台中昌平三場",
+   "city": "台中市",
+   "district": "北屯區",
+   "address": "昌平三街15號旁空地",
+   "lat": 24.18631917337636,
+   "lng": 120.68903202211837,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": 17
+  },
   {
    "id": "ppj0ro9",
    "brands": [
@@ -8492,21 +8507,6 @@
    "totalSpace": null
   },
   {
-   "id": "p1ryv7bt",
-   "brands": [
-    "carmochi"
-   ],
-   "name": "陽明市政大樓地下停車場",
-   "city": "台中市",
-   "district": "豐原區",
-   "address": "豐原區陽明街36號",
-   "lat": 24.2469398,
-   "lng": 120.7212197,
-   "note": "",
-   "maxHeight": null,
-   "totalSpace": null
-  },
-  {
    "id": "p1ffhvws",
    "brands": [
     "carmochi"
@@ -15116,6 +15116,21 @@
    "totalSpace": null
   },
   {
+   "id": "p1dystvh",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "三重忠孝站",
+   "city": "新北市",
+   "district": "三重區",
+   "address": "新北市三重區忠孝路三段122號後方停車場",
+   "lat": 25.063686,
+   "lng": 121.480145,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
    "id": "pr6gm1t",
    "brands": [
     "dodohome"
@@ -19361,6 +19376,21 @@
    "totalSpace": null
   },
   {
+   "id": "p1056vtl",
+   "brands": [
+    "vivipark"
+   ],
+   "name": "樂群國小場",
+   "city": "高雄市",
+   "district": "前鎮區",
+   "address": "高雄市前鎮區育群街273巷54號前空地",
+   "lat": 22.607457,
+   "lng": 120.321939,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
    "id": "pws35m9",
    "brands": [
     "vivipark"
@@ -19701,21 +19731,6 @@
    "address": "高雄市鼓山區青海段656-1地號空地停車場",
    "lat": 22.65290597,
    "lng": 120.2905645,
-   "note": "",
-   "maxHeight": null,
-   "totalSpace": null
-  },
-  {
-   "id": "p1ccoyrm",
-   "brands": [
-    "vivipark"
-   ],
-   "name": "鼓山龍勝停車場",
-   "city": "高雄市",
-   "district": "鼓山區",
-   "address": "高雄市鼓山區龍子里龍勝路333號旁空地停車場",
-   "lat": 22.66028736,
-   "lng": 120.2958973,
    "note": "",
    "maxHeight": null,
    "totalSpace": null
@@ -20721,21 +20736,6 @@
    "address": "新北市林口區文化北路一段458巷27號對面",
    "lat": 25.07663232,
    "lng": 121.3659519,
-   "note": "",
-   "maxHeight": null,
-   "totalSpace": null
-  },
-  {
-   "id": "p1p7ntc2",
-   "brands": [
-    "vivipark"
-   ],
-   "name": "板橋萬板一停車場",
-   "city": "新北市",
-   "district": "板橋區",
-   "address": "新北市板橋區新北市板橋區懷德街235巷 旁空地停車場",
-   "lat": 25.0285391,
-   "lng": 121.4811697,
    "note": "",
    "maxHeight": null,
    "totalSpace": null
@@ -21876,21 +21876,6 @@
    "address": "台北市萬華區中華路一段及廣州街交叉口",
    "lat": 25.03624,
    "lng": 121.50622,
-   "note": "",
-   "maxHeight": null,
-   "totalSpace": null
-  },
-  {
-   "id": "p10jfjms",
-   "brands": [
-    "vivipark"
-   ],
-   "name": "全聯台中潭子福潭店場",
-   "city": "台中市",
-   "district": "潭子區",
-   "address": "台中市潭子區福潭路362、368號",
-   "lat": 24.208809,
-   "lng": 120.710344,
    "note": "",
    "maxHeight": null,
    "totalSpace": null
