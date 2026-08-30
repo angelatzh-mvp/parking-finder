@@ -1,6 +1,6 @@
 {
   "source": "wss://www.taiwan-parking.com.tw/ada/public",
-  "scrapedAt": "2026-08-23T21:14:16.334Z",
+  "scrapedAt": "2026-08-30T23:02:36.970Z",
   "count": 247,
   "byCity": {
     "台中市": 37,
@@ -2988,7 +2988,7 @@
     },
     {
       "parkingId": "3094",
-      "name": "敦南場",
+      "name": "敦南場(例假日休場)",
       "city": "台北市",
       "district": "大安區",
       "address": "台北市大安區敦化南路二段206號",

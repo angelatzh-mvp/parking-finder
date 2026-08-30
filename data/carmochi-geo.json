@@ -1,7 +1,7 @@
 {
   "source": "https://help.carmochi.com/cityparking/available",
   "updatedAt": "2026-06-26",
-  "scrapedAt": "2026-08-23T21:14:16.827Z",
+  "scrapedAt": "2026-08-30T23:02:37.474Z",
   "count": 670,
   "byCity": {
     "基隆市": 2,
@@ -5384,7 +5384,7 @@
       "lng": 121.123383
     }
   ],
-  "geocodedAt": "2026-08-23T21:14:32.781Z",
+  "geocodedAt": "2026-08-30T23:02:57.916Z",
   "hits": 666,
   "misses": 4
 }
