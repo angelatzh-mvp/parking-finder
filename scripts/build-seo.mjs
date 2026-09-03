@@ -634,13 +634,20 @@ ${faqHtml(FAQ)}`;
     const dBrand = {};
     for (const l of arr) for (const b of l.brands) dBrand[b] = (dBrand[b] || 0) + 1;
     const dBrandLine = Object.entries(dBrand).sort((a, b) => b[1] - a[1]).map(([b, n]) => `${BRAND_META[b]?.label ?? b} ${n} 處`).join('、');
+    // 描述用的代表場站名：取前 3 個較短的名稱，讓 SERP 摘要帶具體資訊而非樣板話
+    const dNameList = arr.map((l) => l.name).filter(Boolean)
+      .sort((a, b) => a.length - b.length).slice(0, 3);
+    // 只列了部分場站才加「等」，全部列完就不加
+    const dNames = dNameList.length
+      ? dNameList.join('、') + (arr.length > dNameList.length ? '等' : '')
+      : '';
     const body = `
 <div class="note">${esc(city)}${esc(d)}共有 <b>${arr.length}</b> 處信用卡優惠停車場。${dBrandLine ? `品牌分布：${esc(dBrandLine)}。` : ''}以下為完整清單，點「導航」直接開 Google 地圖。</div>
 ${lotsHtml(arr)}
 <p style="margin-top:24px"><a href="./">← 回${esc(city)}其他行政區</a></p>`;
     write(`parking/${city}/${d}.html`, page({
-      title: `${city}${d}免費停車場｜信用卡優惠 ${arr.length} 處一次看｜小Ｐ帶路`,
-      description: `${city}${d}可用信用卡免費／折抵的停車場共 ${arr.length} 處，含地址、車位與一鍵導航，找離你最近的免費停車位、免下載。`,
+      title: `${city}${d}免費停車場 ${arr.length} 處｜地址・車位・一鍵導航｜小Ｐ帶路`,
+      description: `${city}${d}共 ${arr.length} 處持信用卡可免費／折抵的停車場${dNames ? `，包含${dNames}` : ''}，附地址、車位數與一鍵導航，開網頁免下載、查離你最近的免費停車位。`,
       canonical: distUrl(city, d), appHref: APP('seo'), ctaHref: APP('seo', { city, district: d }), builtAt,
       crumb: `<a href="${APP('seo')}">小Ｐ帶路</a> › <a href="${HUB}">全台</a> › <a href="${cityUrl(city)}">${esc(city)}</a> › ${esc(d)}`,
       h1: `${city}${d}信用卡免費停車場`,
