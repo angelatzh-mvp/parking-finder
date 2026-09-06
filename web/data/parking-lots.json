@@ -1,46 +1,46 @@
 {
  "meta": {
-  "builtAt": "2026-08-30T23:03:44.797Z",
+  "builtAt": "2026-09-06T22:38:12.532Z",
   "sources": {
    "utg": {
     "label": "台灣聯通",
-    "scrapedAt": "2026-08-30T23:02:36.970Z",
+    "scrapedAt": "2026-09-06T22:37:06.307Z",
     "count": 247
    },
    "carmochi": {
     "label": "車麻吉",
     "updatedAt": "2026-06-26",
-    "scrapedAt": "2026-08-30T23:02:37.474Z",
-    "count": 670
+    "scrapedAt": "2026-09-06T22:37:06.899Z",
+    "count": 665
    },
    "dodohome": {
     "label": "嘟嘟房",
-    "scrapedAt": "2026-08-30T23:02:40.227Z",
-    "count": 370
+    "scrapedAt": "2026-09-06T22:37:10.963Z",
+    "count": 372
    },
    "tps": {
     "label": "24TPS",
-    "scrapedAt": "2026-08-30T23:02:41.641Z",
+    "scrapedAt": "2026-09-06T22:37:12.231Z",
     "count": 34
    },
    "vivipark": {
     "label": "ViVi PARK",
-    "scrapedAt": "2026-08-30T23:02:43.322Z",
-    "count": 218
+    "scrapedAt": "2026-09-06T22:37:13.678Z",
+    "count": 212
    },
    "parkinsys": {
     "label": "銓營",
-    "scrapedAt": "2026-08-30T23:02:57.824Z",
+    "scrapedAt": "2026-09-06T22:37:27.136Z",
     "count": 19
    }
   },
-  "total": 1500,
+  "total": 1491,
   "mergedBoth": 24,
   "consolidated": 18,
-  "noGeo": 0,
+  "noGeo": 1,
   "geoPending": 0,
   "overridden": 13,
-  "coordFixed": 407
+  "coordFixed": 406
  },
  "lots": [
   {
@@ -3765,36 +3765,6 @@
    "totalSpace": null
   },
   {
-   "id": "pajh9tn",
-   "brands": [
-    "carmochi"
-   ],
-   "name": "大日永和福和場",
-   "city": "新北市",
-   "district": "永和區",
-   "address": "永和區永亨路99-85號",
-   "lat": 25.006049,
-   "lng": 121.521318,
-   "note": "",
-   "maxHeight": null,
-   "totalSpace": null
-  },
-  {
-   "id": "pxhhtie",
-   "brands": [
-    "carmochi"
-   ],
-   "name": "大日中和國小場",
-   "city": "新北市",
-   "district": "中和區",
-   "address": "中和區景平路632-8號",
-   "lat": 24.998522,
-   "lng": 121.500076,
-   "note": "",
-   "maxHeight": null,
-   "totalSpace": null
-  },
-  {
    "id": "p111tdfg",
    "brands": [
     "carmochi"
@@ -3835,21 +3805,6 @@
    "address": "中和區錦和路115號旁",
    "lat": 24.9945234,
    "lng": 121.4904675,
-   "note": "",
-   "maxHeight": null,
-   "totalSpace": null
-  },
-  {
-   "id": "pa4feuo",
-   "brands": [
-    "carmochi"
-   ],
-   "name": "大日土城裕生場",
-   "city": "新北市",
-   "district": "土城區",
-   "address": "土城區裕生路106號",
-   "lat": 24.9859128,
-   "lng": 121.44753,
    "note": "",
    "maxHeight": null,
    "totalSpace": null
@@ -4065,21 +4020,6 @@
    "address": "淡水區中正路1號",
    "lat": 25.1676803,
    "lng": 121.4453677,
-   "note": "",
-   "maxHeight": null,
-   "totalSpace": null
-  },
-  {
-   "id": "p20vc1n",
-   "brands": [
-    "carmochi"
-   ],
-   "name": "大日板橋高中",
-   "city": "新北市",
-   "district": "板橋區",
-   "address": "板橋區文化路一段25號",
-   "lat": 25.0127464,
-   "lng": 121.4602785,
    "note": "",
    "maxHeight": null,
    "totalSpace": null
@@ -5565,21 +5505,6 @@
    "totalSpace": null
   },
   {
-   "id": "p1fhhqd7",
-   "brands": [
-    "carmochi"
-   ],
-   "name": "大日北流場",
-   "city": "台北市",
-   "district": "南港區",
-   "address": "南港區市民大道8段99號",
-   "lat": 25.0526976,
-   "lng": 121.5981787,
-   "note": "",
-   "maxHeight": null,
-   "totalSpace": null
-  },
-  {
    "id": "p1qbbrf2",
    "brands": [
     "carmochi",
@@ -5986,21 +5911,6 @@
    "address": "信義區信安街25、29號B1-B3",
    "lat": 25.028236,
    "lng": 121.558587,
-   "note": "",
-   "maxHeight": null,
-   "totalSpace": null
-  },
-  {
-   "id": "pwlseo6",
-   "brands": [
-    "carmochi"
-   ],
-   "name": "榮星花園地下停車場",
-   "city": "台北市",
-   "district": "中山區",
-   "address": "中山區建國北路3段39號",
-   "lat": 25.0649893,
-   "lng": 121.5370562,
    "note": "",
    "maxHeight": null,
    "totalSpace": null
@@ -8321,6 +8231,21 @@
    "address": "公館鄉仁愛路二段168之一號旁",
    "lat": 24.5054552,
    "lng": 120.8266887,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "ps4ubud",
+   "brands": [
+    "carmochi"
+   ],
+   "name": "苗栗市莊敬街停車場",
+   "city": "苗栗縣",
+   "district": "栗市",
+   "address": "栗市莊敬街10巷29號旁停車場",
+   "lat": 24.5611453,
+   "lng": 120.8195466,
    "note": "",
    "maxHeight": null,
    "totalSpace": null
@@ -14486,6 +14411,21 @@
    "totalSpace": null
   },
   {
+   "id": "pbyvn3h",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "長安大樓站",
+   "city": "台北市",
+   "district": "中山區",
+   "address": "台北市中山區長安東路一段18號B1-B3",
+   "lat": 25.049338,
+   "lng": 121.523566,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
    "id": "p1h58ej8",
    "brands": [
     "dodohome"
@@ -15926,6 +15866,21 @@
    "totalSpace": null
   },
   {
+   "id": "p3nl29y",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "桃園益壽站",
+   "city": "桃園市",
+   "district": "桃園區",
+   "address": "桃園市桃園區益壽七街167號旁停車場",
+   "lat": null,
+   "lng": null,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
    "id": "p158t60",
    "brands": [
     "dodohome"
@@ -16624,8 +16579,8 @@
    "city": "台中市",
    "district": "南區",
    "address": "台中市南區復興路一段140號後方停車場",
-   "lat": 24.205085,
-   "lng": 120.707514,
+   "lat": 24.11288,
+   "lng": 120.652989,
    "note": "",
    "maxHeight": null,
    "totalSpace": null
@@ -17831,6 +17786,21 @@
    "totalSpace": null
   },
   {
+   "id": "p1larmi6",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "南投中興站",
+   "city": "南投縣",
+   "district": "南投市",
+   "address": "南投縣南投市中興路848號對面停車場",
+   "lat": 23.89924,
+   "lng": 120.68472,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
    "id": "p1dhrxd0",
    "brands": [
     "dodohome"
@@ -18276,21 +18246,6 @@
    "address": "台南市東區崇善十六街55號旁空地",
    "lat": 22.963095,
    "lng": 120.233888,
-   "note": "",
-   "maxHeight": null,
-   "totalSpace": null
-  },
-  {
-   "id": "pkw1prj",
-   "brands": [
-    "dodohome"
-   ],
-   "name": "台南崇德站",
-   "city": "台南市",
-   "district": "東區",
-   "address": "台南市東區崇德十五街1號停車場",
-   "lat": 22.970146,
-   "lng": 120.228074,
    "note": "",
    "maxHeight": null,
    "totalSpace": null
@@ -19416,21 +19371,6 @@
    "address": "台中市豐原區北陽二街83號旁",
    "lat": 24.252692414291637,
    "lng": 120.73504170667202,
-   "note": "",
-   "maxHeight": null,
-   "totalSpace": null
-  },
-  {
-   "id": "p1b5vzbq",
-   "brands": [
-    "vivipark"
-   ],
-   "name": "楠梓德惠停車場",
-   "city": "高雄市",
-   "district": "楠梓區",
-   "address": "高雄市楠梓區高雄市楠梓區加仁路153號旁空地",
-   "lat": 22.7283082163456,
-   "lng": 120.302984995946,
    "note": "",
    "maxHeight": null,
    "totalSpace": null
@@ -21311,66 +21251,6 @@
    "totalSpace": null
   },
   {
-   "id": "p18m12xl",
-   "brands": [
-    "vivipark"
-   ],
-   "name": "Acon-eco台中五權停26-2停車場",
-   "city": "台中市",
-   "district": "南區",
-   "address": "台中市南區建國南路三段新華街口",
-   "lat": 24.1307527521352,
-   "lng": 120.671503749206,
-   "note": "",
-   "maxHeight": null,
-   "totalSpace": null
-  },
-  {
-   "id": "p15gey10",
-   "brands": [
-    "vivipark"
-   ],
-   "name": "Acon-eco台中五權停26-1停車場",
-   "city": "台中市",
-   "district": "南區",
-   "address": "台中市南區建國南路三段公理路口",
-   "lat": 24.1320538515873,
-   "lng": 120.674628171165,
-   "note": "",
-   "maxHeight": null,
-   "totalSpace": null
-  },
-  {
-   "id": "p1h17rmm",
-   "brands": [
-    "vivipark"
-   ],
-   "name": "Acon-eco台中精武停22停車場",
-   "city": "台中市",
-   "district": "東區",
-   "address": "台中市東區十甲路與東光路交叉口(北側)",
-   "lat": 24.1447564657848,
-   "lng": 120.697066328835,
-   "note": "",
-   "maxHeight": null,
-   "totalSpace": null
-  },
-  {
-   "id": "pbp07oi",
-   "brands": [
-    "vivipark"
-   ],
-   "name": "Acon-eco台中太原停18停車場",
-   "city": "台中市",
-   "district": "北屯區",
-   "address": "台中市北屯區東光路858號對面",
-   "lat": 24.1688794532032,
-   "lng": 120.700636217791,
-   "note": "",
-   "maxHeight": null,
-   "totalSpace": null
-  },
-  {
    "id": "pb3qzul",
    "brands": [
     "vivipark"
@@ -21651,21 +21531,6 @@
    "address": "台北市信義區忠孝東路五段293號B1",
    "lat": 25.041102,
    "lng": 121.572341,
-   "note": "",
-   "maxHeight": null,
-   "totalSpace": null
-  },
-  {
-   "id": "p14zs9l7",
-   "brands": [
-    "vivipark"
-   ],
-   "name": "長安大樓場",
-   "city": "台北市",
-   "district": "中山區",
-   "address": "台北市中山區長安東路一段18號B1～B3",
-   "lat": 25.049213,
-   "lng": 121.523497,
    "note": "",
    "maxHeight": null,
    "totalSpace": null
