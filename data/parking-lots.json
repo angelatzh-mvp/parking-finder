@@ -1,46 +1,46 @@
 {
  "meta": {
-  "builtAt": "2026-09-06T22:38:12.532Z",
+  "builtAt": "2026-09-13T22:46:21.546Z",
   "sources": {
    "utg": {
     "label": "台灣聯通",
-    "scrapedAt": "2026-09-06T22:37:06.307Z",
+    "scrapedAt": "2026-09-13T22:45:23.263Z",
     "count": 247
    },
    "carmochi": {
     "label": "車麻吉",
     "updatedAt": "2026-06-26",
-    "scrapedAt": "2026-09-06T22:37:06.899Z",
-    "count": 665
+    "scrapedAt": "2026-09-13T22:45:23.938Z",
+    "count": 662
    },
    "dodohome": {
     "label": "嘟嘟房",
-    "scrapedAt": "2026-09-06T22:37:10.963Z",
-    "count": 372
+    "scrapedAt": "2026-09-13T22:45:26.118Z",
+    "count": 373
    },
    "tps": {
     "label": "24TPS",
-    "scrapedAt": "2026-09-06T22:37:12.231Z",
+    "scrapedAt": "2026-09-13T22:45:27.317Z",
     "count": 34
    },
    "vivipark": {
     "label": "ViVi PARK",
-    "scrapedAt": "2026-09-06T22:37:13.678Z",
-    "count": 212
+    "scrapedAt": "2026-09-13T22:45:29.697Z",
+    "count": 213
    },
    "parkinsys": {
     "label": "銓營",
-    "scrapedAt": "2026-09-06T22:37:27.136Z",
+    "scrapedAt": "2026-09-13T22:45:41.792Z",
     "count": 19
    }
   },
-  "total": 1491,
+  "total": 1490,
   "mergedBoth": 24,
   "consolidated": 18,
-  "noGeo": 1,
+  "noGeo": 0,
   "geoPending": 0,
   "overridden": 13,
-  "coordFixed": 406
+  "coordFixed": 403
  },
  "lots": [
   {
@@ -5185,21 +5185,6 @@
    "totalSpace": null
   },
   {
-   "id": "p881sv8",
-   "brands": [
-    "carmochi"
-   ],
-   "name": "國雲忠誠路",
-   "city": "台北市",
-   "district": "士林區",
-   "address": "士林區忠誠路1段與德行東路132巷7弄交叉口旁",
-   "lat": 25.1070046,
-   "lng": 121.5296682,
-   "note": "二",
-   "maxHeight": null,
-   "totalSpace": null
-  },
-  {
    "id": "p1ddeefz",
    "brands": [
     "carmochi"
@@ -5225,21 +5210,6 @@
    "address": "士林區延平北路六段308號B1-B3",
    "lat": 25.0914057,
    "lng": 121.5020238,
-   "note": "",
-   "maxHeight": null,
-   "totalSpace": null
-  },
-  {
-   "id": "psumrlu",
-   "brands": [
-    "carmochi"
-   ],
-   "name": "國雲停車至誠場",
-   "city": "台北市",
-   "district": "士林區",
-   "address": "士林區至誠路一段295號",
-   "lat": 25.1018918,
-   "lng": 121.531541,
    "note": "",
    "maxHeight": null,
    "totalSpace": null
@@ -6554,21 +6524,6 @@
   },
   {
    "id": "p1nkf9py",
-   "brands": [
-    "carmochi"
-   ],
-   "name": "市民大道敦延段",
-   "city": "台北市",
-   "district": "松山區",
-   "address": "松山區市民大道四段",
-   "lat": 25.0447427,
-   "lng": 121.5506385,
-   "note": "",
-   "maxHeight": null,
-   "totalSpace": null
-  },
-  {
-   "id": "p1jdwtcj",
    "brands": [
     "carmochi"
    ],
@@ -15874,8 +15829,8 @@
    "city": "桃園市",
    "district": "桃園區",
    "address": "桃園市桃園區益壽七街167號旁停車場",
-   "lat": null,
-   "lng": null,
+   "lat": 24.991806,
+   "lng": 121.28888,
    "note": "",
    "maxHeight": null,
    "totalSpace": null
@@ -17376,6 +17331,21 @@
    "address": "嘉義市東區忠孝路346巷59號旁空地",
    "lat": 23.489223,
    "lng": 120.453994,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "ptz66jd",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "嘉義忠孝5站",
+   "city": "嘉義縣市",
+   "district": "東區",
+   "address": "嘉義市東區忠孝路798巷58號對面空地",
+   "lat": 23.516985,
+   "lng": 120.443067,
    "note": "",
    "maxHeight": null,
    "totalSpace": null
@@ -19341,6 +19311,21 @@
    "address": "台南市中華東路101號旁空地",
    "lat": 22.986331,
    "lng": 120.23363,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1e62tgr",
+   "brands": [
+    "vivipark"
+   ],
+   "name": "岡山公園西停車場",
+   "city": "高雄市",
+   "district": "岡山區",
+   "address": "高雄市岡山區公園西路三段189號對面",
+   "lat": 22.791781417009677,
+   "lng": 120.2846204662971,
    "note": "",
    "maxHeight": null,
    "totalSpace": null
