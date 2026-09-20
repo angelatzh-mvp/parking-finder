@@ -1,40 +1,40 @@
 {
  "meta": {
-  "builtAt": "2026-09-13T22:46:21.546Z",
+  "builtAt": "2026-09-20T22:52:49.440Z",
   "sources": {
    "utg": {
     "label": "台灣聯通",
-    "scrapedAt": "2026-09-13T22:45:23.263Z",
-    "count": 247
+    "scrapedAt": "2026-09-20T22:51:36.741Z",
+    "count": 249
    },
    "carmochi": {
     "label": "車麻吉",
     "updatedAt": "2026-06-26",
-    "scrapedAt": "2026-09-13T22:45:23.938Z",
+    "scrapedAt": "2026-09-20T22:51:37.372Z",
     "count": 662
    },
    "dodohome": {
     "label": "嘟嘟房",
-    "scrapedAt": "2026-09-13T22:45:26.118Z",
-    "count": 373
+    "scrapedAt": "2026-09-20T22:51:39.812Z",
+    "count": 375
    },
    "tps": {
     "label": "24TPS",
-    "scrapedAt": "2026-09-13T22:45:27.317Z",
+    "scrapedAt": "2026-09-20T22:51:40.879Z",
     "count": 34
    },
    "vivipark": {
     "label": "ViVi PARK",
-    "scrapedAt": "2026-09-13T22:45:29.697Z",
+    "scrapedAt": "2026-09-20T22:51:43.318Z",
     "count": 213
    },
    "parkinsys": {
     "label": "銓營",
-    "scrapedAt": "2026-09-13T22:45:41.792Z",
+    "scrapedAt": "2026-09-20T22:51:56.037Z",
     "count": 19
    }
   },
-  "total": 1490,
+  "total": 1494,
   "mergedBoth": 24,
   "consolidated": 18,
   "noGeo": 0,
@@ -43,6 +43,36 @@
   "coordFixed": 403
  },
  "lots": [
+  {
+   "id": "p1sjmq2n",
+   "brands": [
+    "utg"
+   ],
+   "name": "八里龍形場",
+   "city": "新北市",
+   "district": "八里區",
+   "address": "新北市八里區龍源里龍形二街2-2號",
+   "lat": 25.130737,
+   "lng": 121.450712,
+   "note": "",
+   "maxHeight": 1.55,
+   "totalSpace": 50
+  },
+  {
+   "id": "p13eq2d5",
+   "brands": [
+    "utg"
+   ],
+   "name": "新莊鴻福場",
+   "city": "新北市",
+   "district": "新莊區",
+   "address": "新北市新莊區化成路11巷101號旁之空地",
+   "lat": 25.043513,
+   "lng": 121.461612,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": 81
+  },
   {
    "id": "pltx6kv",
    "brands": [
@@ -17186,6 +17216,21 @@
    "totalSpace": null
   },
   {
+   "id": "p1rffwza",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "嘉義中興站",
+   "city": "嘉義縣市",
+   "district": "西區",
+   "address": "嘉義市西區中興路396號停車場",
+   "lat": 23.479559,
+   "lng": 120.429247,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
    "id": "pcg3f5e",
    "brands": [
     "dodohome"
@@ -17346,6 +17391,21 @@
    "address": "嘉義市東區忠孝路798巷58號對面空地",
    "lat": 23.516985,
    "lng": 120.443067,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "puriqgj",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "嘉義忠孝6站",
+   "city": "嘉義縣市",
+   "district": "東區",
+   "address": "嘉義市東區忠孝路489號停車場",
+   "lat": 23.495169,
+   "lng": 120.451719,
    "note": "",
    "maxHeight": null,
    "totalSpace": null

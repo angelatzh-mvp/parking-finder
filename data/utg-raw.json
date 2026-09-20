@@ -1,11 +1,11 @@
 {
   "source": "wss://www.taiwan-parking.com.tw/ada/public",
-  "scrapedAt": "2026-09-13T22:45:23.263Z",
-  "count": 247,
+  "scrapedAt": "2026-09-20T22:51:36.741Z",
+  "count": 249,
   "byCity": {
+    "新北市": 42,
     "台中市": 37,
     "台北市": 67,
-    "新北市": 40,
     "桃園市": 34,
     "台南市": 29,
     "高雄市": 13,
@@ -22,6 +22,32 @@
     "新竹市": 2
   },
   "lots": [
+    {
+      "parkingId": "3573",
+      "name": "八里龍形場",
+      "city": "新北市",
+      "district": "八里區",
+      "address": "新北市八里區龍源里龍形二街2-2號",
+      "lat": 25.130737,
+      "lng": 121.450712,
+      "maxHeight": 1.55,
+      "totalSpace": 50,
+      "note": "",
+      "phone": ""
+    },
+    {
+      "parkingId": "3628",
+      "name": "新莊鴻福場",
+      "city": "新北市",
+      "district": "新莊區",
+      "address": "新北市新莊區化成路11巷101號旁之空地",
+      "lat": 25.043513,
+      "lng": 121.461612,
+      "maxHeight": null,
+      "totalSpace": 81,
+      "note": "",
+      "phone": "02-25235000"
+    },
     {
       "parkingId": "3626",
       "name": "台中昌平三場",
