@@ -1,16 +1,16 @@
 {
  "meta": {
-  "builtAt": "2026-09-20T22:52:49.440Z",
+  "builtAt": "2026-09-27T23:33:18.319Z",
   "sources": {
    "utg": {
     "label": "台灣聯通",
-    "scrapedAt": "2026-09-20T22:51:36.741Z",
+    "scrapedAt": "2026-09-27T23:31:33.470Z",
     "count": 249
    },
    "carmochi": {
     "label": "車麻吉",
     "updatedAt": "2026-06-26",
-    "scrapedAt": "2026-09-20T22:51:37.372Z",
+    "scrapedAt": "2026-09-27T23:31:34.090Z",
     "count": 662
    },
    "dodohome": {
@@ -20,21 +20,21 @@
    },
    "tps": {
     "label": "24TPS",
-    "scrapedAt": "2026-09-20T22:51:40.879Z",
+    "scrapedAt": "2026-09-27T23:32:15.689Z",
     "count": 34
    },
    "vivipark": {
     "label": "ViVi PARK",
-    "scrapedAt": "2026-09-20T22:51:43.318Z",
-    "count": 213
+    "scrapedAt": "2026-09-27T23:32:16.964Z",
+    "count": 214
    },
    "parkinsys": {
     "label": "銓營",
-    "scrapedAt": "2026-09-20T22:51:56.037Z",
+    "scrapedAt": "2026-09-27T23:32:28.571Z",
     "count": 19
    }
   },
-  "total": 1494,
+  "total": 1495,
   "mergedBoth": 24,
   "consolidated": 18,
   "noGeo": 0,
@@ -19371,6 +19371,21 @@
    "address": "台南市中華東路101號旁空地",
    "lat": 22.986331,
    "lng": 120.23363,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pkixc4v",
+   "brands": [
+    "vivipark"
+   ],
+   "name": "淡海沙崙路場",
+   "city": "新北市",
+   "district": "淡水區",
+   "address": "新北市淡水區沙崙路50號旁空地",
+   "lat": 25.181624,
+   "lng": 121.421917,
    "note": "",
    "maxHeight": null,
    "totalSpace": null
