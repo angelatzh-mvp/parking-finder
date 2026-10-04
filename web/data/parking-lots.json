@@ -1,41 +1,41 @@
 {
  "meta": {
-  "builtAt": "2026-09-27T23:33:18.319Z",
+  "builtAt": "2026-10-04T23:46:32.819Z",
   "sources": {
    "utg": {
     "label": "台灣聯通",
-    "scrapedAt": "2026-09-27T23:31:33.470Z",
-    "count": 249
+    "scrapedAt": "2026-10-04T23:45:25.791Z",
+    "count": 248
    },
    "carmochi": {
     "label": "車麻吉",
     "updatedAt": "2026-06-26",
-    "scrapedAt": "2026-09-27T23:31:34.090Z",
+    "scrapedAt": "2026-10-04T23:45:26.362Z",
     "count": 662
    },
    "dodohome": {
     "label": "嘟嘟房",
-    "scrapedAt": "2026-09-20T22:51:39.812Z",
-    "count": 375
+    "scrapedAt": "2026-10-04T23:45:34.466Z",
+    "count": 377
    },
    "tps": {
     "label": "24TPS",
-    "scrapedAt": "2026-09-27T23:32:15.689Z",
+    "scrapedAt": "2026-10-04T23:45:36.143Z",
     "count": 34
    },
    "vivipark": {
     "label": "ViVi PARK",
-    "scrapedAt": "2026-09-27T23:32:16.964Z",
+    "scrapedAt": "2026-10-04T23:45:37.831Z",
     "count": 214
    },
    "parkinsys": {
     "label": "銓營",
-    "scrapedAt": "2026-09-27T23:32:28.571Z",
+    "scrapedAt": "2026-10-04T23:45:51.764Z",
     "count": 19
    }
   },
   "total": 1495,
-  "mergedBoth": 24,
+  "mergedBoth": 25,
   "consolidated": 18,
   "noGeo": 0,
   "geoPending": 0,
@@ -3074,21 +3074,6 @@
    "totalSpace": 0
   },
   {
-   "id": "p9n05k7",
-   "brands": [
-    "utg"
-   ],
-   "name": "誠心場",
-   "city": "台中市",
-   "district": "中區",
-   "address": "台中市中區中正路80號誠品商場地下室B2F",
-   "lat": 24.2526112,
-   "lng": 120.7210958,
-   "note": "",
-   "maxHeight": 1.8,
-   "totalSpace": 0
-  },
-  {
    "id": "p1p6ed2j",
    "brands": [
     "utg"
@@ -5948,7 +5933,8 @@
   {
    "id": "pfxkqbf",
    "brands": [
-    "carmochi"
+    "carmochi",
+    "dodohome"
    ],
    "name": "城市車旅吳興街284巷子",
    "city": "台北市",
@@ -13571,21 +13557,6 @@
    "totalSpace": null
   },
   {
-   "id": "pjzyehc",
-   "brands": [
-    "dodohome"
-   ],
-   "name": "大稻埕站",
-   "city": "台北市",
-   "district": "大同區",
-   "address": "台北市大同區重慶北路2段180號旁空地",
-   "lat": 25.060674,
-   "lng": 121.513329,
-   "note": "",
-   "maxHeight": null,
-   "totalSpace": null
-  },
-  {
    "id": "p1bkvjsu",
    "brands": [
     "dodohome"
@@ -16226,6 +16197,21 @@
    "totalSpace": null
   },
   {
+   "id": "pqo0ush",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "大里大新站",
+   "city": "台中市",
+   "district": "大里區",
+   "address": "台中市大里區大新街15號旁停車場",
+   "lat": 24.099556,
+   "lng": 120.678947,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
    "id": "p1esdnfi",
    "brands": [
     "dodohome"
@@ -16236,6 +16222,21 @@
    "address": "台中市大里區中湖路100號對面停車場",
    "lat": 24.086845,
    "lng": 120.693564,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p19pj67q",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "大里仁興站",
+   "city": "台中市",
+   "district": "大里區",
+   "address": "台中市大里區國光路2段與仁興街口處停車場",
+   "lat": 24.116708,
+   "lng": 120.67946,
    "note": "",
    "maxHeight": null,
    "totalSpace": null
@@ -16701,21 +16702,6 @@
    "address": "台中市霧峰區振德街27號對面空地",
    "lat": 24.065433,
    "lng": 120.697829,
-   "note": "",
-   "maxHeight": null,
-   "totalSpace": null
-  },
-  {
-   "id": "p1ac9psz",
-   "brands": [
-    "dodohome"
-   ],
-   "name": "后庄七街站",
-   "city": "台中市",
-   "district": "北屯區",
-   "address": "台中市北屯區后庄七街76號後方",
-   "lat": 24.188645,
-   "lng": 120.667222,
    "note": "",
    "maxHeight": null,
    "totalSpace": null
@@ -17451,21 +17437,6 @@
    "address": "嘉義市東區軍輝路70號後方空地",
    "lat": 23.455984,
    "lng": 120.463063,
-   "note": "",
-   "maxHeight": null,
-   "totalSpace": null
-  },
-  {
-   "id": "pkhqds",
-   "brands": [
-    "dodohome"
-   ],
-   "name": "嘉義健康站",
-   "city": "嘉義縣市",
-   "district": "西區",
-   "address": "嘉義市西區湖子內路203號對面停車場",
-   "lat": 23.45093,
-   "lng": 120.441746,
    "note": "",
    "maxHeight": null,
    "totalSpace": null
@@ -18716,6 +18687,21 @@
    "totalSpace": null
   },
   {
+   "id": "pl5h1s7",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "旗山永平站",
+   "city": "高雄市",
+   "district": "旗山區",
+   "address": "高雄市旗山區太平里永平街65號旁空地",
+   "lat": 22.885824,
+   "lng": 120.481848,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
    "id": "p1rm8u02",
    "brands": [
     "dodohome"
@@ -18861,6 +18847,21 @@
    "address": "宜蘭縣羅東鎮站前南路235號旁停車場",
    "lat": 24.674112,
    "lng": 121.774024,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pg2nhtz",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "羅東復興站",
+   "city": "宜蘭縣",
+   "district": "羅東鎮",
+   "address": "宜蘭縣羅東鎮復興路一段25號旁停車場",
+   "lat": 24.682229,
+   "lng": 121.77053,
    "note": "",
    "maxHeight": null,
    "totalSpace": null

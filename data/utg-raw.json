@@ -1,10 +1,10 @@
 {
   "source": "wss://www.taiwan-parking.com.tw/ada/public",
-  "scrapedAt": "2026-09-27T23:31:33.470Z",
-  "count": 249,
+  "scrapedAt": "2026-10-04T23:45:25.791Z",
+  "count": 248,
   "byCity": {
     "新北市": 42,
-    "台中市": 37,
+    "台中市": 36,
     "台北市": 67,
     "桃園市": 34,
     "台南市": 29,
@@ -2839,19 +2839,6 @@
       "lat": 24.1513834,
       "lng": 120.6640275,
       "maxHeight": 2,
-      "totalSpace": 0,
-      "note": "",
-      "phone": "02-25235000"
-    },
-    {
-      "parkingId": "3141",
-      "name": "誠心場",
-      "city": "台中市",
-      "district": "中區",
-      "address": "台中市中區中正路80號誠品商場地下室B2F",
-      "lat": 24.2526112,
-      "lng": 120.7210958,
-      "maxHeight": 1.8,
       "totalSpace": 0,
       "note": "",
       "phone": "02-25235000"
