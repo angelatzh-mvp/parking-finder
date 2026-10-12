@@ -1,6 +1,6 @@
 {
   "source": "wss://www.taiwan-parking.com.tw/ada/public",
-  "scrapedAt": "2026-10-04T23:45:25.791Z",
+  "scrapedAt": "2026-10-12T00:07:59.372Z",
   "count": 248,
   "byCity": {
     "新北市": 42,
@@ -30,8 +30,8 @@
       "address": "新北市八里區龍源里龍形二街2-2號",
       "lat": 25.130737,
       "lng": 121.450712,
-      "maxHeight": 1.55,
-      "totalSpace": 50,
+      "maxHeight": 0,
+      "totalSpace": 16,
       "note": "",
       "phone": ""
     },
@@ -96,7 +96,7 @@
       "lat": 25.009201828038115,
       "lng": 121.30788392016511,
       "maxHeight": null,
-      "totalSpace": 33,
+      "totalSpace": 19,
       "note": "",
       "phone": "02-2523-5000"
     },
@@ -1123,7 +1123,7 @@
       "lat": 23.848791,
       "lng": 120.929823,
       "maxHeight": null,
-      "totalSpace": 0,
+      "totalSpace": 40,
       "note": "",
       "phone": "02-25235000"
     },
@@ -2098,7 +2098,7 @@
       "lat": 22.6143,
       "lng": 120.305694,
       "maxHeight": null,
-      "totalSpace": 0,
+      "totalSpace": 30,
       "note": "",
       "phone": "02-25235000"
     },

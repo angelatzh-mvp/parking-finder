@@ -1,17 +1,17 @@
 {
  "meta": {
-  "builtAt": "2026-10-04T23:46:32.819Z",
+  "builtAt": "2026-10-12T00:09:53.393Z",
   "sources": {
    "utg": {
     "label": "台灣聯通",
-    "scrapedAt": "2026-10-04T23:45:25.791Z",
+    "scrapedAt": "2026-10-12T00:07:59.372Z",
     "count": 248
    },
    "carmochi": {
     "label": "車麻吉",
     "updatedAt": "2026-06-26",
-    "scrapedAt": "2026-10-04T23:45:26.362Z",
-    "count": 662
+    "scrapedAt": "2026-10-12T00:07:59.953Z",
+    "count": 663
    },
    "dodohome": {
     "label": "嘟嘟房",
@@ -20,21 +20,21 @@
    },
    "tps": {
     "label": "24TPS",
-    "scrapedAt": "2026-10-04T23:45:36.143Z",
+    "scrapedAt": "2026-10-12T00:08:41.975Z",
     "count": 34
    },
    "vivipark": {
     "label": "ViVi PARK",
-    "scrapedAt": "2026-10-04T23:45:37.831Z",
-    "count": 214
+    "scrapedAt": "2026-10-12T00:08:43.668Z",
+    "count": 216
    },
    "parkinsys": {
     "label": "銓營",
-    "scrapedAt": "2026-10-04T23:45:51.764Z",
+    "scrapedAt": "2026-10-12T00:08:56.273Z",
     "count": 19
    }
   },
-  "total": 1495,
+  "total": 1498,
   "mergedBoth": 25,
   "consolidated": 18,
   "noGeo": 0,
@@ -55,8 +55,8 @@
    "lat": 25.130737,
    "lng": 121.450712,
    "note": "",
-   "maxHeight": 1.55,
-   "totalSpace": 50
+   "maxHeight": 0,
+   "totalSpace": 16
   },
   {
    "id": "p13eq2d5",
@@ -131,7 +131,7 @@
    "lng": 121.30788392016511,
    "note": "",
    "maxHeight": null,
-   "totalSpace": 33
+   "totalSpace": 19
   },
   {
    "id": "p1a4wlfl",
@@ -2261,7 +2261,7 @@
    "lng": 120.305694,
    "note": "",
    "maxHeight": null,
-   "totalSpace": 0
+   "totalSpace": 30
   },
   {
    "id": "pqqtwat",
@@ -4637,6 +4637,21 @@
    "lat": 25.174144,
    "lng": 121.438349,
    "note": "新民街19巷內",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pi31toz",
+   "brands": [
+    "carmochi"
+   ],
+   "name": "五股新五平面停車場",
+   "city": "新北市",
+   "district": "五股區",
+   "address": "新北市五股區新五路3段342號旁",
+   "lat": 25.091713,
+   "lng": 121.447739,
+   "note": "",
    "maxHeight": null,
    "totalSpace": null
   },
@@ -19377,6 +19392,21 @@
    "totalSpace": null
   },
   {
+   "id": "pky3r81",
+   "brands": [
+    "vivipark"
+   ],
+   "name": "新埔中正停車場",
+   "city": "新竹縣市",
+   "district": "新埔鎮",
+   "address": "新竹縣新埔鎮中正路221號旁空地(同新竹客運地址)",
+   "lat": 24.82748581643435,
+   "lng": 121.08011149413569,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
    "id": "pkixc4v",
    "brands": [
     "vivipark"
@@ -21307,6 +21337,21 @@
    "address": "台中市潭子區中山路三段與祥和路交叉口(南側)",
    "lat": 24.2299329266037,
    "lng": 120.7088611,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1w4fxss",
+   "brands": [
+    "vivipark"
+   ],
+   "name": "Acon-eco台中太原停20停車場",
+   "city": "台中市",
+   "district": "北區",
+   "address": "台中市北區天祥街與東光路交叉口",
+   "lat": 24.1604868835274,
+   "lng": 120.699155971165,
    "note": "",
    "maxHeight": null,
    "totalSpace": null
