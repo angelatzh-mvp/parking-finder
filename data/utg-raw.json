@@ -1,11 +1,11 @@
 {
   "source": "wss://www.taiwan-parking.com.tw/ada/public",
-  "scrapedAt": "2026-10-12T00:07:59.372Z",
-  "count": 248,
+  "scrapedAt": "2026-10-18T22:41:40.202Z",
+  "count": 249,
   "byCity": {
+    "台北市": 68,
     "新北市": 42,
     "台中市": 36,
-    "台北市": 67,
     "桃園市": 34,
     "台南市": 29,
     "高雄市": 13,
@@ -22,6 +22,19 @@
     "新竹市": 2
   },
   "lots": [
+    {
+      "parkingId": "3630",
+      "name": "南港轉運站場",
+      "city": "台北市",
+      "district": "南港區",
+      "address": "台北市南港區忠孝東路七段379號B1-B4樓",
+      "lat": 25.052626,
+      "lng": 121.608448,
+      "maxHeight": null,
+      "totalSpace": 613,
+      "note": "",
+      "phone": "02-25235000"
+    },
     {
       "parkingId": "3573",
       "name": "八里龍形場",

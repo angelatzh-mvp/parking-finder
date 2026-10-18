@@ -1,6 +1,6 @@
 {
   "source": "http://www.24tps.com.tw/OtherServiceADV/CreditCardParkList.aspx",
-  "scrapedAt": "2026-10-12T00:08:41.975Z",
+  "scrapedAt": "2026-10-18T22:41:44.325Z",
   "count": 34,
   "byCity": {
     "台北市": 22,
@@ -247,7 +247,7 @@
       "lng": 120.234739
     }
   ],
-  "geocodedAt": "2026-10-12T00:09:00.588Z",
+  "geocodedAt": "2026-10-18T22:42:02.886Z",
   "hits": 34,
   "misses": 0
 }
