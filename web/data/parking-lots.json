@@ -1,63 +1,48 @@
 {
  "meta": {
-  "builtAt": "2026-10-25T22:59:41.413Z",
+  "builtAt": "2026-11-02T00:07:27.897Z",
   "sources": {
    "utg": {
     "label": "台灣聯通",
-    "scrapedAt": "2026-10-25T22:57:52.048Z",
+    "scrapedAt": "2026-11-02T00:06:16.144Z",
     "count": 249
    },
    "carmochi": {
     "label": "車麻吉",
     "updatedAt": "2026-06-26",
-    "scrapedAt": "2026-10-25T22:57:52.700Z",
-    "count": 630
+    "scrapedAt": "2026-11-02T00:06:19.045Z",
+    "count": 629
    },
    "dodohome": {
     "label": "嘟嘟房",
-    "scrapedAt": "2026-10-25T22:57:57.149Z",
-    "count": 381
+    "scrapedAt": "2026-11-02T00:06:21.785Z",
+    "count": 385
    },
    "tps": {
     "label": "24TPS",
-    "scrapedAt": "2026-10-25T22:57:58.486Z",
+    "scrapedAt": "2026-11-02T00:06:23.122Z",
     "count": 34
    },
    "vivipark": {
     "label": "ViVi PARK",
-    "scrapedAt": "2026-10-25T22:57:59.851Z",
-    "count": 215
+    "scrapedAt": "2026-11-02T00:06:24.280Z",
+    "count": 218
    },
    "parkinsys": {
     "label": "銓營",
-    "scrapedAt": "2026-10-25T22:58:12.545Z",
+    "scrapedAt": "2026-11-02T00:06:35.712Z",
     "count": 19
    }
   },
-  "total": 1472,
-  "mergedBoth": 23,
+  "total": 1476,
+  "mergedBoth": 24,
   "consolidated": 18,
   "noGeo": 0,
   "geoPending": 0,
   "overridden": 2,
-  "coordFixed": 385
+  "coordFixed": 384
  },
  "lots": [
-  {
-   "id": "pb1529v",
-   "brands": [
-    "utg"
-   ],
-   "name": "南港轉運站場",
-   "city": "台北市",
-   "district": "南港區",
-   "address": "台北市南港區忠孝東路七段379號B1-B4樓",
-   "lat": 25.052626,
-   "lng": 121.608448,
-   "note": "",
-   "maxHeight": null,
-   "totalSpace": 613
-  },
   {
    "id": "p1sjmq2n",
    "brands": [
@@ -5541,8 +5526,7 @@
   {
    "id": "p14z4eh8",
    "brands": [
-    "carmochi",
-    "vivipark"
+    "carmochi"
    ],
    "name": "ViVi PARK 中央北路場",
    "city": "台北市",
@@ -6640,21 +6624,6 @@
    "address": "桃園區同安街322號",
    "lat": 25.0166137,
    "lng": 121.3028791,
-   "note": "",
-   "maxHeight": null,
-   "totalSpace": null
-  },
-  {
-   "id": "pmx7dj",
-   "brands": [
-    "carmochi"
-   ],
-   "name": "和義一停車場",
-   "city": "桃園市",
-   "district": "八德區",
-   "address": "八德區和平路與和義一街交會處",
-   "lat": 24.9581874,
-   "lng": 121.3077676,
    "note": "",
    "maxHeight": null,
    "totalSpace": null
@@ -8089,7 +8058,8 @@
   {
    "id": "pho2ni7",
    "brands": [
-    "carmochi"
+    "carmochi",
+    "dodohome"
    ],
    "name": "城市車旅大里公六站",
    "city": "台中市",
@@ -11285,7 +11255,8 @@
   {
    "id": "p14fjgho",
    "brands": [
-    "carmochi"
+    "carmochi",
+    "vivipark"
    ],
    "name": "佳禾亭台南裕文停車場",
    "city": "台南市",
@@ -14380,6 +14351,21 @@
    "totalSpace": null
   },
   {
+   "id": "peyh52u",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "景勤二號公園站",
+   "city": "台北市",
+   "district": "信義區",
+   "address": "台北市信義區信安街49號地下停車場",
+   "lat": 25.026006,
+   "lng": 121.55884,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
    "id": "p1y1tacf",
    "brands": [
     "dodohome"
@@ -16540,6 +16526,21 @@
    "totalSpace": null
   },
   {
+   "id": "p1gds4qj",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "國光公園站",
+   "city": "台中市",
+   "district": "大里區",
+   "address": "台中市大里區興大南街21號對面停車場",
+   "lat": 24.116492,
+   "lng": 120.677756,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
    "id": "p1db2yfv",
    "brands": [
     "dodohome"
@@ -16565,6 +16566,21 @@
    "address": "台中市北屯區崇德五路369號旁停車場",
    "lat": 24.179264,
    "lng": 120.682451,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "ptwzvqm",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "鳥竹圍公園站",
+   "city": "台中市",
+   "district": "大里區",
+   "address": "台中市大里區大智路676號對面停車場",
+   "lat": 24.118951,
+   "lng": 120.687533,
    "note": "",
    "maxHeight": null,
    "totalSpace": null
@@ -18995,6 +19011,66 @@
    "address": "台南市中華東路101號旁空地",
    "lat": 22.986331,
    "lng": 120.23363,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p9jhy4u",
+   "brands": [
+    "vivipark"
+   ],
+   "name": "佳禾亭愛買台南永康店停車場",
+   "city": "台南市",
+   "district": "永康區",
+   "address": "台南市永康區中正南路 533 號(1樓平面戶外)",
+   "lat": 23.0344944,
+   "lng": 120.229038,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pvovilm",
+   "brands": [
+    "vivipark"
+   ],
+   "name": "佳禾亭台中馬卡龍公園停車場公園",
+   "city": "台中市",
+   "district": "太平區",
+   "address": "台中市太平區環中東路四段",
+   "lat": 24.148401,
+   "lng": 120.713492,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1vomj7u",
+   "brands": [
+    "vivipark"
+   ],
+   "name": "佳禾亭台中新光廣兼停一停車場",
+   "city": "台中市",
+   "district": "太平區",
+   "address": "台中市太平區新興里太興路 36 號",
+   "lat": 24.1625342,
+   "lng": 120.7070909,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1gnmmxv",
+   "brands": [
+    "vivipark"
+   ],
+   "name": "佳禾亭愛買台中水湳店停車場",
+   "city": "台中市",
+   "district": "西屯區",
+   "address": "台中市西屯區中清路二段1199號",
+   "lat": 24.1921846,
+   "lng": 120.6585703,
    "note": "",
    "maxHeight": null,
    "totalSpace": null
@@ -21935,21 +22011,6 @@
    "address": "台北市南港區東明街99號旁",
    "lat": 25.0546608,
    "lng": 121.60066223,
-   "note": "",
-   "maxHeight": null,
-   "totalSpace": null
-  },
-  {
-   "id": "p1fptc4q",
-   "brands": [
-    "vivipark"
-   ],
-   "name": "關渡醫院場",
-   "city": "台北市",
-   "district": "北投區",
-   "address": "台北市北投區大度路三段301巷88號",
-   "lat": 25.12050438,
-   "lng": 121.46576691,
    "note": "",
    "maxHeight": null,
    "totalSpace": null

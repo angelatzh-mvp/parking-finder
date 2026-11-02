@@ -1,6 +1,6 @@
 {
   "source": "wss://www.taiwan-parking.com.tw/ada/public",
-  "scrapedAt": "2026-10-25T22:57:52.048Z",
+  "scrapedAt": "2026-11-02T00:06:16.144Z",
   "count": 249,
   "byCity": {
     "台北市": 68,
@@ -24,7 +24,7 @@
   "lots": [
     {
       "parkingId": "3630",
-      "name": "南港轉運站場",
+      "name": "南港轉運站場(目前不提供信用卡免費停車）",
       "city": "台北市",
       "district": "南港區",
       "address": "台北市南港區忠孝東路七段379號B1-B4樓",
