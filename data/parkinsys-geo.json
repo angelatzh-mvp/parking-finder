@@ -1,6 +1,6 @@
 {
   "source": "https://www.parkinsys.com.tw/product.php",
-  "scrapedAt": "2026-11-02T00:06:35.712Z",
+  "scrapedAt": "2026-11-09T00:25:14.895Z",
   "count": 19,
   "byCity": {
     "新北市": 8,
@@ -165,7 +165,7 @@
       "lng": 120.6145862
     }
   ],
-  "geocodedAt": "2026-11-02T00:06:35.828Z",
+  "geocodedAt": "2026-11-09T00:25:15.122Z",
   "hits": 19,
   "misses": 0
 }

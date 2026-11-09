@@ -1,17 +1,17 @@
 {
  "meta": {
-  "builtAt": "2026-11-02T00:07:27.897Z",
+  "builtAt": "2026-11-09T00:26:00.531Z",
   "sources": {
    "utg": {
     "label": "台灣聯通",
-    "scrapedAt": "2026-11-02T00:06:16.144Z",
-    "count": 249
+    "scrapedAt": "2026-11-09T00:24:14.377Z",
+    "count": 252
    },
    "carmochi": {
     "label": "車麻吉",
     "updatedAt": "2026-06-26",
-    "scrapedAt": "2026-11-02T00:06:19.045Z",
-    "count": 629
+    "scrapedAt": "2026-11-09T00:24:17.449Z",
+    "count": 627
    },
    "dodohome": {
     "label": "嘟嘟房",
@@ -20,29 +20,74 @@
    },
    "tps": {
     "label": "24TPS",
-    "scrapedAt": "2026-11-02T00:06:23.122Z",
+    "scrapedAt": "2026-11-09T00:25:00.676Z",
     "count": 34
    },
    "vivipark": {
     "label": "ViVi PARK",
-    "scrapedAt": "2026-11-02T00:06:24.280Z",
-    "count": 218
+    "scrapedAt": "2026-11-09T00:25:02.118Z",
+    "count": 217
    },
    "parkinsys": {
     "label": "銓營",
-    "scrapedAt": "2026-11-02T00:06:35.712Z",
+    "scrapedAt": "2026-11-09T00:25:14.895Z",
     "count": 19
    }
   },
-  "total": 1476,
-  "mergedBoth": 24,
+  "total": 1477,
+  "mergedBoth": 23,
   "consolidated": 18,
   "noGeo": 0,
   "geoPending": 0,
   "overridden": 2,
-  "coordFixed": 384
+  "coordFixed": 382
  },
  "lots": [
+  {
+   "id": "p1aery47",
+   "brands": [
+    "utg"
+   ],
+   "name": "饒河場(純月租場)",
+   "city": "台北市",
+   "district": "松山區",
+   "address": "臺北市松山區八德路四段455號",
+   "lat": 25.0503163511925,
+   "lng": 121.57057991645092,
+   "note": "",
+   "maxHeight": 1.5,
+   "totalSpace": 0
+  },
+  {
+   "id": "pzla3rl",
+   "brands": [
+    "utg"
+   ],
+   "name": "建安場(純月租場)",
+   "city": "台北市",
+   "district": "大安區",
+   "address": "台北市大安區忠孝東路四段205巷38-2號",
+   "lat": 25.04471190957869,
+   "lng": 121.5518027756282,
+   "note": "",
+   "maxHeight": 1.55,
+   "totalSpace": 0
+  },
+  {
+   "id": "pd3nzkv",
+   "brands": [
+    "utg"
+   ],
+   "name": "成福場(純月租場)",
+   "city": "台北市",
+   "district": "中山區",
+   "address": "台北市市民大道三段65號",
+   "lat": 25.0451128,
+   "lng": 121.5355704,
+   "note": "",
+   "maxHeight": 1.55,
+   "totalSpace": 50
+  },
   {
    "id": "p1sjmq2n",
    "brands": [
@@ -235,7 +280,7 @@
    "lat": 25.080263290498255,
    "lng": 121.57170664230208,
    "note": "",
-   "maxHeight": 1.55,
+   "maxHeight": 2.1,
    "totalSpace": 215
   },
   {
@@ -2995,7 +3040,7 @@
    "lat": 25.056375,
    "lng": 121.526066,
    "note": "",
-   "maxHeight": 1.9,
+   "maxHeight": 1.55,
    "totalSpace": 0
   },
   {
@@ -3250,7 +3295,7 @@
    "lat": 25.049132,
    "lng": 121.567437,
    "note": "不支援線上繳費",
-   "maxHeight": 1.9,
+   "maxHeight": 2,
    "totalSpace": 0
   },
   {
@@ -3535,7 +3580,7 @@
    "lat": 25.0425518398626,
    "lng": 121.51213085767483,
    "note": "指定信用卡免費停車",
-   "maxHeight": 1.9,
+   "maxHeight": 2,
    "totalSpace": 50
   },
   {
@@ -5524,21 +5569,6 @@
    "totalSpace": null
   },
   {
-   "id": "p14z4eh8",
-   "brands": [
-    "carmochi"
-   ],
-   "name": "ViVi PARK 中央北路場",
-   "city": "台北市",
-   "district": "北投區",
-   "address": "北投區中央北路四段542號旁空地",
-   "lat": 25.1280663,
-   "lng": 121.4675023,
-   "note": "",
-   "maxHeight": null,
-   "totalSpace": null
-  },
-  {
    "id": "p1l8gvbr",
    "brands": [
     "carmochi"
@@ -5793,22 +5823,6 @@
    "lat": 25.0316152,
    "lng": 121.5734994,
    "note": "中強公園旁",
-   "maxHeight": null,
-   "totalSpace": null
-  },
-  {
-   "id": "p19y1rgb",
-   "brands": [
-    "carmochi",
-    "vivipark"
-   ],
-   "name": "ViVi PARK 懷德街55巷停車場",
-   "city": "台北市",
-   "district": "北投區",
-   "address": "北投區懷德街及懷德街55巷交叉口",
-   "lat": 25.1131194,
-   "lng": 121.5196407,
-   "note": "",
    "maxHeight": null,
    "totalSpace": null
   },

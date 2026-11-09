@@ -1,9 +1,9 @@
 {
   "source": "wss://www.taiwan-parking.com.tw/ada/public",
-  "scrapedAt": "2026-11-02T00:06:16.144Z",
-  "count": 249,
+  "scrapedAt": "2026-11-09T00:24:14.377Z",
+  "count": 252,
   "byCity": {
-    "台北市": 68,
+    "台北市": 71,
     "新北市": 42,
     "台中市": 36,
     "桃園市": 34,
@@ -22,6 +22,45 @@
     "新竹市": 2
   },
   "lots": [
+    {
+      "parkingId": "3339",
+      "name": "饒河場(純月租場)",
+      "city": "台北市",
+      "district": "松山區",
+      "address": "臺北市松山區八德路四段455號",
+      "lat": 25.0503163511925,
+      "lng": 121.57057991645092,
+      "maxHeight": 1.5,
+      "totalSpace": 0,
+      "note": "",
+      "phone": ""
+    },
+    {
+      "parkingId": "3381",
+      "name": "建安場(純月租場)",
+      "city": "台北市",
+      "district": "大安區",
+      "address": "台北市大安區忠孝東路四段205巷38-2號",
+      "lat": 25.04471190957869,
+      "lng": 121.5518027756282,
+      "maxHeight": 1.55,
+      "totalSpace": 0,
+      "note": "",
+      "phone": ""
+    },
+    {
+      "parkingId": "3128",
+      "name": "成福場(純月租場)",
+      "city": "台北市",
+      "district": "中山區",
+      "address": "台北市市民大道三段65號",
+      "lat": 25.0451128,
+      "lng": 121.5355704,
+      "maxHeight": 1.55,
+      "totalSpace": 50,
+      "note": "",
+      "phone": ""
+    },
     {
       "parkingId": "3630",
       "name": "南港轉運站場(目前不提供信用卡免費停車）",
@@ -199,7 +238,7 @@
       "address": "台北市內湖區洲子街77號",
       "lat": 25.080263290498255,
       "lng": 121.57170664230208,
-      "maxHeight": 1.55,
+      "maxHeight": 2.1,
       "totalSpace": 215,
       "note": "",
       "phone": "02-25235000"
@@ -530,7 +569,7 @@
       "phone": "02-25235000"
     },
     {
-      "parkingId": "3584",
+      "parkingId": "8004",
       "name": "永康勝利場",
       "city": "台南市",
       "district": "永康區",
@@ -2285,7 +2324,7 @@
       "phone": "02-25235000"
     },
     {
-      "parkingId": "3287",
+      "parkingId": "9020",
       "name": "台中昌平場",
       "city": "台中市",
       "district": "北屯區",
@@ -2786,7 +2825,7 @@
       "address": "台北市中山區新生北路二段68巷13號",
       "lat": 25.056375,
       "lng": 121.526066,
-      "maxHeight": 1.9,
+      "maxHeight": 1.55,
       "totalSpace": 0,
       "note": "",
       "phone": "02-25235000"
@@ -3007,7 +3046,7 @@
       "address": "台北市松山區八德路四段312號",
       "lat": 25.049132,
       "lng": 121.567437,
-      "maxHeight": 1.9,
+      "maxHeight": 2,
       "totalSpace": 0,
       "note": "",
       "phone": "02-25235000"
@@ -3254,7 +3293,7 @@
       "address": "台北市衡陽路51號",
       "lat": 25.0425518398626,
       "lng": 121.51213085767483,
-      "maxHeight": 1.9,
+      "maxHeight": 2,
       "totalSpace": 50,
       "note": "指定信用卡免費停車",
       "phone": "02-25235000"
