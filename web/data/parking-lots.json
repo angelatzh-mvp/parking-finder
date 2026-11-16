@@ -1,40 +1,40 @@
 {
  "meta": {
-  "builtAt": "2026-11-09T00:26:00.531Z",
+  "builtAt": "2026-11-16T00:37:11.322Z",
   "sources": {
    "utg": {
     "label": "台灣聯通",
-    "scrapedAt": "2026-11-09T00:24:14.377Z",
+    "scrapedAt": "2026-11-16T00:36:00.206Z",
     "count": 252
    },
    "carmochi": {
     "label": "車麻吉",
     "updatedAt": "2026-06-26",
-    "scrapedAt": "2026-11-09T00:24:17.449Z",
+    "scrapedAt": "2026-11-16T00:36:01.743Z",
     "count": 627
    },
    "dodohome": {
     "label": "嘟嘟房",
-    "scrapedAt": "2026-11-02T00:06:21.785Z",
-    "count": 385
+    "scrapedAt": "2026-11-16T00:36:04.261Z",
+    "count": 387
    },
    "tps": {
     "label": "24TPS",
-    "scrapedAt": "2026-11-09T00:25:00.676Z",
+    "scrapedAt": "2026-11-16T00:36:06.785Z",
     "count": 34
    },
    "vivipark": {
     "label": "ViVi PARK",
-    "scrapedAt": "2026-11-09T00:25:02.118Z",
+    "scrapedAt": "2026-11-16T00:36:08.529Z",
     "count": 217
    },
    "parkinsys": {
     "label": "銓營",
-    "scrapedAt": "2026-11-09T00:25:14.895Z",
+    "scrapedAt": "2026-11-16T00:36:20.181Z",
     "count": 19
    }
   },
-  "total": 1477,
+  "total": 1479,
   "mergedBoth": 23,
   "consolidated": 18,
   "noGeo": 0,
@@ -14335,21 +14335,6 @@
    "totalSpace": null
   },
   {
-   "id": "pdkdmza",
-   "brands": [
-    "dodohome"
-   ],
-   "name": "晴光站",
-   "city": "台北市",
-   "district": "中山區",
-   "address": "台北市中山區農安街19號B1",
-   "lat": 25.065136,
-   "lng": 121.524247,
-   "note": "",
-   "maxHeight": null,
-   "totalSpace": null
-  },
-  {
    "id": "p9nkyji",
    "brands": [
     "dodohome"
@@ -17110,6 +17095,21 @@
    "totalSpace": null
   },
   {
+   "id": "p11d730b",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "嘉義崇文國小站",
+   "city": "嘉義縣市",
+   "district": "東區",
+   "address": "嘉義市東區垂楊路241號B1-B2停車場",
+   "lat": 23.473968,
+   "lng": 120.452587,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
    "id": "pyxtj6z",
    "brands": [
     "dodohome"
@@ -18350,6 +18350,36 @@
    "address": "高雄市左營區高鐵路103號(P1立體停車場)",
    "lat": 22.686126,
    "lng": 120.306438,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "p1bn39hk",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "楠梓金和站",
+   "city": "高雄市",
+   "district": "楠梓區",
+   "address": "高雄市楠梓區金和街與海專路口空地",
+   "lat": 22.723243,
+   "lng": 120.316896,
+   "note": "",
+   "maxHeight": null,
+   "totalSpace": null
+  },
+  {
+   "id": "pl5h1s7",
+   "brands": [
+    "dodohome"
+   ],
+   "name": "旗山永平站",
+   "city": "高雄市",
+   "district": "旗山區",
+   "address": "高雄市旗山區太平里永平街65號旁空地",
+   "lat": 22.885824,
+   "lng": 120.481848,
    "note": "",
    "maxHeight": null,
    "totalSpace": null
