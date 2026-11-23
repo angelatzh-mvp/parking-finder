@@ -70,6 +70,14 @@ const HOME_KEY = 'parking-home-city-v1';
 const BRANDS_KEY = 'parking-brands-v1';
 const LIST_PAGE = 60;
 
+// 新客／舊客辨識。GoatCounter 不給訪客 ID（每日輪替 hash），無法分辨回訪，
+// 因此改在前端用 localStorage 自行判定，再以事件回報。
+const FIRST_SEEN_KEY = 'parking-first-seen-v1';
+const LAST_VISIT_KEY = 'parking-last-visit-v1';
+// 埋點上線前就可能存在的痕跡：用來把既有使用者回溯認列為舊客，
+// 否則上線後舊客第一次回訪會全被誤判成新客。
+const LEGACY_KEYS = [HOME_KEY, BRANDS_KEY, FAV_KEY, 'shared-before', 'reported-before', 'desktop-hint-off'];
+
 // 商業化推廣（分潤導流）。兩檔商品進站時隨機擇一呈現（A/B 測分潤成效）。
 // 兩種版型共用同一 modal：飯店＝折扣券 hero＋優惠碼；星巴克＝圖片 hero＋票券價目。
 // 埋點一律帶 offer.id，兩檔的曝光／點擊／導流可各自分開統計。
@@ -1331,6 +1339,38 @@ function switchTab(tab) {
   render();
 }
 
+// count.js 是 async 載入，main() 執行時可能還沒就緒，故重試等待（最多約 10 秒）。
+function gcCount(path, tries = 20) {
+  if (window.goatcounter?.count) { window.goatcounter.count({ path, event: true }); return; }
+  if (tries > 0) setTimeout(() => gcCount(path, tries - 1), 500);
+}
+
+function taipeiDate() {
+  try { return new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Taipei' }).format(new Date()); }
+  catch { return new Date().toISOString().slice(0, 10); }
+}
+
+// visit-new：全新裝置｜visit-returning-legacy：埋點上線前就來過（回溯認列，上線初期會有一次性尖峰）
+// visit-returning：埋點上線後再次造訪。同一天只計一次，讓數字接近「人」而非「造訪次數」。
+function trackVisit() {
+  let kind;
+  try {
+    const today = taipeiDate();
+    if (localStorage.getItem(FIRST_SEEN_KEY) === null) {
+      const legacy = LEGACY_KEYS.some((k) => localStorage.getItem(k) !== null);
+      kind = legacy ? 'visit-returning-legacy' : 'visit-new';
+      localStorage.setItem(FIRST_SEEN_KEY, legacy ? 'legacy' : today);
+    } else {
+      kind = 'visit-returning';
+    }
+    if (localStorage.getItem(LAST_VISIT_KEY) === today) return;
+    localStorage.setItem(LAST_VISIT_KEY, today);
+  } catch {
+    return; // 無痕／停用儲存：不計，免得每次都灌一筆新客
+  }
+  gcCount(kind);
+}
+
 async function main() {
   try {
     await loadData();
@@ -1431,6 +1471,8 @@ async function main() {
 
   // 首次使用：先選所在縣市，之後每次開啟預設顯示該地區（網址已帶 city 時略過）
   if (localStorage.getItem(HOME_KEY) === null && !hadCity) openPicker(true);
+
+  trackVisit();
 
   if ('serviceWorker' in navigator && location.protocol === 'https:') {
     navigator.serviceWorker.register('sw.js');
