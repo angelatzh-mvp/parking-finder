@@ -213,8 +213,12 @@ let lots = [...byKey.values()].filter((l) => l.name);
 // 套用人工補校圖資：只針對「缺地址或缺座標」的場站補上，不動已同時具備地址與座標的資料。
 // 補上地址＋可靠座標後，該場站自然不再進入下方的無地址碰撞歸零與 geoPending。
 let overridden = 0;
+// 來源偶有「場站名（地址…」這種把地址打進名稱、且尾巴被截斷的髒資料（如車麻吉的
+// 「鼎豐大象青山停車場（大園區致遠一路41號對面＿」），key 會對不上 → 退一步用去掉
+// 括號後綴的名稱再查一次，讓 autopass 補校得以套用。
 for (const l of lots) {
-  const ov = overrides[`${l.city}|${l.name}`];
+  const bareName = l.name.replace(/[（(].*$/, '').trim();
+  const ov = overrides[`${l.city}|${l.name}`] ?? overrides[`${l.city}|${bareName}`];
   if (!ov || (l.address && l.lat != null)) continue;
   l.address = toHalfWidth(ov.address);
   l.district = cleanDistrict(l.district) || cleanDistrict(districtOf(ov.address));

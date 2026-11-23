@@ -1,6 +1,6 @@
 {
  "meta": {
-  "builtAt": "2026-11-23T01:19:40.682Z",
+  "builtAt": "2026-11-23T03:56:23.794Z",
   "sources": {
    "utg": {
     "label": "台灣聯通",
@@ -39,8 +39,8 @@
   "consolidated": 17,
   "noGeo": 0,
   "geoPending": 0,
-  "overridden": 1,
-  "coordFixed": 377
+  "overridden": 2,
+  "coordFixed": 382
  },
  "lots": [
   {
@@ -6890,8 +6890,8 @@
    "city": "桃園市",
    "district": "桃園區",
    "address": "桃園區中山路828號838巷口",
-   "lat": 24.9926865,
-   "lng": 121.3067478,
+   "lat": 24.9911146,
+   "lng": 121.2900651,
    "note": "",
    "maxHeight": null,
    "totalSpace": null
@@ -6905,8 +6905,8 @@
    "city": "桃園市",
    "district": "八德區",
    "address": "八德區中山路177號旁",
-   "lat": 24.9227041,
-   "lng": 121.2850056,
+   "lat": 24.9266292,
+   "lng": 121.2845046,
    "note": "",
    "maxHeight": null,
    "totalSpace": null
@@ -6980,8 +6980,8 @@
    "city": "桃園市",
    "district": "平鎮區",
    "address": "平鎮區環南路二段290號旁",
-   "lat": 24.9442458,
-   "lng": 121.2091418,
+   "lat": 24.9402229,
+   "lng": 121.2151043,
    "note": "",
    "maxHeight": null,
    "totalSpace": null
@@ -6995,8 +6995,8 @@
    "city": "桃園市",
    "district": "楊梅區",
    "address": "楊梅區瑞梅街37號",
-   "lat": 24.9064942,
-   "lng": 121.1805964,
+   "lat": 24.90884,
+   "lng": 121.173606,
    "note": "",
    "maxHeight": null,
    "totalSpace": null
@@ -7023,10 +7023,10 @@
    ],
    "name": "鼎豐大象青山停車場（大園區致遠一路41號對面＿",
    "city": "桃園市",
-   "district": "",
-   "address": "",
-   "lat": 25.005538,
-   "lng": 121.211559,
+   "district": "大園區",
+   "address": "桃園市大園區致遠一路41號對面",
+   "lat": 25.005341,
+   "lng": 121.211836,
    "note": "",
    "maxHeight": null,
    "totalSpace": null
@@ -17746,8 +17746,8 @@
    "city": "台南市",
    "district": "北區",
    "address": "台南市北區立賢路一段與立賢路一段650巷交叉口",
-   "lat": 23.010011,
-   "lng": 120.202874,
+   "lat": 23.009667,
+   "lng": 120.202865,
    "note": "",
    "maxHeight": null,
    "totalSpace": null
