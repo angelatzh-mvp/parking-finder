@@ -997,6 +997,9 @@ window.addEventListener('beforeinstallprompt', (e) => {
   deferredInstall = e; // 存起來，等使用者從設定觸發
 });
 
+// 真正安裝完成。iOS Safari 不觸發此事件，故 iOS 只追得到「看過教學」。
+window.addEventListener('appinstalled', () => gcCount('install-done'));
+
 const isStandalone = () =>
   window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
 const isIOS = () => /iphone|ipad|ipod/i.test(navigator.userAgent);
@@ -1283,10 +1286,12 @@ function setupSettings() {
 
   installRow.addEventListener('click', async () => {
     if (isStandalone()) return;
+    gcCount('install-click');
     if (deferredInstall) {
       deferredInstall.prompt();
       const { outcome } = await deferredInstall.userChoice;
       deferredInstall = null;
+      gcCount(outcome === 'accepted' ? 'install-accepted' : 'install-dismissed');
       if (outcome === 'accepted') modal.hidden = true;
       return;
     }
@@ -1294,6 +1299,8 @@ function setupSettings() {
     hint.innerHTML = isIOS()
       ? `在 Safari 底部點「分享」${SHARE_ICON}，下滑選「加入主畫面」即可。`
       : `在瀏覽器選單開啟「加入主畫面／安裝應用程式」即可。`;
+    // 這一行是 toggle，只在「展開」時計一次，收合不計
+    if (hint.hidden) gcCount(isIOS() ? 'install-hint-ios' : 'install-hint-other');
     hint.hidden = !hint.hidden;
   });
 
